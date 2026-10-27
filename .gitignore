@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+
+# raw crawl evidence (regenerable; too bulky for git)
+crawl_raw/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+.env*
+.vercel
+
+# typescript
+*.tsbuildinfo

@@ -1,0 +1,254 @@
+{
+ "qualification": "A-Level",
+ "subject": "Maths",
+ "board": "edexcel",
+ "topic_count": 44,
+ "modules": {
+  "Pure Mathematics Year 1": [
+   {
+    "slug": "a-level-pure-mathematics-1-algebraic-methods",
+    "title": "Algebraic Methods",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-1-algebraic-methods"
+   }
+  ],
+  "Pure Mathematics Year 2": [
+   {
+    "slug": "a-level-pure-mathematics-2-functions-and-graphs",
+    "title": "Functions and Graphs",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-2-functions-and-graphs"
+   },
+   {
+    "slug": "a-level-pure-mathematics-3-sequences-and-series",
+    "title": "Sequences and Series",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-3-sequences-and-series"
+   },
+   {
+    "slug": "a-level-pure-mathematics-4-binomial-expansion",
+    "title": "Binomial Expansion",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-4-binomial-expansion"
+   },
+   {
+    "slug": "a-level-pure-mathematics-5-radians",
+    "title": "Radians",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-5-radians"
+   },
+   {
+    "slug": "a-level-pure-mathematics-6-trigonometric-functions",
+    "title": "Trigonometric Functions",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-6-trigonometric-functions"
+   },
+   {
+    "slug": "a-level-pure-mathematics-7-trigonometry-and-modelling",
+    "title": "Trigonometry and Modelling",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-7-trigonometry-and-modelling"
+   },
+   {
+    "slug": "a-level-pure-mathematics-8-parametric-equations",
+    "title": "Parametric Equations",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-8-parametric-equations"
+   },
+   {
+    "slug": "a-level-pure-mathematics-9-differentiation",
+    "title": "Differentiation",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-9-differentiation"
+   },
+   {
+    "slug": "a-level-pure-mathematics-10-numerical-methods",
+    "title": "Numerical Methods",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-10-numerical-methods"
+   },
+   {
+    "slug": "a-level-pure-mathematics-11-integration",
+    "title": "Integration",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-11-integration"
+   },
+   {
+    "slug": "a-level-pure-mathematics-12-vectors",
+    "title": "Vectors",
+    "href": "/a-level/maths/edexcel/a-level-pure-mathematics-12-vectors"
+   }
+  ],
+  "Statistics Year 1": [
+   {
+    "slug": "a-level-statistics-1-regression-correlation-and-hypothesis-testing",
+    "title": "Regression, Correlation and Hypothesis Testing",
+    "href": "/a-level/maths/edexcel/a-level-statistics-1-regression-correlation-and-hypothesis-testing"
+   }
+  ],
+  "Statistics Year 2": [
+   {
+    "slug": "a-level-statistics-2-conditional-probability",
+    "title": "Conditional Probability",
+    "href": "/a-level/maths/edexcel/a-level-statistics-2-conditional-probability"
+   },
+   {
+    "slug": "a-level-statistics-3-the-normal-distribution",
+    "title": "The Normal Distribution",
+    "href": "/a-level/maths/edexcel/a-level-statistics-3-the-normal-distribution"
+   }
+  ],
+  "Mechanics Year 1": [
+   {
+    "slug": "a-level-mechanics-1-moments",
+    "title": "Moments",
+    "href": "/a-level/maths/edexcel/a-level-mechanics-1-moments"
+   }
+  ],
+  "Mechanics Year 2": [
+   {
+    "slug": "a-level-mechanics-2-forces-and-friction",
+    "title": "Forces and Friction",
+    "href": "/a-level/maths/edexcel/a-level-mechanics-2-forces-and-friction"
+   },
+   {
+    "slug": "a-level-mechanics-3-projectiles",
+    "title": "Projectiles",
+    "href": "/a-level/maths/edexcel/a-level-mechanics-3-projectiles"
+   },
+   {
+    "slug": "a-level-mechanics-4-applications-of-forces",
+    "title": "Applications of Forces",
+    "href": "/a-level/maths/edexcel/a-level-mechanics-4-applications-of-forces"
+   },
+   {
+    "slug": "a-level-mechanics-5-further-kinematics",
+    "title": "Further Kinematics",
+    "href": "/a-level/maths/edexcel/a-level-mechanics-5-further-kinematics"
+   }
+  ],
+  "AS Pure Mathematics": [
+   {
+    "slug": "as-pure-mathematics-1-algebraic-expressions",
+    "title": "Algebraic Expressions",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-1-algebraic-expressions"
+   },
+   {
+    "slug": "as-pure-mathematics-2-quadratics",
+    "title": "Quadratics",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-2-quadratics"
+   },
+   {
+    "slug": "as-pure-mathematics-3-equations-and-inequalities",
+    "title": "Equations and Inequalities",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-3-equations-and-inequalities"
+   },
+   {
+    "slug": "as-pure-mathematics-4-graphs-and-transformations",
+    "title": "Graphs and Transformations",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-4-graphs-and-transformations"
+   },
+   {
+    "slug": "as-pure-mathematics-5-straight-line-graphs",
+    "title": "Straight Line Graphs",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-5-straight-line-graphs"
+   },
+   {
+    "slug": "as-pure-mathematics-6-circles",
+    "title": "Circles",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-6-circles"
+   },
+   {
+    "slug": "as-pure-mathematics-7-algebraic-methods",
+    "title": "Algebraic Methods",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-7-algebraic-methods"
+   },
+   {
+    "slug": "as-pure-mathematics-8-the-binomial-expansion",
+    "title": "The Binomial Expansion",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-8-the-binomial-expansion"
+   },
+   {
+    "slug": "as-pure-mathematics-9-trigonometric-ratios",
+    "title": "Trigonometric Ratios",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-9-trigonometric-ratios"
+   },
+   {
+    "slug": "as-pure-mathematics-10-trigonometric-identities-and-equations",
+    "title": "Trigonometric Identities and Equations",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-10-trigonometric-identities-and-equations"
+   },
+   {
+    "slug": "as-pure-mathematics-11-vectors",
+    "title": "Vectors",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-11-vectors"
+   },
+   {
+    "slug": "as-pure-mathematics-12-differentiation",
+    "title": "Differentiation",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-12-differentiation"
+   },
+   {
+    "slug": "as-pure-mathematics-13-integration",
+    "title": "Integration",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-13-integration"
+   },
+   {
+    "slug": "as-pure-mathematics-14-exponentials-and-logarithms",
+    "title": "Exponentials and Logarithms",
+    "href": "/a-level/maths/edexcel/as-pure-mathematics-14-exponentials-and-logarithms"
+   }
+  ],
+  "AS Statistics": [
+   {
+    "slug": "as-statistics-1-data-collection",
+    "title": "Data Collection",
+    "href": "/a-level/maths/edexcel/as-statistics-1-data-collection"
+   },
+   {
+    "slug": "as-statistics-2-measures-of-location-and-spread",
+    "title": "Measures of Location and Spread",
+    "href": "/a-level/maths/edexcel/as-statistics-2-measures-of-location-and-spread"
+   },
+   {
+    "slug": "as-statistics-3-representations-of-data",
+    "title": "Representations of Data",
+    "href": "/a-level/maths/edexcel/as-statistics-3-representations-of-data"
+   },
+   {
+    "slug": "as-statistics-4-correlation",
+    "title": "Correlation",
+    "href": "/a-level/maths/edexcel/as-statistics-4-correlation"
+   },
+   {
+    "slug": "as-statistics-5-probability",
+    "title": "Probability",
+    "href": "/a-level/maths/edexcel/as-statistics-5-probability"
+   },
+   {
+    "slug": "as-statistics-6-statistical-distributions",
+    "title": "Statistical Distributions",
+    "href": "/a-level/maths/edexcel/as-statistics-6-statistical-distributions"
+   },
+   {
+    "slug": "as-statistics-7-hypothesis-testing",
+    "title": "Hypothesis Testing",
+    "href": "/a-level/maths/edexcel/as-statistics-7-hypothesis-testing"
+   }
+  ],
+  "AS Mechanics": [
+   {
+    "slug": "as-mechanics-1-constant-acceleration",
+    "title": "Constant Acceleration",
+    "href": "/a-level/maths/edexcel/as-mechanics-1-constant-acceleration"
+   },
+   {
+    "slug": "as-mechanics-2-forces-and-motion",
+    "title": "Forces and Motion",
+    "href": "/a-level/maths/edexcel/as-mechanics-2-forces-and-motion"
+   },
+   {
+    "slug": "as-mechanics-3-variable-acceleration",
+    "title": "Variable Acceleration",
+    "href": "/a-level/maths/edexcel/as-mechanics-3-variable-acceleration"
+   }
+  ]
+ },
+ "modes": [
+  "questions",
+  "videos",
+  "revision-guides",
+  "flashcards",
+  "question-rush",
+  "mock-exam-builder"
+ ]
+}

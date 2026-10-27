@@ -1,0 +1,81 @@
+{
+ "primary": [
+  {
+   "label": "Home",
+   "href": "/"
+  },
+  {
+   "label": "Revision planner",
+   "href": "/features/revision-planner"
+  },
+  {
+   "label": "Ask Genie AI",
+   "href": "/ask-genie"
+  },
+  {
+   "label": "Worksheets",
+   "href": "/gcse/worksheets | /a-level/worksheets"
+  },
+  {
+   "label": "Question Rush",
+   "href": "/gcse/question-rush | /a-level/question-rush"
+  },
+  {
+   "label": "Daily Greens",
+   "href": "/gcse/daily-greens | /a-level/daily-greens"
+  },
+  {
+   "label": "Ideas + feedback",
+   "href": "/feature-requests"
+  }
+ ],
+ "qualifications": [
+  "gcse",
+  "igcse",
+  "a-level",
+  "as-level",
+  "ks2",
+  "international-a-level",
+  "international-as-level"
+ ],
+ "url_patterns": {
+  "course": "/{qual}/{subject}/{board}",
+  "topic": "/gcse/maths/{board}/grade-{grade}-{grade}-{index}-{slug}",
+  "topic_mode": "{topic_href}/{mode}",
+  "modes": [
+   "questions",
+   "videos",
+   "revision-guides",
+   "flashcards",
+   "lessons",
+   "question-rush",
+   "mock-exam-builder",
+   "mini-tests",
+   "45-min-tests",
+   "predicted-papers",
+   "predicted-grade-calculator"
+  ],
+  "asset_cdn": "https://assets.mathsgenie.co.uk/",
+  "asset_paths": {
+   "subject_covers": "subject-covers/*.jpg",
+   "mode_cards": "mode-cards/*.svg (dark-tinted / light-tinted)",
+   "board_resources": "board-resources/{qual}-{subject}/*.pdf",
+   "papers": "papers/{board}/{qual}-{subject}/{resource-dir}/{file}.pdf",
+   "walkthroughs": "walkthroughs/review/*.mp4|*.jpg"
+  }
+ },
+ "features": [
+  "revision-planner",
+  "ask-genie-ai",
+  "answer-marking",
+  "mock-exam-builder",
+  "question-rush",
+  "daily-greens",
+  "grade-calculator",
+  "lesson-starters",
+  "upload-and-mark",
+  "predicted-grade-calculator",
+  "worksheets",
+  "flashcards"
+ ]
+}

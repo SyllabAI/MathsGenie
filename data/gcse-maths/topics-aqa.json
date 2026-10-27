@@ -1,0 +1,706 @@
+{
+ "qualification": "GCSE",
+ "subject": "Maths",
+ "board": "aqa",
+ "tier_note": "Foundation covers grades 1-5, Higher covers grades 4-9",
+ "topic_count": 134,
+ "modes": [
+  "questions",
+  "videos",
+  "revision-guides",
+  "lessons",
+  "flashcards",
+  "question-rush",
+  "mock-exam-builder",
+  "mini-tests",
+  "45-min-tests"
+ ],
+ "grades": {
+  "1": [
+   {
+    "slug": "grade-1-1-1-addition-and-subtraction",
+    "title": "Addition and Subtraction",
+    "href": "/gcse/maths/aqa/grade-1-1-1-addition-and-subtraction"
+   },
+   {
+    "slug": "grade-1-1-10-bidmas",
+    "title": "BIDMAS",
+    "href": "/gcse/maths/aqa/grade-1-1-10-bidmas"
+   },
+   {
+    "slug": "grade-1-1-11-factors-and-multiples",
+    "title": "Factors and Multiples",
+    "href": "/gcse/maths/aqa/grade-1-1-11-factors-and-multiples"
+   },
+   {
+    "slug": "grade-1-1-12-coordinates",
+    "title": "Coordinates",
+    "href": "/gcse/maths/aqa/grade-1-1-12-coordinates"
+   },
+   {
+    "slug": "grade-1-1-13-pictograms",
+    "title": "Pictograms",
+    "href": "/gcse/maths/aqa/grade-1-1-13-pictograms"
+   },
+   {
+    "slug": "grade-1-1-2-multiplication-and-division",
+    "title": "Multiplication and Division",
+    "href": "/gcse/maths/aqa/grade-1-1-2-multiplication-and-division"
+   },
+   {
+    "slug": "grade-1-1-3-time",
+    "title": "Time",
+    "href": "/gcse/maths/aqa/grade-1-1-3-time"
+   },
+   {
+    "slug": "grade-1-1-4-metric-conversions",
+    "title": "Metric Conversions",
+    "href": "/gcse/maths/aqa/grade-1-1-4-metric-conversions"
+   },
+   {
+    "slug": "grade-1-1-5-writing-simplifying-and-ordering-fractions",
+    "title": "Writing, Simplifying and Ordering Fractions",
+    "href": "/gcse/maths/aqa/grade-1-1-5-writing-simplifying-and-ordering-fractions"
+   },
+   {
+    "slug": "grade-1-1-6-place-value",
+    "title": "Place Value",
+    "href": "/gcse/maths/aqa/grade-1-1-6-place-value"
+   },
+   {
+    "slug": "grade-1-1-7-rounding",
+    "title": "Rounding",
+    "href": "/gcse/maths/aqa/grade-1-1-7-rounding"
+   },
+   {
+    "slug": "grade-1-1-8-negative-numbers",
+    "title": "Negative Numbers",
+    "href": "/gcse/maths/aqa/grade-1-1-8-negative-numbers"
+   },
+   {
+    "slug": "grade-1-1-9-powers-and-roots",
+    "title": "Powers and Roots",
+    "href": "/gcse/maths/aqa/grade-1-1-9-powers-and-roots"
+   }
+  ],
+  "2": [
+   {
+    "slug": "grade-2-2-1-calculation-problems",
+    "title": "Calculation Problems",
+    "href": "/gcse/maths/aqa/grade-2-2-1-calculation-problems"
+   },
+   {
+    "slug": "grade-2-2-10-angles",
+    "title": "Angles",
+    "href": "/gcse/maths/aqa/grade-2-2-10-angles"
+   },
+   {
+    "slug": "grade-2-2-11-area-and-perimeter",
+    "title": "Area and Perimeter",
+    "href": "/gcse/maths/aqa/grade-2-2-11-area-and-perimeter"
+   },
+   {
+    "slug": "grade-2-2-12-probability",
+    "title": "Probability",
+    "href": "/gcse/maths/aqa/grade-2-2-12-probability"
+   },
+   {
+    "slug": "grade-2-2-13-frequency-polygons",
+    "title": "Frequency Polygons",
+    "href": "/gcse/maths/aqa/grade-2-2-13-frequency-polygons"
+   },
+   {
+    "slug": "grade-2-2-14-averages",
+    "title": "Averages",
+    "href": "/gcse/maths/aqa/grade-2-2-14-averages"
+   },
+   {
+    "slug": "grade-2-2-15-bar-charts",
+    "title": "Bar Charts",
+    "href": "/gcse/maths/aqa/grade-2-2-15-bar-charts"
+   },
+   {
+    "slug": "grade-2-2-16-stem-and-leaf",
+    "title": "Stem and Leaf",
+    "href": "/gcse/maths/aqa/grade-2-2-16-stem-and-leaf"
+   },
+   {
+    "slug": "grade-2-2-17-pie-charts",
+    "title": "Pie Charts",
+    "href": "/gcse/maths/aqa/grade-2-2-17-pie-charts"
+   },
+   {
+    "slug": "grade-2-2-2-using-a-calculator",
+    "title": "Using a Calculator",
+    "href": "/gcse/maths/aqa/grade-2-2-2-using-a-calculator"
+   },
+   {
+    "slug": "grade-2-2-3-systematic-listing",
+    "title": "Systematic Listing",
+    "href": "/gcse/maths/aqa/grade-2-2-3-systematic-listing"
+   },
+   {
+    "slug": "grade-2-2-4-fractions-of-an-amount",
+    "title": "Fractions of an Amount",
+    "href": "/gcse/maths/aqa/grade-2-2-4-fractions-of-an-amount"
+   },
+   {
+    "slug": "grade-2-2-5-fractions-decimals-and-percentages",
+    "title": "Fractions, Decimals and Percentages",
+    "href": "/gcse/maths/aqa/grade-2-2-5-fractions-decimals-and-percentages"
+   },
+   {
+    "slug": "grade-2-2-6-simplifying-algebra",
+    "title": "Simplifying Algebra",
+    "href": "/gcse/maths/aqa/grade-2-2-6-simplifying-algebra"
+   },
+   {
+    "slug": "grade-2-2-7-writing-an-expression",
+    "title": "Writing an Expression",
+    "href": "/gcse/maths/aqa/grade-2-2-7-writing-an-expression"
+   },
+   {
+    "slug": "grade-2-2-8-function-machines",
+    "title": "Function Machines",
+    "href": "/gcse/maths/aqa/grade-2-2-8-function-machines"
+   },
+   {
+    "slug": "grade-2-2-9-solving-one-step-equations",
+    "title": "Solving One Step Equations",
+    "href": "/gcse/maths/aqa/grade-2-2-9-solving-one-step-equations"
+   }
+  ],
+  "3": [
+   {
+    "slug": "grade-3-3-1-error-intervals",
+    "title": "Error Intervals",
+    "href": "/gcse/maths/aqa/grade-3-3-1-error-intervals"
+   },
+   {
+    "slug": "grade-3-3-10-conversions-and-units",
+    "title": "Conversions and Units",
+    "href": "/gcse/maths/aqa/grade-3-3-10-conversions-and-units"
+   },
+   {
+    "slug": "grade-3-3-11-scale-drawings",
+    "title": "Scale Drawings",
+    "href": "/gcse/maths/aqa/grade-3-3-11-scale-drawings"
+   },
+   {
+    "slug": "grade-3-3-12-best-buy-questions",
+    "title": "Best Buy Questions",
+    "href": "/gcse/maths/aqa/grade-3-3-12-best-buy-questions"
+   },
+   {
+    "slug": "grade-3-3-13-substitution",
+    "title": "Substitution",
+    "href": "/gcse/maths/aqa/grade-3-3-13-substitution"
+   },
+   {
+    "slug": "grade-3-3-14-solving-equations",
+    "title": "Solving Equations",
+    "href": "/gcse/maths/aqa/grade-3-3-14-solving-equations"
+   },
+   {
+    "slug": "grade-3-3-15-drawing-linear-graphs",
+    "title": "Drawing Linear Graphs",
+    "href": "/gcse/maths/aqa/grade-3-3-15-drawing-linear-graphs"
+   },
+   {
+    "slug": "grade-3-3-16-area-and-circumference-of-circles",
+    "title": "Area and Circumference of Circles",
+    "href": "/gcse/maths/aqa/grade-3-3-16-area-and-circumference-of-circles"
+   },
+   {
+    "slug": "grade-3-3-17-transformations",
+    "title": "Transformations",
+    "href": "/gcse/maths/aqa/grade-3-3-17-transformations"
+   },
+   {
+    "slug": "grade-3-3-18-area-of-compound-shapes",
+    "title": "Area of Compound Shapes",
+    "href": "/gcse/maths/aqa/grade-3-3-18-area-of-compound-shapes"
+   },
+   {
+    "slug": "grade-3-3-19-frequency-trees",
+    "title": "Frequency Trees",
+    "href": "/gcse/maths/aqa/grade-3-3-19-frequency-trees"
+   },
+   {
+    "slug": "grade-3-3-2-fractions",
+    "title": "Fractions",
+    "href": "/gcse/maths/aqa/grade-3-3-2-fractions"
+   },
+   {
+    "slug": "grade-3-3-20-two-way-tables",
+    "title": "Two Way Tables",
+    "href": "/gcse/maths/aqa/grade-3-3-20-two-way-tables"
+   },
+   {
+    "slug": "grade-3-3-3-estimating",
+    "title": "Estimating",
+    "href": "/gcse/maths/aqa/grade-3-3-3-estimating"
+   },
+   {
+    "slug": "grade-3-3-4-writing-and-simplifying-ratio",
+    "title": "Writing and Simplifying Ratio",
+    "href": "/gcse/maths/aqa/grade-3-3-4-writing-and-simplifying-ratio"
+   },
+   {
+    "slug": "grade-3-3-5-ratio",
+    "title": "Ratio",
+    "href": "/gcse/maths/aqa/grade-3-3-5-ratio"
+   },
+   {
+    "slug": "grade-3-3-6-proportion",
+    "title": "Proportion",
+    "href": "/gcse/maths/aqa/grade-3-3-6-proportion"
+   },
+   {
+    "slug": "grade-3-3-7-percentages",
+    "title": "Percentages",
+    "href": "/gcse/maths/aqa/grade-3-3-7-percentages"
+   },
+   {
+    "slug": "grade-3-3-8-percentage-change",
+    "title": "Percentage Change",
+    "href": "/gcse/maths/aqa/grade-3-3-8-percentage-change"
+   },
+   {
+    "slug": "grade-3-3-9-exchange-rates",
+    "title": "Exchange Rates",
+    "href": "/gcse/maths/aqa/grade-3-3-9-exchange-rates"
+   }
+  ],
+  "4": [
+   {
+    "slug": "grade-4-4-1-compound-interest-and-depreciation",
+    "title": "Compound Interest and Depreciation",
+    "href": "/gcse/maths/aqa/grade-4-4-1-compound-interest-and-depreciation"
+   },
+   {
+    "slug": "grade-4-4-10-angles-in-parallel-lines",
+    "title": "Angles in Parallel Lines",
+    "href": "/gcse/maths/aqa/grade-4-4-10-angles-in-parallel-lines"
+   },
+   {
+    "slug": "grade-4-4-11-angles-in-polygons",
+    "title": "Angles in Polygons",
+    "href": "/gcse/maths/aqa/grade-4-4-11-angles-in-polygons"
+   },
+   {
+    "slug": "grade-4-4-12-surface-area",
+    "title": "Surface Area",
+    "href": "/gcse/maths/aqa/grade-4-4-12-surface-area"
+   },
+   {
+    "slug": "grade-4-4-13-volume-of-a-prism",
+    "title": "Volume of a Prism",
+    "href": "/gcse/maths/aqa/grade-4-4-13-volume-of-a-prism"
+   },
+   {
+    "slug": "grade-4-4-14-cylinders",
+    "title": "Cylinders",
+    "href": "/gcse/maths/aqa/grade-4-4-14-cylinders"
+   },
+   {
+    "slug": "grade-4-4-15-loci-and-construction",
+    "title": "Loci and Construction",
+    "href": "/gcse/maths/aqa/grade-4-4-15-loci-and-construction"
+   },
+   {
+    "slug": "grade-4-4-16-bearings",
+    "title": "Bearings",
+    "href": "/gcse/maths/aqa/grade-4-4-16-bearings"
+   },
+   {
+    "slug": "grade-4-4-17-plans-and-elevations",
+    "title": "Plans and Elevations",
+    "href": "/gcse/maths/aqa/grade-4-4-17-plans-and-elevations"
+   },
+   {
+    "slug": "grade-4-4-18-averages-from-frequency-tables",
+    "title": "Averages from Frequency Tables",
+    "href": "/gcse/maths/aqa/grade-4-4-18-averages-from-frequency-tables"
+   },
+   {
+    "slug": "grade-4-4-19-probability",
+    "title": "Probability",
+    "href": "/gcse/maths/aqa/grade-4-4-19-probability"
+   },
+   {
+    "slug": "grade-4-4-2-indices",
+    "title": "Indices",
+    "href": "/gcse/maths/aqa/grade-4-4-2-indices"
+   },
+   {
+    "slug": "grade-4-4-20-scatter-graphs",
+    "title": "Scatter Graphs",
+    "href": "/gcse/maths/aqa/grade-4-4-20-scatter-graphs"
+   },
+   {
+    "slug": "grade-4-4-3-prime-factors-hcf-and-lcm",
+    "title": "Prime Factors, HCF and LCM",
+    "href": "/gcse/maths/aqa/grade-4-4-3-prime-factors-hcf-and-lcm"
+   },
+   {
+    "slug": "grade-4-4-4-real-life-and-distance-time-graphs",
+    "title": "Real Life and Distance Time Graphs",
+    "href": "/gcse/maths/aqa/grade-4-4-4-real-life-and-distance-time-graphs"
+   },
+   {
+    "slug": "grade-4-4-5-inequalities",
+    "title": "Inequalities",
+    "href": "/gcse/maths/aqa/grade-4-4-5-inequalities"
+   },
+   {
+    "slug": "grade-4-4-6-forming-and-solving-equations",
+    "title": "Forming and Solving Equations",
+    "href": "/gcse/maths/aqa/grade-4-4-6-forming-and-solving-equations"
+   },
+   {
+    "slug": "grade-4-4-7-sequences-nth-term",
+    "title": "Sequences (Nth Term)",
+    "href": "/gcse/maths/aqa/grade-4-4-7-sequences-nth-term"
+   },
+   {
+    "slug": "grade-4-4-8-expanding-and-factorising",
+    "title": "Expanding and Factorising",
+    "href": "/gcse/maths/aqa/grade-4-4-8-expanding-and-factorising"
+   },
+   {
+    "slug": "grade-4-4-9-pythagoras",
+    "title": "Pythagoras",
+    "href": "/gcse/maths/aqa/grade-4-4-9-pythagoras"
+   }
+  ],
+  "5": [
+   {
+    "slug": "grade-5-5-1-writing-a-ratio-as-a-fraction-or-linear-function",
+    "title": "Writing a Ratio as a Fraction or Linear Function",
+    "href": "/gcse/maths/aqa/grade-5-5-1-writing-a-ratio-as-a-fraction-or-linear-function"
+   },
+   {
+    "slug": "grade-5-5-10-drawing-other-graphs-cubic-reciprocal",
+    "title": "Drawing Other Graphs: Cubic/Reciprocal",
+    "href": "/gcse/maths/aqa/grade-5-5-10-drawing-other-graphs-cubic-reciprocal"
+   },
+   {
+    "slug": "grade-5-5-11-simultaneous-equations",
+    "title": "Simultaneous Equations",
+    "href": "/gcse/maths/aqa/grade-5-5-11-simultaneous-equations"
+   },
+   {
+    "slug": "grade-5-5-12-solving-simultaneous-equations-graphically",
+    "title": "Solving Simultaneous Equations Graphically",
+    "href": "/gcse/maths/aqa/grade-5-5-12-solving-simultaneous-equations-graphically"
+   },
+   {
+    "slug": "grade-5-5-13-midpoint-of-a-line-segment",
+    "title": "Midpoint of a Line Segment",
+    "href": "/gcse/maths/aqa/grade-5-5-13-midpoint-of-a-line-segment"
+   },
+   {
+    "slug": "grade-5-5-14-gradient-of-a-line",
+    "title": "Gradient of a Line",
+    "href": "/gcse/maths/aqa/grade-5-5-14-gradient-of-a-line"
+   },
+   {
+    "slug": "grade-5-5-15-equation-of-a-line",
+    "title": "Equation of a Line",
+    "href": "/gcse/maths/aqa/grade-5-5-15-equation-of-a-line"
+   },
+   {
+    "slug": "grade-5-5-16-spheres-and-cones",
+    "title": "Spheres and Cones",
+    "href": "/gcse/maths/aqa/grade-5-5-16-spheres-and-cones"
+   },
+   {
+    "slug": "grade-5-5-17-sector-areas-and-arc-lengths",
+    "title": "Sector Areas and Arc Lengths",
+    "href": "/gcse/maths/aqa/grade-5-5-17-sector-areas-and-arc-lengths"
+   },
+   {
+    "slug": "grade-5-5-18-similar-shapes-lengths",
+    "title": "Similar Shapes (Lengths)",
+    "href": "/gcse/maths/aqa/grade-5-5-18-similar-shapes-lengths"
+   },
+   {
+    "slug": "grade-5-5-19-sohcahtoa-trigonometry",
+    "title": "SOHCAHTOA (Trigonometry)",
+    "href": "/gcse/maths/aqa/grade-5-5-19-sohcahtoa-trigonometry"
+   },
+   {
+    "slug": "grade-5-5-2-direct-and-inverse-proportion",
+    "title": "Direct and Inverse Proportion",
+    "href": "/gcse/maths/aqa/grade-5-5-2-direct-and-inverse-proportion"
+   },
+   {
+    "slug": "grade-5-5-20-exact-trig-values",
+    "title": "Exact trig values",
+    "href": "/gcse/maths/aqa/grade-5-5-20-exact-trig-values"
+   },
+   {
+    "slug": "grade-5-5-21-vectors",
+    "title": "Vectors",
+    "href": "/gcse/maths/aqa/grade-5-5-21-vectors"
+   },
+   {
+    "slug": "grade-5-5-22-probability-trees",
+    "title": "Probability Trees",
+    "href": "/gcse/maths/aqa/grade-5-5-22-probability-trees"
+   },
+   {
+    "slug": "grade-5-5-23-venn-diagrams",
+    "title": "Venn Diagrams",
+    "href": "/gcse/maths/aqa/grade-5-5-23-venn-diagrams"
+   },
+   {
+    "slug": "grade-5-5-3-reverse-percentages",
+    "title": "Reverse Percentages",
+    "href": "/gcse/maths/aqa/grade-5-5-3-reverse-percentages"
+   },
+   {
+    "slug": "grade-5-5-4-standard-form",
+    "title": "Standard Form",
+    "href": "/gcse/maths/aqa/grade-5-5-4-standard-form"
+   },
+   {
+    "slug": "grade-5-5-5-speed-and-density",
+    "title": "Speed and Density",
+    "href": "/gcse/maths/aqa/grade-5-5-5-speed-and-density"
+   },
+   {
+    "slug": "grade-5-5-6-changing-the-subject-of-a-formula",
+    "title": "Changing the Subject of a Formula",
+    "href": "/gcse/maths/aqa/grade-5-5-6-changing-the-subject-of-a-formula"
+   },
+   {
+    "slug": "grade-5-5-7-expanding-and-factorising-quadratics",
+    "title": "Expanding and Factorising Quadratics",
+    "href": "/gcse/maths/aqa/grade-5-5-7-expanding-and-factorising-quadratics"
+   },
+   {
+    "slug": "grade-5-5-8-solving-quadratics",
+    "title": "Solving Quadratics",
+    "href": "/gcse/maths/aqa/grade-5-5-8-solving-quadratics"
+   },
+   {
+    "slug": "grade-5-5-9-drawing-quadratic-graphs",
+    "title": "Drawing Quadratic Graphs",
+    "href": "/gcse/maths/aqa/grade-5-5-9-drawing-quadratic-graphs"
+   }
+  ],
+  "6": [
+   {
+    "slug": "grade-6-6-1-recurring-decimals-to-fractions",
+    "title": "Recurring Decimals to Fractions",
+    "href": "/gcse/maths/aqa/grade-6-6-1-recurring-decimals-to-fractions"
+   },
+   {
+    "slug": "grade-6-6-10-circle-theorems",
+    "title": "Circle Theorems",
+    "href": "/gcse/maths/aqa/grade-6-6-10-circle-theorems"
+   },
+   {
+    "slug": "grade-6-6-11-cumulative-frequency",
+    "title": "Cumulative Frequency",
+    "href": "/gcse/maths/aqa/grade-6-6-11-cumulative-frequency"
+   },
+   {
+    "slug": "grade-6-6-12-box-plots",
+    "title": "Box Plots",
+    "href": "/gcse/maths/aqa/grade-6-6-12-box-plots"
+   },
+   {
+    "slug": "grade-6-6-13-capture-recapture",
+    "title": "Capture Recapture",
+    "href": "/gcse/maths/aqa/grade-6-6-13-capture-recapture"
+   },
+   {
+    "slug": "grade-6-6-2-fractional-and-negative-indices",
+    "title": "Fractional and Negative Indices",
+    "href": "/gcse/maths/aqa/grade-6-6-2-fractional-and-negative-indices"
+   },
+   {
+    "slug": "grade-6-6-3-the-product-rule-for-counting",
+    "title": "The Product Rule for Counting",
+    "href": "/gcse/maths/aqa/grade-6-6-3-the-product-rule-for-counting"
+   },
+   {
+    "slug": "grade-6-6-4-repeated-percentage-change",
+    "title": "Repeated Percentage Change",
+    "href": "/gcse/maths/aqa/grade-6-6-4-repeated-percentage-change"
+   },
+   {
+    "slug": "grade-6-6-5-expanding-triple-brackets",
+    "title": "Expanding Triple Brackets",
+    "href": "/gcse/maths/aqa/grade-6-6-5-expanding-triple-brackets"
+   },
+   {
+    "slug": "grade-6-6-6-parallel-and-perpendicular-lines",
+    "title": "Parallel and Perpendicular Lines",
+    "href": "/gcse/maths/aqa/grade-6-6-6-parallel-and-perpendicular-lines"
+   },
+   {
+    "slug": "grade-6-6-7-inequalities-on-graphs",
+    "title": "Inequalities on Graphs",
+    "href": "/gcse/maths/aqa/grade-6-6-7-inequalities-on-graphs"
+   },
+   {
+    "slug": "grade-6-6-8-similar-shapes-area-and-volume",
+    "title": "Similar Shapes (Area and Volume)",
+    "href": "/gcse/maths/aqa/grade-6-6-8-similar-shapes-area-and-volume"
+   },
+   {
+    "slug": "grade-6-6-9-enlarging-with-negative-scale-factors",
+    "title": "Enlarging with Negative Scale Factors",
+    "href": "/gcse/maths/aqa/grade-6-6-9-enlarging-with-negative-scale-factors"
+   }
+  ],
+  "7": [
+   {
+    "slug": "grade-7-7-1-surds",
+    "title": "Surds",
+    "href": "/gcse/maths/aqa/grade-7-7-1-surds"
+   },
+   {
+    "slug": "grade-7-7-10-iteration",
+    "title": "Iteration",
+    "href": "/gcse/maths/aqa/grade-7-7-10-iteration"
+   },
+   {
+    "slug": "grade-7-7-11-finding-the-area-of-any-triangle",
+    "title": "Finding the Area of Any Triangle",
+    "href": "/gcse/maths/aqa/grade-7-7-11-finding-the-area-of-any-triangle"
+   },
+   {
+    "slug": "grade-7-7-12-the-sine-rule",
+    "title": "The Sine Rule",
+    "href": "/gcse/maths/aqa/grade-7-7-12-the-sine-rule"
+   },
+   {
+    "slug": "grade-7-7-13-the-cosine-rule",
+    "title": "The Cosine Rule",
+    "href": "/gcse/maths/aqa/grade-7-7-13-the-cosine-rule"
+   },
+   {
+    "slug": "grade-7-7-14-congruent-triangles",
+    "title": "Congruent Triangles",
+    "href": "/gcse/maths/aqa/grade-7-7-14-congruent-triangles"
+   },
+   {
+    "slug": "grade-7-7-15-3d-pythagoras-and-trigonometry",
+    "title": "3d Pythagoras and Trigonometry",
+    "href": "/gcse/maths/aqa/grade-7-7-15-3d-pythagoras-and-trigonometry"
+   },
+   {
+    "slug": "grade-7-7-16-histograms",
+    "title": "Histograms",
+    "href": "/gcse/maths/aqa/grade-7-7-16-histograms"
+   },
+   {
+    "slug": "grade-7-7-17-conditional-probability",
+    "title": "Conditional Probability",
+    "href": "/gcse/maths/aqa/grade-7-7-17-conditional-probability"
+   },
+   {
+    "slug": "grade-7-7-2-bounds",
+    "title": "Bounds",
+    "href": "/gcse/maths/aqa/grade-7-7-2-bounds"
+   },
+   {
+    "slug": "grade-7-7-3-direct-and-inverse-proportion",
+    "title": "Direct and Inverse Proportion",
+    "href": "/gcse/maths/aqa/grade-7-7-3-direct-and-inverse-proportion"
+   },
+   {
+    "slug": "grade-7-7-4-quadratic-formula",
+    "title": "Quadratic Formula",
+    "href": "/gcse/maths/aqa/grade-7-7-4-quadratic-formula"
+   },
+   {
+    "slug": "grade-7-7-5-factorising-harder-quadratics",
+    "title": "Factorising Harder Quadratics",
+    "href": "/gcse/maths/aqa/grade-7-7-5-factorising-harder-quadratics"
+   },
+   {
+    "slug": "grade-7-7-6-algebraic-fractions",
+    "title": "Algebraic Fractions",
+    "href": "/gcse/maths/aqa/grade-7-7-6-algebraic-fractions"
+   },
+   {
+    "slug": "grade-7-7-7-rearranging-harder-formulae",
+    "title": "Rearranging Harder Formulae",
+    "href": "/gcse/maths/aqa/grade-7-7-7-rearranging-harder-formulae"
+   },
+   {
+    "slug": "grade-7-7-8-trigonometric-and-exponential-graphs",
+    "title": "Trigonometric and Exponential Graphs",
+    "href": "/gcse/maths/aqa/grade-7-7-8-trigonometric-and-exponential-graphs"
+   },
+   {
+    "slug": "grade-7-7-9-inverse-and-composite-functions",
+    "title": "Inverse and Composite Functions",
+    "href": "/gcse/maths/aqa/grade-7-7-9-inverse-and-composite-functions"
+   }
+  ],
+  "8": [
+   {
+    "slug": "grade-8-9-8-1-quadratic-simultaneous-equations",
+    "title": "Quadratic Simultaneous Equations",
+    "href": "/gcse/maths/aqa/grade-8-9-8-1-quadratic-simultaneous-equations"
+   },
+   {
+    "slug": "grade-8-9-8-10-vectors-proof-questions",
+    "title": "Vectors Proof Questions",
+    "href": "/gcse/maths/aqa/grade-8-9-8-10-vectors-proof-questions"
+   },
+   {
+    "slug": "grade-8-9-8-11-probability-equation-questions",
+    "title": "Probability Equation Questions",
+    "href": "/gcse/maths/aqa/grade-8-9-8-11-probability-equation-questions"
+   },
+   {
+    "slug": "grade-8-9-8-2-transforming-graphs-y-f-x",
+    "title": "Transforming Graphs y=f(x)",
+    "href": "/gcse/maths/aqa/grade-8-9-8-2-transforming-graphs-y-f-x"
+   },
+   {
+    "slug": "grade-8-9-8-3-proof",
+    "title": "Proof",
+    "href": "/gcse/maths/aqa/grade-8-9-8-3-proof"
+   },
+   {
+    "slug": "grade-8-9-8-4-completing-the-square",
+    "title": "Completing the Square",
+    "href": "/gcse/maths/aqa/grade-8-9-8-4-completing-the-square"
+   },
+   {
+    "slug": "grade-8-9-8-5-the-nth-term-of-a-quadratic-sequence",
+    "title": "The Nth Term of a Quadratic Sequence",
+    "href": "/gcse/maths/aqa/grade-8-9-8-5-the-nth-term-of-a-quadratic-sequence"
+   },
+   {
+    "slug": "grade-8-9-8-6-quadratic-inequalities",
+    "title": "Quadratic Inequalities",
+    "href": "/gcse/maths/aqa/grade-8-9-8-6-quadratic-inequalities"
+   },
+   {
+    "slug": "grade-8-9-8-7-velocity-time-graphs",
+    "title": "Velocity Time Graphs",
+    "href": "/gcse/maths/aqa/grade-8-9-8-7-velocity-time-graphs"
+   },
+   {
+    "slug": "grade-8-9-8-8-proof-of-the-circle-theorems",
+    "title": "Proof of the Circle Theorems",
+    "href": "/gcse/maths/aqa/grade-8-9-8-8-proof-of-the-circle-theorems"
+   },
+   {
+    "slug": "grade-8-9-8-9-perpendicular-lines-and-the-equation-of-a-tangent",
+    "title": "Perpendicular Lines and the equation of a tangent",
+    "href": "/gcse/maths/aqa/grade-8-9-8-9-perpendicular-lines-and-the-equation-of-a-tangent"
+   }
+  ]
+ }
+}

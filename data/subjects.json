@@ -1,0 +1,4021 @@
+{
+ "total_courses": 667,
+ "by_qualification": {
+  "gcse": [
+   {
+    "title": "Edexcel GCSE Arabic",
+    "subject": "arabic",
+    "board": "edexcel",
+    "href": "/gcse/arabic/edexcel"
+   },
+   {
+    "title": "AQA GCSE Art and Design",
+    "subject": "art-and-design",
+    "board": "aqa",
+    "href": "/gcse/art-and-design/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Art and Design",
+    "subject": "art-and-design",
+    "board": "edexcel",
+    "href": "/gcse/art-and-design/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE Art and Design",
+    "subject": "art-and-design",
+    "board": "eduqas",
+    "href": "/gcse/art-and-design/eduqas"
+   },
+   {
+    "title": "OCR GCSE Art and Design",
+    "subject": "art-and-design",
+    "board": "ocr",
+    "href": "/gcse/art-and-design/ocr"
+   },
+   {
+    "title": "WJEC GCSE Art and Design",
+    "subject": "art-and-design",
+    "board": "wjec",
+    "href": "/gcse/art-and-design/wjec"
+   },
+   {
+    "title": "Edexcel GCSE Astronomy",
+    "subject": "astronomy",
+    "board": "edexcel",
+    "href": "/gcse/astronomy/edexcel"
+   },
+   {
+    "title": "AQA GCSE Bengali",
+    "subject": "bengali",
+    "board": "aqa",
+    "href": "/gcse/bengali/aqa"
+   },
+   {
+    "title": "AQA GCSE Biology",
+    "subject": "biology",
+    "board": "aqa",
+    "href": "/gcse/biology/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Biology",
+    "subject": "biology",
+    "board": "edexcel",
+    "href": "/gcse/biology/edexcel"
+   },
+   {
+    "title": "OCR GCSE Biology",
+    "subject": "biology",
+    "board": "ocr",
+    "href": "/gcse/biology/ocr"
+   },
+   {
+    "title": "OCR Twenty First Century GCSE Biology",
+    "subject": "biology",
+    "board": "ocr",
+    "href": "/gcse/biology/ocr/twenty-first-century"
+   },
+   {
+    "title": "WJEC GCSE Biology",
+    "subject": "biology",
+    "board": "wjec",
+    "href": "/gcse/biology/wjec"
+   },
+   {
+    "title": "CCEA GCSE Biology",
+    "subject": "biology",
+    "board": "ccea",
+    "href": "/gcse/biology/ccea"
+   },
+   {
+    "title": "AQA GCSE Business",
+    "subject": "business",
+    "board": "aqa",
+    "href": "/gcse/business/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Business",
+    "subject": "business",
+    "board": "edexcel",
+    "href": "/gcse/business/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE Business",
+    "subject": "business",
+    "board": "eduqas",
+    "href": "/gcse/business/eduqas"
+   },
+   {
+    "title": "OCR GCSE Business",
+    "subject": "business",
+    "board": "ocr",
+    "href": "/gcse/business/ocr"
+   },
+   {
+    "title": "WJEC GCSE Business",
+    "subject": "business",
+    "board": "wjec",
+    "href": "/gcse/business/wjec"
+   },
+   {
+    "title": "AQA GCSE Chemistry",
+    "subject": "chemistry",
+    "board": "aqa",
+    "href": "/gcse/chemistry/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Chemistry",
+    "subject": "chemistry",
+    "board": "edexcel",
+    "href": "/gcse/chemistry/edexcel"
+   },
+   {
+    "title": "OCR GCSE Chemistry",
+    "subject": "chemistry",
+    "board": "ocr",
+    "href": "/gcse/chemistry/ocr"
+   },
+   {
+    "title": "OCR Twenty First Century GCSE Chemistry",
+    "subject": "chemistry",
+    "board": "ocr",
+    "href": "/gcse/chemistry/ocr/twenty-first-century"
+   },
+   {
+    "title": "WJEC GCSE Chemistry",
+    "subject": "chemistry",
+    "board": "wjec",
+    "href": "/gcse/chemistry/wjec"
+   },
+   {
+    "title": "CCEA GCSE Chemistry",
+    "subject": "chemistry",
+    "board": "ccea",
+    "href": "/gcse/chemistry/ccea"
+   },
+   {
+    "title": "AQA GCSE Chinese",
+    "subject": "chinese",
+    "board": "aqa",
+    "href": "/gcse/chinese/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Chinese",
+    "subject": "chinese",
+    "board": "edexcel",
+    "href": "/gcse/chinese/edexcel"
+   },
+   {
+    "title": "AQA GCSE Citizenship Studies",
+    "subject": "citizenship-studies",
+    "board": "aqa",
+    "href": "/gcse/citizenship-studies/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Citizenship Studies",
+    "subject": "citizenship-studies",
+    "board": "edexcel",
+    "href": "/gcse/citizenship-studies/edexcel"
+   },
+   {
+    "title": "OCR GCSE Citizenship Studies",
+    "subject": "citizenship-studies",
+    "board": "ocr",
+    "href": "/gcse/citizenship-studies/ocr"
+   },
+   {
+    "title": "OCR GCSE Classical Civilisation",
+    "subject": "classical-civilisation",
+    "board": "ocr",
+    "href": "/gcse/classical-civilisation/ocr"
+   },
+   {
+    "title": "AQA GCSE Combined Science",
+    "subject": "science",
+    "board": "aqa",
+    "href": "/gcse/science/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Combined Science",
+    "subject": "science",
+    "board": "edexcel",
+    "href": "/gcse/science/edexcel"
+   },
+   {
+    "title": "OCR GCSE Combined Science",
+    "subject": "science",
+    "board": "ocr",
+    "href": "/gcse/science/ocr"
+   },
+   {
+    "title": "AQA Synergy GCSE Combined Science",
+    "subject": "science",
+    "board": "aqa",
+    "href": "/gcse/science/aqa/synergy"
+   },
+   {
+    "title": "OCR Twenty First Century GCSE Combined Science",
+    "subject": "science",
+    "board": "ocr",
+    "href": "/gcse/science/ocr/twenty-first-century"
+   },
+   {
+    "title": "WJEC GCSE Combined Science",
+    "subject": "science",
+    "board": "wjec",
+    "href": "/gcse/science/wjec"
+   },
+   {
+    "title": "CCEA GCSE Combined Science",
+    "subject": "science",
+    "board": "ccea",
+    "href": "/gcse/science/ccea"
+   },
+   {
+    "title": "AQA GCSE Computer Science",
+    "subject": "computer-science",
+    "board": "aqa",
+    "href": "/gcse/computer-science/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Computer Science",
+    "subject": "computer-science",
+    "board": "edexcel",
+    "href": "/gcse/computer-science/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE Computer Science",
+    "subject": "computer-science",
+    "board": "eduqas",
+    "href": "/gcse/computer-science/eduqas"
+   },
+   {
+    "title": "OCR GCSE Computer Science",
+    "subject": "computer-science",
+    "board": "ocr",
+    "href": "/gcse/computer-science/ocr"
+   },
+   {
+    "title": "WJEC GCSE Computer Science",
+    "subject": "computer-science",
+    "board": "wjec",
+    "href": "/gcse/computer-science/wjec"
+   },
+   {
+    "title": "AQA GCSE Dance",
+    "subject": "dance",
+    "board": "aqa",
+    "href": "/gcse/dance/aqa"
+   },
+   {
+    "title": "AQA GCSE Design and Technology",
+    "subject": "design-and-technology",
+    "board": "aqa",
+    "href": "/gcse/design-and-technology/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Design and Technology",
+    "subject": "design-and-technology",
+    "board": "edexcel",
+    "href": "/gcse/design-and-technology/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE Design and Technology",
+    "subject": "design-and-technology",
+    "board": "eduqas",
+    "href": "/gcse/design-and-technology/eduqas"
+   },
+   {
+    "title": "OCR GCSE Design and Technology",
+    "subject": "design-and-technology",
+    "board": "ocr",
+    "href": "/gcse/design-and-technology/ocr"
+   },
+   {
+    "title": "WJEC GCSE Design and Technology",
+    "subject": "design-and-technology",
+    "board": "wjec",
+    "href": "/gcse/design-and-technology/wjec"
+   },
+   {
+    "title": "AQA GCSE Drama",
+    "subject": "drama",
+    "board": "aqa",
+    "href": "/gcse/drama/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Drama",
+    "subject": "drama",
+    "board": "edexcel",
+    "href": "/gcse/drama/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE Drama",
+    "subject": "drama",
+    "board": "eduqas",
+    "href": "/gcse/drama/eduqas"
+   },
+   {
+    "title": "OCR GCSE Drama",
+    "subject": "drama",
+    "board": "ocr",
+    "href": "/gcse/drama/ocr"
+   },
+   {
+    "title": "WJEC GCSE Drama",
+    "subject": "drama",
+    "board": "wjec",
+    "href": "/gcse/drama/wjec"
+   },
+   {
+    "title": "AQA GCSE Economics",
+    "subject": "economics",
+    "board": "aqa",
+    "href": "/gcse/economics/aqa"
+   },
+   {
+    "title": "OCR GCSE Economics",
+    "subject": "economics",
+    "board": "ocr",
+    "href": "/gcse/economics/ocr"
+   },
+   {
+    "title": "AQA GCSE Engineering",
+    "subject": "engineering",
+    "board": "aqa",
+    "href": "/gcse/engineering/aqa"
+   },
+   {
+    "title": "Eduqas GCSE Engineering",
+    "subject": "engineering",
+    "board": "eduqas",
+    "href": "/gcse/engineering/eduqas"
+   },
+   {
+    "title": "AQA GCSE English Language",
+    "subject": "english-language",
+    "board": "aqa",
+    "href": "/gcse/english-language/aqa"
+   },
+   {
+    "title": "Edexcel GCSE English Language",
+    "subject": "english-language",
+    "board": "edexcel",
+    "href": "/gcse/english-language/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE English Language",
+    "subject": "english-language",
+    "board": "eduqas",
+    "href": "/gcse/english-language/eduqas"
+   },
+   {
+    "title": "OCR GCSE English Language",
+    "subject": "english-language",
+    "board": "ocr",
+    "href": "/gcse/english-language/ocr"
+   },
+   {
+    "title": "WJEC GCSE English Language",
+    "subject": "english-language",
+    "board": "wjec",
+    "href": "/gcse/english-language/wjec"
+   },
+   {
+    "title": "WJEC GCSE English Language and Literature",
+    "subject": "english-language-and-literature",
+    "board": "wjec",
+    "href": "/gcse/english-language-and-literature/wjec"
+   },
+   {
+    "title": "AQA GCSE English Literature",
+    "subject": "english-literature",
+    "board": "aqa",
+    "href": "/gcse/english-literature/aqa"
+   },
+   {
+    "title": "Edexcel GCSE English Literature",
+    "subject": "english-literature",
+    "board": "edexcel",
+    "href": "/gcse/english-literature/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE English Literature",
+    "subject": "english-literature",
+    "board": "eduqas",
+    "href": "/gcse/english-literature/eduqas"
+   },
+   {
+    "title": "OCR GCSE English Literature",
+    "subject": "english-literature",
+    "board": "ocr",
+    "href": "/gcse/english-literature/ocr"
+   },
+   {
+    "title": "WJEC GCSE English Literature",
+    "subject": "english-literature",
+    "board": "wjec",
+    "href": "/gcse/english-literature/wjec"
+   },
+   {
+    "title": "AQA GCSE Food and Nutrition",
+    "subject": "food-and-nutrition",
+    "board": "aqa",
+    "href": "/gcse/food-and-nutrition/aqa"
+   },
+   {
+    "title": "Eduqas GCSE Food and Nutrition",
+    "subject": "food-and-nutrition",
+    "board": "eduqas",
+    "href": "/gcse/food-and-nutrition/eduqas"
+   },
+   {
+    "title": "OCR GCSE Food and Nutrition",
+    "subject": "food-and-nutrition",
+    "board": "ocr",
+    "href": "/gcse/food-and-nutrition/ocr"
+   },
+   {
+    "title": "WJEC GCSE Food and Nutrition",
+    "subject": "food-and-nutrition",
+    "board": "wjec",
+    "href": "/gcse/food-and-nutrition/wjec"
+   },
+   {
+    "title": "AQA GCSE French",
+    "subject": "french",
+    "board": "aqa",
+    "href": "/gcse/french/aqa"
+   },
+   {
+    "title": "Edexcel GCSE French",
+    "subject": "french",
+    "board": "edexcel",
+    "href": "/gcse/french/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE French",
+    "subject": "french",
+    "board": "eduqas",
+    "href": "/gcse/french/eduqas"
+   },
+   {
+    "title": "WJEC GCSE French",
+    "subject": "french",
+    "board": "wjec",
+    "href": "/gcse/french/wjec"
+   },
+   {
+    "title": "AQA GCSE Further Maths",
+    "subject": "further-maths",
+    "board": "aqa",
+    "href": "/gcse/further-maths/aqa"
+   },
+   {
+    "title": "CCEA GCSE Further Maths",
+    "subject": "further-maths",
+    "board": "ccea",
+    "href": "/gcse/further-maths/ccea"
+   },
+   {
+    "title": "Edexcel GCSE Biblical Hebrew",
+    "subject": "biblical-hebrew",
+    "board": "edexcel",
+    "href": "/gcse/biblical-hebrew/edexcel"
+   },
+   {
+    "title": "WJEC GCSE Built Environment",
+    "subject": "built-environment",
+    "board": "wjec",
+    "href": "/gcse/built-environment/wjec"
+   },
+   {
+    "title": "OCR GCSE Classical Greek",
+    "subject": "classical-greek",
+    "board": "ocr",
+    "href": "/gcse/classical-greek/ocr"
+   },
+   {
+    "title": "AQA GCSE German",
+    "subject": "german",
+    "board": "aqa",
+    "href": "/gcse/german/aqa"
+   },
+   {
+    "title": "Edexcel GCSE German",
+    "subject": "german",
+    "board": "edexcel",
+    "href": "/gcse/german/edexcel"
+   },
+   {
+    "title": "WJEC GCSE German",
+    "subject": "german",
+    "board": "wjec",
+    "href": "/gcse/german/wjec"
+   },
+   {
+    "title": "Edexcel GCSE Greek",
+    "subject": "greek",
+    "board": "edexcel",
+    "href": "/gcse/greek/edexcel"
+   },
+   {
+    "title": "Edexcel GCSE Gujarati",
+    "subject": "gujarati",
+    "board": "edexcel",
+    "href": "/gcse/gujarati/edexcel"
+   },
+   {
+    "title": "WJEC GCSE Health and Social Care and Childcare",
+    "subject": "health-and-social-care-and-childcare",
+    "board": "wjec",
+    "href": "/gcse/health-and-social-care-and-childcare/wjec"
+   },
+   {
+    "title": "Edexcel GCSE Japanese",
+    "subject": "japanese",
+    "board": "edexcel",
+    "href": "/gcse/japanese/edexcel"
+   },
+   {
+    "title": "Edexcel GCSE Persian",
+    "subject": "persian",
+    "board": "edexcel",
+    "href": "/gcse/persian/edexcel"
+   },
+   {
+    "title": "AQA GCSE Geography",
+    "subject": "geography",
+    "board": "aqa",
+    "href": "/gcse/geography/aqa"
+   },
+   {
+    "title": "Edexcel A GCSE Geography",
+    "subject": "geography",
+    "board": "edexcel",
+    "href": "/gcse/geography/edexcel/a"
+   },
+   {
+    "title": "Eduqas A GCSE Geography",
+    "subject": "geography",
+    "board": "eduqas",
+    "href": "/gcse/geography/eduqas/a"
+   },
+   {
+    "title": "OCR A GCSE Geography",
+    "subject": "geography",
+    "board": "ocr",
+    "href": "/gcse/geography/ocr/a"
+   },
+   {
+    "title": "Edexcel B GCSE Geography",
+    "subject": "geography",
+    "board": "edexcel",
+    "href": "/gcse/geography/edexcel/b"
+   },
+   {
+    "title": "Eduqas B GCSE Geography",
+    "subject": "geography",
+    "board": "eduqas",
+    "href": "/gcse/geography/eduqas/b"
+   },
+   {
+    "title": "OCR B GCSE Geography",
+    "subject": "geography",
+    "board": "ocr",
+    "href": "/gcse/geography/ocr/b"
+   },
+   {
+    "title": "WJEC GCSE Geography",
+    "subject": "geography",
+    "board": "wjec",
+    "href": "/gcse/geography/wjec"
+   },
+   {
+    "title": "Eduqas GCSE Geology",
+    "subject": "geology",
+    "board": "eduqas",
+    "href": "/gcse/geology/eduqas"
+   },
+   {
+    "title": "AQA GCSE History",
+    "subject": "history",
+    "board": "aqa",
+    "href": "/gcse/history/aqa"
+   },
+   {
+    "title": "Edexcel GCSE History",
+    "subject": "history",
+    "board": "edexcel",
+    "href": "/gcse/history/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE History",
+    "subject": "history",
+    "board": "eduqas",
+    "href": "/gcse/history/eduqas"
+   },
+   {
+    "title": "OCR GCSE History",
+    "subject": "history",
+    "board": "ocr",
+    "href": "/gcse/history/ocr"
+   },
+   {
+    "title": "WJEC GCSE History",
+    "subject": "history",
+    "board": "wjec",
+    "href": "/gcse/history/wjec"
+   },
+   {
+    "title": "WJEC GCSE ICT",
+    "subject": "ict",
+    "board": "wjec",
+    "href": "/gcse/ict/wjec"
+   },
+   {
+    "title": "AQA GCSE Italian",
+    "subject": "italian",
+    "board": "aqa",
+    "href": "/gcse/italian/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Italian",
+    "subject": "italian",
+    "board": "edexcel",
+    "href": "/gcse/italian/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE Latin",
+    "subject": "latin",
+    "board": "eduqas",
+    "href": "/gcse/latin/eduqas"
+   },
+   {
+    "title": "OCR GCSE Latin",
+    "subject": "latin",
+    "board": "ocr",
+    "href": "/gcse/latin/ocr"
+   },
+   {
+    "title": "AQA GCSE Maths",
+    "subject": "maths",
+    "board": "aqa",
+    "href": "/gcse/maths/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Maths",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE Maths",
+    "subject": "maths",
+    "board": "eduqas",
+    "href": "/gcse/maths/eduqas"
+   },
+   {
+    "title": "OCR GCSE Maths",
+    "subject": "maths",
+    "board": "ocr",
+    "href": "/gcse/maths/ocr"
+   },
+   {
+    "title": "WJEC GCSE Maths",
+    "subject": "maths",
+    "board": "wjec",
+    "href": "/gcse/maths/wjec"
+   },
+   {
+    "title": "CCEA GCSE Maths",
+    "subject": "maths",
+    "board": "ccea",
+    "href": "/gcse/maths/ccea"
+   },
+   {
+    "title": "WJEC GCSE Maths Numeracy",
+    "subject": "maths-numeracy",
+    "board": "wjec",
+    "href": "/gcse/maths-numeracy/wjec"
+   },
+   {
+    "title": "AQA GCSE Media Studies",
+    "subject": "media-studies",
+    "board": "aqa",
+    "href": "/gcse/media-studies/aqa"
+   },
+   {
+    "title": "Eduqas GCSE Media Studies",
+    "subject": "media-studies",
+    "board": "eduqas",
+    "href": "/gcse/media-studies/eduqas"
+   },
+   {
+    "title": "OCR GCSE Media Studies",
+    "subject": "media-studies",
+    "board": "ocr",
+    "href": "/gcse/media-studies/ocr"
+   },
+   {
+    "title": "WJEC GCSE Media Studies",
+    "subject": "media-studies",
+    "board": "wjec",
+    "href": "/gcse/media-studies/wjec"
+   },
+   {
+    "title": "AQA GCSE Modern Hebrew",
+    "subject": "modern-hebrew",
+    "board": "aqa",
+    "href": "/gcse/modern-hebrew/aqa"
+   },
+   {
+    "title": "AQA GCSE Music",
+    "subject": "music",
+    "board": "aqa",
+    "href": "/gcse/music/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Music",
+    "subject": "music",
+    "board": "edexcel",
+    "href": "/gcse/music/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE Music",
+    "subject": "music",
+    "board": "eduqas",
+    "href": "/gcse/music/eduqas"
+   },
+   {
+    "title": "OCR GCSE Music",
+    "subject": "music",
+    "board": "ocr",
+    "href": "/gcse/music/ocr"
+   },
+   {
+    "title": "WJEC GCSE Music",
+    "subject": "music",
+    "board": "wjec",
+    "href": "/gcse/music/wjec"
+   },
+   {
+    "title": "Edexcel GCSE Old Maths",
+    "subject": "old-maths",
+    "board": "edexcel",
+    "href": "/gcse/old-maths/edexcel"
+   },
+   {
+    "title": "AQA GCSE Panjabi",
+    "subject": "panjabi",
+    "board": "aqa",
+    "href": "/gcse/panjabi/aqa"
+   },
+   {
+    "title": "AQA GCSE Physical Education",
+    "subject": "physical-education",
+    "board": "aqa",
+    "href": "/gcse/physical-education/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Physical Education",
+    "subject": "physical-education",
+    "board": "edexcel",
+    "href": "/gcse/physical-education/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE Physical Education",
+    "subject": "physical-education",
+    "board": "eduqas",
+    "href": "/gcse/physical-education/eduqas"
+   },
+   {
+    "title": "OCR GCSE Physical Education",
+    "subject": "physical-education",
+    "board": "ocr",
+    "href": "/gcse/physical-education/ocr"
+   },
+   {
+    "title": "WJEC GCSE Physical Education",
+    "subject": "physical-education",
+    "board": "wjec",
+    "href": "/gcse/physical-education/wjec"
+   },
+   {
+    "title": "AQA GCSE Physics",
+    "subject": "physics",
+    "board": "aqa",
+    "href": "/gcse/physics/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Physics",
+    "subject": "physics",
+    "board": "edexcel",
+    "href": "/gcse/physics/edexcel"
+   },
+   {
+    "title": "OCR GCSE Physics",
+    "subject": "physics",
+    "board": "ocr",
+    "href": "/gcse/physics/ocr"
+   },
+   {
+    "title": "OCR Twenty First Century GCSE Physics",
+    "subject": "physics",
+    "board": "ocr",
+    "href": "/gcse/physics/ocr/twenty-first-century"
+   },
+   {
+    "title": "WJEC GCSE Physics",
+    "subject": "physics",
+    "board": "wjec",
+    "href": "/gcse/physics/wjec"
+   },
+   {
+    "title": "CCEA GCSE Physics",
+    "subject": "physics",
+    "board": "ccea",
+    "href": "/gcse/physics/ccea"
+   },
+   {
+    "title": "AQA GCSE Polish",
+    "subject": "polish",
+    "board": "aqa",
+    "href": "/gcse/polish/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Portuguese",
+    "subject": "portuguese",
+    "board": "edexcel",
+    "href": "/gcse/portuguese/edexcel"
+   },
+   {
+    "title": "AQA GCSE Psychology",
+    "subject": "psychology",
+    "board": "aqa",
+    "href": "/gcse/psychology/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Psychology",
+    "subject": "psychology",
+    "board": "edexcel",
+    "href": "/gcse/psychology/edexcel"
+   },
+   {
+    "title": "OCR GCSE Psychology",
+    "subject": "psychology",
+    "board": "ocr",
+    "href": "/gcse/psychology/ocr"
+   },
+   {
+    "title": "Eduqas GCSE Religious Studies",
+    "subject": "religious-studies",
+    "board": "eduqas",
+    "href": "/gcse/religious-studies/eduqas"
+   },
+   {
+    "title": "OCR GCSE Religious Studies",
+    "subject": "religious-studies",
+    "board": "ocr",
+    "href": "/gcse/religious-studies/ocr"
+   },
+   {
+    "title": "AQA A GCSE Religious Studies",
+    "subject": "religious-studies",
+    "board": "aqa",
+    "href": "/gcse/religious-studies/aqa/a"
+   },
+   {
+    "title": "Edexcel A GCSE Religious Studies",
+    "subject": "religious-studies",
+    "board": "edexcel",
+    "href": "/gcse/religious-studies/edexcel/a"
+   },
+   {
+    "title": "AQA B GCSE Religious Studies",
+    "subject": "religious-studies",
+    "board": "aqa",
+    "href": "/gcse/religious-studies/aqa/b"
+   },
+   {
+    "title": "Edexcel B GCSE Religious Studies",
+    "subject": "religious-studies",
+    "board": "edexcel",
+    "href": "/gcse/religious-studies/edexcel/b"
+   },
+   {
+    "title": "AQA Short Course GCSE Religious Studies",
+    "subject": "religious-studies",
+    "board": "aqa",
+    "href": "/gcse/religious-studies/aqa/short-course"
+   },
+   {
+    "title": "WJEC GCSE Religious Studies",
+    "subject": "religious-studies",
+    "board": "wjec",
+    "href": "/gcse/religious-studies/wjec"
+   },
+   {
+    "title": "Edexcel GCSE Russian",
+    "subject": "russian",
+    "board": "edexcel",
+    "href": "/gcse/russian/edexcel"
+   },
+   {
+    "title": "AQA GCSE Sociology",
+    "subject": "sociology",
+    "board": "aqa",
+    "href": "/gcse/sociology/aqa"
+   },
+   {
+    "title": "Eduqas GCSE Sociology",
+    "subject": "sociology",
+    "board": "eduqas",
+    "href": "/gcse/sociology/eduqas"
+   },
+   {
+    "title": "AQA GCSE Spanish",
+    "subject": "spanish",
+    "board": "aqa",
+    "href": "/gcse/spanish/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Spanish",
+    "subject": "spanish",
+    "board": "edexcel",
+    "href": "/gcse/spanish/edexcel"
+   },
+   {
+    "title": "Eduqas GCSE Spanish",
+    "subject": "spanish",
+    "board": "eduqas",
+    "href": "/gcse/spanish/eduqas"
+   },
+   {
+    "title": "WJEC GCSE Spanish",
+    "subject": "spanish",
+    "board": "wjec",
+    "href": "/gcse/spanish/wjec"
+   },
+   {
+    "title": "AQA GCSE Statistics",
+    "subject": "statistics",
+    "board": "aqa",
+    "href": "/gcse/statistics/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Statistics",
+    "subject": "statistics",
+    "board": "edexcel",
+    "href": "/gcse/statistics/edexcel"
+   },
+   {
+    "title": "CCEA GCSE Statistics",
+    "subject": "statistics",
+    "board": "ccea",
+    "href": "/gcse/statistics/ccea"
+   },
+   {
+    "title": "Edexcel GCSE Turkish",
+    "subject": "turkish",
+    "board": "edexcel",
+    "href": "/gcse/turkish/edexcel"
+   },
+   {
+    "title": "AQA GCSE Urdu",
+    "subject": "urdu",
+    "board": "aqa",
+    "href": "/gcse/urdu/aqa"
+   },
+   {
+    "title": "Edexcel GCSE Urdu",
+    "subject": "urdu",
+    "board": "edexcel",
+    "href": "/gcse/urdu/edexcel"
+   },
+   {
+    "title": "WJEC GCSE Welsh",
+    "subject": "welsh",
+    "board": "wjec",
+    "href": "/gcse/welsh/wjec"
+   },
+   {
+    "title": "Addition and Subtraction",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-1-addition-and-subtraction/booklet"
+   },
+   {
+    "title": "Multiplication and Division",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-2-multiplication-and-division/booklet"
+   },
+   {
+    "title": "Time",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-3-time/booklet"
+   },
+   {
+    "title": "Metric Conversions",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-4-metric-conversions/booklet"
+   },
+   {
+    "title": "Writing, Simplifying and Ordering Fractions",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-5-writing-simplifying-and-ordering-fractions/booklet"
+   },
+   {
+    "title": "Place Value",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-6-place-value/booklet"
+   },
+   {
+    "title": "Rounding",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-7-rounding/booklet"
+   },
+   {
+    "title": "Negative Numbers",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-8-negative-numbers/booklet"
+   },
+   {
+    "title": "Powers and Roots",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-9-powers-and-roots/booklet"
+   },
+   {
+    "title": "BIDMAS",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-10-bidmas/booklet"
+   },
+   {
+    "title": "Factors and Multiples",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-11-factors-and-multiples/booklet"
+   },
+   {
+    "title": "Coordinates",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-12-coordinates/booklet"
+   },
+   {
+    "title": "Pictograms",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/grade-1-1-13-pictograms/booklet"
+   },
+   {
+    "title": "Explore revision guides",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/revision-guides"
+   },
+   {
+    "title": "Explore Question Bank",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/questions"
+   },
+   {
+    "title": "Learn more",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/predicted-grade-calculator"
+   },
+   {
+    "title": "GCSE past papers",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/papers"
+   },
+   {
+    "title": "GCSE question bank",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/questions"
+   },
+   {
+    "title": "GCSE worksheets",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/worksheets"
+   },
+   {
+    "title": "GCSE revision guides",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/revision-guides"
+   },
+   {
+    "title": "GCSE lessons",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/lessons"
+   },
+   {
+    "title": "Literary Hub",
+    "subject": "english-literature",
+    "board": "aqa",
+    "href": "/gcse/english-literature/aqa/literary-hub"
+   },
+   {
+    "title": "Free maths course",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/gcse/maths/edexcel/scheme-of-learning"
+   }
+  ],
+  "igcse": [
+   {
+    "title": "Edexcel IGCSE Accounting",
+    "subject": "accounting",
+    "board": "edexcel",
+    "href": "/igcse/accounting/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Accounting",
+    "subject": "accounting",
+    "board": "cie",
+    "href": "/igcse/accounting/cie"
+   },
+   {
+    "title": "CIE IGCSE Agriculture",
+    "subject": "agriculture",
+    "board": "cie",
+    "href": "/igcse/agriculture/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Arabic",
+    "subject": "arabic",
+    "board": "edexcel",
+    "href": "/igcse/arabic/edexcel"
+   },
+   {
+    "title": "Edexcel IGCSE Art and Design",
+    "subject": "art-and-design",
+    "board": "edexcel",
+    "href": "/igcse/art-and-design/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Art and Design",
+    "subject": "art-and-design",
+    "board": "cie",
+    "href": "/igcse/art-and-design/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Biology",
+    "subject": "biology",
+    "board": "edexcel",
+    "href": "/igcse/biology/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Biology",
+    "subject": "biology",
+    "board": "cie",
+    "href": "/igcse/biology/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE Biology",
+    "subject": "biology",
+    "board": "oxford-aqa",
+    "href": "/igcse/biology/oxford-aqa"
+   },
+   {
+    "title": "Edexcel IGCSE Business",
+    "subject": "business",
+    "board": "edexcel",
+    "href": "/igcse/business/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Business",
+    "subject": "business",
+    "board": "cie",
+    "href": "/igcse/business/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE Business",
+    "subject": "business",
+    "board": "oxford-aqa",
+    "href": "/igcse/business/oxford-aqa"
+   },
+   {
+    "title": "Edexcel IGCSE Chemistry",
+    "subject": "chemistry",
+    "board": "edexcel",
+    "href": "/igcse/chemistry/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Chemistry",
+    "subject": "chemistry",
+    "board": "cie",
+    "href": "/igcse/chemistry/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE Chemistry",
+    "subject": "chemistry",
+    "board": "oxford-aqa",
+    "href": "/igcse/chemistry/oxford-aqa"
+   },
+   {
+    "title": "Edexcel IGCSE Chinese",
+    "subject": "chinese",
+    "board": "edexcel",
+    "href": "/igcse/chinese/edexcel"
+   },
+   {
+    "title": "Edexcel IGCSE Citizenship Studies",
+    "subject": "citizenship-studies",
+    "board": "edexcel",
+    "href": "/igcse/citizenship-studies/edexcel"
+   },
+   {
+    "title": "Edexcel IGCSE Combined Science",
+    "subject": "science",
+    "board": "edexcel",
+    "href": "/igcse/science/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Combined Science",
+    "subject": "science",
+    "board": "cie",
+    "href": "/igcse/science/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE Combined Science",
+    "subject": "science",
+    "board": "oxford-aqa",
+    "href": "/igcse/science/oxford-aqa"
+   },
+   {
+    "title": "Edexcel IGCSE Computer Science",
+    "subject": "computer-science",
+    "board": "edexcel",
+    "href": "/igcse/computer-science/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Computer Science",
+    "subject": "computer-science",
+    "board": "cie",
+    "href": "/igcse/computer-science/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE Computer Science",
+    "subject": "computer-science",
+    "board": "oxford-aqa",
+    "href": "/igcse/computer-science/oxford-aqa"
+   },
+   {
+    "title": "CIE IGCSE Design and Technology",
+    "subject": "design-and-technology",
+    "board": "cie",
+    "href": "/igcse/design-and-technology/cie"
+   },
+   {
+    "title": "CIE IGCSE Drama",
+    "subject": "drama",
+    "board": "cie",
+    "href": "/igcse/drama/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Economics",
+    "subject": "economics",
+    "board": "edexcel",
+    "href": "/igcse/economics/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Economics",
+    "subject": "economics",
+    "board": "cie",
+    "href": "/igcse/economics/cie"
+   },
+   {
+    "title": "Edexcel IGCSE English as a Second Language",
+    "subject": "english",
+    "board": "edexcel",
+    "href": "/igcse/english/edexcel"
+   },
+   {
+    "title": "CIE IGCSE English as a Second Language",
+    "subject": "english",
+    "board": "cie",
+    "href": "/igcse/english/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE English as a Second Language",
+    "subject": "english",
+    "board": "oxford-aqa",
+    "href": "/igcse/english/oxford-aqa"
+   },
+   {
+    "title": "Edexcel A IGCSE English Language",
+    "subject": "english-language",
+    "board": "edexcel",
+    "href": "/igcse/english-language/edexcel/a"
+   },
+   {
+    "title": "Edexcel B IGCSE English Language",
+    "subject": "english-language",
+    "board": "edexcel",
+    "href": "/igcse/english-language/edexcel/b"
+   },
+   {
+    "title": "CIE IGCSE English Language",
+    "subject": "english-language",
+    "board": "cie",
+    "href": "/igcse/english-language/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE English Language",
+    "subject": "english-language",
+    "board": "oxford-aqa",
+    "href": "/igcse/english-language/oxford-aqa"
+   },
+   {
+    "title": "Edexcel IGCSE English Literature",
+    "subject": "english-literature",
+    "board": "edexcel",
+    "href": "/igcse/english-literature/edexcel"
+   },
+   {
+    "title": "CIE IGCSE English Literature",
+    "subject": "english-literature",
+    "board": "cie",
+    "href": "/igcse/english-literature/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE English Literature",
+    "subject": "english-literature",
+    "board": "oxford-aqa",
+    "href": "/igcse/english-literature/oxford-aqa"
+   },
+   {
+    "title": "CIE IGCSE Enterprise",
+    "subject": "enterprise",
+    "board": "cie",
+    "href": "/igcse/enterprise/cie"
+   },
+   {
+    "title": "CIE IGCSE Environmental Management",
+    "subject": "environmental-management",
+    "board": "cie",
+    "href": "/igcse/environmental-management/cie"
+   },
+   {
+    "title": "CIE IGCSE Food and Nutrition",
+    "subject": "food-and-nutrition",
+    "board": "cie",
+    "href": "/igcse/food-and-nutrition/cie"
+   },
+   {
+    "title": "Edexcel IGCSE French",
+    "subject": "french",
+    "board": "edexcel",
+    "href": "/igcse/french/edexcel"
+   },
+   {
+    "title": "CIE IGCSE French",
+    "subject": "french",
+    "board": "cie",
+    "href": "/igcse/french/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Further Maths",
+    "subject": "further-maths",
+    "board": "edexcel",
+    "href": "/igcse/further-maths/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Further Maths",
+    "subject": "further-maths",
+    "board": "cie",
+    "href": "/igcse/further-maths/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Geography",
+    "subject": "geography",
+    "board": "edexcel",
+    "href": "/igcse/geography/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Geography",
+    "subject": "geography",
+    "board": "cie",
+    "href": "/igcse/geography/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE Geography",
+    "subject": "geography",
+    "board": "oxford-aqa",
+    "href": "/igcse/geography/oxford-aqa"
+   },
+   {
+    "title": "Edexcel IGCSE German",
+    "subject": "german",
+    "board": "edexcel",
+    "href": "/igcse/german/edexcel"
+   },
+   {
+    "title": "CIE IGCSE German",
+    "subject": "german",
+    "board": "cie",
+    "href": "/igcse/german/cie"
+   },
+   {
+    "title": "Edexcel IGCSE History",
+    "subject": "history",
+    "board": "edexcel",
+    "href": "/igcse/history/edexcel"
+   },
+   {
+    "title": "CIE IGCSE History",
+    "subject": "history",
+    "board": "cie",
+    "href": "/igcse/history/cie"
+   },
+   {
+    "title": "Edexcel IGCSE ICT",
+    "subject": "ict",
+    "board": "edexcel",
+    "href": "/igcse/ict/edexcel"
+   },
+   {
+    "title": "CIE IGCSE ICT",
+    "subject": "ict",
+    "board": "cie",
+    "href": "/igcse/ict/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Bangla",
+    "subject": "bangla",
+    "board": "edexcel",
+    "href": "/igcse/bangla/edexcel"
+   },
+   {
+    "title": "Edexcel IGCSE Bangladesh Studies",
+    "subject": "bangladesh-studies",
+    "board": "edexcel",
+    "href": "/igcse/bangladesh-studies/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Combined Science",
+    "subject": "combined-science",
+    "board": "cie",
+    "href": "/igcse/combined-science/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Commerce",
+    "subject": "commerce",
+    "board": "edexcel",
+    "href": "/igcse/commerce/edexcel"
+   },
+   {
+    "title": "Edexcel IGCSE Global Citizenship",
+    "subject": "global-citizenship",
+    "board": "edexcel",
+    "href": "/igcse/global-citizenship/edexcel"
+   },
+   {
+    "title": "Edexcel IGCSE Greek",
+    "subject": "greek",
+    "board": "edexcel",
+    "href": "/igcse/greek/edexcel"
+   },
+   {
+    "title": "Edexcel IGCSE Human Biology",
+    "subject": "human-biology",
+    "board": "edexcel",
+    "href": "/igcse/human-biology/edexcel"
+   },
+   {
+    "title": "CIE IGCSE International Maths",
+    "subject": "international-maths",
+    "board": "cie",
+    "href": "/igcse/international-maths/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Islamic Studies",
+    "subject": "islamic-studies",
+    "board": "edexcel",
+    "href": "/igcse/islamic-studies/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Italian",
+    "subject": "italian",
+    "board": "cie",
+    "href": "/igcse/italian/cie"
+   },
+   {
+    "title": "CIE IGCSE Latin",
+    "subject": "latin",
+    "board": "cie",
+    "href": "/igcse/latin/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Pakistan Studies",
+    "subject": "pakistan-studies",
+    "board": "edexcel",
+    "href": "/igcse/pakistan-studies/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Pakistan Studies",
+    "subject": "pakistan-studies",
+    "board": "cie",
+    "href": "/igcse/pakistan-studies/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Sinhala",
+    "subject": "sinhala",
+    "board": "edexcel",
+    "href": "/igcse/sinhala/edexcel"
+   },
+   {
+    "title": "Edexcel IGCSE Swahili",
+    "subject": "swahili",
+    "board": "edexcel",
+    "href": "/igcse/swahili/edexcel"
+   },
+   {
+    "title": "Edexcel IGCSE Tamil",
+    "subject": "tamil",
+    "board": "edexcel",
+    "href": "/igcse/tamil/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Islamiyat",
+    "subject": "islamiyat",
+    "board": "cie",
+    "href": "/igcse/islamiyat/cie"
+   },
+   {
+    "title": "CIE IGCSE Marine Science",
+    "subject": "marine-science",
+    "board": "cie",
+    "href": "/igcse/marine-science/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Maths",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/igcse/maths/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Maths",
+    "subject": "maths",
+    "board": "cie",
+    "href": "/igcse/maths/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE Maths",
+    "subject": "maths",
+    "board": "oxford-aqa",
+    "href": "/igcse/maths/oxford-aqa"
+   },
+   {
+    "title": "CIE IGCSE Music",
+    "subject": "music",
+    "board": "cie",
+    "href": "/igcse/music/cie"
+   },
+   {
+    "title": "CIE IGCSE Physical Education",
+    "subject": "physical-education",
+    "board": "cie",
+    "href": "/igcse/physical-education/cie"
+   },
+   {
+    "title": "CIE IGCSE Physical Science",
+    "subject": "physical-science",
+    "board": "cie",
+    "href": "/igcse/physical-science/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Physics",
+    "subject": "physics",
+    "board": "edexcel",
+    "href": "/igcse/physics/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Physics",
+    "subject": "physics",
+    "board": "cie",
+    "href": "/igcse/physics/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE Physics",
+    "subject": "physics",
+    "board": "oxford-aqa",
+    "href": "/igcse/physics/oxford-aqa"
+   },
+   {
+    "title": "CIE IGCSE Psychology",
+    "subject": "psychology",
+    "board": "cie",
+    "href": "/igcse/psychology/cie"
+   },
+   {
+    "title": "Oxford AQA IGCSE Psychology",
+    "subject": "psychology",
+    "board": "oxford-aqa",
+    "href": "/igcse/psychology/oxford-aqa"
+   },
+   {
+    "title": "Edexcel IGCSE Religious Studies",
+    "subject": "religious-studies",
+    "board": "edexcel",
+    "href": "/igcse/religious-studies/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Religious Studies",
+    "subject": "religious-studies",
+    "board": "cie",
+    "href": "/igcse/religious-studies/cie"
+   },
+   {
+    "title": "CIE IGCSE Sciences (Co-ordinated, Double)",
+    "subject": "sciences-co-ordinated-double",
+    "board": "cie",
+    "href": "/igcse/sciences-co-ordinated-double/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Social Studies",
+    "subject": "social-studies",
+    "board": "edexcel",
+    "href": "/igcse/social-studies/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Sociology 2028-2030",
+    "subject": "sociology-2028-2030",
+    "board": "cie",
+    "href": "/igcse/sociology-2028-2030/cie"
+   },
+   {
+    "title": "Edexcel IGCSE Spanish",
+    "subject": "spanish",
+    "board": "edexcel",
+    "href": "/igcse/spanish/edexcel"
+   },
+   {
+    "title": "CIE IGCSE Spanish",
+    "subject": "spanish",
+    "board": "cie",
+    "href": "/igcse/spanish/cie"
+   },
+   {
+    "title": "CIE IGCSE Statistics",
+    "subject": "statistics",
+    "board": "cie",
+    "href": "/igcse/statistics/cie"
+   },
+   {
+    "title": "CIE IGCSE World Literature",
+    "subject": "world-literature",
+    "board": "cie",
+    "href": "/igcse/world-literature/cie"
+   }
+  ],
+  "a-level": [
+   {
+    "title": "AQA A Level Accounting",
+    "subject": "accounting",
+    "board": "aqa",
+    "href": "/a-level/accounting/aqa"
+   },
+   {
+    "title": "OCR A Level Ancient History",
+    "subject": "ancient-history",
+    "board": "ocr",
+    "href": "/a-level/ancient-history/ocr"
+   },
+   {
+    "title": "Edexcel A Level Arabic",
+    "subject": "arabic",
+    "board": "edexcel",
+    "href": "/a-level/arabic/edexcel"
+   },
+   {
+    "title": "AQA A Level Art and Design",
+    "subject": "art-and-design",
+    "board": "aqa",
+    "href": "/a-level/art-and-design/aqa"
+   },
+   {
+    "title": "Edexcel A Level Art and Design",
+    "subject": "art-and-design",
+    "board": "edexcel",
+    "href": "/a-level/art-and-design/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Art and Design",
+    "subject": "art-and-design",
+    "board": "eduqas",
+    "href": "/a-level/art-and-design/eduqas"
+   },
+   {
+    "title": "OCR A Level Art and Design",
+    "subject": "art-and-design",
+    "board": "ocr",
+    "href": "/a-level/art-and-design/ocr"
+   },
+   {
+    "title": "WJEC A Level Art and Design",
+    "subject": "art-and-design",
+    "board": "wjec",
+    "href": "/a-level/art-and-design/wjec"
+   },
+   {
+    "title": "AQA A Level Bengali",
+    "subject": "bengali",
+    "board": "aqa",
+    "href": "/a-level/bengali/aqa"
+   },
+   {
+    "title": "AQA A Level Biblical Hebrew",
+    "subject": "biblical-hebrew",
+    "board": "aqa",
+    "href": "/a-level/biblical-hebrew/aqa"
+   },
+   {
+    "title": "AQA A Level Biology",
+    "subject": "biology",
+    "board": "aqa",
+    "href": "/a-level/biology/aqa"
+   },
+   {
+    "title": "Eduqas A Level Biology",
+    "subject": "biology",
+    "board": "eduqas",
+    "href": "/a-level/biology/eduqas"
+   },
+   {
+    "title": "Edexcel A A Level Biology",
+    "subject": "biology",
+    "board": "edexcel",
+    "href": "/a-level/biology/edexcel/a"
+   },
+   {
+    "title": "OCR A A Level Biology",
+    "subject": "biology",
+    "board": "ocr",
+    "href": "/a-level/biology/ocr/a"
+   },
+   {
+    "title": "Edexcel B A Level Biology",
+    "subject": "biology",
+    "board": "edexcel",
+    "href": "/a-level/biology/edexcel/b"
+   },
+   {
+    "title": "OCR B A Level Biology",
+    "subject": "biology",
+    "board": "ocr",
+    "href": "/a-level/biology/ocr/b"
+   },
+   {
+    "title": "WJEC A Level Biology",
+    "subject": "biology",
+    "board": "wjec",
+    "href": "/a-level/biology/wjec"
+   },
+   {
+    "title": "CCEA A Level Biology",
+    "subject": "biology",
+    "board": "ccea",
+    "href": "/a-level/biology/ccea"
+   },
+   {
+    "title": "AQA A Level Business",
+    "subject": "business",
+    "board": "aqa",
+    "href": "/a-level/business/aqa"
+   },
+   {
+    "title": "Edexcel A Level Business",
+    "subject": "business",
+    "board": "edexcel",
+    "href": "/a-level/business/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Business",
+    "subject": "business",
+    "board": "eduqas",
+    "href": "/a-level/business/eduqas"
+   },
+   {
+    "title": "OCR A Level Business",
+    "subject": "business",
+    "board": "ocr",
+    "href": "/a-level/business/ocr"
+   },
+   {
+    "title": "WJEC A Level Business",
+    "subject": "business",
+    "board": "wjec",
+    "href": "/a-level/business/wjec"
+   },
+   {
+    "title": "AQA A Level Chemistry",
+    "subject": "chemistry",
+    "board": "aqa",
+    "href": "/a-level/chemistry/aqa"
+   },
+   {
+    "title": "Edexcel A Level Chemistry",
+    "subject": "chemistry",
+    "board": "edexcel",
+    "href": "/a-level/chemistry/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Chemistry",
+    "subject": "chemistry",
+    "board": "eduqas",
+    "href": "/a-level/chemistry/eduqas"
+   },
+   {
+    "title": "OCR A A Level Chemistry",
+    "subject": "chemistry",
+    "board": "ocr",
+    "href": "/a-level/chemistry/ocr/a"
+   },
+   {
+    "title": "OCR B A Level Chemistry",
+    "subject": "chemistry",
+    "board": "ocr",
+    "href": "/a-level/chemistry/ocr/b"
+   },
+   {
+    "title": "WJEC A Level Chemistry",
+    "subject": "chemistry",
+    "board": "wjec",
+    "href": "/a-level/chemistry/wjec"
+   },
+   {
+    "title": "Edexcel A Level Chinese",
+    "subject": "chinese",
+    "board": "edexcel",
+    "href": "/a-level/chinese/edexcel"
+   },
+   {
+    "title": "OCR A Level Classical Civilisation",
+    "subject": "classical-civilisation",
+    "board": "ocr",
+    "href": "/a-level/classical-civilisation/ocr"
+   },
+   {
+    "title": "OCR A Level Classical Greek",
+    "subject": "classical-greek",
+    "board": "ocr",
+    "href": "/a-level/classical-greek/ocr"
+   },
+   {
+    "title": "AQA A Level Computer Science",
+    "subject": "computer-science",
+    "board": "aqa",
+    "href": "/a-level/computer-science/aqa"
+   },
+   {
+    "title": "Eduqas A Level Computer Science",
+    "subject": "computer-science",
+    "board": "eduqas",
+    "href": "/a-level/computer-science/eduqas"
+   },
+   {
+    "title": "OCR A Level Computer Science",
+    "subject": "computer-science",
+    "board": "ocr",
+    "href": "/a-level/computer-science/ocr"
+   },
+   {
+    "title": "AQA A Level Dance",
+    "subject": "dance",
+    "board": "aqa",
+    "href": "/a-level/dance/aqa"
+   },
+   {
+    "title": "AQA A Level Design and Technology",
+    "subject": "design-and-technology",
+    "board": "aqa",
+    "href": "/a-level/design-and-technology/aqa"
+   },
+   {
+    "title": "Edexcel A Level Design and Technology",
+    "subject": "design-and-technology",
+    "board": "edexcel",
+    "href": "/a-level/design-and-technology/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Design and Technology",
+    "subject": "design-and-technology",
+    "board": "eduqas",
+    "href": "/a-level/design-and-technology/eduqas"
+   },
+   {
+    "title": "OCR A Level Design and Technology",
+    "subject": "design-and-technology",
+    "board": "ocr",
+    "href": "/a-level/design-and-technology/ocr"
+   },
+   {
+    "title": "WJEC A Level Design and Technology",
+    "subject": "design-and-technology",
+    "board": "wjec",
+    "href": "/a-level/design-and-technology/wjec"
+   },
+   {
+    "title": "WJEC A Level Digital Technology",
+    "subject": "digital-technology",
+    "board": "wjec",
+    "href": "/a-level/digital-technology/wjec"
+   },
+   {
+    "title": "AQA A Level Drama",
+    "subject": "drama",
+    "board": "aqa",
+    "href": "/a-level/drama/aqa"
+   },
+   {
+    "title": "Edexcel A Level Drama",
+    "subject": "drama",
+    "board": "edexcel",
+    "href": "/a-level/drama/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Drama",
+    "subject": "drama",
+    "board": "eduqas",
+    "href": "/a-level/drama/eduqas"
+   },
+   {
+    "title": "OCR A Level Drama",
+    "subject": "drama",
+    "board": "ocr",
+    "href": "/a-level/drama/ocr"
+   },
+   {
+    "title": "WJEC A Level Drama",
+    "subject": "drama",
+    "board": "wjec",
+    "href": "/a-level/drama/wjec"
+   },
+   {
+    "title": "AQA A Level Economics",
+    "subject": "economics",
+    "board": "aqa",
+    "href": "/a-level/economics/aqa"
+   },
+   {
+    "title": "Eduqas A Level Economics",
+    "subject": "economics",
+    "board": "eduqas",
+    "href": "/a-level/economics/eduqas"
+   },
+   {
+    "title": "OCR A Level Economics",
+    "subject": "economics",
+    "board": "ocr",
+    "href": "/a-level/economics/ocr"
+   },
+   {
+    "title": "Edexcel A A Level Economics",
+    "subject": "economics",
+    "board": "edexcel",
+    "href": "/a-level/economics/edexcel/a"
+   },
+   {
+    "title": "Edexcel B A Level Economics",
+    "subject": "economics",
+    "board": "edexcel",
+    "href": "/a-level/economics/edexcel/b"
+   },
+   {
+    "title": "WJEC A Level Economics",
+    "subject": "economics",
+    "board": "wjec",
+    "href": "/a-level/economics/wjec"
+   },
+   {
+    "title": "Eduqas A Level Electronics",
+    "subject": "electronics",
+    "board": "eduqas",
+    "href": "/a-level/electronics/eduqas"
+   },
+   {
+    "title": "Eduqas A Level English",
+    "subject": "english",
+    "board": "eduqas",
+    "href": "/a-level/english/eduqas"
+   },
+   {
+    "title": "AQA A Level English Language",
+    "subject": "english-language",
+    "board": "aqa",
+    "href": "/a-level/english-language/aqa"
+   },
+   {
+    "title": "Edexcel A Level English Language",
+    "subject": "english-language",
+    "board": "edexcel",
+    "href": "/a-level/english-language/edexcel"
+   },
+   {
+    "title": "Eduqas A Level English Language",
+    "subject": "english-language",
+    "board": "eduqas",
+    "href": "/a-level/english-language/eduqas"
+   },
+   {
+    "title": "OCR A Level English Language",
+    "subject": "english-language",
+    "board": "ocr",
+    "href": "/a-level/english-language/ocr"
+   },
+   {
+    "title": "WJEC A Level English Language",
+    "subject": "english-language",
+    "board": "wjec",
+    "href": "/a-level/english-language/wjec"
+   },
+   {
+    "title": "AQA A Level English Language and Literature",
+    "subject": "english-language-and-literature",
+    "board": "aqa",
+    "href": "/a-level/english-language-and-literature/aqa"
+   },
+   {
+    "title": "Edexcel A Level English Language and Literature",
+    "subject": "english-language-and-literature",
+    "board": "edexcel",
+    "href": "/a-level/english-language-and-literature/edexcel"
+   },
+   {
+    "title": "Eduqas A Level English Language and Literature",
+    "subject": "english-language-and-literature",
+    "board": "eduqas",
+    "href": "/a-level/english-language-and-literature/eduqas"
+   },
+   {
+    "title": "OCR A Level English Language and Literature",
+    "subject": "english-language-and-literature",
+    "board": "ocr",
+    "href": "/a-level/english-language-and-literature/ocr"
+   },
+   {
+    "title": "WJEC A Level English Language and Literature",
+    "subject": "english-language-and-literature",
+    "board": "wjec",
+    "href": "/a-level/english-language-and-literature/wjec"
+   },
+   {
+    "title": "Edexcel A Level English Literature",
+    "subject": "english-literature",
+    "board": "edexcel",
+    "href": "/a-level/english-literature/edexcel"
+   },
+   {
+    "title": "Eduqas A Level English Literature",
+    "subject": "english-literature",
+    "board": "eduqas",
+    "href": "/a-level/english-literature/eduqas"
+   },
+   {
+    "title": "OCR A Level English Literature",
+    "subject": "english-literature",
+    "board": "ocr",
+    "href": "/a-level/english-literature/ocr"
+   },
+   {
+    "title": "AQA A A Level English Literature",
+    "subject": "english-literature",
+    "board": "aqa",
+    "href": "/a-level/english-literature/aqa/a"
+   },
+   {
+    "title": "AQA B A Level English Literature",
+    "subject": "english-literature",
+    "board": "aqa",
+    "href": "/a-level/english-literature/aqa/b"
+   },
+   {
+    "title": "WJEC A Level English Literature",
+    "subject": "english-literature",
+    "board": "wjec",
+    "href": "/a-level/english-literature/wjec"
+   },
+   {
+    "title": "AQA A Level Environmental Science",
+    "subject": "environmental-science",
+    "board": "aqa",
+    "href": "/a-level/environmental-science/aqa"
+   },
+   {
+    "title": "Eduqas A Level Film Studies",
+    "subject": "film-studies",
+    "board": "eduqas",
+    "href": "/a-level/film-studies/eduqas"
+   },
+   {
+    "title": "OCR A Level Film Studies",
+    "subject": "film-studies",
+    "board": "ocr",
+    "href": "/a-level/film-studies/ocr"
+   },
+   {
+    "title": "AQA A Level French",
+    "subject": "french",
+    "board": "aqa",
+    "href": "/a-level/french/aqa"
+   },
+   {
+    "title": "Edexcel A Level French",
+    "subject": "french",
+    "board": "edexcel",
+    "href": "/a-level/french/edexcel"
+   },
+   {
+    "title": "Eduqas A Level French",
+    "subject": "french",
+    "board": "eduqas",
+    "href": "/a-level/french/eduqas"
+   },
+   {
+    "title": "WJEC A Level French",
+    "subject": "french",
+    "board": "wjec",
+    "href": "/a-level/french/wjec"
+   },
+   {
+    "title": "AQA A Level Further Maths",
+    "subject": "further-maths",
+    "board": "aqa",
+    "href": "/a-level/further-maths/aqa"
+   },
+   {
+    "title": "Edexcel A Level Further Maths",
+    "subject": "further-maths",
+    "board": "edexcel",
+    "href": "/a-level/further-maths/edexcel"
+   },
+   {
+    "title": "OCR A Level Further Maths",
+    "subject": "further-maths",
+    "board": "ocr",
+    "href": "/a-level/further-maths/ocr"
+   },
+   {
+    "title": "OCR (MEI) A Level Further Maths",
+    "subject": "further-maths",
+    "board": "ocr",
+    "href": "/a-level/further-maths/ocr/mei"
+   },
+   {
+    "title": "WJEC A Level Further Maths",
+    "subject": "further-maths",
+    "board": "wjec",
+    "href": "/a-level/further-maths/wjec"
+   },
+   {
+    "title": "CCEA A Level Further Maths",
+    "subject": "further-maths",
+    "board": "ccea",
+    "href": "/a-level/further-maths/ccea"
+   },
+   {
+    "title": "AQA A Level Geography",
+    "subject": "geography",
+    "board": "aqa",
+    "href": "/a-level/geography/aqa"
+   },
+   {
+    "title": "Edexcel A Level Geography",
+    "subject": "geography",
+    "board": "edexcel",
+    "href": "/a-level/geography/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Geography",
+    "subject": "geography",
+    "board": "eduqas",
+    "href": "/a-level/geography/eduqas"
+   },
+   {
+    "title": "OCR A Level Geography",
+    "subject": "geography",
+    "board": "ocr",
+    "href": "/a-level/geography/ocr"
+   },
+   {
+    "title": "WJEC A Level Geography",
+    "subject": "geography",
+    "board": "wjec",
+    "href": "/a-level/geography/wjec"
+   },
+   {
+    "title": "Eduqas A Level Geology",
+    "subject": "geology",
+    "board": "eduqas",
+    "href": "/a-level/geology/eduqas"
+   },
+   {
+    "title": "OCR A Level Geology",
+    "subject": "geology",
+    "board": "ocr",
+    "href": "/a-level/geology/ocr"
+   },
+   {
+    "title": "AQA A Level German",
+    "subject": "german",
+    "board": "aqa",
+    "href": "/a-level/german/aqa"
+   },
+   {
+    "title": "Edexcel A Level German",
+    "subject": "german",
+    "board": "edexcel",
+    "href": "/a-level/german/edexcel"
+   },
+   {
+    "title": "Eduqas A Level German",
+    "subject": "german",
+    "board": "eduqas",
+    "href": "/a-level/german/eduqas"
+   },
+   {
+    "title": "WJEC A Level German",
+    "subject": "german",
+    "board": "wjec",
+    "href": "/a-level/german/wjec"
+   },
+   {
+    "title": "Edexcel A Level Greek",
+    "subject": "greek",
+    "board": "edexcel",
+    "href": "/a-level/greek/edexcel"
+   },
+   {
+    "title": "WJEC A Level Health and Social Care and Childcare",
+    "subject": "health-and-social-care-and-childcare",
+    "board": "wjec",
+    "href": "/a-level/health-and-social-care-and-childcare/wjec"
+   },
+   {
+    "title": "AQA A Level History",
+    "subject": "history",
+    "board": "aqa",
+    "href": "/a-level/history/aqa"
+   },
+   {
+    "title": "Edexcel A Level History",
+    "subject": "history",
+    "board": "edexcel",
+    "href": "/a-level/history/edexcel"
+   },
+   {
+    "title": "OCR A Level History",
+    "subject": "history",
+    "board": "ocr",
+    "href": "/a-level/history/ocr"
+   },
+   {
+    "title": "WJEC A Level History",
+    "subject": "history",
+    "board": "wjec",
+    "href": "/a-level/history/wjec"
+   },
+   {
+    "title": "Edexcel A Level History of Art",
+    "subject": "history-of-art",
+    "board": "edexcel",
+    "href": "/a-level/history-of-art/edexcel"
+   },
+   {
+    "title": "Edexcel A Level Italian",
+    "subject": "italian",
+    "board": "edexcel",
+    "href": "/a-level/italian/edexcel"
+   },
+   {
+    "title": "Edexcel A Level Japanese",
+    "subject": "japanese",
+    "board": "edexcel",
+    "href": "/a-level/japanese/edexcel"
+   },
+   {
+    "title": "OCR A Level Latin",
+    "subject": "latin",
+    "board": "ocr",
+    "href": "/a-level/latin/ocr"
+   },
+   {
+    "title": "AQA A Level Law",
+    "subject": "law",
+    "board": "aqa",
+    "href": "/a-level/law/aqa"
+   },
+   {
+    "title": "Eduqas A Level Law",
+    "subject": "law",
+    "board": "eduqas",
+    "href": "/a-level/law/eduqas"
+   },
+   {
+    "title": "OCR A Level Law",
+    "subject": "law",
+    "board": "ocr",
+    "href": "/a-level/law/ocr"
+   },
+   {
+    "title": "WJEC A Level Law",
+    "subject": "law",
+    "board": "wjec",
+    "href": "/a-level/law/wjec"
+   },
+   {
+    "title": "AQA A Level Maths",
+    "subject": "maths",
+    "board": "aqa",
+    "href": "/a-level/maths/aqa"
+   },
+   {
+    "title": "Edexcel A Level Maths",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/a-level/maths/edexcel"
+   },
+   {
+    "title": "OCR A Level Maths",
+    "subject": "maths",
+    "board": "ocr",
+    "href": "/a-level/maths/ocr"
+   },
+   {
+    "title": "Edexcel (Legacy) A Level Maths",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/a-level/maths/edexcel/legacy"
+   },
+   {
+    "title": "OCR (MEI) A Level Maths",
+    "subject": "maths",
+    "board": "ocr",
+    "href": "/a-level/maths/ocr/mei"
+   },
+   {
+    "title": "WJEC A Level Maths",
+    "subject": "maths",
+    "board": "wjec",
+    "href": "/a-level/maths/wjec"
+   },
+   {
+    "title": "CCEA A Level Maths",
+    "subject": "maths",
+    "board": "ccea",
+    "href": "/a-level/maths/ccea"
+   },
+   {
+    "title": "AQA A Level Media Studies",
+    "subject": "media-studies",
+    "board": "aqa",
+    "href": "/a-level/media-studies/aqa"
+   },
+   {
+    "title": "Eduqas A Level Media Studies",
+    "subject": "media-studies",
+    "board": "eduqas",
+    "href": "/a-level/media-studies/eduqas"
+   },
+   {
+    "title": "OCR A Level Media Studies",
+    "subject": "media-studies",
+    "board": "ocr",
+    "href": "/a-level/media-studies/ocr"
+   },
+   {
+    "title": "WJEC A Level Media Studies",
+    "subject": "media-studies",
+    "board": "wjec",
+    "href": "/a-level/media-studies/wjec"
+   },
+   {
+    "title": "AQA A Level Modern Hebrew",
+    "subject": "modern-hebrew",
+    "board": "aqa",
+    "href": "/a-level/modern-hebrew/aqa"
+   },
+   {
+    "title": "AQA A Level Music",
+    "subject": "music",
+    "board": "aqa",
+    "href": "/a-level/music/aqa"
+   },
+   {
+    "title": "Edexcel A Level Music",
+    "subject": "music",
+    "board": "edexcel",
+    "href": "/a-level/music/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Music",
+    "subject": "music",
+    "board": "eduqas",
+    "href": "/a-level/music/eduqas"
+   },
+   {
+    "title": "OCR A Level Music",
+    "subject": "music",
+    "board": "ocr",
+    "href": "/a-level/music/ocr"
+   },
+   {
+    "title": "WJEC A Level Music",
+    "subject": "music",
+    "board": "wjec",
+    "href": "/a-level/music/wjec"
+   },
+   {
+    "title": "Edexcel A Level Music Technology",
+    "subject": "music-technology",
+    "board": "edexcel",
+    "href": "/a-level/music-technology/edexcel"
+   },
+   {
+    "title": "Edexcel A Level Old Maths",
+    "subject": "old-maths",
+    "board": "edexcel",
+    "href": "/a-level/old-maths/edexcel"
+   },
+   {
+    "title": "AQA A Level Panjabi",
+    "subject": "panjabi",
+    "board": "aqa",
+    "href": "/a-level/panjabi/aqa"
+   },
+   {
+    "title": "Edexcel A Level Persian",
+    "subject": "persian",
+    "board": "edexcel",
+    "href": "/a-level/persian/edexcel"
+   },
+   {
+    "title": "AQA A Level Philosophy",
+    "subject": "philosophy",
+    "board": "aqa",
+    "href": "/a-level/philosophy/aqa"
+   },
+   {
+    "title": "AQA A Level Physical Education",
+    "subject": "physical-education",
+    "board": "aqa",
+    "href": "/a-level/physical-education/aqa"
+   },
+   {
+    "title": "Edexcel A Level Physical Education",
+    "subject": "physical-education",
+    "board": "edexcel",
+    "href": "/a-level/physical-education/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Physical Education",
+    "subject": "physical-education",
+    "board": "eduqas",
+    "href": "/a-level/physical-education/eduqas"
+   },
+   {
+    "title": "OCR A Level Physical Education",
+    "subject": "physical-education",
+    "board": "ocr",
+    "href": "/a-level/physical-education/ocr"
+   },
+   {
+    "title": "WJEC A Level Physical Education",
+    "subject": "physical-education",
+    "board": "wjec",
+    "href": "/a-level/physical-education/wjec"
+   },
+   {
+    "title": "AQA A Level Physics",
+    "subject": "physics",
+    "board": "aqa",
+    "href": "/a-level/physics/aqa"
+   },
+   {
+    "title": "Edexcel A Level Physics",
+    "subject": "physics",
+    "board": "edexcel",
+    "href": "/a-level/physics/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Physics",
+    "subject": "physics",
+    "board": "eduqas",
+    "href": "/a-level/physics/eduqas"
+   },
+   {
+    "title": "OCR A A Level Physics",
+    "subject": "physics",
+    "board": "ocr",
+    "href": "/a-level/physics/ocr/a"
+   },
+   {
+    "title": "OCR B A Level Physics",
+    "subject": "physics",
+    "board": "ocr",
+    "href": "/a-level/physics/ocr/b"
+   },
+   {
+    "title": "WJEC A Level Physics",
+    "subject": "physics",
+    "board": "wjec",
+    "href": "/a-level/physics/wjec"
+   },
+   {
+    "title": "AQA A Level Polish",
+    "subject": "polish",
+    "board": "aqa",
+    "href": "/a-level/polish/aqa"
+   },
+   {
+    "title": "AQA A Level Politics",
+    "subject": "politics",
+    "board": "aqa",
+    "href": "/a-level/politics/aqa"
+   },
+   {
+    "title": "Edexcel A Level Politics",
+    "subject": "politics",
+    "board": "edexcel",
+    "href": "/a-level/politics/edexcel"
+   },
+   {
+    "title": "WJEC A Level Politics",
+    "subject": "politics",
+    "board": "wjec",
+    "href": "/a-level/politics/wjec"
+   },
+   {
+    "title": "Edexcel A Level Portuguese",
+    "subject": "portuguese",
+    "board": "edexcel",
+    "href": "/a-level/portuguese/edexcel"
+   },
+   {
+    "title": "AQA A Level Psychology",
+    "subject": "psychology",
+    "board": "aqa",
+    "href": "/a-level/psychology/aqa"
+   },
+   {
+    "title": "Edexcel A Level Psychology",
+    "subject": "psychology",
+    "board": "edexcel",
+    "href": "/a-level/psychology/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Psychology",
+    "subject": "psychology",
+    "board": "eduqas",
+    "href": "/a-level/psychology/eduqas"
+   },
+   {
+    "title": "OCR A Level Psychology",
+    "subject": "psychology",
+    "board": "ocr",
+    "href": "/a-level/psychology/ocr"
+   },
+   {
+    "title": "WJEC A Level Psychology",
+    "subject": "psychology",
+    "board": "wjec",
+    "href": "/a-level/psychology/wjec"
+   },
+   {
+    "title": "AQA A Level Religious Studies",
+    "subject": "religious-studies",
+    "board": "aqa",
+    "href": "/a-level/religious-studies/aqa"
+   },
+   {
+    "title": "Edexcel A Level Religious Studies",
+    "subject": "religious-studies",
+    "board": "edexcel",
+    "href": "/a-level/religious-studies/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Religious Studies",
+    "subject": "religious-studies",
+    "board": "eduqas",
+    "href": "/a-level/religious-studies/eduqas"
+   },
+   {
+    "title": "OCR A Level Religious Studies",
+    "subject": "religious-studies",
+    "board": "ocr",
+    "href": "/a-level/religious-studies/ocr"
+   },
+   {
+    "title": "WJEC A Level Religious Studies",
+    "subject": "religious-studies",
+    "board": "wjec",
+    "href": "/a-level/religious-studies/wjec"
+   },
+   {
+    "title": "Edexcel A Level Russian",
+    "subject": "russian",
+    "board": "edexcel",
+    "href": "/a-level/russian/edexcel"
+   },
+   {
+    "title": "AQA A Level Sociology",
+    "subject": "sociology",
+    "board": "aqa",
+    "href": "/a-level/sociology/aqa"
+   },
+   {
+    "title": "Eduqas A Level Sociology",
+    "subject": "sociology",
+    "board": "eduqas",
+    "href": "/a-level/sociology/eduqas"
+   },
+   {
+    "title": "OCR A Level Sociology",
+    "subject": "sociology",
+    "board": "ocr",
+    "href": "/a-level/sociology/ocr"
+   },
+   {
+    "title": "WJEC A Level Sociology",
+    "subject": "sociology",
+    "board": "wjec",
+    "href": "/a-level/sociology/wjec"
+   },
+   {
+    "title": "AQA A Level Spanish",
+    "subject": "spanish",
+    "board": "aqa",
+    "href": "/a-level/spanish/aqa"
+   },
+   {
+    "title": "Edexcel A Level Spanish",
+    "subject": "spanish",
+    "board": "edexcel",
+    "href": "/a-level/spanish/edexcel"
+   },
+   {
+    "title": "Eduqas A Level Spanish",
+    "subject": "spanish",
+    "board": "eduqas",
+    "href": "/a-level/spanish/eduqas"
+   },
+   {
+    "title": "WJEC A Level Spanish",
+    "subject": "spanish",
+    "board": "wjec",
+    "href": "/a-level/spanish/wjec"
+   },
+   {
+    "title": "Edexcel A Level Statistics",
+    "subject": "statistics",
+    "board": "edexcel",
+    "href": "/a-level/statistics/edexcel"
+   },
+   {
+    "title": "Edexcel A Level Turkish",
+    "subject": "turkish",
+    "board": "edexcel",
+    "href": "/a-level/turkish/edexcel"
+   },
+   {
+    "title": "Edexcel A Level Urdu",
+    "subject": "urdu",
+    "board": "edexcel",
+    "href": "/a-level/urdu/edexcel"
+   },
+   {
+    "title": "WJEC A Level Welsh",
+    "subject": "welsh",
+    "board": "wjec",
+    "href": "/a-level/welsh/wjec"
+   },
+   {
+    "title": "A Level past papers",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/a-level/maths/edexcel/papers"
+   },
+   {
+    "title": "A Level question bank",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/a-level/maths/edexcel/questions"
+   }
+  ],
+  "as-level": [
+   {
+    "title": "Edexcel AS Level Art and Design",
+    "subject": "art-and-design",
+    "board": "edexcel",
+    "href": "/as-level/art-and-design/edexcel"
+   },
+   {
+    "title": "OCR AS Level Art and Design",
+    "subject": "art-and-design",
+    "board": "ocr",
+    "href": "/as-level/art-and-design/ocr"
+   },
+   {
+    "title": "OCR AS Level Ancient History",
+    "subject": "ancient-history",
+    "board": "ocr",
+    "href": "/as-level/ancient-history/ocr"
+   },
+   {
+    "title": "AQA AS Level Biology",
+    "subject": "biology",
+    "board": "aqa",
+    "href": "/as-level/biology/aqa"
+   },
+   {
+    "title": "Edexcel AS Level Biology",
+    "subject": "biology",
+    "board": "edexcel",
+    "href": "/as-level/biology/edexcel"
+   },
+   {
+    "title": "OCR A AS Level Biology",
+    "subject": "biology",
+    "board": "ocr",
+    "href": "/as-level/biology/ocr/a"
+   },
+   {
+    "title": "OCR B AS Level Biology",
+    "subject": "biology",
+    "board": "ocr",
+    "href": "/as-level/biology/ocr/b"
+   },
+   {
+    "title": "WJEC AS Level Biology",
+    "subject": "biology",
+    "board": "wjec",
+    "href": "/as-level/biology/wjec"
+   },
+   {
+    "title": "CCEA AS Level Biology",
+    "subject": "biology",
+    "board": "ccea",
+    "href": "/as-level/biology/ccea"
+   },
+   {
+    "title": "AQA AS Level Chemistry",
+    "subject": "chemistry",
+    "board": "aqa",
+    "href": "/as-level/chemistry/aqa"
+   },
+   {
+    "title": "Edexcel AS Level Chemistry",
+    "subject": "chemistry",
+    "board": "edexcel",
+    "href": "/as-level/chemistry/edexcel"
+   },
+   {
+    "title": "OCR A AS Level Chemistry",
+    "subject": "chemistry",
+    "board": "ocr",
+    "href": "/as-level/chemistry/ocr/a"
+   },
+   {
+    "title": "OCR B AS Level Chemistry",
+    "subject": "chemistry",
+    "board": "ocr",
+    "href": "/as-level/chemistry/ocr/b"
+   },
+   {
+    "title": "WJEC AS Level Chemistry",
+    "subject": "chemistry",
+    "board": "wjec",
+    "href": "/as-level/chemistry/wjec"
+   },
+   {
+    "title": "OCR AS Level Classical Greek",
+    "subject": "classical-greek",
+    "board": "ocr",
+    "href": "/as-level/classical-greek/ocr"
+   },
+   {
+    "title": "OCR AS Level Design And Technology",
+    "subject": "design-and-technology",
+    "board": "ocr",
+    "href": "/as-level/design-and-technology/ocr"
+   },
+   {
+    "title": "WJEC AS Level Design And Technology",
+    "subject": "design-and-technology",
+    "board": "wjec",
+    "href": "/as-level/design-and-technology/wjec"
+   },
+   {
+    "title": "WJEC AS Level Digital Technology",
+    "subject": "digital-technology",
+    "board": "wjec",
+    "href": "/as-level/digital-technology/wjec"
+   },
+   {
+    "title": "OCR AS Level Drama",
+    "subject": "drama",
+    "board": "ocr",
+    "href": "/as-level/drama/ocr"
+   },
+   {
+    "title": "WJEC AS Level Drama",
+    "subject": "drama",
+    "board": "wjec",
+    "href": "/as-level/drama/wjec"
+   },
+   {
+    "title": "AQA AS Level English Language",
+    "subject": "english-language",
+    "board": "aqa",
+    "href": "/as-level/english-language/aqa"
+   },
+   {
+    "title": "Edexcel AS Level English Language",
+    "subject": "english-language",
+    "board": "edexcel",
+    "href": "/as-level/english-language/edexcel"
+   },
+   {
+    "title": "OCR AS Level English Language",
+    "subject": "english-language",
+    "board": "ocr",
+    "href": "/as-level/english-language/ocr"
+   },
+   {
+    "title": "WJEC AS Level English Language",
+    "subject": "english-language",
+    "board": "wjec",
+    "href": "/as-level/english-language/wjec"
+   },
+   {
+    "title": "Edexcel AS Level English Language And Literature",
+    "subject": "english-language-and-literature",
+    "board": "edexcel",
+    "href": "/as-level/english-language-and-literature/edexcel"
+   },
+   {
+    "title": "OCR AS Level English Language And Literature",
+    "subject": "english-language-and-literature",
+    "board": "ocr",
+    "href": "/as-level/english-language-and-literature/ocr"
+   },
+   {
+    "title": "WJEC AS Level English Language And Literature",
+    "subject": "english-language-and-literature",
+    "board": "wjec",
+    "href": "/as-level/english-language-and-literature/wjec"
+   },
+   {
+    "title": "OCR AS Level Film Studies",
+    "subject": "film-studies",
+    "board": "ocr",
+    "href": "/as-level/film-studies/ocr"
+   },
+   {
+    "title": "AQA AS Level French",
+    "subject": "french",
+    "board": "aqa",
+    "href": "/as-level/french/aqa"
+   },
+   {
+    "title": "Edexcel AS Level French",
+    "subject": "french",
+    "board": "edexcel",
+    "href": "/as-level/french/edexcel"
+   },
+   {
+    "title": "WJEC AS Level French",
+    "subject": "french",
+    "board": "wjec",
+    "href": "/as-level/french/wjec"
+   },
+   {
+    "title": "AQA AS Level Further Maths",
+    "subject": "further-maths",
+    "board": "aqa",
+    "href": "/as-level/further-maths/aqa"
+   },
+   {
+    "title": "Edexcel AS Level Further Maths",
+    "subject": "further-maths",
+    "board": "edexcel",
+    "href": "/as-level/further-maths/edexcel"
+   },
+   {
+    "title": "OCR AS Level Further Maths",
+    "subject": "further-maths",
+    "board": "ocr",
+    "href": "/as-level/further-maths/ocr"
+   },
+   {
+    "title": "OCR (MEI) AS Level Further Maths",
+    "subject": "further-maths",
+    "board": "ocr",
+    "href": "/as-level/further-maths/ocr/mei"
+   },
+   {
+    "title": "WJEC AS Level Further Maths",
+    "subject": "further-maths",
+    "board": "wjec",
+    "href": "/as-level/further-maths/wjec"
+   },
+   {
+    "title": "CCEA AS Level Further Maths",
+    "subject": "further-maths",
+    "board": "ccea",
+    "href": "/as-level/further-maths/ccea"
+   },
+   {
+    "title": "OCR AS Level Geology",
+    "subject": "geology",
+    "board": "ocr",
+    "href": "/as-level/geology/ocr"
+   },
+   {
+    "title": "AQA AS Level German",
+    "subject": "german",
+    "board": "aqa",
+    "href": "/as-level/german/aqa"
+   },
+   {
+    "title": "WJEC AS Level German",
+    "subject": "german",
+    "board": "wjec",
+    "href": "/as-level/german/wjec"
+   },
+   {
+    "title": "WJEC AS Level Health and Social Care and Childcare",
+    "subject": "health-and-social-care-and-childcare",
+    "board": "wjec",
+    "href": "/as-level/health-and-social-care-and-childcare/wjec"
+   },
+   {
+    "title": "OCR AS Level Latin",
+    "subject": "latin",
+    "board": "ocr",
+    "href": "/as-level/latin/ocr"
+   },
+   {
+    "title": "OCR AS Level Law",
+    "subject": "law",
+    "board": "ocr",
+    "href": "/as-level/law/ocr"
+   },
+   {
+    "title": "WJEC AS Level Law",
+    "subject": "law",
+    "board": "wjec",
+    "href": "/as-level/law/wjec"
+   },
+   {
+    "title": "AQA AS Level Maths",
+    "subject": "maths",
+    "board": "aqa",
+    "href": "/as-level/maths/aqa"
+   },
+   {
+    "title": "Edexcel AS Level Maths",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/as-level/maths/edexcel"
+   },
+   {
+    "title": "OCR AS Level Maths",
+    "subject": "maths",
+    "board": "ocr",
+    "href": "/as-level/maths/ocr"
+   },
+   {
+    "title": "Edexcel (Legacy) AS Level Maths",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/as-level/maths/edexcel/legacy"
+   },
+   {
+    "title": "OCR (MEI) AS Level Maths",
+    "subject": "maths",
+    "board": "ocr",
+    "href": "/as-level/maths/ocr/mei"
+   },
+   {
+    "title": "WJEC AS Level Maths",
+    "subject": "maths",
+    "board": "wjec",
+    "href": "/as-level/maths/wjec"
+   },
+   {
+    "title": "CCEA AS Level Maths",
+    "subject": "maths",
+    "board": "ccea",
+    "href": "/as-level/maths/ccea"
+   },
+   {
+    "title": "OCR AS Level Media Studies",
+    "subject": "media-studies",
+    "board": "ocr",
+    "href": "/as-level/media-studies/ocr"
+   },
+   {
+    "title": "WJEC AS Level Media Studies",
+    "subject": "media-studies",
+    "board": "wjec",
+    "href": "/as-level/media-studies/wjec"
+   },
+   {
+    "title": "Edexcel AS Level Music",
+    "subject": "music",
+    "board": "edexcel",
+    "href": "/as-level/music/edexcel"
+   },
+   {
+    "title": "OCR AS Level Music",
+    "subject": "music",
+    "board": "ocr",
+    "href": "/as-level/music/ocr"
+   },
+   {
+    "title": "WJEC AS Level Music",
+    "subject": "music",
+    "board": "wjec",
+    "href": "/as-level/music/wjec"
+   },
+   {
+    "title": "Edexcel AS Level Music Technology",
+    "subject": "music-technology",
+    "board": "edexcel",
+    "href": "/as-level/music-technology/edexcel"
+   },
+   {
+    "title": "OCR AS Level Physical Education",
+    "subject": "physical-education",
+    "board": "ocr",
+    "href": "/as-level/physical-education/ocr"
+   },
+   {
+    "title": "WJEC AS Level Physical Education",
+    "subject": "physical-education",
+    "board": "wjec",
+    "href": "/as-level/physical-education/wjec"
+   },
+   {
+    "title": "AQA AS Level Spanish",
+    "subject": "spanish",
+    "board": "aqa",
+    "href": "/as-level/spanish/aqa"
+   },
+   {
+    "title": "WJEC AS Level Spanish",
+    "subject": "spanish",
+    "board": "wjec",
+    "href": "/as-level/spanish/wjec"
+   },
+   {
+    "title": "WJEC AS Level Welsh",
+    "subject": "welsh",
+    "board": "wjec",
+    "href": "/as-level/welsh/wjec"
+   },
+   {
+    "title": "AQA AS Level Business",
+    "subject": "business",
+    "board": "aqa",
+    "href": "/as-level/business/aqa"
+   },
+   {
+    "title": "Edexcel AS Level Business",
+    "subject": "business",
+    "board": "edexcel",
+    "href": "/as-level/business/edexcel"
+   },
+   {
+    "title": "OCR AS Level Business",
+    "subject": "business",
+    "board": "ocr",
+    "href": "/as-level/business/ocr"
+   },
+   {
+    "title": "WJEC AS Level Business",
+    "subject": "business",
+    "board": "wjec",
+    "href": "/as-level/business/wjec"
+   },
+   {
+    "title": "OCR AS Level Classical Civilisation",
+    "subject": "classical-civilisation",
+    "board": "ocr",
+    "href": "/as-level/classical-civilisation/ocr"
+   },
+   {
+    "title": "AQA AS Level Computer Science",
+    "subject": "computer-science",
+    "board": "aqa",
+    "href": "/as-level/computer-science/aqa"
+   },
+   {
+    "title": "OCR AS Level Computer Science",
+    "subject": "computer-science",
+    "board": "ocr",
+    "href": "/as-level/computer-science/ocr"
+   },
+   {
+    "title": "WJEC AS Level Computer Science",
+    "subject": "computer-science",
+    "board": "wjec",
+    "href": "/as-level/computer-science/wjec"
+   },
+   {
+    "title": "AQA AS Level Economics",
+    "subject": "economics",
+    "board": "aqa",
+    "href": "/as-level/economics/aqa"
+   },
+   {
+    "title": "Edexcel AS Level Economics",
+    "subject": "economics",
+    "board": "edexcel",
+    "href": "/as-level/economics/edexcel"
+   },
+   {
+    "title": "OCR AS Level Economics",
+    "subject": "economics",
+    "board": "ocr",
+    "href": "/as-level/economics/ocr"
+   },
+   {
+    "title": "WJEC AS Level Economics",
+    "subject": "economics",
+    "board": "wjec",
+    "href": "/as-level/economics/wjec"
+   },
+   {
+    "title": "Edexcel AS Level English Literature",
+    "subject": "english-literature",
+    "board": "edexcel",
+    "href": "/as-level/english-literature/edexcel"
+   },
+   {
+    "title": "OCR AS Level English Literature",
+    "subject": "english-literature",
+    "board": "ocr",
+    "href": "/as-level/english-literature/ocr"
+   },
+   {
+    "title": "AQA A AS Level English Literature",
+    "subject": "english-literature",
+    "board": "aqa",
+    "href": "/as-level/english-literature/aqa/a"
+   },
+   {
+    "title": "AQA B AS Level English Literature",
+    "subject": "english-literature",
+    "board": "aqa",
+    "href": "/as-level/english-literature/aqa/b"
+   },
+   {
+    "title": "WJEC AS Level English Literature",
+    "subject": "english-literature",
+    "board": "wjec",
+    "href": "/as-level/english-literature/wjec"
+   },
+   {
+    "title": "AQA AS Level Geography",
+    "subject": "geography",
+    "board": "aqa",
+    "href": "/as-level/geography/aqa"
+   },
+   {
+    "title": "Edexcel AS Level Geography",
+    "subject": "geography",
+    "board": "edexcel",
+    "href": "/as-level/geography/edexcel"
+   },
+   {
+    "title": "OCR AS Level Geography",
+    "subject": "geography",
+    "board": "ocr",
+    "href": "/as-level/geography/ocr"
+   },
+   {
+    "title": "WJEC AS Level Geography",
+    "subject": "geography",
+    "board": "wjec",
+    "href": "/as-level/geography/wjec"
+   },
+   {
+    "title": "AQA AS Level History",
+    "subject": "history",
+    "board": "aqa",
+    "href": "/as-level/history/aqa"
+   },
+   {
+    "title": "Edexcel AS Level History",
+    "subject": "history",
+    "board": "edexcel",
+    "href": "/as-level/history/edexcel"
+   },
+   {
+    "title": "OCR AS Level History",
+    "subject": "history",
+    "board": "ocr",
+    "href": "/as-level/history/ocr"
+   },
+   {
+    "title": "WJEC AS Level History",
+    "subject": "history",
+    "board": "wjec",
+    "href": "/as-level/history/wjec"
+   },
+   {
+    "title": "WJEC AS Level ICT",
+    "subject": "ict",
+    "board": "wjec",
+    "href": "/as-level/ict/wjec"
+   },
+   {
+    "title": "AQA AS Level Physics",
+    "subject": "physics",
+    "board": "aqa",
+    "href": "/as-level/physics/aqa"
+   },
+   {
+    "title": "Edexcel AS Level Physics",
+    "subject": "physics",
+    "board": "edexcel",
+    "href": "/as-level/physics/edexcel"
+   },
+   {
+    "title": "OCR A AS Level Physics",
+    "subject": "physics",
+    "board": "ocr",
+    "href": "/as-level/physics/ocr/a"
+   },
+   {
+    "title": "OCR B AS Level Physics",
+    "subject": "physics",
+    "board": "ocr",
+    "href": "/as-level/physics/ocr/b"
+   },
+   {
+    "title": "WJEC AS Level Physics",
+    "subject": "physics",
+    "board": "wjec",
+    "href": "/as-level/physics/wjec"
+   },
+   {
+    "title": "Edexcel AS Level Politics",
+    "subject": "politics",
+    "board": "edexcel",
+    "href": "/as-level/politics/edexcel"
+   },
+   {
+    "title": "WJEC AS Level Politics",
+    "subject": "politics",
+    "board": "wjec",
+    "href": "/as-level/politics/wjec"
+   },
+   {
+    "title": "AQA AS Level Psychology",
+    "subject": "psychology",
+    "board": "aqa",
+    "href": "/as-level/psychology/aqa"
+   },
+   {
+    "title": "Edexcel AS Level Psychology",
+    "subject": "psychology",
+    "board": "edexcel",
+    "href": "/as-level/psychology/edexcel"
+   },
+   {
+    "title": "OCR AS Level Psychology",
+    "subject": "psychology",
+    "board": "ocr",
+    "href": "/as-level/psychology/ocr"
+   },
+   {
+    "title": "WJEC AS Level Psychology",
+    "subject": "psychology",
+    "board": "wjec",
+    "href": "/as-level/psychology/wjec"
+   },
+   {
+    "title": "AQA AS Level Religious Studies",
+    "subject": "religious-studies",
+    "board": "aqa",
+    "href": "/as-level/religious-studies/aqa"
+   },
+   {
+    "title": "Edexcel AS Level Religious Studies",
+    "subject": "religious-studies",
+    "board": "edexcel",
+    "href": "/as-level/religious-studies/edexcel"
+   },
+   {
+    "title": "OCR AS Level Religious Studies",
+    "subject": "religious-studies",
+    "board": "ocr",
+    "href": "/as-level/religious-studies/ocr"
+   },
+   {
+    "title": "WJEC AS Level Religious Studies",
+    "subject": "religious-studies",
+    "board": "wjec",
+    "href": "/as-level/religious-studies/wjec"
+   },
+   {
+    "title": "AQA AS Level Sociology",
+    "subject": "sociology",
+    "board": "aqa",
+    "href": "/as-level/sociology/aqa"
+   },
+   {
+    "title": "OCR AS Level Sociology",
+    "subject": "sociology",
+    "board": "ocr",
+    "href": "/as-level/sociology/ocr"
+   },
+   {
+    "title": "WJEC AS Level Sociology",
+    "subject": "sociology",
+    "board": "wjec",
+    "href": "/as-level/sociology/wjec"
+   }
+  ],
+  "ks2": [
+   {
+    "title": "KS2 SAT KS2 Maths",
+    "subject": "maths",
+    "board": "sat",
+    "href": "/ks2/maths/sat"
+   }
+  ],
+  "international-a-level": [
+   {
+    "title": "Edexcel International A Level Accounting",
+    "subject": "accounting",
+    "board": "edexcel",
+    "href": "/international-a-level/accounting/edexcel"
+   },
+   {
+    "title": "CIE International A Level Accounting",
+    "subject": "accounting",
+    "board": "cie",
+    "href": "/international-a-level/accounting/cie"
+   },
+   {
+    "title": "Edexcel International A Level Arabic",
+    "subject": "arabic",
+    "board": "edexcel",
+    "href": "/international-a-level/arabic/edexcel"
+   },
+   {
+    "title": "CIE International A Level Art and Design",
+    "subject": "art-and-design",
+    "board": "cie",
+    "href": "/international-a-level/art-and-design/cie"
+   },
+   {
+    "title": "CIE International A Level Biblical Studies",
+    "subject": "biblical-studies",
+    "board": "cie",
+    "href": "/international-a-level/biblical-studies/cie"
+   },
+   {
+    "title": "Edexcel International A Level Biology",
+    "subject": "biology",
+    "board": "edexcel",
+    "href": "/international-a-level/biology/edexcel"
+   },
+   {
+    "title": "CIE International A Level Biology",
+    "subject": "biology",
+    "board": "cie",
+    "href": "/international-a-level/biology/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level Biology",
+    "subject": "biology",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/biology/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International A Level Business",
+    "subject": "business",
+    "board": "edexcel",
+    "href": "/international-a-level/business/edexcel"
+   },
+   {
+    "title": "CIE International A Level Business",
+    "subject": "business",
+    "board": "cie",
+    "href": "/international-a-level/business/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level Business",
+    "subject": "business",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/business/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International A Level Chemistry",
+    "subject": "chemistry",
+    "board": "edexcel",
+    "href": "/international-a-level/chemistry/edexcel"
+   },
+   {
+    "title": "CIE International A Level Chemistry",
+    "subject": "chemistry",
+    "board": "cie",
+    "href": "/international-a-level/chemistry/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level Chemistry",
+    "subject": "chemistry",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/chemistry/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International A Level Computer Science",
+    "subject": "computer-science",
+    "board": "edexcel",
+    "href": "/international-a-level/computer-science/edexcel"
+   },
+   {
+    "title": "CIE International A Level Computer Science",
+    "subject": "computer-science",
+    "board": "cie",
+    "href": "/international-a-level/computer-science/cie"
+   },
+   {
+    "title": "CIE International A Level Design and Technology",
+    "subject": "design-and-technology",
+    "board": "cie",
+    "href": "/international-a-level/design-and-technology/cie"
+   },
+   {
+    "title": "CIE International A Level Drama",
+    "subject": "drama",
+    "board": "cie",
+    "href": "/international-a-level/drama/cie"
+   },
+   {
+    "title": "Edexcel International A Level Economics",
+    "subject": "economics",
+    "board": "edexcel",
+    "href": "/international-a-level/economics/edexcel"
+   },
+   {
+    "title": "CIE International A Level Economics",
+    "subject": "economics",
+    "board": "cie",
+    "href": "/international-a-level/economics/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level Economics",
+    "subject": "economics",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/economics/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International A Level English Language",
+    "subject": "english-language",
+    "board": "edexcel",
+    "href": "/international-a-level/english-language/edexcel"
+   },
+   {
+    "title": "CIE International A Level English Language",
+    "subject": "english-language",
+    "board": "cie",
+    "href": "/international-a-level/english-language/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level English Language",
+    "subject": "english-language",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/english-language/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International A Level English Literature",
+    "subject": "english-literature",
+    "board": "edexcel",
+    "href": "/international-a-level/english-literature/edexcel"
+   },
+   {
+    "title": "CIE International A Level English Literature",
+    "subject": "english-literature",
+    "board": "cie",
+    "href": "/international-a-level/english-literature/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level English Literature",
+    "subject": "english-literature",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/english-literature/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International A Level French",
+    "subject": "french",
+    "board": "edexcel",
+    "href": "/international-a-level/french/edexcel"
+   },
+   {
+    "title": "CIE International A Level French",
+    "subject": "french",
+    "board": "cie",
+    "href": "/international-a-level/french/cie"
+   },
+   {
+    "title": "Edexcel International A Level Further Maths",
+    "subject": "further-maths",
+    "board": "edexcel",
+    "href": "/international-a-level/further-maths/edexcel"
+   },
+   {
+    "title": "CIE International A Level Further Maths",
+    "subject": "further-maths",
+    "board": "cie",
+    "href": "/international-a-level/further-maths/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level Further Maths",
+    "subject": "further-maths",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/further-maths/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International A Level Geography",
+    "subject": "geography",
+    "board": "edexcel",
+    "href": "/international-a-level/geography/edexcel"
+   },
+   {
+    "title": "CIE International A Level Geography",
+    "subject": "geography",
+    "board": "cie",
+    "href": "/international-a-level/geography/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level Geography",
+    "subject": "geography",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/geography/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International A Level German",
+    "subject": "german",
+    "board": "edexcel",
+    "href": "/international-a-level/german/edexcel"
+   },
+   {
+    "title": "CIE International A Level German",
+    "subject": "german",
+    "board": "cie",
+    "href": "/international-a-level/german/cie"
+   },
+   {
+    "title": "CIE International A Level Global Perspectives and Research",
+    "subject": "global-perspectives-and-research",
+    "board": "cie",
+    "href": "/international-a-level/global-perspectives-and-research/cie"
+   },
+   {
+    "title": "Edexcel International A Level History",
+    "subject": "history",
+    "board": "edexcel",
+    "href": "/international-a-level/history/edexcel"
+   },
+   {
+    "title": "CIE International A Level History",
+    "subject": "history",
+    "board": "cie",
+    "href": "/international-a-level/history/cie"
+   },
+   {
+    "title": "CIE International A Level ICT",
+    "subject": "ict",
+    "board": "cie",
+    "href": "/international-a-level/ict/cie"
+   },
+   {
+    "title": "Edexcel International A Level Greek",
+    "subject": "greek",
+    "board": "edexcel",
+    "href": "/international-a-level/greek/edexcel"
+   },
+   {
+    "title": "CIE International A Level Islamic Studies",
+    "subject": "islamic-studies",
+    "board": "cie",
+    "href": "/international-a-level/islamic-studies/cie"
+   },
+   {
+    "title": "Edexcel International A Level Law",
+    "subject": "law",
+    "board": "edexcel",
+    "href": "/international-a-level/law/edexcel"
+   },
+   {
+    "title": "CIE International A Level Law",
+    "subject": "law",
+    "board": "cie",
+    "href": "/international-a-level/law/cie"
+   },
+   {
+    "title": "CIE International A Level Marine Science",
+    "subject": "marine-science",
+    "board": "cie",
+    "href": "/international-a-level/marine-science/cie"
+   },
+   {
+    "title": "Edexcel International A Level Maths",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/international-a-level/maths/edexcel"
+   },
+   {
+    "title": "CIE International A Level Maths",
+    "subject": "maths",
+    "board": "cie",
+    "href": "/international-a-level/maths/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level Maths",
+    "subject": "maths",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/maths/oxford-aqa"
+   },
+   {
+    "title": "CIE International A Level Music",
+    "subject": "music",
+    "board": "cie",
+    "href": "/international-a-level/music/cie"
+   },
+   {
+    "title": "Edexcel International A Level Physics",
+    "subject": "physics",
+    "board": "edexcel",
+    "href": "/international-a-level/physics/edexcel"
+   },
+   {
+    "title": "CIE International A Level Physics",
+    "subject": "physics",
+    "board": "cie",
+    "href": "/international-a-level/physics/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level Physics",
+    "subject": "physics",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/physics/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International A Level Psychology",
+    "subject": "psychology",
+    "board": "edexcel",
+    "href": "/international-a-level/psychology/edexcel"
+   },
+   {
+    "title": "CIE International A Level Psychology",
+    "subject": "psychology",
+    "board": "cie",
+    "href": "/international-a-level/psychology/cie"
+   },
+   {
+    "title": "Oxford AQA International A Level Psychology",
+    "subject": "psychology",
+    "board": "oxford-aqa",
+    "href": "/international-a-level/psychology/oxford-aqa"
+   },
+   {
+    "title": "CIE International A Level Religious Studies",
+    "subject": "religious-studies",
+    "board": "cie",
+    "href": "/international-a-level/religious-studies/cie"
+   },
+   {
+    "title": "CIE International A Level Sociology",
+    "subject": "sociology",
+    "board": "cie",
+    "href": "/international-a-level/sociology/cie"
+   },
+   {
+    "title": "Edexcel International A Level Spanish",
+    "subject": "spanish",
+    "board": "edexcel",
+    "href": "/international-a-level/spanish/edexcel"
+   },
+   {
+    "title": "CIE International A Level Spanish",
+    "subject": "spanish",
+    "board": "cie",
+    "href": "/international-a-level/spanish/cie"
+   }
+  ],
+  "international-as-level": [
+   {
+    "title": "Edexcel International AS Level Accounting",
+    "subject": "accounting",
+    "board": "edexcel",
+    "href": "/international-as-level/accounting/edexcel"
+   },
+   {
+    "title": "CIE International AS Level Accounting",
+    "subject": "accounting",
+    "board": "cie",
+    "href": "/international-as-level/accounting/cie"
+   },
+   {
+    "title": "Edexcel International AS Level Arabic",
+    "subject": "arabic",
+    "board": "edexcel",
+    "href": "/international-as-level/arabic/edexcel"
+   },
+   {
+    "title": "Edexcel International AS Level Biology",
+    "subject": "biology",
+    "board": "edexcel",
+    "href": "/international-as-level/biology/edexcel"
+   },
+   {
+    "title": "CIE International AS Level Biology",
+    "subject": "biology",
+    "board": "cie",
+    "href": "/international-as-level/biology/cie"
+   },
+   {
+    "title": "Oxford AQA International AS Level Biology",
+    "subject": "biology",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/biology/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International AS Level Business",
+    "subject": "business",
+    "board": "edexcel",
+    "href": "/international-as-level/business/edexcel"
+   },
+   {
+    "title": "CIE International AS Level Business",
+    "subject": "business",
+    "board": "cie",
+    "href": "/international-as-level/business/cie"
+   },
+   {
+    "title": "Oxford AQA International AS Level Business",
+    "subject": "business",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/business/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International AS Level Chemistry",
+    "subject": "chemistry",
+    "board": "edexcel",
+    "href": "/international-as-level/chemistry/edexcel"
+   },
+   {
+    "title": "CIE International AS Level Chemistry",
+    "subject": "chemistry",
+    "board": "cie",
+    "href": "/international-as-level/chemistry/cie"
+   },
+   {
+    "title": "Oxford AQA International AS Level Chemistry",
+    "subject": "chemistry",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/chemistry/oxford-aqa"
+   },
+   {
+    "title": "CIE International AS Level Computer Science",
+    "subject": "computer-science",
+    "board": "cie",
+    "href": "/international-as-level/computer-science/cie"
+   },
+   {
+    "title": "Edexcel International AS Level Economics",
+    "subject": "economics",
+    "board": "edexcel",
+    "href": "/international-as-level/economics/edexcel"
+   },
+   {
+    "title": "CIE International AS Level Economics",
+    "subject": "economics",
+    "board": "cie",
+    "href": "/international-as-level/economics/cie"
+   },
+   {
+    "title": "Oxford AQA International AS Level Economics",
+    "subject": "economics",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/economics/oxford-aqa"
+   },
+   {
+    "title": "CIE International AS Level English",
+    "subject": "english",
+    "board": "cie",
+    "href": "/international-as-level/english/cie"
+   },
+   {
+    "title": "Edexcel International AS Level English Language",
+    "subject": "english-language",
+    "board": "edexcel",
+    "href": "/international-as-level/english-language/edexcel"
+   },
+   {
+    "title": "CIE International AS Level English Language",
+    "subject": "english-language",
+    "board": "cie",
+    "href": "/international-as-level/english-language/cie"
+   },
+   {
+    "title": "Oxford AQA International AS Level English Language",
+    "subject": "english-language",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/english-language/oxford-aqa"
+   },
+   {
+    "title": "CIE International AS Level English Language And Literature",
+    "subject": "english-language-and-literature",
+    "board": "cie",
+    "href": "/international-as-level/english-language-and-literature/cie"
+   },
+   {
+    "title": "Edexcel International AS Level English Literature",
+    "subject": "english-literature",
+    "board": "edexcel",
+    "href": "/international-as-level/english-literature/edexcel"
+   },
+   {
+    "title": "Oxford AQA International AS Level English Literature",
+    "subject": "english-literature",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/english-literature/oxford-aqa"
+   },
+   {
+    "title": "CIE International AS Level Environmental Management",
+    "subject": "environmental-management",
+    "board": "cie",
+    "href": "/international-as-level/environmental-management/cie"
+   },
+   {
+    "title": "Edexcel International AS Level French",
+    "subject": "french",
+    "board": "edexcel",
+    "href": "/international-as-level/french/edexcel"
+   },
+   {
+    "title": "CIE International AS Level French",
+    "subject": "french",
+    "board": "cie",
+    "href": "/international-as-level/french/cie"
+   },
+   {
+    "title": "Edexcel International AS Level Further Maths",
+    "subject": "further-maths",
+    "board": "edexcel",
+    "href": "/international-as-level/further-maths/edexcel"
+   },
+   {
+    "title": "CIE International AS Level Further Maths",
+    "subject": "further-maths",
+    "board": "cie",
+    "href": "/international-as-level/further-maths/cie"
+   },
+   {
+    "title": "Oxford AQA International AS Level Further Maths",
+    "subject": "further-maths",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/further-maths/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International AS Level Geography",
+    "subject": "geography",
+    "board": "edexcel",
+    "href": "/international-as-level/geography/edexcel"
+   },
+   {
+    "title": "Oxford AQA International AS Level Geography",
+    "subject": "geography",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/geography/oxford-aqa"
+   },
+   {
+    "title": "CIE International AS Level German",
+    "subject": "german",
+    "board": "cie",
+    "href": "/international-as-level/german/cie"
+   },
+   {
+    "title": "Edexcel International AS Level History",
+    "subject": "history",
+    "board": "edexcel",
+    "href": "/international-as-level/history/edexcel"
+   },
+   {
+    "title": "CIE International AS Level History",
+    "subject": "history",
+    "board": "cie",
+    "href": "/international-as-level/history/cie"
+   },
+   {
+    "title": "Edexcel International AS Level ICT",
+    "subject": "ict",
+    "board": "edexcel",
+    "href": "/international-as-level/ict/edexcel"
+   },
+   {
+    "title": "CIE International AS Level Marine Science",
+    "subject": "marine-science",
+    "board": "cie",
+    "href": "/international-as-level/marine-science/cie"
+   },
+   {
+    "title": "Edexcel International AS Level Maths",
+    "subject": "maths",
+    "board": "edexcel",
+    "href": "/international-as-level/maths/edexcel"
+   },
+   {
+    "title": "CIE International AS Level Maths",
+    "subject": "maths",
+    "board": "cie",
+    "href": "/international-as-level/maths/cie"
+   },
+   {
+    "title": "Oxford AQA International AS Level Maths",
+    "subject": "maths",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/maths/oxford-aqa"
+   },
+   {
+    "title": "CIE International AS Level Physical Education",
+    "subject": "physical-education",
+    "board": "cie",
+    "href": "/international-as-level/physical-education/cie"
+   },
+   {
+    "title": "Edexcel International AS Level Physics",
+    "subject": "physics",
+    "board": "edexcel",
+    "href": "/international-as-level/physics/edexcel"
+   },
+   {
+    "title": "CIE International AS Level Physics",
+    "subject": "physics",
+    "board": "cie",
+    "href": "/international-as-level/physics/cie"
+   },
+   {
+    "title": "Oxford AQA International AS Level Physics",
+    "subject": "physics",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/physics/oxford-aqa"
+   },
+   {
+    "title": "Edexcel International AS Level Psychology",
+    "subject": "psychology",
+    "board": "edexcel",
+    "href": "/international-as-level/psychology/edexcel"
+   },
+   {
+    "title": "CIE International AS Level Psychology",
+    "subject": "psychology",
+    "board": "cie",
+    "href": "/international-as-level/psychology/cie"
+   },
+   {
+    "title": "Oxford AQA International AS Level Psychology",
+    "subject": "psychology",
+    "board": "oxford-aqa",
+    "href": "/international-as-level/psychology/oxford-aqa"
+   },
+   {
+    "title": "CIE International AS Level Sociology",
+    "subject": "sociology",
+    "board": "cie",
+    "href": "/international-as-level/sociology/cie"
+   },
+   {
+    "title": "CIE International AS Level Spanish",
+    "subject": "spanish",
+    "board": "cie",
+    "href": "/international-as-level/spanish/cie"
+   }
+  ]
+ }
+}

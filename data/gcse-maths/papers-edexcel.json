@@ -1,0 +1,431 @@
+{
+ "qualification": "GCSE",
+ "subject": "Maths",
+ "board": "edexcel",
+ "spec": "1MA1",
+ "paper_codes": [
+  "1MA1/1F",
+  "1MA1/1H",
+  "1MA1/2F",
+  "1MA1/2H",
+  "1MA1/3F",
+  "1MA1/3H"
+ ],
+ "series_listed": [
+  "November 2024",
+  "November 2023",
+  "November 2022",
+  "November 2021",
+  "November 2020",
+  "November 2019",
+  "November 2018",
+  "November 2017",
+  "June 2025",
+  "June 2024",
+  "June 2023",
+  "June 2022",
+  "June 2019",
+  "June 2018",
+  "June 2017"
+ ],
+ "resource_count": 136,
+ "note": "Metadata + resource URLs only. PDFs remain hosted by mathsgenie.co.uk (copyright: exam boards/MathsGenie).",
+ "resource_groups": [
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2022-paper-1-foundation-2022-1-4-25",
+   "files": [
+    "paper-pdf-cd5b6b7d-9884-4a03-8e05-ea2b3f0d215b.pdf",
+    "worked-solution-pdf-397c26df-dd0c-4a6f-9442-ce7da369a454.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2022-paper-1-higher-2022-1-4-26",
+   "files": [
+    "paper-pdf-3b27a9d3-f585-4dea-a2d4-d4819604cf63.pdf",
+    "worked-solution-pdf-8401119c-240f-49ba-8ada-bc076a66a7a8.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2022-paper-2-foundation-2022-2-4-27",
+   "files": [
+    "paper-pdf-0f8e35cd-bf70-406f-87b2-544539569ed4.pdf",
+    "worked-solution-pdf-76db0250-8390-4370-98a1-b1ec853d57f0.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2022-paper-2-higher-2022-2-4-28",
+   "files": [
+    "paper-pdf-3843724e-55b3-426d-b180-8c9f59b96ce2.pdf",
+    "worked-solution-pdf-00cf9c0c-0e14-4382-875f-b2a06aaad2b7.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2022-paper-3-foundation-2022-3-4-29",
+   "files": [
+    "paper-pdf-4d57ac31-de79-44f9-a2b8-6778411460ed.pdf",
+    "worked-solution-pdf-508e300f-083f-4005-bcb4-a6a3043a870d.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2022-paper-3-higher-2022-3-4-30",
+   "files": [
+    "paper-pdf-00188ff9-57e6-4a9d-ad7f-3f73cc63e28e.pdf",
+    "worked-solution-pdf-0acbf8f9-a18d-4c5c-8019-40db2e184a96.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2023-paper-1-foundation-2023-1-4-13",
+   "files": [
+    "paper-pdf-a06d99d2-8179-44c1-adf1-62076cdf7d60.pdf",
+    "worked-solution-pdf-bcef499a-40da-4c08-a6e7-def726d70018.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2023-paper-1-higher-2023-1-4-14",
+   "files": [
+    "paper-pdf-062d3eab-756f-41e5-b14f-158beff80089.pdf",
+    "worked-solution-pdf-962e2924-d0cf-40dc-a211-c296af5f4a27.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2023-paper-2-foundation-2023-2-4-15",
+   "files": [
+    "paper-pdf-67615d8a-4619-4b8a-af6a-c4d1fd07c463.pdf",
+    "worked-solution-pdf-395ab094-3a00-4823-a389-1da8c22c1bfd.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2023-paper-2-higher-2023-2-4-16",
+   "files": [
+    "paper-pdf-77064a09-b218-4ffe-bc1c-fb6ede4205e3.pdf",
+    "worked-solution-pdf-90625d9d-3a75-4647-8207-6bc1bd572687.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2023-paper-3-foundation-2023-3-4-17",
+   "files": [
+    "paper-pdf-2a1f8317-fc0c-47f5-8e29-a601b33e0469.pdf",
+    "worked-solution-pdf-73b5cbf1-3c3d-4d2d-bd69-ace4979f5a7f.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2023-paper-3-higher-2023-3-4-18",
+   "files": [
+    "paper-pdf-cbfd8843-f436-4c08-85b0-8c47e7387574.pdf",
+    "worked-solution-pdf-3bceb5b8-b05e-4f21-b140-731a93740374.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2024-paper-1-foundation-2024-1-4-11",
+   "files": [
+    "paper-pdf-2c3253e1-364e-470d-92a0-036a2984fcb2.pdf",
+    "worked-solution-pdf-8bda2428-dce6-4db1-b04b-fd6e1b34e519.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2024-paper-1-higher-2024-1-4-12",
+   "files": [
+    "paper-pdf-18a8ffd9-a4fb-4f94-b7f3-9d380b42aae8.pdf",
+    "worked-solution-pdf-4305cce3-9f62-4adb-a468-2954c49504e2.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2024-paper-2-foundation-2024-2-4-9",
+   "files": [
+    "paper-pdf-34f13efb-28a2-4e46-a385-3cc958931be4.pdf",
+    "worked-solution-pdf-134bd229-2fb6-494d-ae11-ff24771d9c18.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2024-paper-2-higher-2024-2-4-10",
+   "files": [
+    "paper-pdf-d04f4f8b-5a31-48d9-84d5-36e7d312f301.pdf",
+    "worked-solution-pdf-8ae24960-d35c-4c5b-8c08-5a198ee82d36.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2024-paper-3-foundation-2024-3-4-7",
+   "files": [
+    "paper-pdf-50b26cc9-bb62-4819-92e7-4ccbcd0236c5.pdf",
+    "worked-solution-pdf-0316a135-06fb-40bf-8c33-78f505094f1f.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2024-paper-3-higher-2024-3-4-8",
+   "files": [
+    "paper-pdf-38248f99-ef0f-4a1e-b6c8-6d7f8786c1ba.pdf",
+    "worked-solution-pdf-c915910e-ea97-437e-97b1-43b75e05ec79.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2025-practice-paper-1-foundation-2025-1-4-6",
+   "files": [
+    "paper-pdf-23b899c1-0e08-4493-a4f5-25f4c7730024.pdf",
+    "worked-solution-pdf-298d2b78-7ce5-4533-b585-361f3d0a1756.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2025-practice-paper-1-higher-2025-1-4-5",
+   "files": [
+    "paper-pdf-0332dd0a-d498-4c35-bffc-20cd458e0405.pdf",
+    "worked-solution-pdf-3eefed80-47f9-4203-9a78-09fad2e853ca.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2025-practice-paper-2-foundation-2025-2-4-4",
+   "files": [
+    "paper-pdf-78515891-5bfd-47fb-9c3c-10363c69787e.pdf",
+    "worked-solution-pdf-ac06540e-264f-4f66-af37-014b14d56857.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2025-practice-paper-2-higher-2025-2-4-3",
+   "files": [
+    "paper-pdf-9614908a-cc07-4906-b310-2cf0c3be3315.pdf",
+    "worked-solution-pdf-67656ee9-6a9d-4242-8d25-3c914a4f1b1f.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2025-practice-paper-3-foundation-2025-3-4-2",
+   "files": [
+    "paper-pdf-66a0d555-1b6e-4167-99ce-54166e3183e4.pdf",
+    "worked-solution-pdf-6e1092d5-92e3-4e29-aeb1-08dbed66b555.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2025-practice-paper-3-higher-2025-3-4-1",
+   "files": [
+    "paper-pdf-51499c20-ca3d-41c9-b423-aa5055187d89.pdf",
+    "worked-solution-pdf-b958b5e8-abd7-4e26-bc8d-116d61c17c00.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2026-predicted-paper-1-foundation",
+   "files": [
+    "paper-pdf-9418e203-bfc2-4d4e-acf0-b63b122fe25e.pdf",
+    "worked-solution-pdf-e779afc6-2759-4520-b830-d9af20dea932.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2026-predicted-paper-1-higher",
+   "files": [
+    "paper-pdf-a17510be-f30b-44c7-a240-8f0e7b4a132f.pdf",
+    "worked-solution-pdf-3700d9d1-35de-4e1a-975a-3b9189da7617.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2026-predicted-paper-2-foundation",
+   "files": [
+    "paper.pdf",
+    "worked-solution.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2026-predicted-paper-2-higher",
+   "files": [
+    "paper.pdf",
+    "worked-solution.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2026-predicted-paper-3-foundation",
+   "files": [
+    "paper.pdf",
+    "worked-solution.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-2026-predicted-paper-3-higher",
+   "files": [
+    "paper.pdf",
+    "worked-solution.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-foundation-2018-paper-1-non-calculator-2018-1-4-48",
+   "files": [
+    "paper-pdf-48902cad-336f-49fe-9902-55624e2f8324.pdf",
+    "worked-solution-pdf-2c72e393-8c3f-4fa7-bad5-06caf3c988c1.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-foundation-2018-paper-2-calculator-2018-2-4-46",
+   "files": [
+    "paper-pdf-7783aae9-57a3-41da-91da-5616bee10aa3.pdf",
+    "worked-solution-pdf-32db5615-9e2d-4ce3-9214-ab79f5999718.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-foundation-2018-paper-3-calculator-2018-3-4-44",
+   "files": [
+    "paper-pdf-31609a80-6123-4cf6-a076-f0a2eea11866.pdf",
+    "worked-solution-pdf-1152974c-e100-439a-a080-7ea8239387df.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-foundation-2019-paper-1-non-calculator-2019-1-4-42",
+   "files": [
+    "paper-pdf-0269db25-a681-448d-a99f-94def230bee5.pdf",
+    "worked-solution-pdf-318993a7-ca69-494f-9b3f-07b46d5fe9f7.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-foundation-2019-paper-2-calculator-2019-2-4-40",
+   "files": [
+    "paper-pdf-42caf2dc-8c71-4618-aa5b-7f0adb6253ed.pdf",
+    "worked-solution-pdf-234ea750-6026-4de5-a5f7-7873464c0fe0.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-foundation-2019-paper-3-calculator-2019-3-4-38",
+   "files": [
+    "paper-pdf-16ef9f9c-4005-48b9-aaf9-b46d8c98871c.pdf",
+    "worked-solution-pdf-418b0cf7-3e8c-483a-9713-04f1393f3f19.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-foundation-set-a-paper-1-non-calculator-unknown-1-4-34",
+   "files": [
+    "paper-pdf-e20fe3d6-06e7-4508-90c1-dc6d3ec4dde2.pdf",
+    "worked-solution-pdf-11e31877-4b57-406c-bcd8-61b12e0627ba.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-foundation-set-a-paper-2-calculator-unknown-2-4-35",
+   "files": [
+    "paper-pdf-182a845d-d2d0-4145-8097-4e2b9054ca66.pdf",
+    "worked-solution-pdf-2c25998c-2593-4028-b372-62c4b940de3c.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-foundation-set-a-paper-3-calculator-unknown-3-4-36",
+   "files": [
+    "paper-pdf-990a2a99-180f-47db-a8b8-5e5f67f63828.pdf",
+    "worked-solution-pdf-8d8d9dd6-6efb-44fc-98db-876ed2077897.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-higher-2018-paper-1-non-calculator-2018-1-4-47",
+   "files": [
+    "paper-pdf-3f62aa4b-9d57-44c7-ab63-1e2cdc1a1226.pdf",
+    "worked-solution-pdf-26f19400-3d37-4720-836a-5e0f27f265ed.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-higher-2018-paper-2-calculator-2018-2-4-45",
+   "files": [
+    "paper-pdf-32a00556-bf68-417e-8ff2-a8487f73b1d6.pdf",
+    "worked-solution-pdf-2d5b92f7-821f-47e7-8d9e-341c9b309c46.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-higher-2018-paper-3-calculator-2018-3-4-43",
+   "files": [
+    "paper-pdf-66dad36b-3c84-42b5-aa11-01e3c7e06a6c.pdf",
+    "worked-solution-pdf-58b4c3ef-0f12-443e-8c6c-3e7bb2a083b3.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-higher-2019-paper-1-non-calculator-2019-1-4-41",
+   "files": [
+    "paper-pdf-7f59e137-4ffc-4300-ad87-e8f84fc426d3.pdf",
+    "worked-solution-pdf-4401b82d-e805-4c68-993e-8d86c5fb6c26.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-higher-2019-paper-2-calculator-2019-2-4-39",
+   "files": [
+    "paper-pdf-32c431d4-ffb4-435f-8979-19a2b781309d.pdf",
+    "worked-solution-pdf-7c233ea1-a10e-4940-9d66-36693720b74e.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-higher-2019-paper-3-calculator-2019-3-4-37",
+   "files": [
+    "paper-pdf-7c8949c7-a03f-4f71-bfde-76ab12e42650.pdf",
+    "worked-solution-pdf-304f5852-5322-4f77-a6a4-91a741bc3ef6.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-higher-set-a-paper-1-non-calculator-unknown-1-4-31",
+   "files": [
+    "paper-pdf-140b0837-e3d6-494e-809a-ea6076285aa1.pdf",
+    "worked-solution-pdf-7727c5b5-c412-4399-90d6-5451ebb94f6f.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-higher-set-a-paper-2-calculator-unknown-2-4-32",
+   "files": [
+    "paper-pdf-8ea3f08e-c8b7-47e1-9e70-b722e24b4543.pdf",
+    "worked-solution-pdf-278ae4b4-fa14-4ae8-a413-d4d122a233d6.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/edexcel/gcse-maths/gcse-maths-edexcel-predicted-current-higher-set-a-paper-3-calculator-unknown-3-4-33",
+   "files": [
+    "paper-pdf-65da66ad-c55e-4f4d-a8d7-a132613cc26c.pdf",
+    "worked-solution-pdf-4acb0751-d75c-40c6-a2e9-8b8bd6b869a8.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/gcse-maths/mini-tests/f5",
+   "files": [
+    "F5MiniTest1.pdf",
+    "F5MiniTest1ans.pdf",
+    "F5MiniTest2.pdf",
+    "F5MiniTest2ans.pdf",
+    "F5MiniTest3.pdf",
+    "F5MiniTest3ans.pdf",
+    "F5MiniTest4.pdf",
+    "F5MiniTest4ans.pdf",
+    "F5MiniTest5.pdf",
+    "F5MiniTest5ans.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/gcse-maths/mini-tests/foundation",
+   "files": [
+    "FoundationMiniTest1.pdf",
+    "FoundationMiniTest1ans.pdf",
+    "FoundationMiniTest2.pdf",
+    "FoundationMiniTest2ans.pdf",
+    "FoundationMiniTest3.pdf",
+    "FoundationMiniTest3ans.pdf",
+    "FoundationMiniTest4.pdf",
+    "FoundationMiniTest4ans.pdf",
+    "FoundationMiniTest5.pdf",
+    "FoundationMiniTest5ans.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/gcse-maths/mini-tests/h6",
+   "files": [
+    "H6MiniTest1.pdf",
+    "H6MiniTest1ans.pdf",
+    "H6MiniTest2.pdf",
+    "H6MiniTest2ans.pdf",
+    "H6MiniTest3.pdf",
+    "H6MiniTest3ans.pdf",
+    "H6MiniTest4.pdf",
+    "H6MiniTest4ans.pdf",
+    "H6MiniTest5.pdf",
+    "H6MiniTest5ans.pdf"
+   ]
+  },
+  {
+   "resource_dir": "papers/gcse-maths/mini-tests/h7",
+   "files": [
+    "H7MiniTest1.pdf",
+    "H7MiniTest1ans.pdf",
+    "H7MiniTest2.pdf",
+    "H7MiniTest2ans.pdf",
+    "H7MiniTest3.pdf",
+    "H7MiniTest3ans.pdf",
+    "H7MiniTest4.pdf",
+    "H7MiniTest4ans.pdf",
+    "H7MiniTest5.pdf",
+    "H7MiniTest5ans.pdf"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,96 @@
+{
+ "observed_fonts": [
+  "MathsGenie Hand",
+  "inherit",
+  "var(--default-font-family,ui-sans-serif, system-ui, sans-ser",
+  "var(--default-mono-font-family,ui-monospace, SFMono-Regular,",
+  "var(--font-display)",
+  "var(--font-display)!important",
+  "var(--font-ink)",
+  "var(--font-ink)!important",
+  "var(--font-marking)",
+  "var(--font-mono)",
+  "var(--font-sans)",
+  "var(--font-serif)",
+  "var(--font-title)",
+  "var(--font-title)!important",
+  "var(--topic-notes-font-family)"
+ ],
+ "signature_font": "MathsGenie Hand (handwritten display font)",
+ "top_colors_hex": [
+  [
+   "#fafafa",
+   15
+  ],
+  [
+   "#0a0a0a",
+   9
+  ],
+  [
+   "#14171c",
+   9
+  ],
+  [
+   "#f5f5f5",
+   7
+  ],
+  [
+   "#171717",
+   6
+  ],
+  [
+   "#d4ddff",
+   6
+  ],
+  [
+   "#242424",
+   5
+  ],
+  [
+   "#737373",
+   4
+  ],
+  [
+   "#191919",
+   4
+  ],
+  [
+   "#075985",
+   4
+  ],
+  [
+   "#e5e5e5",
+   3
+  ],
+  [
+   "#f0f0f0",
+   3
+  ],
+  [
+   "#1cb0f6",
+   3
+  ],
+  [
+   "#00c750",
+   3
+  ],
+  [
+   "#CD680A",
+   3
+  ]
+ ],
+ "palette_inference": {
+  "paper": "#fafafa",
+  "ink": "#14171c",
+  "ink_soft": "#242424",
+  "muted": "#737373",
+  "line": "#e5e5e5",
+  "accent_soft": "#d4ddff",
+  "deep_blue": "#075985",
+  "dark_bg": "#0a0a0a",
+  "dark_panel": "#171717",
+  "dark_panel2": "#191919"
+ },
+ "css_framework": "Tailwind CSS v4 (utility classes, oklch tokens, --font-* vars)",
+ "theme": "light default + dark mode variants"
+}
