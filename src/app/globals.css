@@ -2,29 +2,41 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Design tokens derived from research/05-design-system.md */
+/* ------------------------------------------------------------------
+   Design tokens — derived from research/05-design-system.md
+   Palette observed on the live site (facts): night #031117, mint
+   #2fe4b7, sky #5cc1ea, periwinkle #d4ddff. Implementation is ours.
+------------------------------------------------------------------- */
 :root {
-  --paper: #fafafa;
-  --paper-2: #f5f5f5;
-  --ink: #14171c;
-  --ink-solid: #0a0a0a;
-  --muted: #737373;
-  --line: #e5e5e5;
-  --accent: #075985;
+  --paper: #f7fafb;
+  --paper-2: #eef3f6;
+  --ink: #0d2129;
+  --ink-solid: #04141b;
+  --muted: #5b6b73;
+  --line: #dfe7ec;
+  --accent: #0284c7;
   --accent-soft: #d4ddff;
   --panel: #ffffff;
+
+  --night: #031117;
+  --night-2: #0a2634;
+  --night-3: #0e3346;
+  --mint: #2fe4b7;
+  --sky: #5cc1ea;
+  --peri: #d4ddff;
+  --coral: #ff8a7a;
 }
 
 .dark {
-  --paper: #0a0a0a;
-  --paper-2: #171717;
-  --ink: #ededed;
+  --paper: #04141b;
+  --paper-2: #0a2634;
+  --ink: #e6f1f4;
   --ink-solid: #ffffff;
-  --muted: #a3a3a3;
-  --line: #262626;
-  --accent: #7dd3fc;
-  --accent-soft: #1e293b;
-  --panel: #191919;
+  --muted: #93a7b0;
+  --line: #123240;
+  --accent: #5cc1ea;
+  --accent-soft: #0a2634;
+  --panel: #071d28;
 }
 
 @theme inline {
@@ -37,6 +49,13 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-panel: var(--panel);
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-night-3: var(--night-3);
+  --color-mint: var(--mint);
+  --color-sky: var(--sky);
+  --color-peri: var(--peri);
+  --color-coral: var(--coral);
   --font-hand: "Caveat", "Comic Sans MS", cursive;
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
@@ -53,18 +72,83 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Signature handwritten display headings (stand-in for the brand font) */
+/* Signature handwritten display headings (open stand-in for brand font) */
 .font-hand {
   font-family: var(--font-hand);
 }
 
-/* focus rings like the original's focus-visible:border-ring pattern */
 :where(a, button, input, select, textarea):focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--mint);
   outline-offset: 2px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 ::selection {
-  background: var(--accent-soft);
+  background: var(--peri);
+  color: var(--night);
+}
+
+/* ---------------- hero glow field (pure CSS, no images) ------------- */
+.hero-glow {
+  background:
+    radial-gradient(42rem 24rem at 12% -10%, rgb(47 228 183 / 0.16), transparent 60%),
+    radial-gradient(50rem 30rem at 88% 0%, rgb(92 193 234 / 0.18), transparent 62%),
+    radial-gradient(36rem 26rem at 55% 120%, rgb(212 221 255 / 0.10), transparent 60%),
+    var(--night);
+}
+
+.grid-fade {
+  background-image:
+    linear-gradient(rgb(92 193 234 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(92 193 234 / 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(70% 70% at 50% 30%, black, transparent);
+}
+
+/* ---------------- marquee ------------------------------------------ */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x var(--marquee-speed, 48s) linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+/* ---------------- rotating hero word ------------------------------- */
+@keyframes word-in {
+  0%   { transform: translateY(105%) rotate(3deg); opacity: 0; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+.word-in {
+  animation: word-in 420ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.float-y { animation: float-y 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .float-y, .word-in {
+    animation: none !important;
+  }
+}
+
+/* ---------------- misc --------------------------------------------- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.chat-scroll::-webkit-scrollbar { width: 6px; }
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
 }
