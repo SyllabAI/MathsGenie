@@ -1,0 +1,474 @@
+{
+ "qualification": "A-Level",
+ "subject": "Maths",
+ "board": "edexcel",
+ "spec": "9MA0",
+ "note": "Original-composition interactive lesson content (UI demo material written for this recreation). No text is sourced from mathsgenie.co.uk or Pearson Edexcel — topics follow the public 9MA0 curriculum structure only.",
+ "lessons": [
+  {
+   "slug": "as-pure-mathematics-1-algebraic-expressions",
+   "title": "Algebraic Expressions",
+   "module": "Year 1 Pure Mathematics",
+   "minutes": 8,
+   "keyIdea": "Index laws let you collapse products of powers, and factorising reverses expansion — most later pure topics assume both fluently.",
+   "objectives": [
+    "Apply the index laws, including negative and fractional indices",
+    "Expand products of brackets and collect like terms",
+    "Factorise expressions by taking out common factors"
+   ],
+   "steps": [
+    {
+     "kind": "concept",
+     "title": "Index laws",
+     "body": [
+      "Powers pack repeated multiplication into a compact notation, and a small set of laws governs everything you can do with them. When multiplying powers of the same base you add the indices, when dividing you subtract, and when raising a power to another power you multiply.",
+      "Negative indices turn powers into reciprocals, and fractional indices describe roots: an index of 1/n means the nth root, while m/n means take the root first and then raise to the power m. Getting fluent at switching between these forms is the skill — questions rarely announce which law you need."
+     ],
+     "example": {
+      "problem": "Simplify (2x³)² × 3x⁻⁴",
+      "lines": [
+       "Square the bracket first: (2x³)² = 2²x⁶ = 4x⁶",
+       "Multiply the coefficients: 4 × 3 = 12",
+       "Add the indices on x: x⁶ × x⁻⁴ = x²",
+       "Answer: 12x²"
+      ],
+      "takeaway": "Deal with numbers and powers in separate passes, then recombine."
+     }
+    },
+    {
+     "kind": "concept",
+     "title": "Expanding and factorising",
+     "body": [
+      "Expansion multiplies every term in one bracket by every term in the other, and factorising runs that film backwards. The highest common factor of the terms — including any shared algebraic factor — comes out first, and you can always check by multiplying back.",
+      "At A Level the expressions get longer (cubic brackets, three factors, surds mixed in), so the habit that matters is systematic bookkeeping: one bracket pair at a time, collecting like terms before moving on."
+     ],
+     "example": {
+      "problem": "Expand and simplify (x + 2)(x − 3) − (x − 1)²",
+      "lines": [
+       "First product: x² − 3x + 2x − 6 = x² − x − 6",
+       "Square the second bracket: (x − 1)² = x² − 2x + 1",
+       "Subtract carefully — both brackets: (x² − x − 6) − (x² − 2x + 1)",
+       "Collect: x − 7"
+      ],
+      "takeaway": "When subtracting a squared bracket, bracket the whole expansion before collecting."
+     }
+    },
+    {
+     "kind": "check",
+     "title": "Quick checks",
+     "questions": [
+      {
+       "type": "mcq",
+       "prompt": "Simplify 4x³ × 2x⁵",
+       "options": ["8x⁸", "6x⁸", "8x¹⁵", "6x¹⁵"],
+       "answer": 0,
+       "explain": "Multiply the coefficients (4 × 2 = 8) and add the indices (3 + 5 = 8)."
+      },
+      {
+       "type": "numeric",
+       "prompt": "Evaluate 27^(2/3)",
+       "answer": "9",
+       "accept": ["9"],
+       "explain": "The cube root of 27 is 3, and 3² = 9."
+      },
+      {
+       "type": "mcq",
+       "prompt": "Factorise 6x² − 9x fully",
+       "options": ["3x(2x − 3)", "6x(x − 3)", "3(2x² − 3x)", "x(6x − 9)"],
+       "answer": 0,
+       "explain": "The highest common factor is 3x, leaving 2x − 3 inside the bracket."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "as-pure-mathematics-2-quadratics",
+   "title": "Quadratics",
+   "module": "Year 1 Pure Mathematics",
+   "minutes": 9,
+   "keyIdea": "Completing the square rewrites any quadratic as a shifted square, which hands you the vertex, and the discriminant predicts the roots before you solve.",
+   "objectives": [
+    "Complete the square for a quadratic expression",
+    "Use the discriminant to determine the nature of the roots",
+    "Find the vertex of a quadratic graph from completed-square form"
+   ],
+   "steps": [
+    {
+     "kind": "concept",
+     "title": "Completing the square",
+     "body": [
+      "Every quadratic x² + bx + c can be rewritten as (x + b/2)² plus a constant you adjust for. The trick: halve the coefficient of x, square it, and compare with the constant to see what is left over.",
+      "Completed-square form reads like a map of the graph. The bracket shows the horizontal shift, the leftover constant shows the vertical shift, and together they hand you the turning point without any calculus."
+     ],
+     "example": {
+      "problem": "Write x² − 6x + 5 in completed-square form and find the vertex",
+      "lines": [
+       "Half of −6 is −3; square it: 9",
+       "x² − 6x + 5 = (x − 3)² − 9 + 5",
+       "= (x − 3)² − 4",
+       "Vertex: (3, −4), and the roots follow from (x − 3)² = 4"
+      ],
+      "takeaway": "The vertex of y = (x − p)² + q is (−p, q) — mind the sign inside the bracket."
+     }
+    },
+    {
+     "kind": "concept",
+     "title": "The discriminant",
+     "body": [
+      "The quadratic formula contains the quantity b² − 4ac under a square root, so its sign decides what the roots look like. Positive gives two distinct real roots, zero gives one repeated root, and negative means the graph never crosses the x-axis.",
+      "Discriminant questions often run in reverse: you are told the nature of the roots and asked to find an unknown coefficient. Set up the inequality or equation for b² − 4ac first — the algebra is usually easier than it looks."
+     ],
+     "example": {
+      "problem": "Find k so that 2x² + 4x + k has equal roots",
+      "lines": [
+       "Equal roots means b² − 4ac = 0",
+       "4² − 4 × 2 × k = 0",
+       "16 − 8k = 0",
+       "k = 2"
+      ],
+      "takeaway": "Translate the words (equal roots, real roots, no real roots) into a discriminant condition before touching the algebra."
+     }
+    },
+    {
+     "kind": "check",
+     "title": "Quick checks",
+     "questions": [
+      {
+       "type": "mcq",
+       "prompt": "How many real roots does x² − 4x + 7 = 0 have?",
+       "options": ["No real roots", "Two distinct real roots", "One repeated root", "Cannot be determined"],
+       "answer": 0,
+       "explain": "The discriminant is 16 − 28 = −12, which is negative, so the quadratic never crosses the x-axis."
+      },
+      {
+       "type": "numeric",
+       "prompt": "x² + 8x + 3 = (x + 4)² − k. What is k?",
+       "answer": "13",
+       "accept": ["13"],
+       "explain": "Half of 8 is 4, and 4² = 16; 16 − 3 = 13, so the form is (x + 4)² − 13."
+      },
+      {
+       "type": "mcq",
+       "prompt": "What is the vertex of y = x² − 6x + 5?",
+       "options": ["(3, −4)", "(−3, 4)", "(3, 4)", "(−3, −4)"],
+       "answer": 0,
+       "explain": "Completed-square form is (x − 3)² − 4, so the vertex is (3, −4)."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "as-pure-mathematics-12-differentiation",
+   "title": "Differentiation",
+   "module": "Year 1 Pure Mathematics",
+   "minutes": 10,
+   "keyIdea": "Differentiation measures instantaneous rate of change: the power rule differentiates any polynomial, and stationary points come from solving dy/dx = 0.",
+   "objectives": [
+    "Differentiate powers of x, including negative and fractional indices",
+    "Find equations of tangents and normals to a curve",
+    "Locate and classify stationary points using the second derivative"
+   ],
+   "steps": [
+    {
+     "kind": "concept",
+     "title": "The power rule",
+     "body": [
+      "For y = xⁿ the derivative is dy/dx = n·xⁿ⁻¹: the power comes out front and drops by one. This works for every real index — negative powers become rates of change of reciprocals, fractional powers handle roots — and sums differentiate term by term.",
+      "Before differentiating, rewrite anything awkward: 1/x² should become x⁻², and √x should become x^½. Half of all differentiation slips happen because a term was differentiated in its display form rather than in power form."
+     ],
+     "example": {
+      "problem": "Find the gradient of y = x³ − 4x when x = 2",
+      "lines": [
+       "Differentiate term by term: dy/dx = 3x² − 4",
+       "Substitute x = 2: 3(4) − 4",
+       "Gradient = 8"
+      ],
+      "takeaway": "Differentiate first, substitute second — never mix the two passes."
+     }
+    },
+    {
+     "kind": "concept",
+     "title": "Tangents, normals and stationary points",
+     "body": [
+      "The derivative at a point is the gradient there, so the tangent is the straight line through the point with that gradient, and the normal uses the negative reciprocal gradient. Write lines with y − y₁ = m(x − x₁) to keep the point-slope step mechanical.",
+      "Stationary points are where dy/dx = 0 — the gradient vanishes. The second derivative classifies them: positive means the curve bends upward (a minimum), negative means it bends downward (a maximum). If the second derivative is zero, fall back to inspecting the sign of dy/dx on either side."
+     ],
+     "example": {
+      "problem": "Find and classify the stationary points of y = x³ − 3x²",
+      "lines": [
+       "dy/dx = 3x² − 6x = 3x(x − 2), so stationary at x = 0 and x = 2",
+       "Second derivative: d²y/dx² = 6x − 6",
+       "At x = 0: −6 < 0, so a maximum; at x = 2: +6 > 0, so a minimum",
+       "Points: (0, 0) maximum, (2, −4) minimum"
+      ],
+      "takeaway": "Stationary points need their coordinates too — substitute back into y, not dy/dx."
+     }
+    },
+    {
+     "kind": "check",
+     "title": "Quick checks",
+     "questions": [
+      {
+       "type": "numeric",
+       "prompt": "Differentiate x⁴ (write the derivative, e.g. 4x^3)",
+       "answer": "4x^3",
+       "accept": ["4x^3", "4x3", "4x**3"],
+       "explain": "The power comes down and drops by one: d/dx x⁴ = 4x³."
+      },
+      {
+       "type": "mcq",
+       "prompt": "What is the gradient of y = x² − 5x at x = 4?",
+       "options": ["3", "−3", "11", "−1"],
+       "answer": 0,
+       "explain": "dy/dx = 2x − 5, and 2(4) − 5 = 3."
+      },
+      {
+       "type": "mcq",
+       "prompt": "y = x³ − 6x² + 9x has stationary points at x = 1 and x = 3. What is the nature of the point at x = 1?",
+       "options": ["Maximum", "Minimum", "Point of inflection", "Neither — it is not stationary"],
+       "answer": 0,
+       "explain": "d²y/dx² = 6x − 12 gives −6 at x = 1, which is negative, so the curve bends downward: a maximum."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "as-pure-mathematics-13-integration",
+   "title": "Integration",
+   "module": "Year 1 Pure Mathematics",
+   "minutes": 9,
+   "keyIdea": "Integration reverses differentiation: raise the power and divide by the new power, always adding +c — and definite integrals evaluate to numbers you can read as areas.",
+   "objectives": [
+    "Integrate powers of x, remembering the constant of integration",
+    "Evaluate definite integrals using the limits",
+    "Interpret a definite integral as an area under a curve"
+   ],
+   "steps": [
+    {
+     "kind": "concept",
+     "title": "Reversing the power rule",
+     "body": [
+      "Differentiating xⁿ brings the power down, so integration does the opposite: raise the power by one and divide by the new power. The +c is not decoration — without it you describe one curve instead of the whole family of curves sharing the same gradient.",
+      "As with differentiation, rewrite terms into power form first. Terms like 1/x or √x are x⁻¹ (which integrates to a logarithm — a special case you will meet head-on) and x^½ before you integrate them."
+     ],
+     "example": {
+      "problem": "Find ∫(3x² − 4x) dx",
+      "lines": [
+       "Raise each power and divide: 3x³/3 − 4x²/2",
+       "Simplify: x³ − 2x²",
+       "Add the constant: x³ − 2x² + c"
+      ],
+      "takeaway": "Divide by the NEW power — the classic slip is dividing by the old one."
+     }
+    },
+    {
+     "kind": "concept",
+     "title": "Definite integrals and area",
+     "body": [
+      "A definite integral has limits: evaluate the antiderivative at the top limit, then at the bottom, and subtract. The constant of integration cancels in that subtraction, which is why definite integrals are clean numbers.",
+      "When a curve sits above the x-axis, that number is exactly the area between the curve and the axis. Where the curve dips below, the integral goes negative, so exam questions ask you to split at the roots and integrate each piece before adding the magnitudes."
+     ],
+     "example": {
+      "problem": "Evaluate ∫₀² 3x² dx",
+      "lines": [
+       "Antiderivative: x³ + c",
+       "Upper limit: 2³ = 8; lower limit: 0³ = 0",
+       "8 − 0 = 8",
+       "The area under y = 3x² from 0 to 2 is 8"
+      ],
+      "takeaway": "Square brackets with limits mean 'evaluate top minus bottom' — the c is already gone."
+     }
+    },
+    {
+     "kind": "check",
+     "title": "Quick checks",
+     "questions": [
+      {
+       "type": "mcq",
+       "prompt": "What is ∫x³ dx?",
+       "options": ["x⁴/4 + c", "3x² + c", "x⁴ + c", "4x³ + c"],
+       "answer": 0,
+       "explain": "Raise the power to 4 and divide by 4; the +c is mandatory for an indefinite integral."
+      },
+      {
+       "type": "numeric",
+       "prompt": "Evaluate ∫₁³ 2x dx",
+       "answer": "8",
+       "accept": ["8"],
+       "explain": "The antiderivative is x²; 3² − 1² = 9 − 1 = 8."
+      },
+      {
+       "type": "mcq",
+       "prompt": "Why does an indefinite integral need +c?",
+       "options": [
+        "Because differentiating any of a family of curves differing by a constant gives the same derivative",
+        "Because integration always produces a number",
+        "To make the integral positive",
+        "Because the limits might be negative"
+       ],
+       "answer": 0,
+       "explain": "Constants vanish under differentiation, so infinitely many curves share one derivative — +c labels which member of the family you mean."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "a-level-statistics-3-the-normal-distribution",
+   "title": "The Normal Distribution",
+   "module": "Year 2 Statistics",
+   "minutes": 10,
+   "keyIdea": "Standardising with Z = (X − μ)/σ converts any normal question into a Z-question; the symmetry of the curve does the rest.",
+   "objectives": [
+    "Standardise a normal variable using Z = (X − μ)/σ",
+    "Find probabilities for a normal distribution using symmetry",
+    "Solve inverse problems: find x given a probability"
+   ],
+   "steps": [
+    {
+     "kind": "concept",
+     "title": "The shape and standardising",
+     "body": [
+      "The normal distribution N(μ, σ²) is the familiar symmetric bell: mean μ sets the centre, standard deviation σ sets the width. Because it is symmetric, P(X < μ) = 0.5 exactly, and probabilities mirror around the mean.",
+      "Tables and calculators only know one normal distribution — the standard normal Z with mean 0 and standard deviation 1. Standardising converts X into Z by measuring how many standard deviations a value sits from the mean: Z = (X − μ)/σ."
+     ],
+     "example": {
+      "problem": "X ~ N(50, 4²). Find P(X > 56)",
+      "lines": [
+       "Standardise: Z = (56 − 50)/4 = 1.5",
+       "P(Z > 1.5) = 1 − P(Z ≤ 1.5)",
+       "From tables: P(Z ≤ 1.5) = 0.9332",
+       "P(X > 56) = 0.0668"
+      ],
+      "takeaway": "Always sketch the curve and shade the region — the picture tells you whether to use 1 − Φ or symmetry."
+     }
+    },
+    {
+     "kind": "concept",
+     "title": "Inverse problems",
+     "body": [
+      "Sometimes you know the probability and need the value. Convert the given probability into a Z-value using the inverse normal function, then translate back with X = μ + σZ.",
+      "Watch probabilities expressed the awkward way (P(X > x) = 0.9, say). Use symmetry to rewrite them as a left-tail probability first — inverse tables and calculators expect the cumulative, left-hand form."
+     ],
+     "example": {
+      "problem": "X ~ N(50, 4²). Find x such that P(X < x) = 0.10",
+      "lines": [
+       "Inverse normal: z for cumulative 0.10 is −1.2816",
+       "Convert back: x = μ + σz = 50 + 4(−1.2816)",
+       "x ≈ 44.9",
+       "Check the sketch: 44.9 sits left of the mean — consistent with a lower-tail 10%"
+      ],
+      "takeaway": "The sign of z must match the side of the mean — a negative z always lands below μ."
+     }
+    },
+    {
+     "kind": "check",
+     "title": "Quick checks",
+     "questions": [
+      {
+       "type": "mcq",
+       "prompt": "X ~ N(10, 2²). What is P(X < 10)?",
+       "options": ["0.5", "0.05", "0.95", "It depends on σ"],
+       "answer": 0,
+       "explain": "The mean is the mirror line of a symmetric distribution, so exactly half the probability lies below it."
+      },
+      {
+       "type": "numeric",
+       "prompt": "X ~ N(50, 6²). Standardise X = 62 — what is Z?",
+       "answer": "2",
+       "accept": ["2", "2.0", "+2"],
+       "explain": "Z = (62 − 50)/6 = 12/6 = 2, i.e. two standard deviations above the mean."
+      },
+      {
+       "type": "mcq",
+       "prompt": "Increasing the standard deviation of a normal distribution makes the curve…",
+       "options": ["Wider and flatter", "Narrower and taller", "Shift right", "Shift left"],
+       "answer": 0,
+       "explain": "More spread means values stray further from the mean: the bell widens and its peak drops to keep total probability at 1."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "as-mechanics-1-constant-acceleration",
+   "title": "Constant Acceleration",
+   "module": "Year 1 Mechanics",
+   "minutes": 9,
+   "keyIdea": "The five suvat equations each link four of the five quantities — list what you know and what you want, and one equation always fits.",
+   "objectives": [
+    "Select the correct suvat equation from the given quantities",
+    "Apply consistent units and sign conventions",
+    "Solve two-stage motion problems by splitting the journey"
+   ],
+   "steps": [
+    {
+     "kind": "concept",
+     "title": "The suvat toolkit",
+     "body": [
+      "Constant acceleration gives you five linked equations between s (displacement), u (initial velocity), v (final velocity), a (acceleration) and t (time). Each equation omits exactly one quantity, so the selection rule is: write down what you know and what you want, then take the equation missing the quantity you do not care about.",
+      "Units must agree before any equation is used — velocities in m/s, time in seconds, acceleration in m/s². A speed quoted in km/h needs dividing by 3.6 first; silently mixing units is the most common way to lose the marks on an otherwise perfect method."
+     ],
+     "example": {
+      "problem": "A particle starts from rest and accelerates at 2 m/s² for 5 s. Find its final velocity and displacement",
+      "lines": [
+       "Known: u = 0, a = 2, t = 5; want v and s",
+       "Velocity: v = u + at = 0 + 2 × 5 = 10 m/s",
+       "Displacement (no v needed): s = ut + ½at² = 0 + ½ × 2 × 25",
+       "s = 25 m"
+      ],
+      "takeaway": "Rest means u = 0 — spotting that early usually leaves exactly one easy equation."
+     }
+    },
+    {
+     "kind": "concept",
+     "title": "Signs, deceleration and two-stage journeys",
+     "body": [
+      "Suvat quantities are vectors: choose a positive direction up front and keep it. Deceleration is then simply a negative acceleration — writing a = −5 rather than 'deceleration 5' keeps the algebra honest.",
+      "Journeys with two phases (accelerate, then brake) split at the shared velocity: the landing speed of stage one is the launch speed of stage two. Solve each stage with its own suvat list and add the displacements."
+     ],
+     "example": {
+      "problem": "A car travelling at 20 m/s brakes uniformly to rest with deceleration 5 m/s². How far does it travel?",
+      "lines": [
+       "Known: u = 20, v = 0, a = −5; want s (no t given, so avoid t)",
+       "v² = u² + 2as → 0 = 400 + 2(−5)s",
+       "10s = 400",
+       "s = 40 m"
+      ],
+      "takeaway": "When time is neither given nor asked for, v² = u² + 2as is the equation that skips it."
+     }
+    },
+    {
+     "kind": "check",
+     "title": "Quick checks",
+     "questions": [
+      {
+       "type": "mcq",
+       "prompt": "You know u, a and t, and want v. Which equation fits?",
+       "options": ["v = u + at", "s = ut + ½at²", "v² = u² + 2as", "s = ½(u + v)t"],
+       "answer": 0,
+       "explain": "v = u + at links exactly u, a, t, v — the four quantities in play."
+      },
+      {
+       "type": "numeric",
+       "prompt": "u = 0, a = 3 m/s², t = 4 s. Find v in m/s",
+       "answer": "12",
+       "accept": ["12", "12 m/s", "12ms-1", "12m/s"],
+       "explain": "v = u + at = 0 + 3 × 4 = 12 m/s."
+      },
+      {
+       "type": "numeric",
+       "prompt": "u = 10 m/s, a = −2 m/s², t = 3 s. Find s in metres",
+       "answer": "21",
+       "accept": ["21", "21 m", "21m"],
+       "explain": "s = ut + ½at² = 30 + ½(−2)(9) = 30 − 9 = 21 m."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
