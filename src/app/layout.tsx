@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { SiteHeader, SiteFooter } from "@/components/Chrome";
 import CookieBanner from "@/components/CookieBanner";
 
 export const metadata: Metadata = {
@@ -37,11 +36,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Header />
+        <SiteHeader />
         <main id="main-content" className="flex-1">
           {children}
         </main>
-        <Footer />
+        <SiteFooter />
         <CookieBanner />
       </body>
     </html>
