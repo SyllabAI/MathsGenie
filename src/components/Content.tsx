@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/Badge";
 import { SITE } from "@/lib/data";
 
@@ -8,98 +7,29 @@ type Topic = { slug: string; title: string; href: string };
 /** Topic row list for a grade tab, mirroring the original's numbered topic rows. */
 export function TopicList({ topics, board }: { topics: Topic[]; board: string }) {
   return (
-    <ol className="divide-y divide-line overflow-hidden rounded-2xl border border-line bg-panel">
+    <ol className="grid gap-1.5 md:grid-cols-2">
       {topics.map((t, i) => (
-        <li key={t.slug} className="group flex items-center gap-3 px-4 py-3 hover:bg-paper-2">
-          <span className="w-7 shrink-0 text-center text-sm font-semibold text-muted">{i + 1}</span>
-          <Link href={`/gcse/maths/${board}/${t.slug}`} className="flex-1 font-medium group-hover:text-accent">
-            {t.title}
-          </Link>
+        <li key={t.slug}>
           <Link
             href={`/gcse/maths/${board}/${t.slug}`}
-            className="rounded-full border border-line px-3 py-1 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-100"
+            className="group -mx-2 flex items-center gap-4 rounded-3xl p-2.5 transition-colors hover:bg-paper-2 dark:hover:bg-night-2"
           >
-            Open
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-paper-2 text-sm font-bold text-muted group-hover:bg-accent-soft group-hover:text-accent dark:bg-night-3 dark:text-paper/60">
+              {i + 1}
+            </span>
+            <span className="min-w-0 flex-1 truncate font-medium group-hover:text-accent">
+              {t.title}
+            </span>
+            <span
+              className="shrink-0 text-muted opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100"
+              aria-hidden
+            >
+              →
+            </span>
           </Link>
         </li>
       ))}
     </ol>
-  );
-}
-
-/** Mode cards grid on topic pages (questions / videos / revision / flashcards…). */
-export function ModeCards({
-  board,
-  topic,
-  originalHref,
-}: {
-  board: string;
-  topic: string;
-  originalHref: string;
-}) {
-  const base = `/gcse/maths/${board}/${topic}`;
-  const modes: { label: string; desc: string; href: string; icon: ReactNode; outbound?: boolean }[] = [
-    {
-      label: "Questions",
-      desc: "Exam-style question bank",
-      href: `${base}/questions`,
-      icon: "❓",
-    },
-    {
-      label: "Videos",
-      desc: "Topic walkthroughs on the original",
-      href: `${SITE.original}${originalHref}/videos`,
-      icon: "▶",
-      outbound: true,
-    },
-    {
-      label: "Revision notes",
-      desc: "Topic-by-topic notes on the original",
-      href: `${SITE.original}${originalHref}/revision-guides`,
-      icon: "📝",
-      outbound: true,
-    },
-    {
-      label: "Flashcards",
-      desc: "Active recall on the original",
-      href: `${SITE.original}${originalHref}/flashcards`,
-      icon: "🃏",
-      outbound: true,
-    },
-    {
-      label: "Question Rush",
-      desc: "Timed drill for this topic",
-      href: `${base}/questions#rush`,
-      icon: "⚡",
-    },
-    {
-      label: "Mock exam builder",
-      desc: "Compose a custom paper",
-      href: `/gcse/maths/${board}/mock-exam-builder?topic=${encodeURIComponent(topic)}`,
-      icon: "🧩",
-    },
-  ];
-  return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-      {modes.map((m) => (
-        <a
-          key={m.label}
-          href={m.href}
-          target={m.outbound ? "_blank" : undefined}
-          rel={m.outbound ? "noopener noreferrer" : undefined}
-          className="group rounded-2xl border border-line bg-panel p-4 transition-shadow hover:shadow-md"
-        >
-          <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-paper-2 text-lg group-hover:bg-accent-soft">
-            {m.icon}
-          </div>
-          <p className="font-semibold group-hover:text-accent">
-            {m.label}
-            {m.outbound && <span className="ml-1 text-xs text-muted">↗</span>}
-          </p>
-          <p className="mt-0.5 text-xs text-muted">{m.desc}</p>
-        </a>
-      ))}
-    </div>
   );
 }
 

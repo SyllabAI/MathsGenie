@@ -84,6 +84,28 @@ GCSE 189, IGCSE 91, A-Level 172, AS 106, KS2 1, IAL 60, IAS 48.
 /grade2.html                   classic per-grade topic pages
 ```
 
+## Asset hosts & bulk download patterns (verified live)
+
+Three CDN/asset hosts serve the site's files; all were probed and verified
+during the reverse-engineering pass (see `scripts/download_resources.py`):
+
+| Family | Host | Pattern | Notes |
+|--------|------|---------|-------|
+| Papers / worked solutions | `assets.mathsgenie.co.uk` | `/papers/{board}/gcse-maths/{resource_dir}/{file}` | `resource_dir` + `file` are fully catalogued in `data/gcse-maths/papers-<board>.json` (136 files for Edexcel). Real PDFs, `content-type: application/pdf`. |
+| Classic topic worksheets | `old-asset.mathsgenie.co.uk` | `/resources/{grade}-{title-slug}.pdf` | Derived from modern topic slugs `grade-{g}-{dup}-{nn}-{title}` → `{g}-{title}.pdf` (e.g. `grade-3-3-13-substitution` → `3-substitution.pdf`). Single PDF per topic (questions only); `-markscheme`/`-answers`/`-revision` variants are NOT published. |
+| Board reference material | `assets.mathsgenie.co.uk` | `/board-resources/gcse-maths/*.pdf` | e.g. `gcse-formulae-to-remember.pdf`. |
+
+Key caveats discovered by probing:
+
+* `www.mathsgenie.co.uk/resources/*` returns an **HTML soft-200 fallback** for
+  every missing file — HTTP 200 does not mean the file exists. The only
+  reliable check is the `%PDF` magic byte on the body.
+* Modern topic pages (`/gcse/maths/{board}/{topic}`) do NOT expose worksheet
+  PDF URLs in server HTML; assets load client-side. The classic-pattern
+  derivation above is the practical discovery route.
+* The old-site topic pages (`old.mathsgenie.co.uk/{topic}.php`) embed lesson
+  text and YouTube embeds, but no direct PDF links either.
+
 ## Slug Grammar (regex for parsers)
 
 ```
