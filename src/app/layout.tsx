@@ -1,7 +1,26 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Inter, Manrope, Shantell_Sans } from "next/font/google";
 import { SiteHeader, SiteFooter } from "@/components/Chrome";
 import CookieBanner from "@/components/CookieBanner";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const shantell = Shantell_Sans({
+  subsets: ["latin"],
+  variable: "--font-shantell",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -13,20 +32,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://github.com/SyllabAI/MathsGenie"),
 };
 
-const themeInit = `(function(){try{var t=localStorage.getItem('mg-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`;
+const themeInit = `(function(){try{var t=localStorage.getItem('mg-theme');if(t==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})()`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${manrope.variable} ${shantell.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Open-licensed handwritten display font standing in for the brand font (see research/05) */}
-        {/* eslint-disable-next-line @next/next/no-page-custom-font -- App Router root layout: applies to all pages; avoids build-time font fetch */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap"
-          rel="stylesheet"
-        />
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
       <body className="min-h-screen flex flex-col">

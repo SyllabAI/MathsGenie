@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Attribution } from "@/components/Content";
-import { GradeBadge } from "@/components/ui/Badge";
 import { TopicModes } from "@/components/TopicModes";
 import { isBoard, boardLabel, loadTopics, SITE } from "@/lib/data";
+
+const SPEC_CODES: Record<string, string> = {
+  edexcel: "1MA1",
+  aqa: "8300",
+  ocr: "J560",
+};
 
 export async function generateMetadata({
   params,
@@ -26,6 +31,11 @@ export async function generateMetadata({
   return {};
 }
 
+/** Short original study-note intro for a handful of sample topics. */
+const INTROS: Record<string, string> = {
+  substitution: "Learn how to replace letters with numbers carefully, including negatives, brackets, powers and formulae.",
+};
+
 export default async function TopicPage({
   params,
 }: {
@@ -45,43 +55,42 @@ export default async function TopicPage({
   }
   if (!found) notFound();
 
+  const intro =
+    INTROS[topic] ??
+    `Revise ${found.title} with exam-style questions, worksheets, worked solutions and revision notes — everything the original site publishes for this topic, catalogued and linked.`;
+
   return (
     <div>
-      {/* Dark hero band, matching the original's night header treatment */}
-      <div className="hero-glow relative overflow-hidden bg-night text-paper">
-        <div className="grid-fade pointer-events-none absolute inset-0" aria-hidden />
-        <div className="relative mx-auto max-w-3xl px-4 pb-10 pt-8">
-          <nav aria-label="Breadcrumb" className="text-sm text-paper/60">
-            <Link href="/" className="hover:text-mint">Home</Link>
-            <span className="mx-1.5">/</span>
-            <Link href="/gcse" className="hover:text-mint">GCSE</Link>
-            <span className="mx-1.5">/</span>
-            <Link href={`/gcse/maths/${board}`} className="hover:text-mint">
-              {boardLabel(board)}
-            </Link>
-          </nav>
-
-          <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-paper/50">
-            Maths
-          </p>
-          <div className="mt-1 flex flex-wrap items-center gap-3">
-            <h1 className="font-hand text-5xl font-bold leading-tight sm:text-6xl">
-              {found.title}
-            </h1>
-            <GradeBadge grade={found.grade} />
+      {/* aurora hero band */}
+      <div className="aurora-hero">
+        <div className="mx-auto max-w-4xl px-4 pb-8 pt-8 sm:px-8">
+          <div className="flex items-center justify-between gap-4 text-sm">
+            <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-1.5 text-ink/70">
+              <Link href="/gcse" className="font-medium hover:text-accent">GCSE</Link>
+              <span className="text-ink/40" aria-hidden>›</span>
+              <Link href={`/gcse/maths/${board}`} className="font-medium hover:text-accent">
+                Maths {boardLabel(board)}
+              </Link>
+              <span className="text-ink/40" aria-hidden>›</span>
+              <span className="truncate font-bold text-ink">{found.title}</span>
+            </nav>
+            <p className="shrink-0 text-ink/60">
+              Spec <span className="font-bold text-ink">{SPEC_CODES[board] ?? "—"}</span>
+            </p>
           </div>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-paper/70">
-            Everything for this topic in one place — worksheets, exam-style
-            practice, videos and tools. Recreated catalog; premium modes link
-            back to the original site.
+
+          <h1 className="font-title mt-3 text-4xl font-extrabold tracking-tight">{found.title}</h1>
+          <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-ink/70">
+            Revise {boardLabel(board)} GCSE Maths {found.title} with the worksheets,
+            question bank, question rush, lessons, revision guides, videos, and flashcards.
           </p>
+          <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-ink/70">{intro}</p>
+          <p className="mt-2 text-sm font-semibold text-ink/50">Grade {found.grade}</p>
         </div>
       </div>
 
-      {/* Mode sections on the light body, narrow column like the original */}
-      <div className="mx-auto max-w-6xl px-4 py-12">
+      <div className="mx-auto max-w-4xl px-4 py-10 sm:px-8">
         <TopicModes board={board} topic={topic} />
-
         <Attribution href={`${SITE.original}/gcse/maths/${board}/${topic}`} />
       </div>
     </div>

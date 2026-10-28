@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
-import GradeTabs from "@/components/GradeTabs";
-import { TopicList, Faq, Attribution } from "@/components/Content";
-import { Badge, TierPill } from "@/components/ui/Badge";
+import CourseBrowser from "@/components/gcse/CourseBrowser";
+import { Faq, Attribution } from "@/components/Content";
 import { isBoard, boardLabel, loadTopics, gradeTabs, BOARD_SLUGS, SITE } from "@/lib/data";
 
 export async function generateStaticParams() {
@@ -23,6 +21,13 @@ export async function generateMetadata({
     description: `Free ${boardLabel(board)} GCSE Maths resources — 134 topics by grade, past papers, mark schemes and revision materials (recreated catalog).`,
   };
 }
+
+/** Correct spec codes per awarding body (public facts). */
+const SPEC_CODES: Record<string, string> = {
+  edexcel: "1MA1",
+  aqa: "8300",
+  ocr: "J560",
+};
 
 /** Exam facts are public assessment details (self-written presentation). */
 const ASSESSMENT = [
@@ -56,7 +61,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What topics are covered?",
-    a: "The course spans six strands: number, algebra, ratio and proportion, geometry and measures, probability, and statistics. Use the grade tabs above to browse every topic from grade 1 foundations up to grade 8/9 extension material, each with its own set of practice resources.",
+    a: "The course spans six strands: number, algebra, ratio and proportion, geometry and measures, probability, and statistics. Use the grade accordions above to browse every topic from grade 1 foundations up to grade 8/9 extension material, each with its own set of practice resources.",
   },
   {
     q: "What do I need to know before starting?",
@@ -76,103 +81,54 @@ const FAQ_ITEMS = [
   },
 ];
 
-/** Correct spec codes per awarding body (public facts). */
-const SPEC_CODES: Record<string, string> = {
-  edexcel: "Spec 1MA1",
-  aqa: "Spec 8300",
-  ocr: "Spec J560",
-};
-
 export default async function BoardPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ board: string }>;
-  searchParams: Promise<{ grade?: string }>;
 }) {
   const { board } = await params;
   if (!isBoard(board)) notFound();
   const doc = await loadTopics(board);
   const tabs = gradeTabs(doc);
-  const { grade } = await searchParams;
-  const active = grade && doc.grades[grade] ? grade : tabs[0];
-  const topics = doc.grades[active] ?? [];
+  const grades = tabs.map((g) => ({ grade: g, topics: doc.grades[g] }));
 
   return (
     <div>
-      {/* Dark hero band */}
-      <div className="hero-glow relative overflow-hidden bg-night text-paper">
-        <div className="grid-fade pointer-events-none absolute inset-0" aria-hidden />
-        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-8">
-          <nav aria-label="Breadcrumb" className="text-sm text-paper/60">
-            <Link href="/" className="hover:text-mint">Home</Link>
-            <span className="mx-1.5">/</span>
-            <Link href="/gcse" className="hover:text-mint">GCSE</Link>
-          </nav>
-
-          <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-paper/50">
-            Maths
-          </p>
-          <div className="mt-1 flex flex-wrap items-center gap-3">
-            <h1 className="font-hand text-5xl font-bold leading-tight sm:text-6xl">
-              {boardLabel(board)} GCSE Maths
-            </h1>
-            <Badge tone="dark">{SPEC_CODES[board] ?? "GCSE Maths"}</Badge>
+      {/* aurora hero band */}
+      <div className="aurora-hero">
+        <div className="mx-auto max-w-4xl px-4 pb-8 pt-8 sm:px-8">
+          <div className="flex items-center justify-between gap-4 text-sm">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-ink/70">
+              <Link href="/gcse" className="font-medium hover:text-accent">GCSE</Link>
+              <span className="text-ink/40" aria-hidden>›</span>
+              <span className="font-bold text-ink">Maths {boardLabel(board)}</span>
+            </nav>
+            <p className="shrink-0 text-ink/60">
+              Spec <span className="font-bold text-ink">{SPEC_CODES[board] ?? "—"}</span>
+            </p>
           </div>
-          <p className="mt-3 flex max-w-xl flex-wrap items-center gap-2 text-sm leading-relaxed text-paper/70">
-            {doc.topic_count} topics by grade · <TierPill tier="F" /> covers grades 1–5
-            · <TierPill tier="H" /> covers grades 4–9
-          </p>
 
-          <div className="mt-6 flex flex-wrap gap-2 text-sm">
-            {[
-              { label: "Past papers", href: `/gcse/maths/${board}/papers` },
-              { label: "Worksheets", href: `/gcse/worksheets` },
-              { label: "Revision guides", href: `/gcse/maths/${board}/revision-guides` },
-              { label: "Videos", href: `/gcse/maths/${board}/videos` },
-              { label: "Lessons", href: `/gcse/maths/${board}/lessons` },
-              { label: "Flashcards", href: `/gcse/maths/flashcards` },
-              { label: "Exam builder", href: `/gcse/maths/${board}/mock-exam-builder` },
-              { label: "Grade calculator", href: `/gcse/maths/${board}/predicted-grade-calculator` },
-            ].map((l) => (
-              <Link
-                key={l.label}
-                href={l.href}
-                className="rounded-full border border-paper/20 bg-paper/5 px-4 py-1.5 font-medium text-paper/90 transition-colors hover:border-mint/60 hover:bg-mint/10 hover:text-mint"
-              >
-                {l.label}
-              </Link>
-            ))}
-          </div>
+          <h1 className="font-title mt-3 text-4xl font-extrabold tracking-tight">Maths</h1>
+          <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-ink/70">
+            Free {boardLabel(board)} GCSE Maths revision for Foundation and Higher tier:
+            {" "}{doc.topic_count} topics by grade, exam-style questions, worksheets,
+            and past papers with mark schemes — a recreated catalog linking to the
+            original site&apos;s resources.
+          </p>
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        {/* Topics by grade */}
-        <section aria-labelledby="topics-heading">
-          <h2 id="topics-heading" className="text-2xl font-bold tracking-tight">
-            Topics by grade
-          </h2>
-          <p className="mt-1 text-sm text-muted">
-            Grade tabs mirror the original; the topic list for each grade comes
-            from the parsed flight payload.
-          </p>
-          <div className="mt-4">
-            <Suspense fallback={<div className="h-14 animate-pulse rounded-2xl bg-paper-2" />}>
-              <GradeTabs doc={doc} />
-            </Suspense>
-          </div>
-          <div className="mt-4">
-            <TopicList topics={topics} board={board} />
-          </div>
-        </section>
+      <div className="mx-auto max-w-4xl px-4 pb-14 sm:px-8">
+        <div className="mt-6">
+          <CourseBrowser board={board} grades={grades} />
+        </div>
 
         {/* Assessment at a glance */}
         <section className="mt-14" aria-labelledby="assessment-heading">
-          <h2 id="assessment-heading" className="text-2xl font-bold tracking-tight">
+          <h2 id="assessment-heading" className="font-title text-2xl font-extrabold tracking-tight">
             Assessment at a glance
           </h2>
-          <div className="mt-4 overflow-x-auto rounded-2xl border border-line bg-panel">
+          <div className="mt-4 overflow-x-auto rounded-2xl border border-line bg-white">
             <table className="w-full min-w-125 text-left text-sm">
               <thead>
                 <tr className="border-b border-line text-xs uppercase tracking-wide text-muted">
@@ -185,7 +141,7 @@ export default async function BoardPage({
               </thead>
               <tbody className="divide-y divide-line">
                 {ASSESSMENT.map((row) => (
-                  <tr key={row.paper} className="hover:bg-paper-2 dark:hover:bg-night-2">
+                  <tr key={row.paper} className="hover:bg-paper-2">
                     <td className="px-4 py-3 font-medium">{row.paper}</td>
                     <td className="px-4 py-3 text-muted">Written exam · {row.calc}</td>
                     <td className="px-4 py-3 text-muted">{row.duration}</td>
@@ -200,7 +156,7 @@ export default async function BoardPage({
 
         {/* Course aims & skills */}
         <section className="mt-14" aria-labelledby="skills-heading">
-          <h2 id="skills-heading" className="text-2xl font-bold tracking-tight">
+          <h2 id="skills-heading" className="font-title text-2xl font-extrabold tracking-tight">
             Course aims &amp; skills
           </h2>
           <p className="mt-2 max-w-2xl leading-relaxed text-muted">
@@ -221,7 +177,7 @@ export default async function BoardPage({
 
         {/* FAQs */}
         <section className="mt-14" aria-labelledby="faq-heading">
-          <h2 id="faq-heading" className="text-2xl font-bold tracking-tight">
+          <h2 id="faq-heading" className="font-title text-2xl font-extrabold tracking-tight">
             Frequently Asked Questions
           </h2>
           <div className="mt-4">

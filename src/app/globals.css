@@ -3,40 +3,53 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ------------------------------------------------------------------
-   Design tokens — derived from research/05-design-system.md
-   Palette observed on the live site (facts): night #031117, mint
-   #2fe4b7, sky #5cc1ea, periwinkle #d4ddff. Implementation is ours.
+   Design tokens — v2, corrected against live-site screenshots.
+   The original is a LIGHT app: white surfaces, near-black ink,
+   bright blue primary (#1cb0f6), genie-teal mascot (#2fe4b7),
+   pastel feature slides, and one black AI section.
+   (Facts from live screenshots + crawled CSS: #1CB0F6, #FAFAFA,
+   #14171C, #0A0A0A, #2FE4B7, #5CC1EA, #D4DDFF, #FEF5A7, #E7000B)
 ------------------------------------------------------------------- */
 :root {
-  --paper: #f7fafb;
-  --paper-2: #eef3f6;
-  --ink: #0d2129;
-  --ink-solid: #04141b;
-  --muted: #5b6b73;
-  --line: #dfe7ec;
-  --accent: #0284c7;
-  --accent-soft: #d4ddff;
+  --paper: #ffffff;
+  --paper-2: #f5f5f5;
+  --ink: #0a0a0a;
+  --ink-solid: #000000;
+  --muted: #737373;
+  --line: #e5e5e5;
+  --accent: #1cb0f6;
+  --accent-ink: #0b87c4;
+  --accent-soft: #e3f4fe;
   --panel: #ffffff;
 
-  --night: #031117;
-  --night-2: #0a2634;
-  --night-3: #0e3346;
-  --mint: #2fe4b7;
+  --night: #0a0a0a;      /* black AI section */
+  --night-2: #14171c;
+  --night-3: #23282f;
+  --mint: #2fe4b7;       /* genie teal */
   --sky: #5cc1ea;
   --peri: #d4ddff;
   --coral: #ff8a7a;
+
+  /* pastel slide palette (Learn/Practise carousels, progress cards) */
+  --pas-yellow: #fef5a7;
+  --pas-peri: #d4ddff;
+  --pas-lav: #e9dcfd;
+  --pas-green: #d9f4e5;
+  --pas-pink: #fde8ec;
+  --pas-cyan: #d3f3fa;
+  --pas-amber: #fde3c4;
 }
 
 .dark {
-  --paper: #04141b;
-  --paper-2: #0a2634;
-  --ink: #e6f1f4;
+  --paper: #0f1216;
+  --paper-2: #1a1f26;
+  --ink: #fafafa;
   --ink-solid: #ffffff;
-  --muted: #93a7b0;
-  --line: #123240;
-  --accent: #5cc1ea;
-  --accent-soft: #0a2634;
-  --panel: #071d28;
+  --muted: #9aa3ad;
+  --line: #262c34;
+  --accent: #1cb0f6;
+  --accent-soft: #0d2b3d;
+  --panel: #14181d;
 }
 
 @theme inline {
@@ -47,6 +60,7 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
   --color-accent-soft: var(--accent-soft);
   --color-panel: var(--panel);
   --color-night: var(--night);
@@ -56,9 +70,17 @@
   --color-sky: var(--sky);
   --color-peri: var(--peri);
   --color-coral: var(--coral);
-  --font-hand: "Caveat", "Comic Sans MS", cursive;
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --color-pas-yellow: var(--pas-yellow);
+  --color-pas-peri: var(--pas-peri);
+  --color-pas-lav: var(--pas-lav);
+  --color-pas-green: var(--pas-green);
+  --color-pas-pink: var(--pas-pink);
+  --color-pas-cyan: var(--pas-cyan);
+  --color-pas-amber: var(--pas-amber);
+  /* fonts are injected by next/font in layout.tsx and referenced here */
+  --font-sans: var(--font-inter, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
+  --font-title: var(--font-manrope, var(--font-inter)), ui-sans-serif, system-ui, sans-serif;
+  --font-hand: var(--font-shantell, "Comic Sans MS"), cursive;
 }
 
 html {
@@ -72,54 +94,73 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Signature handwritten display headings (open stand-in for brand font) */
 .font-hand {
   font-family: var(--font-hand);
 }
 
+.font-title {
+  font-family: var(--font-title);
+}
+
 :where(a, button, input, select, textarea):focus-visible {
-  outline: 2px solid var(--mint);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 8px;
 }
 
 ::selection {
   background: var(--peri);
-  color: var(--night);
+  color: var(--night-2);
 }
 
-/* ---------------- hero glow field (pure CSS, no images) ------------- */
-.hero-glow {
+/* ---------------- shared button styles ----------------------------- */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-accent-ink;
+}
+.btn-black {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition-transform hover:scale-[1.02];
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-panel px-4 py-2 text-sm font-semibold transition-colors hover:bg-paper-2;
+}
+
+/* ---------------- aurora hero band (course/topic headers) ---------- */
+.aurora-hero {
   background:
-    radial-gradient(42rem 24rem at 12% -10%, rgb(47 228 183 / 0.16), transparent 60%),
-    radial-gradient(50rem 30rem at 88% 0%, rgb(92 193 234 / 0.18), transparent 62%),
-    radial-gradient(36rem 26rem at 55% 120%, rgb(212 221 255 / 0.10), transparent 60%),
+    radial-gradient(38rem 16rem at 8% 0%, rgb(255 138 122 / 0.35), transparent 55%),
+    radial-gradient(40rem 18rem at 38% 20%, rgb(92 193 234 / 0.42), transparent 58%),
+    radial-gradient(38rem 18rem at 68% 0%, rgb(196 180 255 / 0.45), transparent 60%),
+    radial-gradient(42rem 20rem at 100% 30%, rgb(47 228 183 / 0.28), transparent 62%),
+    linear-gradient(180deg, #f3f8ff 0%, #ffffff 100%);
+}
+
+/* soft light-blue hero wash (home hero) */
+.hero-wash {
+  background:
+    radial-gradient(46rem 30rem at 82% 8%, rgb(92 193 234 / 0.20), transparent 60%),
+    radial-gradient(40rem 26rem at 12% 100%, rgb(212 221 255 / 0.35), transparent 55%),
+    linear-gradient(180deg, #f4fafd 0%, #ffffff 78%);
+}
+
+/* black AI section with faint star field */
+.night-space {
+  background:
+    radial-gradient(1.5px 1.5px at 12% 22%, rgb(255 255 255 / 0.7), transparent 100%),
+    radial-gradient(1px 1px at 32% 64%, rgb(255 255 255 / 0.5), transparent 100%),
+    radial-gradient(1.5px 1.5px at 58% 18%, rgb(255 255 255 / 0.6), transparent 100%),
+    radial-gradient(1px 1px at 74% 42%, rgb(255 255 255 / 0.5), transparent 100%),
+    radial-gradient(1.5px 1.5px at 88% 74%, rgb(255 255 255 / 0.6), transparent 100%),
+    radial-gradient(1px 1px at 44% 86%, rgb(255 255 255 / 0.45), transparent 100%),
+    radial-gradient(60rem 34rem at 50% -10%, rgb(28 176 246 / 0.14), transparent 60%),
     var(--night);
 }
 
 .grid-fade {
   background-image:
-    linear-gradient(rgb(92 193 234 / 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(92 193 234 / 0.07) 1px, transparent 1px);
+    linear-gradient(rgb(28 176 246 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(28 176 246 / 0.06) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: radial-gradient(70% 70% at 50% 30%, black, transparent);
-}
-
-/* ---------------- marquee ------------------------------------------ */
-@keyframes marquee-x {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee-x var(--marquee-speed, 48s) linear infinite;
-}
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-.marquee-reverse {
-  animation-direction: reverse;
 }
 
 /* ---------------- rotating hero word ------------------------------- */
@@ -137,8 +178,17 @@ body {
 }
 .float-y { animation: float-y 6s ease-in-out infinite; }
 
+/* hand-drawn underline swash (hero "All-in-One") */
+.underline-swash {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 12' preserveAspectRatio='none'%3E%3Cpath d='M3 8c40-5 74-6 107-4 38 2 74 1 107-3' fill='none' stroke='%231cb0f6' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.32em;
+  padding-bottom: 0.18em;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track, .float-y, .word-in {
+  .float-y, .word-in {
     animation: none !important;
   }
 }

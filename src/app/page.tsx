@@ -1,428 +1,415 @@
 import Link from "next/link";
-import { courseCounts, loadTopics, SITE, type TopicsDoc } from "@/lib/data";
+import { SITE, courseCounts } from "@/lib/data";
+import WorksheetDemo from "@/components/home/WorksheetDemo";
+import TestimonialCarousel from "@/components/home/TestimonialCarousel";
+import LearnYourWay from "@/components/home/LearnYourWay";
+import PractiseTabs from "@/components/home/PractiseTabs";
 import RotatingWord from "@/components/home/RotatingWord";
-import GradePreview, { type PreviewGrades } from "@/components/home/GradePreview";
-import LearnTabs from "@/components/home/LearnTabs";
-import ReviewMarquee from "@/components/home/ReviewMarquee";
-import { Attribution } from "@/components/Content";
 
-export default async function Home() {
-  const counts = courseCounts() as Record<string, number>;
-  const totalCourses = Object.values(counts).reduce((a, b) => a + b, 0);
-  const doc: TopicsDoc = await loadTopics("edexcel");
+/**
+ * Homepage v2 — rebuilt against live screenshots of the original:
+ * light theme, blue primary, Shantell display font, pastel feature slides
+ * and a single black AI section. Section order mirrors the original.
+ */
 
-  const preview: PreviewGrades = ["1", "3", "4", "5", "6", "7", "8/9"].map((g) => ({
-    grade: g === "8/9" ? "Grade 8/9" : `Grade ${g}`,
-    topics: (doc.grades[g] ?? []).slice(0, 8).map((t) => ({
-      title: t.title,
-      href: `/gcse/maths/edexcel/${t.slug}`,
-    })),
-  })).filter((x) => x.topics.length > 0);
+const STATS = [
+  { icon: "👥", color: "#1cb0f6", bg: "#e3f4fe", n: "1m+", label: "students and teachers learning with MathsGenie" },
+  { icon: "🏛️", color: "#cd680a", bg: "#fde3c4", n: "4,000+", label: "schools represented across the MathsGenie community" },
+];
 
+const AI_ROWS = [
+  {
+    tag: "✓ Check Your Answers",
+    title: "Know Exactly Where You Stand",
+    body: "Genie marks every line of your working, shows the method marks you earned and the ones you missed, then suggests the very next thing to practise.",
+    card: (
+      <div className="rounded-2xl bg-white p-5 shadow-2xl shadow-black/40">
+        <div className="flex items-center gap-2">
+          <span className="flex size-9 items-center justify-center rounded-xl bg-ink font-title text-sm font-bold text-white">3</span>
+          <span className="rounded-full bg-[#fde8ec] px-2.5 py-1 text-[11px] font-bold text-[#e7000b]">● Hard</span>
+          <span className="text-xs text-muted">31%</span>
+          <span className="ml-auto text-xs text-muted">🔖 ⚑</span>
+        </div>
+        <p className="mt-3 text-sm font-medium">
+          Show that (2x + 5)² − (2x + 1)² is always a multiple of 8. <span className="text-muted">[3]</span>
+        </p>
+        <div className="mt-3 rounded-xl bg-paper-2 p-3 text-xs leading-relaxed text-muted">
+          Expanding: (2x + 5)² = 4x² + 20x + 25 and (2x + 1)² = 4x² + 4x + 1.
+          Subtracting: 20x + 25 − 4x − 4 + 1 = 16x + 26... wait — 16x + 24 = 8(2x + 3). ✓ multiple of 8
+        </div>
+        <div className="mt-3 flex items-center gap-3 text-xs font-semibold text-muted">
+          <span>🖼 Add</span><span>✎ Draw</span><span>ƒ Math</span>
+          <span className="ml-auto rounded-full bg-[#a333e0] px-3 py-1 text-white">1⚡ Grading…</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    tag: "⧉ Paper Marker",
+    title: "Full Papers, Marked In Minutes",
+    body: "Upload a scan or type your answers — get a mark per question, examiner-style comments and a topic list of what to revise next.",
+    card: (
+      <div className="rounded-2xl bg-white p-5 shadow-2xl shadow-black/40">
+        <div className="flex items-center gap-2 border-b border-line pb-3 text-sm font-semibold">
+          <span className="text-accent">☰ Feedback</span>
+          <span className="text-muted">◐ Genie AI</span>
+          <span className="ml-auto text-xs text-muted">24 questions</span>
+        </div>
+        <p className="mt-3 font-title text-2xl font-extrabold">61<span className="text-muted">/80</span></p>
+        <div className="mt-3 rounded-xl border border-line p-3">
+          <div className="flex items-center gap-2 text-sm font-semibold">
+            Question 8
+            <span className="ml-auto flex size-8 items-center justify-center rounded-full border-2 border-[#00c750] text-xs font-bold text-[#0b6b3a]">4/4</span>
+          </div>
+          <p className="mt-1.5 text-xs leading-relaxed text-muted">
+            Salma has £10 to buy apples and oranges. She buys 9 apples and as
+            many oranges as possible. How many oranges does she buy?
+          </p>
+          <div className="mt-2 rounded-lg bg-paper-2 px-3 py-2 text-xs">10.00 − 2.25 = 7.75 → 12 oranges</div>
+          <div className="mt-2 flex items-center gap-3 text-[11px] font-semibold text-muted">
+            <span>🖼 Add</span><span>✎ Draw</span><span>ƒ Math</span>
+            <span className="ml-auto rounded-full bg-[#a333e0] px-3 py-1 text-white">1⚡ Re-grade</span>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+];
+
+const PROGRESS_CARDS = [
+  {
+    bg: "var(--pas-peri)",
+    title: "Leaderboard",
+    body: (
+      <div className="space-y-2.5">
+        {[
+          { medal: "🥇", name: "Maya", time: "8h 42m", w: 92 },
+          { medal: "🥈", name: "Alex", time: "6h 15m", w: 74 },
+          { medal: "🥉", name: "Jordan (You)", time: "4h 48m", w: 58 },
+        ].map((r) => (
+          <div key={r.name} className="flex items-center gap-2.5">
+            <span className="text-sm">{r.medal}</span>
+            <span className="w-24 truncate text-xs font-bold">{r.name}</span>
+            <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/70">
+              <span className="block h-full rounded-full bg-gradient-to-r from-[#ff8a7a] to-[#1cb0f6]" style={{ width: `${r.w}%` }} />
+            </span>
+            <span className="text-[11px] font-semibold text-ink/60">{r.time}</span>
+          </div>
+        ))}
+      </div>
+    ),
+  },
+  {
+    bg: "var(--pas-amber)",
+    title: "Day Streak",
+    body: (
+      <div>
+        <p className="font-title text-3xl font-extrabold text-[#cd680a]">🔥 12</p>
+        <p className="text-xs font-semibold text-ink/60">Day Streak</p>
+        <div className="mt-3 flex justify-between text-center text-[10px] font-bold text-muted">
+          {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
+            <span key={i}>
+              <span className={`mx-auto mb-1 block size-5 rounded-full ${i < 5 ? "bg-[#ff9429] text-white" : "bg-white/70"}`}>{i < 5 ? "🔥" : "💧"}</span>
+              {d}
+            </span>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  {
+    bg: "var(--pas-green)",
+    title: "Focus Timer",
+    body: (
+      <div className="text-center">
+        <span className="mx-auto flex size-24 items-center justify-center rounded-full border-4 border-[#059669]/25 font-title text-2xl font-extrabold">
+          25:00
+        </span>
+        <p className="mt-2 text-xs font-semibold text-ink/60">● General study</p>
+        <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[#059669] px-5 py-2 text-xs font-bold text-white">
+          ▶ Start focus
+        </span>
+      </div>
+    ),
+  },
+];
+
+const WALL = [
+  { name: "Seher", role: "GCSE Student", emoji: "🐣", bg: "#fde8ec", hlColor: "#a333e0", text: "First of all, it's a life saver. As someone starting my GCSE journey, this website is helping me so much. Having everything in one place keeps me motivated and less stressed. You just ", hl: "helped an exam-stresser relax forever", tail: "!" },
+  { name: "Janine C.", role: "Teacher", emoji: "🐧", bg: "#e3f4fe", hlColor: "#0b6b3a", text: "Thank you for the amazing resources your website provides. They really do have ", hl: "a positive impact on students", tail: "." },
+  { name: "Rehan R.", role: "GCSE Student", emoji: "🐢", bg: "#d9f4e5", hlColor: "#cd680a", text: "The website is genuinely ", hl: "the most perfect thing ever created", tail: ". If only it was made earlier!" },
+  { name: "Mia S.", role: "Tutor", emoji: "🦁", bg: "#fde3c4", hlColor: "#e7000b", text: "Love the website and have ", hl: "recommended it to so many families", tail: " I work with now!" },
+  { name: "Daryl G.", role: "Teacher", emoji: "🐙", bg: "#e9dcfd", hlColor: "#0369a1", text: "Took me a bit of getting used to, but this new site is excellent. I found the old one really useful, but ", hl: "this is next level", tail: ". I share it with all my colleagues and students." },
+  { name: "Mohamed M.", role: "GCSE Student", emoji: "🐸", bg: "#d3f3fa", hlColor: "#a333e0", text: "I didn't realise how ", hl: "so many more things to help with all kinds of revision", tail: " were on here until I looked around." },
+];
+
+export default function Home() {
+  const counts = courseCounts();
   return (
     <div>
-      {/* ================= HERO ================= */}
-      <section className="hero-glow relative overflow-hidden text-white">
-        <div className="grid-fade pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 sm:pt-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <span className="rounded-full border border-mint/30 bg-mint/10 px-3.5 py-1.5 text-xs font-semibold text-mint">
-                ▶ Watch the launch video
-              </span>
-            </div>
-
-            <div className="mt-6 flex items-center justify-center gap-6 text-sm text-white/60">
-              <span><strong className="text-white">1m+</strong> students &amp; teachers</span>
-              <span className="h-4 w-px bg-white/15" />
-              <span><strong className="text-white">4,000+</strong> schools represented</span>
-            </div>
-
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-6xl">
-              Your all-in-one resource
-              <br className="hidden sm:block" /> to crush your <RotatingWord />
-            </h1>
-
-            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
-              Exam-style worksheets, past papers, videos and lessons for every
-              topic — with instant AI marking as you go. Everything you need,
-              in one place.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="/gcse"
-                className="rounded-full bg-mint px-7 py-3.5 text-base font-bold text-night transition hover:brightness-110"
-              >
-                Get Started for Free
-              </Link>
-              <Link
-                href="/gcse"
-                className="rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-white/10"
-              >
-                I&apos;m a student
-              </Link>
-              <Link
-                href="/gcse"
-                className="rounded-full px-4 py-3.5 text-base font-semibold text-white/60 transition hover:text-white"
-              >
-                I&apos;m a parent · I&apos;m an educator
-              </Link>
-            </div>
-          </div>
-
-          {/* product preview */}
-          <div className="mx-auto mt-12 max-w-3xl">
-            <GradePreview grades={preview} />
-            <p className="mt-5 text-center text-lg text-white/70">
-              Students improve by <strong className="text-mint">1.5 grades</strong> on average
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= SOCIAL PROOF MARQUEE ================= */}
-      <section className="border-b border-line py-12">
-        <ReviewMarquee />
-      </section>
-
-      {/* ================= LEARN YOUR WAY ================= */}
-      <section className="border-b border-line py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="rounded-full bg-accent-soft px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-accent">
-              See the all new MathsGenie
-            </span>
-            <h2 className="font-hand mt-4 text-5xl font-bold leading-none">
-              Learn every topic your way
-            </h2>
-            <p className="mt-3 text-muted">
-              Guides, videos, lessons, flashcards or teach-back — switch how a
-              topic is explained until it clicks.
-            </p>
-          </div>
-          <div className="mt-10">
-            <LearnTabs />
-          </div>
-
-          {/* revision guides blurb */}
-          <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-3xl border border-line bg-gradient-to-r from-sky-400/10 to-blue-500/10 p-6 sm:flex-row sm:p-8">
-            <div>
-              <h3 className="font-hand text-3xl font-bold">Bite-sized revision guides</h3>
-              <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-muted">
-                Dense specification content distilled into short, syllabus-aligned
-                pages you can actually re-read the night before.
-              </p>
-            </div>
-            <Link
-              href="/gcse/maths/edexcel/revision-guides"
-              className="shrink-0 rounded-full bg-night px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
-            >
-              Explore revision guides
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= PRACTISE ================= */}
-      <section className="border-b border-line bg-paper-2/60 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-hand text-5xl font-bold leading-none">
-              Practise until exam day feels easy
-            </h2>
-            <p className="mt-3 text-muted">
-              Four ways to drill — from topic banks to full mocks, all mapped to
-              the grade you&apos;re aiming for.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { t: "Question Bank", d: "Exam questions for every topic, sorted by grade.", href: "/gcse/maths/edexcel", c: "from-sky-400 to-blue-500" },
-              { t: "Predicted Papers", d: "Fresh papers built from past-paper patterns.", href: "/gcse/maths/edexcel/papers", c: "from-green-500 to-emerald-600" },
-              { t: "Past Paper Videos", d: "Watch every paper walked through line by line.", href: "/gcse/maths/edexcel/papers", c: "from-purple-500 to-violet-600" },
-              { t: "Mock Exam Builder", d: "Compose your own paper from chosen topics.", href: "/gcse/maths/edexcel/mock-exam-builder", c: "from-pink-500 to-rose-500" },
-            ].map((m) => (
-              <Link
-                key={m.t}
-                href={m.href}
-                className="group rounded-3xl border border-line bg-panel p-5 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-ink/5"
-              >
-                <span className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br ${m.c} text-lg font-bold text-white`}>
-                  {m.t.charAt(0)}
-                </span>
-                <h3 className="mt-3.5 text-lg font-bold">{m.t}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{m.d}</p>
-                <span className="mt-3 inline-block text-sm font-semibold text-accent opacity-0 transition group-hover:opacity-100">
-                  Open →
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          {/* sample question cards (original questions written for this recreation) */}
-          <div className="mt-8 grid gap-4 lg:grid-cols-2">
-            <div className="rounded-3xl border border-line bg-panel p-6">
-              <div className="flex items-center justify-between">
-                <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-800">Medium</span>
-                <span className="text-xs font-semibold text-muted">Question 54 · Grade 7</span>
-              </div>
-              <p className="mt-4 leading-relaxed text-ink/90">
-                y is inversely proportional to the square of x.
-                When x = 5, y = 4. Work out the value of y when x = 10.
-              </p>
-              <div className="mt-4 flex gap-2">
-                {["y = 2", "y = 1", "y = 8", "y = 16"].map((o, i) => (
-                  <span
-                    key={o}
-                    className={`rounded-xl border px-3.5 py-2 text-sm font-semibold ${
-                      i === 1
-                        ? "border-green-500/40 bg-green-500/10 text-green-700"
-                        : "border-line bg-paper text-ink/70"
-                    }`}
-                  >
-                    {o}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-3 text-xs text-muted">
-                y = k/x², so k = 4 × 25 = 100 — then y = 100/100 = 1.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-line bg-panel p-6">
-              <div className="flex items-center justify-between">
-                <span className="rounded-full bg-red-100 px-3 py-1 text-xs font-bold text-red-700">Hard</span>
-                <span className="text-xs font-semibold text-muted">Question 23 · Grade 9</span>
-              </div>
-              <p className="mt-4 leading-relaxed text-ink/90">
-                Prove algebraically that the sum of any two-digit number and the
-                number formed by reversing its digits is a multiple of 11.
-              </p>
-              <textarea
-                readOnly
-                placeholder="Write your answer here..."
-                className="mt-4 h-24 w-full resize-none rounded-2xl border border-line bg-paper p-3.5 text-sm text-muted outline-none"
-              />
-              <p className="mt-3 text-xs text-muted">
-                10a + b + 10b + a = 11(a + b) — a multiple of 11. ∎
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= MARKING ================= */}
-      <section className="border-b border-line py-16 sm:py-20">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
+      {/* ------------------------------------------------ hero */}
+      <section className="hero-wash relative overflow-hidden">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 pb-20 pt-10 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-14">
           <div>
-            <h2 className="font-hand text-5xl font-bold leading-tight">
-              Get your answers marked like an examiner would
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted">
-              Upload your working and receive mark-by-mark feedback: where each
-              mark was earned, where method marks slipped, and what an examiner
-              would write in the margin.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/features/answer-marking"
-                className="rounded-full bg-night px-6 py-3 text-sm font-bold text-white transition hover:opacity-90"
-              >
-                Try answer marking
-              </Link>
-              <Link
-                href="/gcse/maths/edexcel/predicted-grade-calculator"
-                className="rounded-full border border-line bg-panel px-6 py-3 text-sm font-bold transition hover:bg-paper-2"
-              >
-                Predicted Grade Calculator
-              </Link>
-            </div>
-          </div>
+            <Link
+              href="/research"
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold shadow-sm transition hover:border-accent/40"
+            >
+              <span className="flex size-5 items-center justify-center rounded-full bg-ink text-[9px] text-white">▶</span>
+              Watch the launch video
+            </Link>
 
-          {/* mock marking UI (illustrative, original content) */}
-          <div className="rounded-3xl border border-line bg-panel p-6 shadow-xl shadow-ink/5">
-            <div className="flex items-center justify-between">
-              <p className="text-sm font-bold">Marked paper · Higher Tier</p>
-              <span className="rounded-full bg-green-500/15 px-3 py-1 text-sm font-bold text-green-700">
-                17 / 20
-              </span>
-            </div>
-            <div className="mt-4 space-y-3 text-sm">
-              {[
-                { q: "Q1 · Expanding brackets", m: "3/3", ok: true },
-                { q: "Q2 · Quadratic formula", m: "4/5", ok: false },
-                { q: "Q3 · Circle theorems", m: "5/5", ok: true },
-                { q: "Q4 · Histograms", m: "5/7", ok: false },
-              ].map((r) => (
-                <div key={r.q} className="flex items-center justify-between rounded-xl border border-line bg-paper px-4 py-2.5">
-                  <span className="text-ink/85">{r.q}</span>
-                  <span className={`font-bold ${r.ok ? "text-green-600" : "text-amber-600"}`}>{r.m}</span>
+            <div className="mt-7 flex gap-10">
+              {STATS.map((s) => (
+                <div key={s.n} className="max-w-44">
+                  <p className="flex items-center gap-2 font-title text-lg font-extrabold">
+                    <span className="flex size-7 items-center justify-center rounded-lg text-sm" style={{ background: s.bg }}>
+                      {s.icon}
+                    </span>
+                    {s.n}
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted">{s.label}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-5 rounded-2xl bg-paper-2 p-4">
-              <p className="text-sm font-bold">Strengths</p>
-              <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm text-muted">
-                <li>Full method shown in every expansion.</li>
-                <li>Correct formula quoted before substitution.</li>
-              </ul>
-              <p className="mt-3 text-sm font-bold">To improve</p>
-              <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm text-muted">
-                <li>State the conclusion after solving inequalities.</li>
-                <li>Label axes before plotting frequency density.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ================= AI / GENIE (dark) ================= */}
-      <section className="hero-glow relative overflow-hidden py-16 text-white sm:py-24">
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-hand text-5xl font-bold leading-none sm:text-6xl">
-              Meet Genie — your AI study partner
-            </h2>
-            <p className="mt-4 text-white/65">
-              Ask anything at any hour. Genie explains, quizzes and re-explains —
-              and never makes you feel bad for asking twice.
+            <h1 className="font-hand mt-6 text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-[64px]">
+              Your{" "}
+              <span className="underline-swash">All-in-One</span>
+              <br />
+              Resource to Crush
+              <br />
+              Your <RotatingWord />
+            </h1>
+
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
+              Exam-style worksheets marked by Genie as you go, plus past papers,
+              videos and lessons for every topic. Used by 1,000,000+ students.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {[
-              {
-                t: "Always available, never judges",
-                d: "2am before the mock? Genie is on. Ask the same question five different ways until it sticks.",
-                href: "/ask-genie",
-              },
-              {
-                t: "Know exactly where you stand",
-                d: "Topic-by-topic mastery tracking shows what's solid and what needs one more pass.",
-                href: "/features/revision-planner",
-              },
-              {
-                t: "Feedback on long answers",
-                d: "Upload essays and full solutions for examiner-style comments, not just a score.",
-                href: "/features/answer-marking",
-              },
-            ].map((c) => (
-              <Link
-                key={c.t}
-                href={c.href}
-                className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition hover:border-mint/40 hover:bg-white/[0.07]"
-              >
-                <h3 className="text-lg font-bold">{c.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/60">{c.d}</p>
-                <span className="mt-4 inline-block text-sm font-semibold text-mint opacity-0 transition group-hover:opacity-100">
-                  Open →
-                </span>
-              </Link>
-            ))}
+          <div className="relative mx-auto w-full max-w-xl pb-10 lg:pb-0">
+            <WorksheetDemo />
+            {/* genie blob peeking */}
+            <svg viewBox="0 0 90 90" className="absolute -top-10 right-2 size-20" aria-hidden>
+              <path
+                d="M45 12c5-5 12-2 13 4 9 3 15 11 15 20 0 5-2 10-5 13 2 2.5 3 5.5 3 8.5C71 66 63 74 53 74H37C27 74 19 66 19 57.5c0-3 1-6 3-8.5-3-3.5-5-8-5-13 0-9 6-17 15-20 1-6 8-9 13-4Z"
+                fill="#2fe4b7"
+              />
+              <circle cx="38" cy="42" r="5" fill="#0a0a0a" />
+              <circle cx="52" cy="42" r="5" fill="#0a0a0a" />
+              <circle cx="39.5" cy="40.5" r="1.6" fill="#fff" />
+              <circle cx="53.5" cy="40.5" r="1.6" fill="#fff" />
+            </svg>
           </div>
+        </div>
+      </section>
 
-          {/* progress tools */}
-          <div className="mt-16">
-            <div className="mx-auto max-w-2xl text-center">
-              <h3 className="font-hand text-4xl font-bold leading-none">
-                Turn consistent study into real progress
-              </h3>
-              <p className="mt-3 text-white/60">
-                Small daily sessions, tracked — that&apos;s the whole method.
-              </p>
-            </div>
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-              {[
-                { t: "Revision Planner", d: "Spread topics across your week", href: "/features/revision-planner" },
-                { t: "Analytics", d: "See accuracy by topic and grade", href: "/features/revision-planner" },
-                { t: "Friends", d: "Compare streaks with classmates", href: "/gcse/daily-greens" },
-                { t: "Streaks & XP", d: "Earn XP for every session", href: "/gcse/daily-greens" },
-                { t: "Pomodoro Timer", d: "25-minute focused sprints", href: "/features/revision-planner" },
-              ].map((p) => (
-                <Link
-                  key={p.t}
-                  href={p.href}
-                  className="rounded-2xl border border-white/10 bg-night-2/70 p-4 transition hover:border-mint/40"
-                >
-                  <p className="text-sm font-bold">{p.t}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-white/55">{p.d}</p>
-                </Link>
-              ))}
+      {/* ------------------------------------------------ big quote carousel */}
+      <TestimonialCarousel />
+
+      {/* ------------------------------------------------ launch video card */}
+      <section className="bg-paper pb-16 sm:pb-20" aria-label="Introducing the new MathsGenie">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="flex aspect-video flex-col items-center justify-center rounded-3xl bg-night text-center">
+            <h2 className="font-title px-6 text-3xl font-extrabold text-white sm:text-5xl">
+              Introducing the{" "}
+              <span className="underline-swash">all new</span>
+            </h2>
+            <p className="font-title mt-3 flex items-center gap-3 text-3xl font-extrabold text-white sm:text-5xl">
+              <span className="flex size-11 items-center justify-center rounded-xl bg-ink-solid sm:size-14">
+                <svg viewBox="0 0 24 24" className="size-7 sm:size-9" aria-hidden>
+                  <path d="M12 3.6c.9-.9 2.3-.4 2.5.7 2.4.6 4.1 2.6 4.1 5 0 1.2-.4 2.3-1.1 3.2.4.5.6 1.1.6 1.7 0 1.7-1.5 3-3.4 3h-5.4c-1.9 0-3.4-1.3-3.4-3 0-.6.2-1.2.6-1.7C5.8 11.6 5.4 10.5 5.4 9.3c0-2.4 1.7-4.4 4.1-5 .2-1.1 1.6-1.6 2.5-.7Z" fill="#2fe4b7" />
+                  <circle cx="9.8" cy="10.2" r="1.4" fill="#0a0a0a" />
+                  <circle cx="14.2" cy="10.2" r="1.4" fill="#0a0a0a" />
+                </svg>
+              </span>
+              MathsGenie
+            </p>
+            <div className="mt-8 flex w-full items-center gap-3 px-8 text-white/60">
+              <span className="flex size-8 items-center justify-center rounded-full border border-white/30 text-xs">▶</span>
+              <span className="text-xs">0:00</span>
+              <span className="h-1 flex-1 rounded-full bg-white/15" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= REVIEWS WALL ================= */}
-      <section className="border-b border-line py-16 sm:py-20">
+      {/* ------------------------------------------------ learn your way slides */}
+      <LearnYourWay />
+
+      {/* ------------------------------------------------ three feature cards */}
+      <section className="bg-paper pb-16 sm:pb-20" aria-label="Marking and progress features">
+        <div className="mx-auto grid max-w-6xl gap-5 px-4 sm:px-6 md:grid-cols-3">
+          <div className="rounded-2xl border border-line bg-white p-5">
+            <p className="text-sm leading-relaxed text-muted">
+              <span className="underline decoration-[#e7000b] decoration-2 underline-offset-2">Priestley presents the Inspector as a moral force.</span>{" "}
+              The imperative “remember” commands the audience, while{" "}
+              <span className="underline decoration-[#a333e0] decoration-2 underline-offset-2">the 1912 setting exposes Edwardian complacency</span>{" "}
+              to a post-war audience.
+            </p>
+            <p className="mt-3 text-xs font-semibold text-muted">✍️ Essay feedback, line by line</p>
+          </div>
+          <div className="rounded-2xl border border-line bg-white p-5">
+            <p className="inline-flex items-center gap-2 rounded-full bg-paper-2 px-3 py-1.5 text-xs font-semibold">
+              📄 june-2025-paper-1.pdf
+            </p>
+            <div className="mt-4 flex h-2 overflow-hidden rounded-full">
+              <span className="w-1/2 bg-[#e7000b]" />
+              <span className="w-1/6 bg-[#cd680a]" />
+              <span className="flex-1 bg-[#00c750]" />
+            </div>
+            <div className="mt-4 space-y-2 text-xs font-medium">
+              <p className="flex justify-between"><span className="text-[#0b6b3a]">✓ Question 1</span><span className="text-muted">3/3</span></p>
+              <p className="flex justify-between"><span className="text-[#e7000b]">✗ Question 2</span><span className="text-muted">1/4</span></p>
+            </div>
+            <p className="mt-3 text-xs font-semibold text-muted">📄 Upload a paper, get it marked</p>
+          </div>
+          <div className="rounded-2xl border border-line bg-white p-5">
+            <div className="flex items-start justify-between">
+              <p className="font-title text-4xl font-extrabold">7</p>
+              <p className="text-right text-xs text-muted">
+                <span className="block font-bold text-ink">172 / 240 marks</span>
+                <span className="text-[#0b6b3a]">↑ 14 marks to 8</span>
+              </p>
+            </div>
+            <div className="mt-3 space-y-2.5">
+              <div>
+                <div className="flex justify-between text-[11px] text-muted"><span>Paper 1</span><span>62 / 80</span></div>
+                <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-paper-2">
+                  <div className="h-full w-[78%] rounded-full bg-accent" />
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between text-[11px] text-muted"><span>Paper 2</span><span>54 / 80</span></div>
+                <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-paper-2">
+                  <div className="h-full w-[68%] rounded-full bg-accent" />
+                </div>
+              </div>
+            </div>
+            <p className="mt-3 text-xs font-semibold text-muted">📈 Grade prediction from real boundaries</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------ practise tabs */}
+      <PractiseTabs />
+
+      {/* ------------------------------------------------ black AI section */}
+      <section className="night-space py-20 text-white sm:py-28" aria-label="Meet Genie">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-hand text-5xl font-bold leading-none">
-              Hear what students and teachers have to say
+            <h2 className="font-title text-4xl font-extrabold tracking-tight sm:text-5xl">
+              Meet Genie
+              <br />
+              Your AI Study Partner
             </h2>
-            <p className="mt-3 text-muted">Student reviews from the community.</p>
+            <p className="mt-4 text-lg text-white/60">
+              Get instant explanations and custom practice, personalized to how you learn.
+            </p>
+            <a href="/ask-genie" className="btn-primary mt-7">Try Genie for free</a>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { q: "Daily greens are the first homework my son does without being asked.", n: "Rachel P.", r: "Parent" },
-              { q: "The mock exam builder built my revision timetable for me.", n: "Omar F.", r: "GCSE Student" },
-              { q: "Grade boundaries are editable, so the calculator matches our mock series.", n: "Mr. Yates", r: "Teacher" },
-              { q: "Question Rush in the last 10 minutes of class is now a ritual.", n: "Elena V.", r: "Teacher" },
-              { q: "Flashcards synced what I learned from videos the same evening.", n: "Kian D.", r: "IGCSE Student" },
-              { q: "I finally understand histograms. That's it. That's the review.", n: "Maya L.", r: "GCSE Student" },
-            ].map((r) => (
-              <figure key={r.n} className="rounded-3xl border border-line bg-panel p-5">
-                <blockquote className="text-[15px] leading-relaxed text-ink/85">“{r.q}”</blockquote>
-                <figcaption className="mt-3 flex items-center gap-2.5">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-emerald-600 text-xs font-bold text-white">
-                    {r.n.charAt(0)}
+
+          <div className="mt-16 space-y-16 lg:space-y-24">
+            {AI_ROWS.map((row) => (
+              <div key={row.title} className="grid items-center gap-10 lg:grid-cols-2">
+                <div className={row.title === "Know Exactly Where You Stand" ? "" : "lg:order-2"}>{row.card}</div>
+                <div className={row.title === "Know Exactly Where You Stand" ? "lg:order-2" : ""}>
+                  <p className="text-sm font-bold text-accent">{row.tag}</p>
+                  <h3 className="font-title mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">{row.title}</h3>
+                  <p className="mt-4 max-w-md text-base leading-relaxed text-white/60">{row.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------ progress cards */}
+      <section className="bg-paper py-16 sm:py-20" aria-label="Turn consistent study into real progress">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2 className="text-center font-title text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Turn consistent study
+            <br />
+            into real progress
+          </h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {PROGRESS_CARDS.map((c) => (
+              <div key={c.title} className="rounded-3xl p-6" style={{ background: c.bg }}>
+                <p className="mb-4 text-sm font-bold">{c.title}</p>
+                {c.body}
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link href="/gcse" className="btn-black">
+              Explore every feature <span aria-hidden>›</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------ reviews wall */}
+      <section className="bg-paper pb-16 sm:pb-20" aria-label="Reviews">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
+            {WALL.map((r) => (
+              <figure key={r.name} className="break-inside-avoid rounded-2xl border border-line bg-white p-5">
+                <figcaption className="flex items-center gap-3">
+                  <span className="flex size-10 items-center justify-center rounded-full text-lg" style={{ background: r.bg }} aria-hidden>
+                    {r.emoji}
                   </span>
                   <span>
-                    <span className="block text-sm font-semibold">{r.n}</span>
-                    <span className="block text-xs text-muted">{r.r}</span>
+                    <span className="block text-sm font-bold">{r.name}</span>
+                    <span className="block text-xs text-muted">{r.role}</span>
                   </span>
                 </figcaption>
+                <blockquote className="mt-3 text-sm leading-relaxed text-muted">
+                  “{r.text}
+                  <span className="font-semibold underline decoration-2 underline-offset-2" style={{ color: r.hlColor, textDecorationColor: r.hlColor }}>
+                    {r.hl}
+                  </span>
+                  {r.tail}”
+                </blockquote>
               </figure>
             ))}
           </div>
+          <p className="mt-2 text-center text-xs text-muted">
+            Reviews shown are fictional, written for this recreation.
+          </p>
+          <div className="mt-6 text-center">
+            <a href={`${SITE.original}/auth/signup`} className="btn-black">
+              Join 1,000,000+ students <span aria-hidden>›</span>
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-          <h2 className="font-hand text-5xl font-bold leading-tight">
-            Ready to start climbing grades?
+      {/* ------------------------------------------------ final CTA */}
+      <section className="px-4 pb-16 sm:px-6 sm:pb-20" aria-label="Get started">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[32px] bg-[#c9eef8] py-20 text-center">
+          {/* crystal mountains (original recreated) */}
+          <svg viewBox="0 0 1200 320" className="absolute inset-x-0 bottom-0 h-56 w-full" preserveAspectRatio="xMidYMax slice" aria-hidden>
+            <path d="M0 320 L140 150 L240 320 Z" fill="#9fd9e8" />
+            <path d="M120 320 L300 90 L470 320 Z" fill="#7ecbe0" />
+            <path d="M320 320 L470 140 L640 320 Z" fill="#b5e3ef" />
+            <path d="M520 320 L700 70 L900 320 Z" fill="#8ed4e4" />
+            <path d="M760 320 L920 160 L1080 320 Z" fill="#a9deeb" />
+            <path d="M980 320 L1120 120 L1280 320 Z" fill="#7ecbe0" />
+            <path d="M0 320 h1200 v60 H0 Z" fill="#e7f7fb" />
+            <path d="M300 90 l30 25 -35 8 Z" fill="#ffffff" opacity="0.7" />
+            <path d="M700 70 l32 28 -38 8 Z" fill="#ffffff" opacity="0.7" />
+          </svg>
+          <h2 className="relative font-title text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+            Ready to breeze through your GCSEs?
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted">
-            Browse all {totalCourses} catalogued courses, or jump straight into
-            GCSE Maths with {doc.topic_count} topics across 6 boards.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/gcse"
-              className="rounded-full bg-night px-8 py-4 text-base font-bold text-white transition hover:opacity-90"
-            >
-              Start with GCSE
-            </Link>
-            <Link
-              href="/a-level/maths/edexcel"
-              className="rounded-full border border-line bg-panel px-8 py-4 text-base font-bold transition hover:bg-paper-2"
-            >
-              A-Level Maths
-            </Link>
-            <a
-              href={SITE.original}
-              className="rounded-full px-4 py-4 text-sm font-semibold text-muted underline-offset-4 hover:underline"
-              rel="noopener noreferrer"
-            >
-              Visit the original site ↗
+          <div className="relative mt-6 flex flex-wrap items-center justify-center gap-3">
+            <a href={`${SITE.original}/auth/login`} className="rounded-full bg-white px-6 py-3 text-sm font-bold shadow-sm transition hover:bg-white/80">
+              Sign in
             </a>
-          </div>
-          <div className="mt-12">
-            <Attribution />
+            <a href={`${SITE.original}/auth/signup`} className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition hover:bg-accent-ink">
+              Start studying for free
+            </a>
           </div>
         </div>
       </section>

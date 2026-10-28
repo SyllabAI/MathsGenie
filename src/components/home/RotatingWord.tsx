@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 const WORDS = [
-  { text: "GCSEs", color: "text-mint" },
-  { text: "IGCSEs", color: "text-sky" },
-  { text: "A-Levels", color: "text-peri" },
-  { text: "AS Levels", color: "text-coral" },
+  { text: "GCSEs", color: "text-ink" },
+  { text: "A-Levels", color: "text-ink" },
+  { text: "IGCSEs", color: "text-ink" },
+  { text: "AS Levels", color: "text-ink" },
 ];
 
 export default function RotatingWord() {

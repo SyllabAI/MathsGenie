@@ -13,7 +13,7 @@ type ModeItem = {
   desc: string;
   href: string;
   icon: ReactNode;
-  tint: string;
+  tint: { bg: string; fg: string };
   outbound?: boolean;
 };
 
@@ -126,12 +126,12 @@ const Icon = {
 };
 
 const TINTS = {
-  mint: "from-emerald-400/90 to-teal-500/90 dark:from-emerald-500 dark:to-teal-600",
-  sky: "from-sky-400/90 to-blue-500/90 dark:from-sky-500 dark:to-blue-600",
-  peri: "from-indigo-400/90 to-violet-500/90 dark:from-indigo-500 dark:to-violet-600",
-  coral: "from-orange-400/90 to-rose-500/90 dark:from-orange-500 dark:to-rose-600",
-  amber: "from-amber-400/90 to-orange-500/90 dark:from-amber-500 dark:to-orange-600",
-  lime: "from-lime-400/90 to-emerald-500/90 dark:from-lime-500 dark:to-emerald-600",
+  mint: { bg: "#d9f4e5", fg: "#059669" },
+  sky: { bg: "#e3f4fe", fg: "#0284c7" },
+  peri: { bg: "#e3f4fe", fg: "#4f46e5" },
+  coral: { bg: "#fde8ec", fg: "#e11d48" },
+  amber: { bg: "#fde3c4", fg: "#b45309" },
+  lime: { bg: "#e5f8ec", fg: "#16a34a" },
 };
 
 function ModeCard({ item }: { item: ModeItem }) {
@@ -140,15 +140,16 @@ function ModeCard({ item }: { item: ModeItem }) {
       href={item.href}
       target={item.outbound ? "_blank" : undefined}
       rel={item.outbound ? "noopener noreferrer" : undefined}
-      className="group -mx-2 flex items-center gap-5 rounded-3xl p-2 transition-colors hover:bg-paper-2 dark:hover:bg-night-2"
+      className="group -mx-2 flex items-center gap-5 rounded-3xl p-2 transition-colors hover:bg-paper-2"
     >
       <span
-        className={`relative flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br ${item.tint} text-white shadow-sm transition-transform group-hover:scale-[1.04]`}
+        className="relative flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl transition-transform group-hover:scale-[1.05]"
+        style={{ background: item.tint.bg, color: item.tint.fg }}
       >
         <span className="size-7">{item.icon}</span>
       </span>
       <span className="min-w-0 flex-1">
-        <span className="flex items-center gap-1.5 font-medium tracking-tight group-hover:text-accent">
+        <span className="flex items-center gap-1.5 font-semibold tracking-tight group-hover:text-accent">
           {item.label}
           {item.outbound && (
             <span className="text-xs text-muted" aria-hidden>↗</span>
