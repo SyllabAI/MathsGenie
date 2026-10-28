@@ -25,6 +25,7 @@ WJEC, Eduqas, CCEA); site content belongs to MathsGenie.
 | [05-design-system.md](05-design-system.md) | Palette, typography, component inventory |
 | [06-parsing-methodology.md](06-parsing-methodology.md) | Crawler design + evidence trail (rea-style) |
 | [07-recreation-map.md](07-recreation-map.md) | Original page → recreated component mapping |
+| [08-alevel-lessons-teachgenie.md](08-alevel-lessons-teachgenie.md) | A-Level hub deck cards, course tabs, lesson player step grammar, Teach Genie flow |
 | features/ | Per-feature reverse-engineering briefs |
 
 ## Feature Briefs (features/)

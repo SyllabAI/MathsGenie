@@ -30,6 +30,7 @@ export type ALevelDoc = {
   board: string;
   topic_count: number;
   modules: Record<string, { slug: string; title: string; href: string }[]>;
+  /** original grouping: Year 1/2 × Pure/Statistics/Mechanics, in chapter order */
 };
 
 export const BOARD_SLUGS = ["edexcel", "aqa", "ocr", "wjec", "eduqas", "ccea"] as const;
@@ -87,6 +88,7 @@ export const catalog = {
 
 export const SITE = {
   original: "https://www.mathsgenie.co.uk",
+  assets: "https://assets.mathsgenie.co.uk",
   attribution:
     "An independent educational recreation. MathsGenie and the awarding bodies own all original content — resources link back to the original site.",
 };

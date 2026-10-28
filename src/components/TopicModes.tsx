@@ -256,10 +256,9 @@ export function TopicModes({
         {
           label: "Lessons",
           desc: "Interactive bite-sized lesson with practice cards",
-          href: `${orig}/lessons`,
+          href: `${boardBase}/${topic}/lessons`,
           icon: Icon.lessons,
           tint: TINTS.sky,
-          outbound: true,
         },
         {
           label: "Revision Guides",
