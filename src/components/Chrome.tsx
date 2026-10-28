@@ -4,15 +4,15 @@ import { usePathname } from "next/navigation";
 import Header from "./Header";
 import Footer from "./Footer";
 
-/** Public chrome hidden on member-area routes (which render their own shell). */
+/** Global chrome. Footer hidden on app-style member routes (original hides it there). */
+const APP_ROUTES = ["/classrooms", "/settings", "/your-plan"];
+
 export function SiteHeader() {
-  const p = usePathname();
-  if (p?.startsWith("/dashboard")) return null;
   return <Header />;
 }
 
 export function SiteFooter() {
   const p = usePathname();
-  if (p?.startsWith("/dashboard")) return null;
+  if (APP_ROUTES.some((r) => p?.startsWith(r))) return null;
   return <Footer />;
 }

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { SITE } from "@/lib/data";
 import {
   IconBug,
   IconBugSmall,
@@ -13,19 +12,25 @@ import {
   IconDots,
   IconGreens,
   IconHome,
+  IconHomework,
   IconIdeas,
+  IconLessons,
   IconOldSite,
-  IconPlanner,
-  IconRush,
+  IconSettings,
   IconSurvey,
+  IconTests,
+  IconUpgrade,
+  IconVideos,
   IconWorksheets,
 } from "@/components/SidebarIcons";
 
 /**
- * App-style left rail, cloned from the original mathsgenie app shell:
- * 220px white rail, 2px right border (#f0f0f0), px-3/py-2, gap-0.5 rows of
- * rounded-xl gray nav items (40px tall, 24px solid icons), cyan/blue active
- * state, scroll fades, pinned footer with Ideas + Other/bug/collapse, and an
+ * App-style left rail, cloned from the original mathsgenie member shell
+ * (see research/04-member-area.md §3):
+ * 220px white rail, 2px right border #f0f0f0, px-3/py-2, gap-0.5 rows of
+ * rounded-xl 40px items, 24px icons, 16px labels, active state
+ * #CEFBFF bg / #1CB0F6 text, purple Upgrade row, pinned footer with
+ * Upgrade / Ideas / Settings / Other + bug + collapse, scroll fades,
  * animated icon-only collapse (64px) persisted to localStorage.
  */
 
@@ -73,13 +78,15 @@ function writeRail(patch: Partial<Rail>) {
   window.dispatchEvent(new Event(RAIL_EVENT));
 }
 
+/* exact nav of the original logged-in rail (order matters) */
 const MAIN = [
-  { label: "Home", href: "/", Icon: IconHome },
-  { label: "Revision planner", href: "/features/revision-planner", Icon: IconPlanner },
-  { label: "Ask Genie AI", href: "/ask-genie", genie: true as const },
-  { label: "Worksheets", href: "/gcse/worksheets", Icon: IconWorksheets },
-  { label: "Question Rush", href: "/gcse/question-rush", Icon: IconRush },
+  { label: "Home", href: "/classrooms", Icon: IconHome },
   { label: "Daily Greens", href: "/gcse/daily-greens", Icon: IconGreens },
+  { label: "Worksheets", href: "/gcse/worksheets", Icon: IconWorksheets },
+  { label: "Videos", href: "/gcse/videos", Icon: IconVideos },
+  { label: "Lessons", href: "/gcse/lessons", Icon: IconLessons },
+  { label: "Homework", href: "/classrooms/homework", Icon: IconHomework },
+  { label: "Tests", href: "/classrooms/test", Icon: IconTests },
 ];
 
 const OTHER_ITEMS = [
@@ -88,20 +95,6 @@ const OTHER_ITEMS = [
   { label: "Report bug", href: "https://github.com/SyllabAI/MathsGenie/issues/new?labels=bug", Icon: IconBugSmall },
   { label: "Impact survey", href: "/impact-survey", Icon: IconSurvey },
 ];
-
-function GenieAvatar({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
-      <path
-        d="M12 2.6c2.9-2.9 8.9-1.1 9.3 3.4.3 3-1.2 4.6-1.2 6 0 1.4 1.4 2.6 1.2 5-.3 3.6-3.7 6.4-9.3 6.4s-9-2.8-9.3-6.4c-.2-2.4 1.2-3.6 1.2-5 0-1.4-1.5-3-1.2-6C3.1 1.5 9.1-.3 12 2.6Z"
-        fill="#2fe4b7"
-      />
-      <circle cx="9.4" cy="12.4" r="1.5" fill="#14171c" />
-      <circle cx="14.6" cy="12.4" r="1.5" fill="#14171c" />
-      <path d="M9.5 16.2c1.5 1.2 3.5 1.2 5 0" stroke="#14171c" strokeWidth="1.4" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 export default function AppSidebar() {
   const pathname = usePathname();
@@ -170,22 +163,31 @@ export default function AppSidebar() {
   };
 
   const railWidth = collapsed ? COLLAPSED : width;
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
+  const isActive = (href: string) => {
+    if (href === "/classrooms") {
+      return pathname === "/classrooms" ||
+        (pathname.startsWith("/classrooms/") && !pathname.startsWith("/classrooms/homework") && !pathname.startsWith("/classrooms/test"));
+    }
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   const rowCls = (active: boolean) =>
-    `group/navitem relative flex w-full flex-none cursor-pointer items-center rounded-xl px-2 py-2 text-sm transition-colors ${
-      active ? "bg-[#cefbff] text-accent" : "text-ink/60 hover:bg-paper-2 hover:text-ink"
+    `group/navitem relative flex w-full flex-none cursor-pointer items-center rounded-xl px-2 py-2 text-base transition-colors ${
+      active ? "bg-[#cefbff] text-[#1cb0f6]" : "text-ink/60 hover:bg-paper-2 hover:text-ink"
     }`;
+
+  const iconCls = (active: boolean) =>
+    `mr-2.5 size-6 shrink-0 ${active ? "" : "text-ink/60 opacity-60 group-hover/navitem:opacity-100"}`;
 
   return (
     <div
-      className="sticky top-16 shrink-0 self-start transition-[width] duration-200 ease-out max-lg:hidden"
-      style={{ width: railWidth, height: "calc(100dvh - 4rem)" }}
+      className="sticky top-[66px] shrink-0 self-start transition-[width] duration-200 ease-out max-lg:hidden"
+      style={{ width: railWidth, height: "calc(100dvh - 66px)" }}
     >
       <aside
         id="app-desktop-sidebar"
         aria-label="Main navigation"
+        data-slot="pinnable-rail"
         className="absolute inset-y-0 left-0 flex flex-col overflow-hidden border-r-2 border-[#f0f0f0] bg-paper px-3 py-2 transition-[width] duration-200 ease-out motion-reduce:transition-none"
         style={{ width: railWidth }}
       >
@@ -196,7 +198,7 @@ export default function AppSidebar() {
             aria-label="Sections"
             className="no-scrollbar flex min-h-0 w-full flex-1 flex-col gap-0.5 overflow-y-auto overflow-x-hidden"
           >
-            {MAIN.map(({ label, href, Icon, genie }) => {
+            {MAIN.map(({ label, href, Icon }) => {
               const active = isActive(href);
               return (
                 <Link
@@ -206,11 +208,7 @@ export default function AppSidebar() {
                   className={rowCls(active)}
                   title={collapsed ? label : undefined}
                 >
-                  {genie ? (
-                    <GenieAvatar className="mr-2.5 size-6 shrink-0" />
-                  ) : (
-                    <Icon className="mr-2.5 size-6 shrink-0" />
-                  )}
+                  <Icon className={iconCls(active)} />
                   {collapsed ? null : (
                     <p className="min-w-0 flex-1 truncate whitespace-nowrap capitalize">{label}</p>
                   )}
@@ -230,12 +228,30 @@ export default function AppSidebar() {
 
         <div className="flex w-full shrink-0 flex-col gap-0.5 pt-1">
           <Link
+            href="/your-plan"
+            className="group/navitem relative flex w-full flex-none cursor-pointer items-center rounded-xl px-2 py-2 text-base text-[#9133ea] transition-colors hover:bg-[#f6ecfd]"
+            title={collapsed ? "Upgrade" : undefined}
+          >
+            <IconUpgrade className="mr-2.5 size-6 shrink-0" />
+            {collapsed ? null : <p className="min-w-0 flex-1 truncate whitespace-nowrap capitalize">Upgrade</p>}
+          </Link>
+
+          <Link
             href="/feature-requests"
             className={rowCls(isActive("/feature-requests"))}
             title={collapsed ? "Ideas + feedback" : undefined}
           >
-            <IconIdeas className="mr-2.5 size-6 shrink-0" />
+            <IconIdeas className={iconCls(isActive("/feature-requests"))} />
             {collapsed ? null : <p className="min-w-0 flex-1 truncate whitespace-nowrap capitalize">Ideas + feedback</p>}
+          </Link>
+
+          <Link
+            href="/settings/account"
+            className={rowCls(isActive("/settings"))}
+            title={collapsed ? "Settings" : undefined}
+          >
+            <IconSettings className={iconCls(isActive("/settings"))} />
+            {collapsed ? null : <p className="min-w-0 flex-1 truncate whitespace-nowrap capitalize">Settings</p>}
           </Link>
 
           <div className="flex items-center gap-0.5">
@@ -245,16 +261,16 @@ export default function AppSidebar() {
                 aria-haspopup="menu"
                 aria-expanded={otherOpen}
                 onClick={() => setOtherOpen((v) => !v)}
-                className={`flex w-full items-center rounded-xl px-2 py-2 text-left text-sm transition-colors ${
+                className={`flex w-full items-center rounded-xl px-2 py-2 text-left text-base transition-colors ${
                   otherOpen ? "bg-paper-2 text-ink" : "text-ink/60 hover:bg-paper-2 hover:text-ink"
                 }`}
               >
-                <IconDots className="mr-2.5 size-6 shrink-0" />
+                <IconDots className="mr-2.5 size-6 shrink-0 text-ink/60 opacity-60" />
                 {collapsed ? null : (
                   <>
                     <p className="min-w-0 flex-1 truncate">Other</p>
                     <IconChevron
-                      className={`size-4 shrink-0 text-ink/40 transition-transform ${otherOpen ? "rotate-180" : ""}`}
+                      className={`size-5 shrink-0 text-ink/40 opacity-60 transition-transform ${otherOpen ? "rotate-180" : ""}`}
                     />
                   </>
                 )}
@@ -291,7 +307,7 @@ export default function AppSidebar() {
                   aria-label="Report a bug"
                   className="flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-xl text-ink/60 transition-colors hover:bg-paper-2 hover:text-ink"
                 >
-                  <IconBug className="size-5" />
+                  <IconBug className="size-5 text-ink/60 opacity-60" />
                 </a>
                 <button
                   type="button"
