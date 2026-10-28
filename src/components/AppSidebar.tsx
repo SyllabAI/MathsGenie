@@ -98,6 +98,9 @@ const OTHER_ITEMS = [
 
 export default function AppSidebar() {
   const pathname = usePathname();
+  /* focus mode (question player /questions/qN): the original drops the app
+     rail entirely and the player renders its own 64px context rail.
+     NOTE: the early return lives after every hook (rules of hooks). */
   const rail = useSyncExternalStore(subscribeRail, primeRail, () => DEFAULT_RAIL);
   const { collapsed, width } = rail;
   const [otherOpen, setOtherOpen] = useState(false);
@@ -170,6 +173,9 @@ export default function AppSidebar() {
     }
     return pathname === href || pathname.startsWith(href + "/");
   };
+
+  /* focus route — bail out AFTER all hooks (see note above) */
+  if (pathname && /\/gcse\/maths\/[^/]+\/[^/]+\/questions\/q\d+$/.test(pathname)) return null;
 
   const rowCls = (active: boolean) =>
     `group/navitem relative flex w-full flex-none cursor-pointer items-center rounded-xl px-2 py-2 text-base transition-colors ${

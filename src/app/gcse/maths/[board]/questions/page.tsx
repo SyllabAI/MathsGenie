@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ResourceHubShell from "@/components/member/ResourceHubShell";
-import { isBoard, loadTopics, SITE } from "@/lib/data";
+import { isBoard, loadTopics } from "@/lib/data";
 
 export const metadata: Metadata = { title: "GCSE Maths Question Bank" };
 
@@ -64,24 +64,33 @@ export default async function QuestionBankPage({ params }: { params: Promise<{ b
                 return (
                   <li key={t.slug} className="flex items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-paper-2">
                     <span className="size-5 shrink-0 rounded-full border-2 border-line" aria-hidden />
-                    <Link href={`/gcse/maths/${board}/${t.slug}/questions`} className="min-w-0 flex-1 truncate text-sm font-semibold hover:text-accent">
+                    {/* like the original, a topic row opens straight into the player */}
+                    <Link href={`/gcse/maths/${board}/${t.slug}/questions/q1`} className="min-w-0 flex-1 truncate text-sm font-semibold hover:text-accent">
                       {t.title}
                     </Link>
                     <span className="shrink-0 text-xs text-muted">{n} questions</span>
-                    <a
-                      href={`${SITE.original}/gcse/maths/edexcel/${t.slug}/questions`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={`/gcse/maths/${board}/${t.slug}/questions`}
                       className="shrink-0 rounded-full border border-line px-2.5 py-1 text-xs text-muted transition hover:bg-paper-2 hover:text-ink"
                     >
-                      Original ↗
-                    </a>
+                      Preview
+                    </Link>
                   </li>
                 );
               })}
             </ul>
           </details>
         ))}
+      </div>
+
+      {/* floating action pill, like the original's Start revising */}
+      <div className="pointer-events-none sticky bottom-6 mt-8 flex justify-end pr-1">
+        <Link
+          href={`/gcse/maths/${board}/${grades[0] && doc.grades[grades[0]][0].slug}/questions/q1`}
+          className="pointer-events-auto rounded-full bg-accent px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-accent-ink"
+        >
+          Start revising →
+        </Link>
       </div>
 
       <p className="mt-8 text-center text-xs text-muted">

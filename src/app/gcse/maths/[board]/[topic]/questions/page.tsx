@@ -80,8 +80,14 @@ export default async function TopicQuestionsPage({
 
       <div className="mt-8 flex flex-wrap gap-3">
         <Link
+          href={`/gcse/maths/${board}/${topic}/questions/q1`}
+          className="rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-white transition hover:bg-accent-ink"
+        >
+          Open the question player →
+        </Link>
+        <Link
           href="/gcse/question-rush"
-          className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper hover:opacity-90"
+          className="rounded-full border-2 border-line bg-panel px-5 py-2.5 text-sm font-semibold hover:bg-paper-2"
         >
           ⚡ Try Question Rush
         </Link>

@@ -213,3 +213,13 @@ H1 Settings; left nav: Account / Subscription / Preferences / Emails / Privacy &
 Guardians. Account panel: Customize avatar, name + Edit, Account type (Student/Teacher/P…),
 Exam details (qualification, Add school), Subjects & target grades (per-subject option
 rows), Account actions (Sign out), Reset progress (confirm), Delete account (confirm).
+
+## 10. Recreation status — question player + popovers (added 2026-10-29)
+
+- Focus mode + player UI: `src/components/player/QuestionPlayer.tsx`, route
+  `/gcse/maths/[board]/[topic]/questions/[qid]` (qN), global chrome stripped via
+  `Chrome.tsx` FOCUS_PATTERN; AppSidebar returns null on focus routes.
+- Question sets: `src/lib/player-questions.ts` — deterministic, our own
+  compositions (16 verified template families + handwritten pool fallback).
+- HUD popovers rebuilt to this file's §7 spec inside `Header.tsx` (MemberHud,
+  exported for the player's focus header).

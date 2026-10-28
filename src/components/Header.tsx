@@ -150,9 +150,15 @@ function Avatar() {
   );
 }
 
-type Pop = null | "xp" | "energy" | "streak" | "profile";
+export type Pop = null | "xp" | "energy" | "streak" | "profile";
 
-function MemberHud() {
+/**
+ * Member HUD chips (bell / XP / energy / streak / avatar) with their
+ * popovers, cloned from member/02–05 screenshots: XP rank card, sleeping
+ * genie + weekly limits, streak leaderboard, profile menu. Exported so the
+ * question-player focus header can reuse the identical cluster.
+ */
+export function MemberHud() {
   const [pop, setPop] = useState<Pop>(null);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -220,42 +226,69 @@ function MemberHud() {
         <Avatar />
       </button>
 
-      {/* popovers */}
+      {/* popovers — rebuilt against member/02-05 screenshots */}
       {pop === "xp" && (
         <Popover>
-          <p className="text-lg font-bold">{HUD.xp} XP</p>
-          <p className="text-sm text-muted">{HUD.rank}</p>
-          <p className="mt-1 text-xs text-muted">{HUD.xpToNext} XP to Bronze III</p>
-          <div className="mt-3 rounded-xl bg-paper-2 p-3">
-            <p className="flex justify-between text-xs text-muted">
-              <span>Study time today</span>
-              <span className="font-semibold text-ink">0m</span>
+          <div className="flex items-center gap-3.5">
+            <span className="grid size-14 shrink-0 place-items-center rounded-full bg-paper-2 text-ink/80">
+              <svg viewBox="0 0 24 24" className="size-7" fill="currentColor" aria-hidden>
+                <path d="M12 3.2c.5 2.9 1.4 4.7 2.9 5.7 1.2.8 2.9 1.3 5.9 1.6-2.6.9-4.2 1.7-5.2 2.9-.9 1.1-1.6 2.9-2 5.4-1-2.7-1.9-4.4-3.1-5.3-1.2-1-2.9-1.7-5.7-2.4 2.7-.6 4.5-1.3 5.6-2.5 1-1.2 1.4-2.9 1.6-5.4Z" />
+              </svg>
+            </span>
+            <div className="min-w-0">
+              <p className="flex items-center gap-2">
+                <span className="text-2xl font-extrabold tracking-tight">{HUD.xp} XP</span>
+                <span className="rounded-full bg-paper-2 px-2.5 py-1 text-xs font-bold text-ink/70">{HUD.rank}</span>
+              </p>
+              <p className="mt-0.5 text-sm text-muted">{HUD.xpToNext} XP to Bronze III</p>
+            </div>
+          </div>
+          <div className="mt-4 rounded-2xl border-2 border-line p-3.5">
+            <p className="flex items-center justify-between text-sm">
+              <span className="text-muted">Study time today</span>
+              <span className="font-bold">0m</span>
             </p>
-            <div className="mt-2 flex gap-1">
-              <div className="h-1.5 flex-1 rounded-full bg-accent/30" />
-              <div className="h-1.5 flex-1 rounded-full bg-accent/60" />
-              <div className="h-1.5 flex-1 rounded-full bg-accent" />
+            <div className="mt-2.5 flex gap-1">
+              <div className="h-1.5 flex-1 rounded-full bg-ink/10" />
+              <div className="h-1.5 flex-1 rounded-full bg-ink/10" />
+              <div className="h-1.5 flex-1 rounded-full bg-ink/10" />
             </div>
             <p className="mt-1.5 flex justify-between text-[11px] text-muted">
               <span>x1</span><span>x2 · 30m</span><span>x3 · 2h</span>
             </p>
+            <p className="mt-2 text-[11px] text-muted">30m more to earn all XP at x2</p>
           </div>
-          <p className="mt-3 cursor-pointer text-center text-xs font-semibold text-accent">How does XP work?</p>
+          <button className="mt-3.5 w-full rounded-full border-2 border-line py-2 text-sm font-semibold transition hover:bg-paper-2">
+            How does XP work?
+          </button>
         </Popover>
       )}
       {pop === "energy" && (
         <Popover>
-          <p className="rounded-xl bg-paper-2 p-2.5 text-xs text-muted">
+          <p className="rounded-xl bg-paper-2 p-2.5 text-[13px] leading-snug text-ink/70">
             Everything from the old MathsGenie site is still free (doesn&apos;t cost energy)
           </p>
+          {/* sleeping genie on its mat (member/03 screenshot) */}
+          <div className="mt-3 flex justify-center">
+            <svg viewBox="0 0 200 110" className="h-28" aria-hidden>
+              <ellipse cx="100" cy="88" rx="86" ry="16" fill="#3f3a63" />
+              <ellipse cx="100" cy="84" rx="86" ry="14" fill="#554e86" />
+              <path d="M56 76c0-16 12-28 28-28h24c14 0 26 10 26 24 0 4-2 6-6 6H62c-4 0-6-1-6-2Z" fill="#2fe4b7" />
+              <path d="M70 62c2-3 5-4 8-2M96 60c2-3 5-4 8-2" stroke="#0f766e" strokeWidth="2" strokeLinecap="round" fill="none" />
+              <path d="M60 74c-6-2-10-8-8-14M140 72c6-2 9-7 8-13" stroke="#2fe4b7" strokeWidth="5" strokeLinecap="round" fill="none" />
+              <circle cx="128" cy="62" r="13" fill="#ff2e9a" />
+              <path d="M129 54l-6 9h5l-2 7 7-10h-5l1-6Z" fill="#fff" />
+              <path d="M150 30c4 1 6 4 5 7M158 22c6 1 8 6 7 10" stroke="#a78bfa" strokeWidth="3" strokeLinecap="round" fill="none" />
+            </svg>
+          </div>
           <p className="mt-3 flex items-center gap-1.5 text-base font-bold">
-            <svg viewBox="0 0 24 24" className="size-4 text-[#ff2e9a]" fill="currentColor" aria-hidden>
+            <svg viewBox="0 0 24 24" className="size-4.5 text-[#ff2e9a]" fill="currentColor" aria-hidden>
               <path d="M13 2 4.5 13.5c-.3.4 0 .9.5.9H11l-1 7.6 8.6-11.5c.3-.4 0-.9-.5-.9H13l1-7.6z" />
             </svg>
             Energy
           </p>
-          <p className="mt-1 text-sm">
-            <span className="text-xl font-extrabold">{HUD.energy}</span>
+          <p className="mt-1.5 text-sm">
+            <span className="text-2xl font-extrabold">{HUD.energy}</span>
             <span className="text-muted"> / {HUD.energyMax}</span>
           </p>
           <div className="mt-2 flex gap-1">
@@ -263,65 +296,133 @@ function MemberHud() {
               <span key={i} className={`h-1.5 flex-1 rounded-full ${i < HUD.energy ? "bg-[#ff2e9a]" : "bg-ink/10"}`} />
             ))}
           </div>
-          <p className="mt-2 text-xs leading-relaxed text-muted">
-            Energy is used for Genie AI marking and chat. It refills every week — unused energy doesn&apos;t carry over.
+          <p className="mt-2.5 text-xs leading-relaxed text-muted">
+            Energy is spent on AI marking and Ask Genie. It refills every week — unused energy doesn&apos;t carry over.
           </p>
+          <details className="group mt-3 border-t border-line pt-2">
+            <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-bold">
+              Weekly limits
+              <span className="flex items-center gap-1 text-xs font-semibold text-muted">
+                Show limits
+                <svg viewBox="0 0 24 24" className="size-4 transition-transform group-open:rotate-180" fill="none" aria-hidden><path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </span>
+            </summary>
+            <ul className="mt-2 space-y-1.5 text-xs text-muted">
+              <li className="flex justify-between"><span>AI marking</span><span className="font-semibold text-ink">10 / week</span></li>
+              <li className="flex justify-between"><span>Ask Genie messages</span><span className="font-semibold text-ink">25 / week</span></li>
+            </ul>
+          </details>
         </Popover>
       )}
       {pop === "streak" && (
         <Popover>
-          <div className="rounded-2xl bg-[#fff4e5] p-3">
-            <p className="flex items-center gap-2 text-xl font-extrabold text-[#ff9600]">
-              <svg viewBox="0 0 24 24" className="size-6" fill="currentColor" aria-hidden>
+          <div className="relative overflow-hidden rounded-2xl bg-[#fff4e5] p-4">
+            <div className="flex items-start gap-2">
+              <svg viewBox="0 0 24 24" className="size-8 text-[#ff9600]" fill="currentColor" aria-hidden>
                 <path d="M12.6 2.3c.2 2.6-.8 4.1-2.2 5.6-1.2 1.3-2.6 2.8-2.9 5.3-.5-.4-1-1.2-1.2-2.2-1.5 1.4-2.8 3.4-2.8 5.6 0 3.9 3.4 7 8.5 7s8.5-3.1 8.5-7c0-5.5-4.6-7.6-5.6-12.1-.9.3-1.9 1.4-2.3 2.8z" />
               </svg>
-              {HUD.streak}
-            </p>
-            <p className="text-xs text-[#b36b00]">Day streak</p>
-            <div className="mt-2 flex justify-between">
+              <span className="text-3xl font-black leading-none text-[#ff9600]">{HUD.streak}</span>
+            </div>
+            <p className="mt-1 text-xs font-semibold text-[#b36b00]">Day streak</p>
+            {/* flame mascot (member/04) */}
+            <svg viewBox="0 0 64 64" className="absolute -right-1 top-2 h-20" aria-hidden>
+              <path d="M34 6c1 8-2 12-6 17-4 4-8 9-9 16-2-2-3-4-3.6-6.7C11 37 8 42 8 47.5 8 56 15.5 62 26 62h14c10 0 17-6 17-14.5 0-10.5-8.5-15-13-23-1.5-2.5-2.5-5.5-3-9-2.4 1-4.4 3-5.5 5.5C35.2 17 34.6 11 34 6Z" fill="#ffb020" />
+              <circle cx="26" cy="44" r="2" fill="#7c3e00" />
+              <circle cx="38" cy="44" r="2" fill="#7c3e00" />
+              <path d="M28 50c2.5 1.8 5.5 1.8 8 0" stroke="#7c3e00" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+            </svg>
+            <div className="mt-3 flex justify-between">
               {HUD.week.map((d, i) => (
-                <div key={i} className="text-center">
-                  <p className={`text-base ${d.done ? "text-[#ff9600]" : "text-ink/20"}`} aria-hidden>{d.done ? "🔥" : "🔥"}</p>
-                  <p className={`text-[10px] font-semibold ${d.done ? "text-[#ff9600]" : "text-muted"}`}>{d.d}</p>
+                <div key={i} className="flex flex-col items-center gap-1">
+                  <svg viewBox="0 0 24 24" className={`size-5 ${d.done ? "text-[#ff9600]" : "text-[#e8c9a0]"}`} fill="currentColor" aria-hidden>
+                    <path d="M12.6 2.3c.2 2.6-.8 4.1-2.2 5.6-1.2 1.3-2.6 2.8-2.9 5.3-.5-.4-1-1.2-1.2-2.2-1.5 1.4-2.8 3.4-2.8 5.6 0 3.9 3.4 7 8.5 7s8.5-3.1 8.5-7c0-5.5-4.6-7.6-5.6-12.1-.9.3-1.9 1.4-2.3 2.8z" />
+                  </svg>
+                  <span className={`text-[10px] font-bold ${d.done ? "text-[#ff9600]" : "text-[#c9a577]"}`}>{d.d}</span>
                 </div>
               ))}
             </div>
           </div>
-          <p className="mt-3 flex items-center gap-1.5 text-sm font-bold">
-            <span aria-hidden>🏆</span> Top streaks
+          <p className="mt-3.5 flex items-center gap-2 text-sm font-bold">
+            <svg viewBox="0 0 24 24" className="size-5 text-[#ffb020]" fill="currentColor" aria-hidden>
+              <path d="M6 3h12v2h3v3c0 2.5-2 4.5-4.4 4.9A6 6 0 0 1 13 16.9V19h3a1 1 0 0 1 1 1v1H7v-1a1 1 0 0 1 1-1h3v-2.1a6 6 0 0 1-3.6-3.1C5 13.5 3 11.5 3 9V5h3V3Zm-1 4v2c0 1.2.8 2.3 2 2.7A24 24 0 0 1 7 7H5Zm14 0h-2c0 1.8-.1 3.4-.3 4.7 1.3-.4 2.3-1.5 2.3-2.7V7Z" />
+            </svg>
+            Top streaks
           </p>
-          <ul className="mt-1.5 space-y-1 text-sm">
+          <ul className="mt-2 space-y-1.5 text-sm">
             {HUD.leaders.map((l, i) => (
-              <li key={l.name} className="flex items-center gap-2">
-                <span aria-hidden>{["🥇", "🥈", "🥉"][i] ?? <span className="w-4 text-xs text-muted">#{i + 1}</span>}</span>
-                <span className="flex-1 truncate text-ink/70">{l.name}</span>
-                <span className="font-semibold text-[#ff9600]">🔥 {l.s}</span>
+              <li key={l.name} className="flex items-center gap-2.5">
+                {i < 3 ? (
+                  <span className={`grid size-5.5 place-items-center rounded-full text-[10px] font-black text-white ${["bg-[#ffb020]", "bg-[#c0c7cf]", "bg-[#d99a6c]"][i]}`}>{i + 1}</span>
+                ) : (
+                  <span className="w-5.5 text-center text-xs font-semibold text-muted">#{i + 1}</span>
+                )}
+                <span className="min-w-0 flex-1 truncate text-ink/75">{l.name}</span>
+                <span className="flex items-center gap-1 font-bold text-[#ff9600]">
+                  <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden><path d="M12.6 2.3c.2 2.6-.8 4.1-2.2 5.6-1.2 1.3-2.6 2.8-2.9 5.3-.5-.4-1-1.2-1.2-2.2-1.5 1.4-2.8 3.4-2.8 5.6 0 3.9 3.4 7 8.5 7s8.5-3.1 8.5-7c0-5.5-4.6-7.6-5.6-12.1-.9.3-1.9 1.4-2.3 2.8z" /></svg>
+                  {l.s}
+                </span>
               </li>
             ))}
           </ul>
+          <button className="mt-3.5 w-full rounded-full border-2 border-line py-2 text-sm font-semibold transition hover:bg-paper-2">
+            How do streaks work?
+          </button>
         </Popover>
       )}
       {pop === "profile" && (
-        <div className="absolute right-2 top-12 z-50 w-64 rounded-2xl border-2 border-ink/10 bg-paper p-2 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]">
-          <div className="flex items-center gap-3 px-2 py-2">
+        <div className="absolute right-2 top-12 z-50 w-72 rounded-2xl border-2 border-ink/10 bg-paper p-2 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]">
+          <div className="flex items-start gap-3 px-2 py-2">
             <Avatar />
-            <div className="min-w-0">
-              <p className="truncate text-sm font-bold">{HUD.user.name}</p>
-              <p className="text-xs text-muted">{HUD.user.joined}</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-bold leading-snug">{HUD.user.name}</p>
+              <p className="mt-0.5 text-xs text-muted">{HUD.user.joined}</p>
             </div>
+            <button
+              aria-label="Edit profile"
+              className="grid size-8 shrink-0 place-items-center rounded-lg text-ink/50 transition hover:bg-paper-2 hover:text-ink"
+            >
+              <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden>
+                <path d="m14.5 5.5 4 4L8 20H4v-4L14.5 5.5Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                <path d="m12.5 7.5 4 4" stroke="currentColor" strokeWidth="1.8" />
+              </svg>
+            </button>
           </div>
           <div className="mt-1 border-t border-line pt-1">
             {[
-              { label: "My progress", href: "/classrooms" },
-              { label: "Saved", href: "/gcse/worksheets" },
-              { label: "Settings", href: "/settings/account" },
+              {
+                label: "My progress",
+                href: "/classrooms",
+                icon: (
+                  <path d="M4 20V10m5 10V4m5 16v-7m5 7V8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                ),
+              },
+              {
+                label: "Saved",
+                href: "/gcse/worksheets",
+                icon: (
+                  <path d="M7 3.5h10A1.5 1.5 0 0 1 18.5 5v15.5L12 16.5 5.5 20.5V5A1.5 1.5 0 0 1 7 3.5Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                ),
+              },
+              {
+                label: "Settings",
+                href: "/settings/account",
+                icon: (
+                  <>
+                    <circle cx="12" cy="12" r="3.2" stroke="currentColor" strokeWidth="1.8" />
+                    <path d="M12 2.8v2.4m0 13.6v2.4M4.1 7.5l2 1.2m11.8 6.6 2 1.2M4.1 16.5l2-1.2m11.8-6.6 2-1.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  </>
+                ),
+              },
             ].map((i) => (
               <Link
                 key={i.label}
                 href={i.href}
                 onClick={() => setPop(null)}
-                className="block rounded-xl px-3 py-2.5 text-sm font-medium text-ink transition hover:bg-paper-2"
+                className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-ink transition hover:bg-paper-2"
               >
+                <svg viewBox="0 0 24 24" fill="none" className="size-5 shrink-0 text-ink/60" aria-hidden>
+                  {i.icon}
+                </svg>
                 {i.label}
               </Link>
             ))}
@@ -329,8 +430,11 @@ function MemberHud() {
               href={SITE.original}
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-xl px-3 py-2.5 text-sm font-medium text-ink transition hover:bg-paper-2"
+              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-ink transition hover:bg-paper-2"
             >
+              <svg viewBox="0 0 24 24" fill="none" className="size-5 shrink-0 text-ink/60" aria-hidden>
+                <path d="M15 4.5h4A1.5 1.5 0 0 1 20.5 6v12a1.5 1.5 0 0 1-1.5 1.5h-4M10 8l-4 4 4 4M6 12h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
               Sign out
             </a>
           </div>
