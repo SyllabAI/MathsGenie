@@ -47,7 +47,18 @@ export default function Header() {
   const [oldChip, setOldChip] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [railCollapsed, setRailCollapsed] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+
+  /* the app rail announces its collapsed state; show a pin button like the original */
+  useEffect(() => {
+    const onRail = (e: Event) => {
+      const collapsed = Boolean((e as CustomEvent).detail?.collapsed);
+      setRailCollapsed(collapsed);
+    };
+    window.addEventListener("mg-rail", onRail);
+    return () => window.removeEventListener("mg-rail", onRail);
+  }, []);
 
   const courses = coursesByQualification();
   const allCourses = Object.values(courses).flat();
@@ -68,7 +79,23 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/90 text-ink backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-2 px-4 sm:px-6">
+      <div className="flex h-16 items-center gap-2 px-4 sm:px-6">
+        {railCollapsed && (
+          <button
+            type="button"
+            aria-label="Pin sidebar open"
+            onClick={() => {
+              setRailCollapsed(false);
+              window.dispatchEvent(new Event("mg-rail-expand"));
+            }}
+            className="hidden size-9 shrink-0 cursor-pointer items-center justify-center rounded-xl text-ink/60 transition hover:bg-paper-2 hover:text-ink lg:flex"
+          >
+            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+              <rect x="3.5" y="5" width="17" height="14" rx="2.5" />
+              <path d="M9.5 5v14" />
+            </svg>
+          </button>
+        )}
         <Link href="/" className="flex items-center gap-2.5" aria-label="MathsGenie home">
           <LogoMark />
           <span className="font-title text-[22px] font-extrabold leading-none tracking-tight">
