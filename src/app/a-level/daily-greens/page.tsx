@@ -16,6 +16,7 @@ export default function ALevelDailyGreensPage() {
       spec="Spec 9MA0"
       courseHref="/a-level/maths/edexcel"
       courseLabel="Maths Edexcel"
+      rushHref="/a-level/question-rush"
     />
   );
 }

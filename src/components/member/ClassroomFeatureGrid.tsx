@@ -27,7 +27,7 @@ const GROUPS: { group: string; items: Feature[] }[] = [
     group: "Practice",
     items: [
       { title: "Question bank", desc: "Practice questions with AI feedback · 18,486 questions", badge: "Popular", tile: "bg-[#e9dcfd]", glyph: "❓", href: "/gcse/maths/edexcel/questions" },
-      { title: "Question Rush", desc: "Race the clock on quick-fire multiple-choice questions", badge: "New", tile: "bg-[#d4ddff]", glyph: "⏱", href: "/gcse/maths/edexcel/question-rush" },
+      { title: "Question Rush", desc: "Race the clock on quick-fire multiple-choice questions", badge: "New", tile: "bg-[#d4ddff]", glyph: "⏱", href: "/gcse/question-rush" },
       { title: "Daily Greens", desc: "A quick worksheet each day that targets your weaknesses", tile: "bg-[#d9f4e5]", glyph: "🥬", href: "/gcse/daily-greens" },
       { title: "Hot topics", desc: "See which topics come up most in real past papers", tile: "bg-[#fde8ec]", glyph: "🔥", href: "/gcse/maths/edexcel/topic-heatmap" },
     ],

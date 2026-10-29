@@ -173,6 +173,40 @@ export function dailySetFor(qual: QualKey, date = new Date()): SampleQuestion[] 
   return picks;
 }
 
+/* ------------------------------------------------------------------ */
+/* Question Rush pools — the original runs Rush per qualification      */
+/* (GCSE grades 1–8/9; A Level by module). Pools group the banks the   */
+/* same way.                                                           */
+/* ------------------------------------------------------------------ */
+
+export type RushPool = { key: string; label: string; questions: SampleQuestion[] };
+
+const ALEVEL_MODULE_TOPICS = {
+  pure: ["algebraic expressions", "quadratics", "differentiation", "integration", "straight line graphs", "binomial expansion", "logarithms", "trigonometry"],
+  stats: ["statistical distributions", "measures of spread"],
+  mech: ["constant acceleration", "forces and motion"],
+};
+
+export function rushPoolsForQual(qual: QualKey): RushPool[] {
+  if (qual === "gcse") {
+    const grades = ["1", "2", "3", "4", "5", "6", "7", "8/9"];
+    return grades
+      .map((g) => ({ key: g, label: `Grade ${g}`, questions: questionsForGrade(g) }))
+      .filter((p) => p.questions.length > 0);
+  }
+  const bank = QUAL_BANKS[qual];
+  if (qual === "a-level" || qual === "as-level") {
+    const byTopic = (topics: string[]) => bank.filter((q) => topics.some((t) => q.topic === t));
+    return [
+      { key: `${qual}-all`, label: "All modules", questions: bank },
+      { key: `${qual}-pure`, label: "Pure", questions: byTopic(ALEVEL_MODULE_TOPICS.pure) },
+      { key: `${qual}-stats`, label: "Statistics", questions: byTopic(ALEVEL_MODULE_TOPICS.stats) },
+      { key: `${qual}-mech`, label: "Mechanics", questions: byTopic(ALEVEL_MODULE_TOPICS.mech) },
+    ].filter((p) => p.questions.length > 0);
+  }
+  return [{ key: `${qual}-all`, label: "All topics", questions: bank }];
+}
+
 /**
  * Tolerant answer check for short-answer demo questions: case/space
  * insensitive, ignores units, currency and "x =" style prefixes, and

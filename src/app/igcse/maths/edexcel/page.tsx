@@ -65,7 +65,7 @@ const RESOURCES = [
         desc: "Race the clock on quick-fire questions",
         icon: "⚡",
         tint: "#fde3c4",
-        href: "/gcse/question-rush",
+        href: "/igcse/question-rush",
       },
     ],
   },

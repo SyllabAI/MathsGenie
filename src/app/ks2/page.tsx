@@ -43,14 +43,12 @@ export default function Ks2Page() {
             >
               Daily Greens 🌿
             </Link>
-            <a
-              href={`${SITE.original}/ks2/question-rush`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/ks2/question-rush"
               className="rounded-full border-2 border-line bg-paper px-4 py-1.5 text-sm font-semibold transition hover:bg-paper-2"
             >
               Question Rush ⚡
-            </a>
+            </Link>
           </div>
         </div>
       </div>

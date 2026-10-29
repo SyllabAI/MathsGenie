@@ -5,7 +5,9 @@ import MockExamBuilder from "@/components/alevel/MockExamBuilder";
 import GradeCalculatorAL from "@/components/alevel/GradeCalculatorAL";
 import PaperMarker from "@/components/alevel/PaperMarker";
 import QuestionRushGame from "@/components/QuestionRushGame";
+import RushQualSwitcher from "@/components/RushQualSwitcher";
 import { Attribution } from "@/components/Content";
+import { rushPoolsForQual } from "@/lib/questions";
 import { alevelTopics, alevelTopicList, alevelOriginalTopicUrl, alevelOriginalUrl } from "@/lib/alevel";
 /**
  * /a-level/<feature> — the original exposes every practice/learn/tool as a
@@ -198,7 +200,16 @@ export default async function ALevelFeaturePage({ params }: { params: Promise<{ 
       )}
 
       {feature === "question-rush" && (
-        <QuestionRushGame grades={["Year 1 Pure", "Year 1 Stats", "Year 1 Mech", "Year 2 Pure", "Year 2 Stats", "Year 2 Mech"]} />
+        <div>
+          <RushQualSwitcher current="a-level" />
+          <div className="mt-6">
+            <QuestionRushGame pools={rushPoolsForQual("a-level")} />
+          </div>
+          <p className="mt-4 text-xs text-muted">
+            Speed and accuracy both count — the original scores Rush on its full A Level question bank.
+          </p>
+          <Attribution href="https://www.mathsgenie.co.uk/a-level/question-rush" />
+        </div>
       )}
 
       {feature === "daily-greens" && (

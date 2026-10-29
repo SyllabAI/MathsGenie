@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import QuestionRushGame from "@/components/QuestionRushGame";
+import RushQualSwitcher from "@/components/RushQualSwitcher";
 import { Attribution } from "@/components/Content";
-import { catalog } from "@/lib/data";
+import { rushPoolsForQual } from "@/lib/questions";
 
 export const metadata: Metadata = {
   title: "GCSE Question Rush",
@@ -10,11 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function QuestionRushPage() {
-  const grades = Object.keys(catalog.gcseEdexcel.grades).sort((a, b) => {
-    const na = a === "8/9" ? 8.5 : parseInt(a, 10);
-    const nb = b === "8/9" ? 8.5 : parseInt(b, 10);
-    return na - nb;
-  });
+  const pools = rushPoolsForQual("gcse");
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
@@ -24,9 +21,12 @@ export default function QuestionRushPage() {
         this per-topic and per-board on its question bank; this recreation uses
         original sample questions with the same game feel.
       </p>
+      <div className="mt-6">
+        <RushQualSwitcher current="gcse" />
+      </div>
       <div className="mt-8">
         <Suspense fallback={<div className="h-64 animate-pulse rounded-2xl bg-paper-2" />}>
-          <QuestionRushGame grades={grades} />
+          <QuestionRushGame pools={pools} />
         </Suspense>
       </div>
       <Attribution href="https://www.mathsgenie.co.uk/gcse/question-rush" />

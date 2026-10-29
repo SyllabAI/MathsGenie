@@ -1,15 +1,19 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { questionsForGrade, type SampleQuestion } from "@/lib/questions";
+import type { RushPool } from "@/lib/questions";
 import { Badge } from "@/components/ui/Badge";
 
 /**
  * Question Rush — recreated timed drill game.
  * 60 seconds, rapid-fire original sample questions, streak + score HUD.
+ * The original runs Rush per qualification with a pool tab strip (GCSE
+ * grades 1–8/9, A Level by module) — pools are passed in by the page
+ * (lib/questions.ts rushPoolsForQual) so the same game powers every
+ * qualification's Rush page.
  */
-export default function QuestionRushGame({ grades }: { grades: string[] }) {
-  const [grade, setGrade] = useState<string>(grades[Math.min(2, grades.length - 1)]);
+export default function QuestionRushGame({ pools }: { pools: RushPool[] }) {
+  const [poolKey, setPoolKey] = useState<string>(pools[Math.min(2, pools.length - 1)]?.key ?? pools[0]?.key);
   const [phase, setPhase] = useState<"pick" | "play" | "done">("pick");
   const [timeLeft, setTimeLeft] = useState(60);
   const [index, setIndex] = useState(0);
@@ -18,11 +22,12 @@ export default function QuestionRushGame({ grades }: { grades: string[] }) {
   const [best, setBest] = useState(0);
   const [flash, setFlash] = useState<"none" | "right" | "wrong">("none");
   const [answer, setAnswer] = useState("");
-  const pool = useMemo<SampleQuestion[]>(() => questionsForGrade(grade), [grade]);
+  const pool = useMemo<RushPool | undefined>(() => pools.find((p) => p.key === poolKey), [pools, poolKey]);
+  const questions = pool?.questions ?? [];
   const inputRef = useRef<HTMLInputElement>(null);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const q = pool[index % Math.max(pool.length, 1)];
+  const q = questions[index % Math.max(questions.length, 1)];
 
   const finish = useCallback(() => {
     setPhase("done");
@@ -40,7 +45,7 @@ export default function QuestionRushGame({ grades }: { grades: string[] }) {
     setScore(0);
     setStreak(0);
     setAnswer("");
-    try { setBest(parseInt(localStorage.getItem(`mg-rush-best-${grade}`) || "0", 10)); } catch {}
+    try { setBest(parseInt(localStorage.getItem(`mg-rush-best-${poolKey}`) || "0", 10)); } catch {}
     timer.current = setInterval(() => {
       setTimeLeft((t) => {
         if (t <= 1) {
@@ -52,7 +57,7 @@ export default function QuestionRushGame({ grades }: { grades: string[] }) {
       });
     }, 1000);
     setTimeout(() => inputRef.current?.focus(), 50);
-  }, [grade]);
+  }, [poolKey]);
 
   useEffect(() => () => { if (timer.current) clearInterval(timer.current); }, []);
 
@@ -79,27 +84,31 @@ export default function QuestionRushGame({ grades }: { grades: string[] }) {
   }
 
   function saveBest() {
-    try { localStorage.setItem(`mg-rush-best-${grade}`, String(best)); } catch {}
+    try { localStorage.setItem(`mg-rush-best-${poolKey}`, String(best)); } catch {}
   }
 
   if (phase === "pick") {
     return (
       <div>
-        <div className="flex flex-wrap gap-1.5">
-          {grades.map((g) => (
-            <button
-              key={g}
-              onClick={() => setGrade(g)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold ${
-                grade === g ? "bg-ink text-paper" : "border border-line hover:bg-paper-2"
-              }`}
-            >
-              Grade {g}
-            </button>
-          ))}
-        </div>
+        {pools.length > 1 && (
+          <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Question Rush pools">
+            {pools.map((p) => (
+              <button
+                key={p.key}
+                role="tab"
+                aria-selected={poolKey === p.key}
+                onClick={() => setPoolKey(p.key)}
+                className={`rounded-full px-4 py-2 text-sm font-semibold ${
+                  poolKey === p.key ? "bg-ink text-paper" : "border border-line hover:bg-paper-2"
+                }`}
+              >
+                {p.label}
+              </button>
+            ))}
+          </div>
+        )}
         <div className="mt-6 rounded-2xl border border-line bg-panel p-8 text-center">
-          <p className="font-hand text-4xl font-bold">⚡ Question Rush — Grade {grade}</p>
+          <p className="font-hand text-4xl font-bold">⚡ Question Rush — {pool?.label}</p>
           <p className="mx-auto mt-2 max-w-md text-muted">
             60 seconds. Answer as many as you can. Streaks build your score —
             one wrong answer resets it.
@@ -129,7 +138,7 @@ export default function QuestionRushGame({ grades }: { grades: string[] }) {
             Go again
           </button>
           <button onClick={() => setPhase("pick")} className="rounded-full border border-line px-6 py-2.5 font-semibold hover:bg-paper-2">
-            Change grade
+            Change pool
           </button>
         </div>
       </div>

@@ -15,6 +15,7 @@ export default function Ks2DailyGreensPage() {
       qualHref="/ks2"
       courseHref="/ks2/maths/sat"
       courseLabel="KS2 SAT"
+      rushHref="/ks2/question-rush"
     />
   );
 }

@@ -16,6 +16,7 @@ export default function IgcseDailyGreensPage() {
       spec="Spec 4MA1"
       courseHref="/igcse/maths/edexcel"
       courseLabel="Maths Edexcel"
+      rushHref="/igcse/question-rush"
     />
   );
 }
