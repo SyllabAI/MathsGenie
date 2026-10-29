@@ -8,8 +8,8 @@ const FLYOUT = [
   { label: "GCSE", href: "/gcse" },
   { label: "A Level", href: "/a-level/maths/edexcel" },
   { label: "AS Level", href: `${SITE.original}/aslevel.php` },
-  { label: "IGCSE", href: `${SITE.original}/igcse.php` },
-  { label: "KS2", href: `${SITE.original}/primary.php` },
+  { label: "IGCSE", href: "/igcse" },
+  { label: "KS2", href: "/ks2" },
   { label: "International A Level", href: `${SITE.original}/newalevel.php` },
   { label: "International AS Level", href: `${SITE.original}/newalevel.php` },
 ];
@@ -150,7 +150,46 @@ function Avatar() {
   );
 }
 
-export type Pop = null | "xp" | "energy" | "streak" | "profile";
+export type Pop = null | "updates" | "xp" | "energy" | "streak" | "profile";
+
+/** Updates feed shown in the bell popover (fictional demo data, like the original's Updates (5)). */
+const UPDATES = [
+  {
+    icon: "📖",
+    tint: "#fde3c4",
+    title: "New lessons published",
+    desc: "12 fresh Lessons with step-by-step quizzes just landed across Grades 6–9.",
+    time: "2h ago",
+  },
+  {
+    icon: "🌿",
+    tint: "#d9f4e5",
+    title: "Your Daily Greens are waiting",
+    desc: "Today's set is due in 9 hours — keep the streak alive!",
+    time: "5h ago",
+  },
+  {
+    icon: "🧩",
+    tint: "#e9dcfd",
+    title: "New question type: order the steps",
+    desc: "Lessons now include tap-or-drag ordering steps. Try one in a lesson.",
+    time: "1d ago",
+  },
+  {
+    icon: "⚡",
+    tint: "#e3f4fe",
+    title: "Weekly energy refilled",
+    desc: "Your AI marking and Ask Genie limits have reset for the new week.",
+    time: "2d ago",
+  },
+  {
+    icon: "📣",
+    tint: "#f0f1f3",
+    title: "Shape the roadmap",
+    desc: "Vote on what we build next in Ideas + feedback — your votes matter.",
+    time: "3d ago",
+  },
+];
 
 /**
  * Member HUD chips (bell / XP / energy / streak / avatar) with their
@@ -160,33 +199,48 @@ export type Pop = null | "xp" | "energy" | "streak" | "profile";
  */
 export function MemberHud() {
   const [pop, setPop] = useState<Pop>(null);
+  const [unread, setUnread] = useState(UPDATES.length);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function onDoc(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) setPop(null);
     }
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setPop(null);
+    }
     document.addEventListener("mousedown", onDoc);
-    return () => document.removeEventListener("mousedown", onDoc);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDoc);
+      document.removeEventListener("keydown", onKey);
+    };
   }, []);
 
   return (
     <div className="relative flex items-center gap-1" ref={ref}>
       <button
+        onClick={() => setPop(pop === "updates" ? null : "updates")}
+        aria-haspopup="dialog"
+        aria-expanded={pop === "updates"}
+        aria-label={unread > 0 ? `Updates (${unread})` : "Updates"}
         className="relative hidden size-9 items-center justify-center rounded-full transition hover:bg-paper-2 sm:flex"
-        aria-label="Updates (5)"
       >
         <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
           <path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M10 19a2.2 2.2 0 0 0 4 0" strokeLinecap="round" />
         </svg>
-        <span className="absolute -right-0.5 -top-0.5 flex size-4.5 items-center justify-center rounded-full bg-[#e7000b] text-[10px] font-bold text-white">
-          5
-        </span>
+        {unread > 0 && (
+          <span className="absolute -right-0.5 -top-0.5 flex size-4.5 items-center justify-center rounded-full bg-[#e7000b] text-[10px] font-bold text-white">
+            {unread}
+          </span>
+        )}
       </button>
 
       <button
         onClick={() => setPop(pop === "xp" ? null : "xp")}
+        aria-haspopup="dialog"
+        aria-expanded={pop === "xp"}
         aria-label="3 XP"
         className="flex items-center gap-1 rounded-full px-2.5 py-1.5 text-sm font-bold transition hover:bg-paper-2"
       >
@@ -198,6 +252,8 @@ export function MemberHud() {
 
       <button
         onClick={() => setPop(pop === "energy" ? null : "energy")}
+        aria-haspopup="dialog"
+        aria-expanded={pop === "energy"}
         aria-label="15 energy left"
         className="flex items-center gap-1 rounded-full px-2.5 py-1.5 text-sm font-bold transition hover:bg-paper-2"
       >
@@ -209,6 +265,8 @@ export function MemberHud() {
 
       <button
         onClick={() => setPop(pop === "streak" ? null : "streak")}
+        aria-haspopup="dialog"
+        aria-expanded={pop === "streak"}
         aria-label="4 day streak"
         className="flex items-center gap-1 rounded-full px-2.5 py-1.5 text-sm font-bold transition hover:bg-paper-2"
       >
@@ -220,6 +278,8 @@ export function MemberHud() {
 
       <button
         onClick={() => setPop(pop === "profile" ? null : "profile")}
+        aria-haspopup="menu"
+        aria-expanded={pop === "profile"}
         aria-label="Profile avatar"
         className="ml-0.5"
       >
@@ -227,6 +287,56 @@ export function MemberHud() {
       </button>
 
       {/* popovers — rebuilt against member/02-05 screenshots */}
+      {pop === "updates" && (
+        <Popover>
+          <div className="flex items-center justify-between px-1">
+            <p className="text-base font-extrabold tracking-tight">Updates</p>
+            {unread > 0 && (
+              <button
+                onClick={() => setUnread(0)}
+                className="rounded-full px-2.5 py-1 text-xs font-semibold text-accent transition hover:bg-[#cefbff]"
+              >
+                Mark all as read
+              </button>
+            )}
+          </div>
+          <ul className="mt-2 flex flex-col">
+            {UPDATES.map((u, i) => (
+              <li key={u.title}>
+                <button
+                  onClick={() => setUnread((n) => Math.max(0, n - 1))}
+                  className="flex w-full items-start gap-3 rounded-xl px-2 py-2.5 text-left transition hover:bg-paper-2"
+                >
+                  <span
+                    className="relative flex size-10 shrink-0 items-center justify-center rounded-xl text-lg"
+                    style={{ background: u.tint }}
+                    aria-hidden
+                  >
+                    {u.icon}
+                    {i < unread && (
+                      <span className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full bg-[#e7000b] ring-2 ring-paper" />
+                    )}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="flex items-baseline justify-between gap-2">
+                      <span className="truncate text-sm font-bold">{u.title}</span>
+                      <span className="flex-none text-[11px] text-muted">{u.time}</span>
+                    </span>
+                    <span className="mt-0.5 block text-xs leading-snug text-muted">{u.desc}</span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/feature-requests"
+            onClick={() => setPop(null)}
+            className="mt-2 block w-full rounded-full border-2 border-line py-2 text-center text-sm font-semibold transition hover:bg-paper-2"
+          >
+            See all updates
+          </Link>
+        </Popover>
+      )}
       {pop === "xp" && (
         <Popover>
           <div className="flex items-center gap-3.5">
@@ -370,7 +480,7 @@ export function MemberHud() {
         </Popover>
       )}
       {pop === "profile" && (
-        <div className="absolute right-2 top-12 z-50 w-72 rounded-2xl border-2 border-ink/10 bg-paper p-2 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]">
+        <div role="menu" className="mg-pop absolute right-2 top-12 z-50 w-72 rounded-2xl border-2 border-ink/10 bg-paper p-2 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]">
           <div className="flex items-start gap-3 px-2 py-2">
             <Avatar />
             <div className="min-w-0 flex-1">
@@ -446,7 +556,7 @@ export function MemberHud() {
 
 function Popover({ children }: { children: React.ReactNode }) {
   return (
-    <div className="absolute right-0 top-12 z-50 w-72 rounded-2xl border-2 border-ink/10 bg-paper p-4 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]">
+    <div role="dialog" className="mg-pop absolute right-0 top-12 z-50 w-72 rounded-2xl border-2 border-ink/10 bg-paper p-4 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]">
       {children}
     </div>
   );
@@ -454,6 +564,7 @@ function Popover({ children }: { children: React.ReactNode }) {
 
 export default function Header() {
   const [flyoutOpen, setFlyoutOpen] = useState(false);
+  const [findOpen, setFindOpen] = useState(false);
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [oldChip, setOldChip] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -520,7 +631,7 @@ export default function Header() {
           <nav className="ml-3 hidden items-center gap-1.5 lg:flex" aria-label="Primary">
             <div className="relative">
               <button
-                onClick={() => { setFlyoutOpen((v) => !v); setFeaturesOpen(false); }}
+                onClick={() => { setFlyoutOpen((v) => !v); setFindOpen(false); setFeaturesOpen(false); }}
                 aria-expanded={flyoutOpen}
                 className="flex items-center gap-1.5 rounded-full border-2 border-line px-3.5 py-1.5 text-sm font-semibold transition hover:bg-paper-2"
               >
@@ -549,14 +660,14 @@ export default function Header() {
 
             <div className="relative">
               <button
-                onClick={() => { setFlyoutOpen((v) => !v); setFeaturesOpen(false); }}
-                aria-expanded={flyoutOpen}
+                onClick={() => { setFindOpen((v) => !v); setFlyoutOpen(false); setFeaturesOpen(false); }}
+                aria-expanded={findOpen}
                 className="flex items-center gap-1.5 rounded-full border-2 border-line px-3.5 py-1.5 text-sm font-semibold transition hover:bg-paper-2"
               >
                 Find course
-                <Chevron open={flyoutOpen} />
+                <Chevron open={findOpen} />
               </button>
-              {flyoutOpen && (
+              {findOpen && (
                 <div className="absolute left-0 top-12 w-64 rounded-2xl border-2 border-ink/10 bg-paper p-2 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]">
                   <p className="px-3 py-1.5 text-xs font-semibold text-muted">Resources</p>
                   {FLYOUT.map((f) => (
@@ -576,7 +687,7 @@ export default function Header() {
 
             <div className="relative">
               <button
-                onClick={() => { setFeaturesOpen((v) => !v); setFlyoutOpen(false); }}
+                onClick={() => { setFeaturesOpen((v) => !v); setFlyoutOpen(false); setFindOpen(false); }}
                 aria-expanded={featuresOpen}
                 className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-semibold transition hover:bg-paper-2"
               >
@@ -666,7 +777,7 @@ export default function Header() {
 
       {mobileOpen && (
         <nav className="border-t border-line bg-paper px-4 py-3 lg:hidden" aria-label="Mobile">
-          {FLYOUT.slice(0, 2).map((f) => (
+          {FLYOUT.filter((f) => !f.href.startsWith("http")).map((f) => (
             <Link key={f.label} href={f.href} onClick={() => setMobileOpen(false)} className="block rounded-xl px-3 py-2.5 text-sm font-semibold hover:bg-paper-2">
               {f.label}
             </Link>

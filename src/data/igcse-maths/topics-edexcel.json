@@ -1,0 +1,620 @@
+{
+  "qualification": "igcse",
+  "subject": "maths",
+  "board": "edexcel",
+  "spec": "4MA1",
+  "topic_count": 119,
+  "grades": {
+    "1": [
+      {
+        "slug": "grade-1-1-1-addition-and-subtraction",
+        "title": "Addition and Subtraction",
+        "href": "/igcse/maths/edexcel/grade-1-1-1-addition-and-subtraction"
+      },
+      {
+        "slug": "grade-1-1-2-multiplication-and-division",
+        "title": "Multiplication and Division",
+        "href": "/igcse/maths/edexcel/grade-1-1-2-multiplication-and-division"
+      },
+      {
+        "slug": "grade-1-1-3-time",
+        "title": "Time",
+        "href": "/igcse/maths/edexcel/grade-1-1-3-time"
+      },
+      {
+        "slug": "grade-1-1-4-writing-simplifying-and-ordering-fractions",
+        "title": "Writing, Simplifying and Ordering Fractions",
+        "href": "/igcse/maths/edexcel/grade-1-1-4-writing-simplifying-and-ordering-fractions"
+      },
+      {
+        "slug": "grade-1-1-5-place-value",
+        "title": "Place Value",
+        "href": "/igcse/maths/edexcel/grade-1-1-5-place-value"
+      },
+      {
+        "slug": "grade-1-1-6-rounding",
+        "title": "Rounding",
+        "href": "/igcse/maths/edexcel/grade-1-1-6-rounding"
+      },
+      {
+        "slug": "grade-1-1-7-negative-numbers",
+        "title": "Negative Numbers",
+        "href": "/igcse/maths/edexcel/grade-1-1-7-negative-numbers"
+      },
+      {
+        "slug": "grade-1-1-8-powers-and-roots",
+        "title": "Powers and Roots",
+        "href": "/igcse/maths/edexcel/grade-1-1-8-powers-and-roots"
+      },
+      {
+        "slug": "grade-1-1-9-bidmas",
+        "title": "BIDMAS",
+        "href": "/igcse/maths/edexcel/grade-1-1-9-bidmas"
+      },
+      {
+        "slug": "grade-1-1-10-factors-and-multiples",
+        "title": "Factors and Multiples",
+        "href": "/igcse/maths/edexcel/grade-1-1-10-factors-and-multiples"
+      },
+      {
+        "slug": "grade-1-1-11-coordinates",
+        "title": "Coordinates",
+        "href": "/igcse/maths/edexcel/grade-1-1-11-coordinates"
+      },
+      {
+        "slug": "grade-1-1-12-pictograms",
+        "title": "Pictograms",
+        "href": "/igcse/maths/edexcel/grade-1-1-12-pictograms"
+      }
+    ],
+    "2": [
+      {
+        "slug": "grade-2-2-1-calculation-problems",
+        "title": "Calculation Problems",
+        "href": "/igcse/maths/edexcel/grade-2-2-1-calculation-problems"
+      },
+      {
+        "slug": "grade-2-2-2-using-a-calculator",
+        "title": "Using a Calculator",
+        "href": "/igcse/maths/edexcel/grade-2-2-2-using-a-calculator"
+      },
+      {
+        "slug": "grade-2-2-3-systematic-listing",
+        "title": "Systematic Listing",
+        "href": "/igcse/maths/edexcel/grade-2-2-3-systematic-listing"
+      },
+      {
+        "slug": "grade-2-2-4-fractions-of-an-amount",
+        "title": "Fractions of an Amount",
+        "href": "/igcse/maths/edexcel/grade-2-2-4-fractions-of-an-amount"
+      },
+      {
+        "slug": "grade-2-2-5-fractions-decimals-and-percentages",
+        "title": "Fractions, Decimals and Percentages",
+        "href": "/igcse/maths/edexcel/grade-2-2-5-fractions-decimals-and-percentages"
+      },
+      {
+        "slug": "grade-2-2-6-simplifying-algebra",
+        "title": "Simplifying Algebra",
+        "href": "/igcse/maths/edexcel/grade-2-2-6-simplifying-algebra"
+      },
+      {
+        "slug": "grade-2-2-7-writing-an-expression",
+        "title": "Writing an Expression",
+        "href": "/igcse/maths/edexcel/grade-2-2-7-writing-an-expression"
+      },
+      {
+        "slug": "grade-2-2-8-function-machines",
+        "title": "Function Machines",
+        "href": "/igcse/maths/edexcel/grade-2-2-8-function-machines"
+      },
+      {
+        "slug": "grade-2-2-9-solving-one-step-equations",
+        "title": "Solving One Step Equations",
+        "href": "/igcse/maths/edexcel/grade-2-2-9-solving-one-step-equations"
+      },
+      {
+        "slug": "grade-2-2-10-angles",
+        "title": "Angles",
+        "href": "/igcse/maths/edexcel/grade-2-2-10-angles"
+      },
+      {
+        "slug": "grade-2-2-11-area-and-perimeter",
+        "title": "Area and Perimeter",
+        "href": "/igcse/maths/edexcel/grade-2-2-11-area-and-perimeter"
+      },
+      {
+        "slug": "grade-2-2-12-probability",
+        "title": "Probability",
+        "href": "/igcse/maths/edexcel/grade-2-2-12-probability"
+      },
+      {
+        "slug": "grade-2-2-13-frequency-polygons",
+        "title": "Frequency Polygons",
+        "href": "/igcse/maths/edexcel/grade-2-2-13-frequency-polygons"
+      },
+      {
+        "slug": "grade-2-2-14-averages",
+        "title": "Averages",
+        "href": "/igcse/maths/edexcel/grade-2-2-14-averages"
+      },
+      {
+        "slug": "grade-2-2-15-bar-charts",
+        "title": "Bar Charts",
+        "href": "/igcse/maths/edexcel/grade-2-2-15-bar-charts"
+      },
+      {
+        "slug": "grade-2-2-16-pie-charts",
+        "title": "Pie Charts",
+        "href": "/igcse/maths/edexcel/grade-2-2-16-pie-charts"
+      }
+    ],
+    "3": [
+      {
+        "slug": "grade-3-3-1-fractions",
+        "title": "Fractions",
+        "href": "/igcse/maths/edexcel/grade-3-3-1-fractions"
+      },
+      {
+        "slug": "grade-3-3-2-estimating",
+        "title": "Estimating",
+        "href": "/igcse/maths/edexcel/grade-3-3-2-estimating"
+      },
+      {
+        "slug": "grade-3-3-3-writing-and-simplifying-ratio",
+        "title": "Writing and Simplifying Ratio",
+        "href": "/igcse/maths/edexcel/grade-3-3-3-writing-and-simplifying-ratio"
+      },
+      {
+        "slug": "grade-3-3-4-ratio",
+        "title": "Ratio",
+        "href": "/igcse/maths/edexcel/grade-3-3-4-ratio"
+      },
+      {
+        "slug": "grade-3-3-5-proportion",
+        "title": "Proportion",
+        "href": "/igcse/maths/edexcel/grade-3-3-5-proportion"
+      },
+      {
+        "slug": "grade-3-3-6-percentages",
+        "title": "Percentages",
+        "href": "/igcse/maths/edexcel/grade-3-3-6-percentages"
+      },
+      {
+        "slug": "grade-3-3-7-percentage-change",
+        "title": "Percentage Change",
+        "href": "/igcse/maths/edexcel/grade-3-3-7-percentage-change"
+      },
+      {
+        "slug": "grade-3-3-8-exchange-rates",
+        "title": "Exchange Rates",
+        "href": "/igcse/maths/edexcel/grade-3-3-8-exchange-rates"
+      },
+      {
+        "slug": "grade-3-3-9-conversions-and-units",
+        "title": "Conversions and Units",
+        "href": "/igcse/maths/edexcel/grade-3-3-9-conversions-and-units"
+      },
+      {
+        "slug": "grade-3-3-10-scale-drawings",
+        "title": "Scale Drawings",
+        "href": "/igcse/maths/edexcel/grade-3-3-10-scale-drawings"
+      },
+      {
+        "slug": "grade-3-3-11-best-buy-questions",
+        "title": "Best Buy Questions",
+        "href": "/igcse/maths/edexcel/grade-3-3-11-best-buy-questions"
+      },
+      {
+        "slug": "grade-3-3-12-substitution",
+        "title": "Substitution",
+        "href": "/igcse/maths/edexcel/grade-3-3-12-substitution"
+      },
+      {
+        "slug": "grade-3-3-13-solving-equations",
+        "title": "Solving Equations",
+        "href": "/igcse/maths/edexcel/grade-3-3-13-solving-equations"
+      },
+      {
+        "slug": "grade-3-3-14-drawing-graphs",
+        "title": "Drawing Graphs",
+        "href": "/igcse/maths/edexcel/grade-3-3-14-drawing-graphs"
+      },
+      {
+        "slug": "grade-3-3-15-area-and-circumference-of-circles",
+        "title": "Area and Circumference of Circles",
+        "href": "/igcse/maths/edexcel/grade-3-3-15-area-and-circumference-of-circles"
+      },
+      {
+        "slug": "grade-3-3-16-transformations",
+        "title": "Transformations",
+        "href": "/igcse/maths/edexcel/grade-3-3-16-transformations"
+      },
+      {
+        "slug": "grade-3-3-17-area-of-compound-shapes",
+        "title": "Area of Compound Shapes",
+        "href": "/igcse/maths/edexcel/grade-3-3-17-area-of-compound-shapes"
+      },
+      {
+        "slug": "grade-3-3-18-frequency-trees",
+        "title": "Frequency Trees",
+        "href": "/igcse/maths/edexcel/grade-3-3-18-frequency-trees"
+      }
+    ],
+    "4": [
+      {
+        "slug": "grade-4-4-1-compound-interest-and-depreciation",
+        "title": "Compound Interest and Depreciation",
+        "href": "/igcse/maths/edexcel/grade-4-4-1-compound-interest-and-depreciation"
+      },
+      {
+        "slug": "grade-4-4-2-indices",
+        "title": "Indices",
+        "href": "/igcse/maths/edexcel/grade-4-4-2-indices"
+      },
+      {
+        "slug": "grade-4-4-3-prime-factors-hcf-and-lcm",
+        "title": "Prime Factors, HCF and LCM",
+        "href": "/igcse/maths/edexcel/grade-4-4-3-prime-factors-hcf-and-lcm"
+      },
+      {
+        "slug": "grade-4-4-4-real-life-and-distance-time-graphs",
+        "title": "Real Life and Distance Time Graphs",
+        "href": "/igcse/maths/edexcel/grade-4-4-4-real-life-and-distance-time-graphs"
+      },
+      {
+        "slug": "grade-4-4-5-inequalities",
+        "title": "Inequalities",
+        "href": "/igcse/maths/edexcel/grade-4-4-5-inequalities"
+      },
+      {
+        "slug": "grade-4-4-6-forming-and-solving-equations",
+        "title": "Forming and Solving Equations",
+        "href": "/igcse/maths/edexcel/grade-4-4-6-forming-and-solving-equations"
+      },
+      {
+        "slug": "grade-4-4-7-sequences-nth-term",
+        "title": "Sequences (Nth Term)",
+        "href": "/igcse/maths/edexcel/grade-4-4-7-sequences-nth-term"
+      },
+      {
+        "slug": "grade-4-4-8-expanding-and-factorising",
+        "title": "Expanding and Factorising",
+        "href": "/igcse/maths/edexcel/grade-4-4-8-expanding-and-factorising"
+      },
+      {
+        "slug": "grade-4-4-9-pythagoras",
+        "title": "Pythagoras",
+        "href": "/igcse/maths/edexcel/grade-4-4-9-pythagoras"
+      },
+      {
+        "slug": "grade-4-4-10-angles-in-parallel-lines",
+        "title": "Angles in Parallel Lines",
+        "href": "/igcse/maths/edexcel/grade-4-4-10-angles-in-parallel-lines"
+      },
+      {
+        "slug": "grade-4-4-11-angles-in-polygons",
+        "title": "Angles in Polygons",
+        "href": "/igcse/maths/edexcel/grade-4-4-11-angles-in-polygons"
+      },
+      {
+        "slug": "grade-4-4-12-surface-area",
+        "title": "Surface Area",
+        "href": "/igcse/maths/edexcel/grade-4-4-12-surface-area"
+      },
+      {
+        "slug": "grade-4-4-13-volume-of-a-prism",
+        "title": "Volume of a Prism",
+        "href": "/igcse/maths/edexcel/grade-4-4-13-volume-of-a-prism"
+      },
+      {
+        "slug": "grade-4-4-14-cylinders",
+        "title": "Cylinders",
+        "href": "/igcse/maths/edexcel/grade-4-4-14-cylinders"
+      },
+      {
+        "slug": "grade-4-4-15-construction",
+        "title": "Construction",
+        "href": "/igcse/maths/edexcel/grade-4-4-15-construction"
+      },
+      {
+        "slug": "grade-4-4-16-bearings",
+        "title": "Bearings",
+        "href": "/igcse/maths/edexcel/grade-4-4-16-bearings"
+      },
+      {
+        "slug": "grade-4-4-17-averages-from-frequency-tables",
+        "title": "Averages from Frequency Tables",
+        "href": "/igcse/maths/edexcel/grade-4-4-17-averages-from-frequency-tables"
+      },
+      {
+        "slug": "grade-4-4-18-probability",
+        "title": "Probability",
+        "href": "/igcse/maths/edexcel/grade-4-4-18-probability"
+      }
+    ],
+    "5": [
+      {
+        "slug": "grade-5-5-1-reverse-percentages",
+        "title": "Reverse Percentages",
+        "href": "/igcse/maths/edexcel/grade-5-5-1-reverse-percentages"
+      },
+      {
+        "slug": "grade-5-5-2-standard-form",
+        "title": "Standard Form",
+        "href": "/igcse/maths/edexcel/grade-5-5-2-standard-form"
+      },
+      {
+        "slug": "grade-5-5-3-speed-and-density",
+        "title": "Speed and Density",
+        "href": "/igcse/maths/edexcel/grade-5-5-3-speed-and-density"
+      },
+      {
+        "slug": "grade-5-5-4-changing-the-subject-of-a-formula",
+        "title": "Changing the Subject of a Formula",
+        "href": "/igcse/maths/edexcel/grade-5-5-4-changing-the-subject-of-a-formula"
+      },
+      {
+        "slug": "grade-5-5-5-expanding-and-factorising-quadratics",
+        "title": "Expanding and Factorising Quadratics",
+        "href": "/igcse/maths/edexcel/grade-5-5-5-expanding-and-factorising-quadratics"
+      },
+      {
+        "slug": "grade-5-5-6-solving-quadratics",
+        "title": "Solving Quadratics",
+        "href": "/igcse/maths/edexcel/grade-5-5-6-solving-quadratics"
+      },
+      {
+        "slug": "grade-5-5-7-drawing-quadratic-graphs",
+        "title": "Drawing Quadratic Graphs",
+        "href": "/igcse/maths/edexcel/grade-5-5-7-drawing-quadratic-graphs"
+      },
+      {
+        "slug": "grade-5-5-8-simultaneous-equations",
+        "title": "Simultaneous Equations",
+        "href": "/igcse/maths/edexcel/grade-5-5-8-simultaneous-equations"
+      },
+      {
+        "slug": "grade-5-5-9-inequalities-on-graphs",
+        "title": "Inequalities on Graphs",
+        "href": "/igcse/maths/edexcel/grade-5-5-9-inequalities-on-graphs"
+      },
+      {
+        "slug": "grade-5-5-10-similar-shapes-lengths",
+        "title": "Similar Shapes (Lengths)",
+        "href": "/igcse/maths/edexcel/grade-5-5-10-similar-shapes-lengths"
+      },
+      {
+        "slug": "grade-5-11-sohcahtoa-trigonometry",
+        "title": "SOHCAHTOA (Trigonometry)",
+        "href": "/igcse/maths/edexcel/grade-5-11-sohcahtoa-trigonometry"
+      },
+      {
+        "slug": "grade-5-5-11-venn-diagrams",
+        "title": "Venn Diagrams",
+        "href": "/igcse/maths/edexcel/grade-5-5-11-venn-diagrams"
+      },
+      {
+        "slug": "grade-5-5-12-data",
+        "title": "Data",
+        "href": "/igcse/maths/edexcel/grade-5-5-12-data"
+      }
+    ],
+    "6": [
+      {
+        "slug": "grade-6-6-1-recurring-decimals-to-fractions",
+        "title": "Recurring Decimals to Fractions",
+        "href": "/igcse/maths/edexcel/grade-6-6-1-recurring-decimals-to-fractions"
+      },
+      {
+        "slug": "grade-6-6-2-fractional-and-negative-indices",
+        "title": "Fractional and Negative Indices",
+        "href": "/igcse/maths/edexcel/grade-6-6-2-fractional-and-negative-indices"
+      },
+      {
+        "slug": "grade-6-6-3-direct-and-inverse-proportion",
+        "title": "Direct and Inverse Proportion",
+        "href": "/igcse/maths/edexcel/grade-6-6-3-direct-and-inverse-proportion"
+      },
+      {
+        "slug": "grade-6-6-4-expanding-triple-brackets",
+        "title": "Expanding Triple Brackets",
+        "href": "/igcse/maths/edexcel/grade-6-6-4-expanding-triple-brackets"
+      },
+      {
+        "slug": "grade-6-6-5-drawing-other-graphs-cubic-reciprocal",
+        "title": "Drawing Other Graphs: Cubic/Reciprocal",
+        "href": "/igcse/maths/edexcel/grade-6-6-5-drawing-other-graphs-cubic-reciprocal"
+      },
+      {
+        "slug": "grade-6-6-6-solving-simultaneous-equations-graphically",
+        "title": "Solving Simultaneous Equations Graphically",
+        "href": "/igcse/maths/edexcel/grade-6-6-6-solving-simultaneous-equations-graphically"
+      },
+      {
+        "slug": "grade-6-6-7-gradient-of-a-line",
+        "title": "Gradient of a Line",
+        "href": "/igcse/maths/edexcel/grade-6-6-7-gradient-of-a-line"
+      },
+      {
+        "slug": "grade-6-6-8-equation-of-a-line",
+        "title": "Equation of a Line",
+        "href": "/igcse/maths/edexcel/grade-6-6-8-equation-of-a-line"
+      },
+      {
+        "slug": "grade-6-6-9-inequalities-on-graphs",
+        "title": "Inequalities on Graphs",
+        "href": "/igcse/maths/edexcel/grade-6-6-9-inequalities-on-graphs"
+      },
+      {
+        "slug": "grade-6-6-10-spheres-and-cones",
+        "title": "Spheres and Cones",
+        "href": "/igcse/maths/edexcel/grade-6-6-10-spheres-and-cones"
+      },
+      {
+        "slug": "grade-6-6-11-sector-areas-and-arc-lengths",
+        "title": "Sector Areas and Arc Lengths",
+        "href": "/igcse/maths/edexcel/grade-6-6-11-sector-areas-and-arc-lengths"
+      },
+      {
+        "slug": "grade-6-6-12-parallel-and-perpendicular-lines",
+        "title": "Parallel and Perpendicular Lines",
+        "href": "/igcse/maths/edexcel/grade-6-6-12-parallel-and-perpendicular-lines"
+      },
+      {
+        "slug": "grade-6-6-13-similar-shapes-area-and-volume",
+        "title": "Similar Shapes (Area and Volume)",
+        "href": "/igcse/maths/edexcel/grade-6-6-13-similar-shapes-area-and-volume"
+      },
+      {
+        "slug": "grade-6-6-14-circle-theorems",
+        "title": "Circle Theorems",
+        "href": "/igcse/maths/edexcel/grade-6-6-14-circle-theorems"
+      },
+      {
+        "slug": "grade-6-6-15-cumulative-frequency",
+        "title": "Cumulative Frequency",
+        "href": "/igcse/maths/edexcel/grade-6-6-15-cumulative-frequency"
+      },
+      {
+        "slug": "grade-6-6-16-vectors",
+        "title": "Vectors",
+        "href": "/igcse/maths/edexcel/grade-6-6-16-vectors"
+      },
+      {
+        "slug": "grade-6-6-17-probability-trees",
+        "title": "Probability Trees",
+        "href": "/igcse/maths/edexcel/grade-6-6-17-probability-trees"
+      }
+    ],
+    "7": [
+      {
+        "slug": "grade-7-7-1-surds",
+        "title": "Surds",
+        "href": "/igcse/maths/edexcel/grade-7-7-1-surds"
+      },
+      {
+        "slug": "grade-7-7-2-bounds",
+        "title": "Bounds",
+        "href": "/igcse/maths/edexcel/grade-7-7-2-bounds"
+      },
+      {
+        "slug": "grade-7-7-3-direct-and-inverse-proportion",
+        "title": "Direct and Inverse Proportion",
+        "href": "/igcse/maths/edexcel/grade-7-7-3-direct-and-inverse-proportion"
+      },
+      {
+        "slug": "grade-7-7-4-quadratic-formula",
+        "title": "Quadratic Formula",
+        "href": "/igcse/maths/edexcel/grade-7-7-4-quadratic-formula"
+      },
+      {
+        "slug": "grade-7-7-5-factorising-harder-quadratics",
+        "title": "Factorising Harder Quadratics",
+        "href": "/igcse/maths/edexcel/grade-7-7-5-factorising-harder-quadratics"
+      },
+      {
+        "slug": "grade-7-7-6-algebraic-fractions",
+        "title": "Algebraic Fractions",
+        "href": "/igcse/maths/edexcel/grade-7-7-6-algebraic-fractions"
+      },
+      {
+        "slug": "grade-7-7-7-rearranging-harder-formulae",
+        "title": "Rearranging Harder Formulae",
+        "href": "/igcse/maths/edexcel/grade-7-7-7-rearranging-harder-formulae"
+      },
+      {
+        "slug": "grade-7-7-8-trigonometric-and-exponential-graphs",
+        "title": "Trigonometric and Exponential Graphs",
+        "href": "/igcse/maths/edexcel/grade-7-7-8-trigonometric-and-exponential-graphs"
+      },
+      {
+        "slug": "grade-7-7-9-finding-the-area-of-any-triangle",
+        "title": "Finding the Area of Any Triangle",
+        "href": "/igcse/maths/edexcel/grade-7-7-9-finding-the-area-of-any-triangle"
+      },
+      {
+        "slug": "grade-7-7-10-the-sine-rule",
+        "title": "The Sine Rule",
+        "href": "/igcse/maths/edexcel/grade-7-7-10-the-sine-rule"
+      },
+      {
+        "slug": "grade-7-7-11-the-cosine-rule",
+        "title": "The Cosine Rule",
+        "href": "/igcse/maths/edexcel/grade-7-7-11-the-cosine-rule"
+      },
+      {
+        "slug": "grade-7-7-12-3d-pythagoras-and-trigonometry",
+        "title": "3d Pythagoras and Trigonometry",
+        "href": "/igcse/maths/edexcel/grade-7-7-12-3d-pythagoras-and-trigonometry"
+      },
+      {
+        "slug": "grade-7-7-13-the-magnitude-of-a-vector",
+        "title": "The Magnitude of a Vector",
+        "href": "/igcse/maths/edexcel/grade-7-7-13-the-magnitude-of-a-vector"
+      },
+      {
+        "slug": "grade-7-7-14-histograms",
+        "title": "Histograms",
+        "href": "/igcse/maths/edexcel/grade-7-7-14-histograms"
+      },
+      {
+        "slug": "grade-7-7-15-conditional-probability",
+        "title": "Conditional Probability",
+        "href": "/igcse/maths/edexcel/grade-7-7-15-conditional-probability"
+      }
+    ],
+    "8/9": [
+      {
+        "slug": "grade-8-9-8-1-quadratic-simultaneous-equations",
+        "title": "Quadratic Simultaneous Equations",
+        "href": "/igcse/maths/edexcel/grade-8-9-8-1-quadratic-simultaneous-equations"
+      },
+      {
+        "slug": "grade-8-9-8-2-transforming-graphs-y-f-x",
+        "title": "Transforming Graphs y=f(x)",
+        "href": "/igcse/maths/edexcel/grade-8-9-8-2-transforming-graphs-y-f-x"
+      },
+      {
+        "slug": "grade-8-9-8-3-proof",
+        "title": "Proof",
+        "href": "/igcse/maths/edexcel/grade-8-9-8-3-proof"
+      },
+      {
+        "slug": "grade-8-9-8-4-completing-the-square",
+        "title": "Completing the Square",
+        "href": "/igcse/maths/edexcel/grade-8-9-8-4-completing-the-square"
+      },
+      {
+        "slug": "grade-8-9-8-5-inverse-and-composite-functions",
+        "title": "Inverse and Composite Functions",
+        "href": "/igcse/maths/edexcel/grade-8-9-8-5-inverse-and-composite-functions"
+      },
+      {
+        "slug": "grade-8-9-8-6-quadratic-inequalities",
+        "title": "Quadratic Inequalities",
+        "href": "/igcse/maths/edexcel/grade-8-9-8-6-quadratic-inequalities"
+      },
+      {
+        "slug": "grade-8-9-8-7-sequences-higher",
+        "title": "Sequences (Higher)",
+        "href": "/igcse/maths/edexcel/grade-8-9-8-7-sequences-higher"
+      },
+      {
+        "slug": "grade-8-9-8-8-differentiation",
+        "title": "Differentiation",
+        "href": "/igcse/maths/edexcel/grade-8-9-8-8-differentiation"
+      },
+      {
+        "slug": "grade-8-9-8-9-vectors-proof-questions",
+        "title": "Vectors Proof Questions",
+        "href": "/igcse/maths/edexcel/grade-8-9-8-9-vectors-proof-questions"
+      },
+      {
+        "slug": "grade-8-9-8-10-probability-equation-questions",
+        "title": "Probability Equation Questions",
+        "href": "/igcse/maths/edexcel/grade-8-9-8-10-probability-equation-questions"
+      }
+    ]
+  }
+}

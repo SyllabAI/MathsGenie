@@ -128,6 +128,8 @@ export default function MemberShell({ children }: { children: React.ReactNode })
               <option value="gcse">GCSE</option>
               <option value="alevel">A Level</option>
               <option value="igcse">IGCSE</option>
+              <option value="aslevel">AS Level</option>
+              <option value="ks2">KS2</option>
             </select>
             <div className="ml-auto flex items-center gap-1.5">
               <button

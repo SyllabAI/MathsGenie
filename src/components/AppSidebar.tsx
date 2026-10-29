@@ -26,12 +26,19 @@ import {
 
 /**
  * App-style left rail, cloned from the original mathsgenie member shell
- * (see research/04-member-area.md §3):
+ * (see research/04-member-area.md §3 and research/09 §sidebar):
  * 220px white rail, 2px right border #f0f0f0, px-3/py-2, gap-0.5 rows of
  * rounded-xl 40px items, 24px icons, 16px labels, active state
  * #CEFBFF bg / #1CB0F6 text, purple Upgrade row, pinned footer with
  * Upgrade / Ideas / Settings / Other + bug + collapse, scroll fades,
  * animated icon-only collapse (64px) persisted to localStorage.
+ *
+ * Rail-mode polish (this revision):
+ *  - custom dark hover tooltips (native `title` removed) — rendered with
+ *    fixed positioning because the aside itself clips overflowing content;
+ *  - the "Other" disclosure group opens as a flyout to the RIGHT of the
+ *    rail when collapsed instead of being suppressed;
+ *  - collapse/expand transitions stay 200ms ease-out, persisted state.
  */
 
 type Rail = { collapsed: boolean; width: number };
@@ -106,17 +113,26 @@ export default function AppSidebar() {
   const [otherOpen, setOtherOpen] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [atBottom, setAtBottom] = useState(true);
+  /* rail-mode hover tooltip: fixed-position, one instance for the whole rail */
+  const [tip, setTip] = useState<{ label: string; top: number } | null>(null);
+  const [otherBtnTop, setOtherBtnTop] = useState(0);
   const navRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const otherBtnRef = useRef<HTMLButtonElement>(null);
 
   /* announce state so the header can show the pin/expand button */
   useEffect(() => {
     window.dispatchEvent(new CustomEvent("mg-rail", { detail: { collapsed } }));
   }, [collapsed]);
 
-  /* header toggle request */
+  /* header toggle request — also clears transient rail UI here (instead of a
+     collapsed-watching effect, which would setState synchronously in an effect) */
   useEffect(() => {
-    const expand = () => writeRail({ collapsed: false });
+    const expand = () => {
+      setTip(null);
+      setOtherOpen(false);
+      writeRail({ collapsed: false });
+    };
     window.addEventListener("mg-rail-expand", expand);
     return () => window.removeEventListener("mg-rail-expand", expand);
   }, []);
@@ -125,7 +141,13 @@ export default function AppSidebar() {
   useEffect(() => {
     if (!otherOpen) return;
     const close = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setOtherOpen(false);
+      const t = e.target as Node;
+      if (
+        menuRef.current && !menuRef.current.contains(t) &&
+        otherBtnRef.current && !otherBtnRef.current.contains(t)
+      ) {
+        setOtherOpen(false);
+      }
     };
     const esc = (e: KeyboardEvent) => e.key === "Escape" && setOtherOpen(false);
     document.addEventListener("mousedown", close);
@@ -135,6 +157,14 @@ export default function AppSidebar() {
       document.removeEventListener("keydown", esc);
     };
   }, [otherOpen]);
+
+  /* close the rail tooltip when the pointer leaves the rail entirely */
+  useEffect(() => {
+    if (!tip) return;
+    const clear = () => setTip(null);
+    window.addEventListener("scroll", clear, { passive: true });
+    return () => window.removeEventListener("scroll", clear);
+  }, [tip]);
 
   const updateFades = useCallback(() => {
     const el = navRef.current;
@@ -177,13 +207,28 @@ export default function AppSidebar() {
   /* focus route — bail out AFTER all hooks (see note above) */
   if (pathname && /\/gcse\/maths\/[^/]+\/[^/]+\/questions\/q\d+$/.test(pathname)) return null;
 
+  /* rail-mode tooltip handlers (fixed positioning escapes the clipped aside) */
+  const tipProps = (label: string) =>
+    collapsed
+      ? {
+          onMouseEnter: (e: React.MouseEvent<HTMLElement>) =>
+            setTip({ label, top: e.currentTarget.getBoundingClientRect().top }),
+          onMouseLeave: () => setTip(null),
+          onFocus: (e: React.FocusEvent<HTMLElement>) =>
+            setTip({ label, top: e.currentTarget.getBoundingClientRect().top }),
+          onBlur: () => setTip(null),
+        }
+      : {};
+
   const rowCls = (active: boolean) =>
     `group/navitem relative flex w-full flex-none cursor-pointer items-center rounded-xl px-2 py-2 text-base transition-colors ${
       active ? "bg-[#cefbff] text-[#1cb0f6]" : "text-ink/60 hover:bg-paper-2 hover:text-ink"
     }`;
 
   const iconCls = (active: boolean) =>
-    `mr-2.5 size-6 shrink-0 ${active ? "" : "text-ink/60 opacity-60 group-hover/navitem:opacity-100"}`;
+    `mr-2.5 size-6 shrink-0 ${active ? "" : "text-ink/60 opacity-60 group-hover/navitem:opacity-100"} ${
+      collapsed ? "mr-0" : ""
+    }`;
 
   return (
     <div
@@ -194,6 +239,7 @@ export default function AppSidebar() {
         id="app-desktop-sidebar"
         aria-label="Main navigation"
         data-slot="pinnable-rail"
+        data-rail-collapsed={collapsed ? "" : undefined}
         className="absolute inset-y-0 left-0 flex flex-col overflow-hidden border-r-2 border-[#f0f0f0] bg-paper px-3 py-2 transition-[width] duration-200 ease-out motion-reduce:transition-none"
         style={{ width: railWidth }}
       >
@@ -211,8 +257,9 @@ export default function AppSidebar() {
                   key={label}
                   href={href}
                   aria-current={active ? "page" : undefined}
-                  className={rowCls(active)}
-                  title={collapsed ? label : undefined}
+                  aria-label={collapsed ? label : undefined}
+                  className={rowCls(active) + (collapsed ? " justify-center" : "")}
+                  {...tipProps(label)}
                 >
                   <Icon className={iconCls(active)} />
                   {collapsed ? null : (
@@ -235,17 +282,19 @@ export default function AppSidebar() {
         <div className="flex w-full shrink-0 flex-col gap-0.5 pt-1">
           <Link
             href="/your-plan"
+            aria-label={collapsed ? "Upgrade" : undefined}
             className="group/navitem relative flex w-full flex-none cursor-pointer items-center rounded-xl px-2 py-2 text-base text-[#9133ea] transition-colors hover:bg-[#f6ecfd]"
-            title={collapsed ? "Upgrade" : undefined}
+            {...tipProps("Upgrade")}
           >
-            <IconUpgrade className="mr-2.5 size-6 shrink-0" />
+            <IconUpgrade className={iconCls(false)} />
             {collapsed ? null : <p className="min-w-0 flex-1 truncate whitespace-nowrap capitalize">Upgrade</p>}
           </Link>
 
           <Link
             href="/feature-requests"
-            className={rowCls(isActive("/feature-requests"))}
-            title={collapsed ? "Ideas + feedback" : undefined}
+            aria-label={collapsed ? "Ideas + feedback" : undefined}
+            className={rowCls(isActive("/feature-requests")) + (collapsed ? " justify-center" : "")}
+            {...tipProps("Ideas + feedback")}
           >
             <IconIdeas className={iconCls(isActive("/feature-requests"))} />
             {collapsed ? null : <p className="min-w-0 flex-1 truncate whitespace-nowrap capitalize">Ideas + feedback</p>}
@@ -253,56 +302,43 @@ export default function AppSidebar() {
 
           <Link
             href="/settings/account"
-            className={rowCls(isActive("/settings"))}
-            title={collapsed ? "Settings" : undefined}
+            aria-label={collapsed ? "Settings" : undefined}
+            className={rowCls(isActive("/settings")) + (collapsed ? " justify-center" : "")}
+            {...tipProps("Settings")}
           >
             <IconSettings className={iconCls(isActive("/settings"))} />
             {collapsed ? null : <p className="min-w-0 flex-1 truncate whitespace-nowrap capitalize">Settings</p>}
           </Link>
 
           <div className="flex items-center gap-0.5">
-            <div className="relative min-w-0 flex-1" ref={menuRef}>
-              <button
-                type="button"
-                aria-haspopup="menu"
-                aria-expanded={otherOpen}
-                onClick={() => setOtherOpen((v) => !v)}
-                className={`flex w-full items-center rounded-xl px-2 py-2 text-left text-base transition-colors ${
+            <button
+              ref={otherBtnRef}
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded={otherOpen}
+              aria-label="Other"
+              onClick={() => {
+                const rect = otherBtnRef.current?.getBoundingClientRect();
+                if (rect) setOtherBtnTop(rect.top);
+                setOtherOpen((v) => !v);
+              }}
+              className={
+                `flex items-center rounded-xl px-2 py-2 text-left text-base transition-colors ${
                   otherOpen ? "bg-paper-2 text-ink" : "text-ink/60 hover:bg-paper-2 hover:text-ink"
-                }`}
-              >
-                <IconDots className="mr-2.5 size-6 shrink-0 text-ink/60 opacity-60" />
-                {collapsed ? null : (
-                  <>
-                    <p className="min-w-0 flex-1 truncate">Other</p>
-                    <IconChevron
-                      className={`size-5 shrink-0 text-ink/40 opacity-60 transition-transform ${otherOpen ? "rotate-180" : ""}`}
-                    />
-                  </>
-                )}
-              </button>
-
-              {otherOpen && !collapsed && (
-                <div
-                  role="menu"
-                  className="absolute bottom-12 left-0 z-30 w-56 rounded-2xl border-2 border-ink/10 bg-paper p-1 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]"
-                >
-                  {OTHER_ITEMS.map(({ label, href, Icon }) => (
-                    <a
-                      key={label}
-                      role="menuitem"
-                      href={href}
-                      target={href.startsWith("http") ? "_blank" : undefined}
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-medium text-ink transition-colors hover:bg-paper-2"
-                    >
-                      <Icon className="size-5 shrink-0 text-ink/70" />
-                      {label}
-                    </a>
-                  ))}
-                </div>
+                } ` + (collapsed ? "w-full justify-center" : "w-full min-w-0 flex-1")
+              }
+              {...tipProps("Other")}
+            >
+              <IconDots className={collapsed ? "size-6 shrink-0 text-ink/60" : "mr-2.5 size-6 shrink-0 text-ink/60 opacity-60"} />
+              {collapsed ? null : (
+                <>
+                  <p className="min-w-0 flex-1 truncate">Other</p>
+                  <IconChevron
+                    className={`size-5 shrink-0 text-ink/40 opacity-60 transition-transform ${otherOpen ? "rotate-180" : ""}`}
+                  />
+                </>
               )}
-            </div>
+            </button>
 
             {!collapsed && (
               <>
@@ -317,7 +353,11 @@ export default function AppSidebar() {
                 </a>
                 <button
                   type="button"
-                  onClick={() => writeRail({ collapsed: true })}
+                  onClick={() => {
+                    setTip(null);
+                    setOtherOpen(false);
+                    writeRail({ collapsed: true });
+                  }}
                   aria-label="Collapse sidebar"
                   className="inline-flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-2xl text-muted transition-colors hover:bg-ink/10 hover:text-ink"
                 >
@@ -338,6 +378,65 @@ export default function AppSidebar() {
           />
         )}
       </aside>
+
+      {/* "Other" flyout — expanded: anchored above the button inside the rail;
+          collapsed: fixed flyout to the RIGHT of the rail (aside clips absolute
+          children, so rail mode renders it outside). */}
+      {otherOpen && !collapsed && (
+        <div
+          role="menu"
+          ref={menuRef}
+          className="mg-pop mg-pop-left absolute bottom-14 left-3 z-30 w-52 rounded-2xl border-2 border-ink/10 bg-paper p-1 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]"
+        >
+          {OTHER_ITEMS.map(({ label, href, Icon }) => (
+            <a
+              key={label}
+              role="menuitem"
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-medium text-ink transition-colors hover:bg-paper-2"
+            >
+              <Icon className="size-5 shrink-0 text-ink/70" />
+              {label}
+            </a>
+          ))}
+        </div>
+      )}
+      {otherOpen && collapsed && (
+        <div
+          role="menu"
+          ref={menuRef}
+          className="mg-pop mg-pop-left fixed z-50 w-52 rounded-2xl border-2 border-ink/10 bg-paper p-1 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]"
+          style={{ left: railWidth + 10, top: Math.max(8, otherBtnTop - 8) }}
+        >
+          {OTHER_ITEMS.map(({ label, href, Icon }) => (
+            <a
+              key={label}
+              role="menuitem"
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-medium text-ink transition-colors hover:bg-paper-2"
+            >
+              <Icon className="size-5 shrink-0 text-ink/70" />
+              {label}
+            </a>
+          ))}
+        </div>
+      )}
+
+      {/* rail-mode hover tooltip */}
+      {collapsed && tip && (
+        <div
+          role="tooltip"
+          aria-hidden
+          className="mg-pop pointer-events-none fixed z-[60] whitespace-nowrap rounded-xl bg-ink px-2.5 py-1.5 text-xs font-semibold text-paper shadow-lg"
+          style={{ left: railWidth + 10, top: tip.top + 6 }}
+        >
+          {tip.label}
+        </div>
+      )}
     </div>
   );
 }

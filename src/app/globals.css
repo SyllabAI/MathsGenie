@@ -178,6 +178,30 @@ body {
 }
 .float-y { animation: float-y 6s ease-in-out infinite; }
 
+/* header HUD popovers + rail flyouts */
+@keyframes pop-in {
+  0%   { transform: translateY(-5px) scale(0.96); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+.mg-pop {
+  animation: pop-in 160ms cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
+  transform-origin: top right;
+}
+.mg-pop-left { transform-origin: top left; }
+
+/* collapsed-rail hover tooltip (custom, replaces native title) */
+.rail-tip {
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 120ms ease-out, transform 120ms ease-out;
+  pointer-events: none;
+}
+.group\/navitem:hover .rail-tip,
+.group\/navitem:focus-visible .rail-tip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* hand-drawn underline swash (hero "All-in-One") */
 .underline-swash {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 12' preserveAspectRatio='none'%3E%3Cpath d='M3 8c40-5 74-6 107-4 38 2 74 1 107-3' fill='none' stroke='%231cb0f6' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");
@@ -188,8 +212,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .float-y, .word-in {
+  .float-y, .word-in, .mg-pop, .rail-tip {
     animation: none !important;
+    transition: none !important;
   }
 }
 
