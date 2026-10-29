@@ -14,23 +14,37 @@ Probed live on mathsgenie.co.uk (logged-out) — route `/paper/gcse/maths/edexce
   `paperUrl, markSchemeUrl, workedSolutionUrl, insertUrl, youtubeVideoUrl` (etc).
 - **PDF host**: `assets.mathsgenie.co.uk/sources/genie/past-papers/{year}/pearson/gcse-maths/{code}/question-paper-*.pdf` / `mark-scheme-*.pdf` — CORS `access-control-allow-origin: *` (verified), so client-side pdf.js rendering works.
 
-### Viewer chrome (from live probing)
-- Top bar: back arrow · paper title · **View mark scheme** (teal pill; toggles → "Hide mark scheme")
-  · Download · Print · ⋯ More controls · Log your mark · (Sign up when logged out).
+### Viewer chrome (from live probing, re-verified session 12)
+- Top bar: back arrow (no title text) · **View mark scheme** (cyan pill, #35b3c9; toggles → "Hide mark scheme")
+  · Download · Print · Log your mark (icon, aria "Log your mark for {title}") · ⋯ More controls ·
+  (Sign up when logged out). Mark echo chip appears after saving.
+- **Print popover**: "Print now" button + heading "Send it to someone to print" +
+  "Their email" textbox + Cloudflare captcha + Send (disabled until verified).
 - **More controls menu**: Formula sheet · Calculator · Report an issue.
 - **Split workspace**: 1 pane by default; "View mark scheme" adds a second pane side by side.
-  Each pane: document dropdown (`Left pane` combobox → Question paper / Mark scheme /
-  Formula sheet), close button, its own scrollable pages, own zoom (− / + rail).
-- **Pages render to `<canvas>`** (pdf.js-style; no iframes, no embeds).
-- **Bottom floating annotation toolbar**: undo, redo, clear-all, browse/select, Text box (T),
-  Math text box (√), pen, highlighter, eraser, pen colour (black/blue/red/green),
-  pen thickness (fine/medium/bold), line, ruler, protractor, compasses, collapse toolbar.
-- **Answer boxes**: click with text tool → "Put your answer down — Click anywhere in the box
-  and type your working. It saves as you go." with `Add text` placeholder + watermarks.
-- **Log your mark dialog**: "Your mark [0] / Out of [80] / Save mark / Just mark as done".
-- **Calculator**: floating fx-83GT CW emulator (dark body, green LCD), model dropdown
-  (fx-83GT CW / fx-991 CW), minimisable.
-- **Open Ask Genie** floating button.
+  Each pane header: document combobox (aria "Left pane"/"Right pane" → Question paper / Mark scheme /
+  Formula sheet) + **"Show papers" dark circle** (flips to "Hide papers"; the annotation toolbar
+  hides while the papers sidebar is open) + per-pane Download + "Close left/right split pane".
+- **Papers sidebar** (from "Show papers"): series accordions (June 2025, November 2024, …
+  down to 2000 Mini tests), items "Paper 1F · F" etc., current paper highlighted cyan;
+  clicking navigates inside the viewer route.
+- **Divider between panes** is an accessibility slider (aria-valuenow 50), draggable.
+- **Zoom**: per-pane − / + rail pinned at the pane's top-right edge (no % label).
+- **Pages render to `<canvas>`** as regions "Page N" (pdf.js-style; no iframes, no embeds).
+- **Toolbar** (floating bottom, text tool ACTIVE on load): Undo, Redo, Clear all, Browse,
+  Select, Text, Math text box, Draw, Erase, **Pen colour: Black** (popover: 6 swatches
+  Black/Red/Blue/Green/Purple/Orange, ring on selected), **Pen thickness: Medium** (popover:
+  4 dot sizes), Line, Ruler, Protractor, Compasses, ✕ Collapse → floating round pen handle
+  re-opens it. (No separate highlighter button — the highlighter-looking icon IS "Erase".)
+- **Text tool default**: "Put your answer down" popover — "Click anywhere in the box and type
+  your working. It saves as you go." with `Add text` placeholder + watermarked answer boxes.
+- **Log your mark dialog**: "Your mark [0] / Paper total [80] / Save mark / Just mark as done".
+- **Calculator**: floating fx-83GT CW emulator (light title panel "Calcula…" + model dropdown
+  fx-83GT CW / fx-991 CW + minimise ^ + ✕; dark navy body, pill keys, full CW layout:
+  ON/HOME, cursor pad + OK, SHIFT (blue) / VARIABLE / FUNCTION / CATALOG / TOOLS,
+  x x□ √□ x■ x² log□, Ans sin cos tan ( ), numpad with ⌫/AC, ×10■, EXE).
+- **Open Ask Genie** floating dark rounded-square mascot button (bottom right).
+- The original keeps its **site left rail** visible inside the viewer.
 
 ## Recreation (this repo)
 - `scripts/crawl_past_papers.py` → `data/gcse-maths/papers-past-edexcel.json`
@@ -59,3 +73,10 @@ Probed live on mathsgenie.co.uk (logged-out) — route `/paper/gcse/maths/edexce
   (pen stroke), clone-paper-text.png ("x = 4" box), clone-paper-calc.png (7×8=56),
   clone-paper-formula.png (formula sheet), clone-papers-index.png (index restyle).
 - `npm run check` clean (0 errors); marks + annotations verified in localStorage.
+- Session 12 (feature-for-feature re-audit vs live original, browser-driven):
+  toolbar order/aria identical; colour popover (6 swatches, cycling label), thickness popover
+  (4 sizes), Draw→stroke, Select→drag-move (live preview + commit), Erase removes, Undo pops;
+  split panes + draggable divider (aria-valuenow 69 after drag); Show papers sidebar navigates
+  to Paper 2F in-viewer; Formula sheet via pane combobox; zoom 595→685→595 px;
+  print popover + log-mark dialog ("Your mark: 52/80" echo chip); calculator 78×8=624;
+  collapse→pen handle→expand. Screenshots: rep2-*.png.

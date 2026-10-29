@@ -8,7 +8,9 @@ import {
   paperBySlug,
   paperDocLabel,
   paperDocUrl,
+  papersPast,
   type PaneDoc,
+  type PaperSeries,
   type PastPaper,
   loadMarks,
   saveMark,
@@ -25,11 +27,11 @@ import {
  */
 
 type Tool =
+  | "browse"
   | "select"
   | "text"
   | "math"
   | "pen"
-  | "highlight"
   | "eraser"
   | "line"
   | "compasses";
@@ -49,12 +51,21 @@ type Op = { page: number } & (
 
 type Widget = "ruler" | "protractor" | null;
 
-const COLORS = ["#111827", "#2563eb", "#dc2626", "#16a34a"] as const;
+const COLORS = [
+  { name: "Black", hex: "#111827" },
+  { name: "Red", hex: "#dc2626" },
+  { name: "Blue", hex: "#2563eb" },
+  { name: "Green", hex: "#16a34a" },
+  { name: "Purple", hex: "#7c3aed" },
+  { name: "Orange", hex: "#ea580c" },
+] as const;
 const THICKNESS = [
   { label: "Fine", pen: 1.6, hl: 10 },
   { label: "Medium", pen: 2.6, hl: 16 },
   { label: "Bold", pen: 4.2, hl: 24 },
+  { label: "Extra bold", pen: 6.5, hl: 34 },
 ] as const;
+const colorName = (hex: string) => COLORS.find((c) => c.hex === hex)?.name ?? "Black";
 
 const ANN_KEY = (slug: string) => `mg-paper-annotations-v1:${slug}`;
 
@@ -89,6 +100,7 @@ const I = {
   redo: "m15 14 5-5-5-5m5 5H10a6 6 0 0 0 0 12h3",
   trash: "M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3",
   cursor: "M5 3l14 7-6 2-2 6z",
+  selectBox: "M4 4h4M16 4h4M20 8v4M20 16v4M16 20h4M8 20H4M4 16v-4M4 8V4",
   type: "M5 6V4h14v2M12 4v16m-3 0h6",
   sqrt: "M3 12h3l3 8 5-16h7",
   pen: "M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z",
@@ -101,6 +113,14 @@ const I = {
   download: "M12 3v12m0 0 4-4m-4 4-4-4M4 21h16",
   print: "M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z",
   more: "M6 12h.01M12 12h.01M18 12h.01",
+  penHandle: "M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z",
+  home: "M3 10.5 12 3l9 7.5M5 9.5V21h5v-6h4v6h5V9.5",
+  clock: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 3",
+  chat: "M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z",
+  rail: "M4 6h16M4 12h16M4 18h16",
+  panelToggle: "M4 5h16v14H4zM9 5v14",
+  book: "M4 5a2 2 0 0 1 2-2h14v18H6a2 2 0 0 0-2 2zM4 5v16",
+  arrowSplit: "M4 12h12m0 0-4-4m4 4-4 4M20 5v14",
   calc: "M7 3h10a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM8 7h8M9 11h.01M12 11h.01M15 11h.01M9 14h.01M12 14h.01M15 14h.01M9 17h.01M12 17h.01M15 17h.01",
   flag: "M5 21V4m0 1h12l-2 4 2 4H5",
   bulb: "M9 18h6M10 21h4M12 3a6 6 0 0 1 4 10.5c-.8.7-1 1.5-1 2.5h-6c0-1-.2-1.8-1-2.5A6 6 0 0 1 12 3z",
@@ -115,6 +135,10 @@ function Icon({ d, className = "size-5" }: { d: string; className?: string }) {
 }
 
 /* ------------------------------- calculator ------------------------------- */
+
+function CalcRow({ children }: { children: React.ReactNode }) {
+  return <div className="flex items-stretch gap-1.5">{children}</div>;
+}
 
 function Calculator({ onClose }: { onClose: () => void }) {
   const [expr, setExpr] = useState("");
@@ -156,8 +180,11 @@ function Calculator({ onClose }: { onClose: () => void }) {
     }
   };
   const btn =
-    "rounded-full h-9 text-[13px] font-medium text-zinc-100 bg-zinc-700 active:bg-zinc-600 hover:bg-zinc-500 border-b-2 border-black/40 leading-none";
-  const btnD = "rounded-full h-9 text-[13px] font-medium bg-zinc-900 text-zinc-300 active:bg-zinc-800 border-b-2 border-black/60 leading-none";
+    "h-8 flex-1 rounded-full text-[12px] font-medium text-zinc-100 bg-[#39415a] active:bg-[#4a5470] hover:bg-[#434c66] border-b-2 border-black/40 leading-none";
+  const btnD =
+    "h-8 flex-1 rounded-full text-[10px] font-semibold text-zinc-300 bg-[#232941] active:bg-[#2c3450] border-b-2 border-black/50 leading-none";
+  const btnF =
+    "h-8 flex-1 rounded-full text-[12px] font-semibold text-zinc-100 bg-[#39415a] active:bg-[#4a5470] border-b-2 border-black/40 leading-none";
 
   return (
     <div className="fixed bottom-24 left-1/2 z-50 w-[330px] -translate-x-1/2 sm:left-24 sm:translate-x-0" role="dialog" aria-label="Calculator">
@@ -179,48 +206,77 @@ function Calculator({ onClose }: { onClose: () => void }) {
           <button aria-label="Close calculator" onClick={onClose} className="rounded-full p-1.5 hover:bg-paper-2"><Icon d={I.close} className="size-4" /></button>
         </div>
         {!min && (
-          <div className="bg-[#1c1e26] p-3">
-            <p className="mb-1.5 text-[10px] font-medium text-zinc-400">{model} layout</p>
-            <div className="rounded-md bg-[#c8cfad] px-3 py-2 text-right shadow-inner">
+          <div className="bg-[#171c2b] p-3">
+            <p className="mb-1.5 text-[10px] font-medium text-zinc-500">{model} layout</p>
+            <div className="rounded-md bg-[#c9cdb2] px-3 py-2 text-right shadow-inner">
               <p className="h-4 truncate text-[11px] text-zinc-700">{expr || "\u00a0"}</p>
               <p className="truncate font-mono text-xl font-semibold text-zinc-900">{out}</p>
             </div>
-            <div className="mt-3 grid grid-cols-5 gap-1.5">
-              <button className={btnD} aria-label="Power">ON</button>
-              <button className={btnD} aria-label="Home">HOME</button>
-              <button className={`${btnD} col-span-2`} aria-label="Settings">SETTINGS</button>
-              <button className={btnD} aria-label="Shift">SHIFT</button>
-              <button className={btnD} onClick={() => push("(")} aria-label="Left bracket">(</button>
-              <button className={btnD} onClick={() => push(")")} aria-label="Right bracket">)</button>
-              <button className={btnD} onClick={() => push("π")} aria-label="Pi">π</button>
-              <button className={btnD} aria-label="Format">FORMAT</button>
-              <button className={btn} onClick={() => { exprRef.current = exprRef.current.slice(0, -1); setExpr(exprRef.current); }} aria-label="Delete">DEL</button>
-              <button className={btn} onClick={() => { exprRef.current = ""; setExpr(""); setOut("0"); }} aria-label="All clear">AC</button>
-              <button className={btn} onClick={() => push("S(")} aria-label="Sine">sin</button>
-              <button className={btn} onClick={() => push("C(")} aria-label="Cosine">cos</button>
-              <button className={btn} onClick={() => push("T(")} aria-label="Tangent">tan</button>
-              <button className={btn} onClick={() => push("^")} aria-label="Power">x■</button>
-              <button className={btn} onClick={() => push("L(")} aria-label="Logarithm">log</button>
-              <button className={btn} onClick={() => push("7")} aria-label="7">7</button>
-              <button className={btn} onClick={() => push("8")} aria-label="8">8</button>
-              <button className={btn} onClick={() => push("9")} aria-label="9">9</button>
-              <button className={btn} onClick={() => push("N(")} aria-label="Natural log">ln</button>
-              <button className={btn} aria-label="Answer">Ans</button>
-              <button className={btn} onClick={() => push("4")} aria-label="4">4</button>
-              <button className={btn} onClick={() => push("5")} aria-label="5">5</button>
-              <button className={btn} onClick={() => push("6")} aria-label="6">6</button>
-              <button className={btn} onClick={() => push("R(")} aria-label="Square root">√■</button>
-              <button className={btn} onClick={() => push("+")} aria-label="Plus">+</button>
-              <button className={btn} onClick={() => push("1")} aria-label="1">1</button>
-              <button className={btn} onClick={() => push("2")} aria-label="2">2</button>
-              <button className={btn} onClick={() => push("3")} aria-label="3">3</button>
-              <button className={btn} onClick={() => push("×")} aria-label="Multiply">×</button>
-              <button className={btn} onClick={() => push("−")} aria-label="Minus">−</button>
-              <button className={btn} onClick={() => push("0")} aria-label="0">0</button>
-              <button className={btn} onClick={() => push(".")} aria-label="Decimal point">.</button>
-              <button className={btn} aria-label="Times ten to the">×10■</button>
-              <button className={btn} onClick={() => push("÷")} aria-label="Divide">÷</button>
-              <button className="h-9 rounded-full bg-emerald-600 text-[13px] font-semibold text-white hover:bg-emerald-500" onClick={evaluate} aria-label="Execute">EXE</button>
+            <div className="mt-2.5 space-y-1.5">
+              <CalcRow>
+                <button className={btnD} onClick={() => { exprRef.current = ""; setExpr(""); setOut("0"); }} aria-label="Power">ON</button>
+                <button className={btnD} aria-label="Home">HOME</button>
+                <span className="flex-1" />
+                <button className={btnD} aria-label="Cursor up">▲</button>
+                <button className={btnD} aria-label="Cursor down">▼</button>
+              </CalcRow>
+              <CalcRow>
+                <button className={btnD} aria-label="Settings">SETTINGS</button>
+                <button className={btnD} aria-label="Cursor left">◀</button>
+                <button className={btnF} onClick={evaluate} aria-label="OK">OK</button>
+                <button className={btnD} aria-label="Cursor right">▶</button>
+                <button className={btnD} aria-label="Down">▽</button>
+              </CalcRow>
+              <CalcRow>
+                <button className="h-8 flex-1 rounded-full border-b-2 border-black/50 bg-[#1d4ed8] text-[10px] font-semibold leading-none text-white active:bg-[#2b5cd9]" aria-label="Shift">SHIFT</button>
+                <button className={btnD} aria-label="Variable">VARIABLE</button>
+                <button className={btnD} aria-label="Function">FUNCTION</button>
+                <button className={btnD} aria-label="Catalog">CATALOG</button>
+                <button className={btnD} aria-label="Tools">TOOLS</button>
+              </CalcRow>
+              <CalcRow>
+                <button className={btn} aria-label="x">x</button>
+                <button className={btn} aria-label="Fraction">x□</button>
+                <button className={btn} onClick={() => push("R(")} aria-label="Square root">√□</button>
+                <button className={btn} onClick={() => push("^")} aria-label="Power">x■</button>
+                <button className={btn} onClick={() => push("^2")} aria-label="Square">x²</button>
+                <button className={btn} onClick={() => push("L(")} aria-label="Logarithm">log□</button>
+              </CalcRow>
+              <CalcRow>
+                <button className={btn} aria-label="Answer">Ans</button>
+                <button className={btn} onClick={() => push("S(")} aria-label="Sine">sin</button>
+                <button className={btn} onClick={() => push("C(")} aria-label="Cosine">cos</button>
+                <button className={btn} onClick={() => push("T(")} aria-label="Tangent">tan</button>
+                <button className={btn} onClick={() => push("(")} aria-label="Left bracket">(</button>
+                <button className={btn} onClick={() => push(")")} aria-label="Right bracket">)</button>
+              </CalcRow>
+              <CalcRow>
+                <button className={btn} onClick={() => push("7")} aria-label="7">7</button>
+                <button className={btn} onClick={() => push("8")} aria-label="8">8</button>
+                <button className={btn} onClick={() => push("9")} aria-label="9">9</button>
+                <button className={btnF} onClick={() => { exprRef.current = exprRef.current.slice(0, -1); setExpr(exprRef.current); }} aria-label="Delete">⌫</button>
+                <button className={btnF} onClick={() => { exprRef.current = ""; setExpr(""); setOut("0"); }} aria-label="All clear">AC</button>
+              </CalcRow>
+              <CalcRow>
+                <button className={btn} onClick={() => push("4")} aria-label="4">4</button>
+                <button className={btn} onClick={() => push("5")} aria-label="5">5</button>
+                <button className={btn} onClick={() => push("6")} aria-label="6">6</button>
+                <button className={btnF} onClick={() => push("×")} aria-label="Multiply">×</button>
+                <button className={btnF} onClick={() => push("÷")} aria-label="Divide">÷</button>
+              </CalcRow>
+              <CalcRow>
+                <button className={btn} onClick={() => push("1")} aria-label="1">1</button>
+                <button className={btn} onClick={() => push("2")} aria-label="2">2</button>
+                <button className={btn} onClick={() => push("3")} aria-label="3">3</button>
+                <button className={btnF} onClick={() => push("+")} aria-label="Plus">+</button>
+                <button className={btnF} onClick={() => push("−")} aria-label="Minus">−</button>
+              </CalcRow>
+              <CalcRow>
+                <button className={btn} onClick={() => push("0")} aria-label="0">0</button>
+                <button className={btn} onClick={() => push(".")} aria-label="Decimal point">.</button>
+                <button className={btnF} onClick={() => push("×10^")} aria-label="Times ten to the">×10■</button>
+                <button className={`${btnF} bg-emerald-700 hover:bg-emerald-600`} onClick={evaluate} aria-label="Execute">EXE</button>
+              </CalcRow>
             </div>
           </div>
         )}
@@ -401,6 +457,9 @@ type PaneProps = {
   onClose: () => void;
   onZoom: (z: number) => void;
   label: string;
+  papersOpen: boolean;
+  onTogglePapers: () => void;
+  style?: React.CSSProperties;
 };
 
 const DOC_ORDER: PaneDoc[] = ["question", "markscheme", "formula"];
@@ -419,6 +478,9 @@ function DocPane({
   onClose,
   onZoom,
   label,
+  papersOpen,
+  onTogglePapers,
+  style,
 }: PaneProps) {
   const url = paperDocUrl(paper, doc);
   const state = usePdfDoc(url);
@@ -429,6 +491,9 @@ function DocPane({
   const [draft, setDraft] = useState("");
   const [compass, setCompass] = useState<{ page: number; c: [number, number]; r: [number, number] } | null>(null);
   const [menu, setMenu] = useState(false);
+  // select-and-move live preview (declared early: overlay effect reads it)
+  const [preview, setPreview] = useState<Op[] | null>(null);
+  const shownOps = preview ?? ops;
 
   const drawOp = useCallback(
     (ctx: CanvasRenderingContext2D, op: Op, W: number, H: number) => {
@@ -467,9 +532,9 @@ function DocPane({
       const W = c.width;
       const H = c.height;
       ctx.clearRect(0, 0, W, H);
-      for (const op of ops) if (op.page === page) drawOp(ctx, op, W, H);
+      for (const op of shownOps) if (op.page === page) drawOp(ctx, op, W, H);
     });
-  }, [ops, zoom, pageCount, drawOp]);
+  }, [shownOps, zoom, pageCount, drawOp]);
 
   const norm = (e: { clientX: number; clientY: number }, el: HTMLElement): [number, number] => {
     const r = el.getBoundingClientRect();
@@ -478,9 +543,42 @@ function DocPane({
 
   /* ---- pointer drawing on the overlay of a page ---- */
   const drag = useRef<null | { mode: "draw" | "line" | "erase"; pts: [number, number][]; start: [number, number]; page: number }>(null);
+  // select-and-move: index of the op being dragged + drag origin + latest translated array
+  const moveRef = useRef<null | { page: number; start: [number, number]; index: number; last: [number, number]; next?: Op[] }>(null);
+
+  const hitTest = (p: [number, number], page: number): number => {
+    for (let i = ops.length - 1; i >= 0; i--) {
+      const op = ops[i];
+      if (op.page !== page) continue;
+      if (op.kind === "text") {
+        if (Math.hypot(op.x - p[0], op.y - p[1]) < 0.08) return i;
+      } else if (op.kind === "stroke") {
+        if (op.pts.some(([x, y]) => Math.hypot(x - p[0], y - p[1]) < 0.014)) return i;
+      } else if (op.kind === "line") {
+        const [x1, y1] = op.a;
+        const [x2, y2] = op.b;
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        const t = Math.max(0, Math.min(1, ((p[0] - x1) * dx + (p[1] - y1) * dy) / (dx * dx + dy * dy || 1e-9)));
+        if (Math.hypot(x1 + t * dx - p[0], y1 + t * dy - p[1]) < 0.014) return i;
+      } else if (op.kind === "arc") {
+        const d = Math.hypot(op.c[0] - p[0], op.c[1] - p[1]);
+        const r = Math.hypot(op.rx, op.ry) / 2;
+        if (d < r + 0.02 && d > Math.max(0.005, r - 0.045)) return i;
+      }
+    }
+    return -1;
+  };
+
+  const translateOp = (op: Op, dx: number, dy: number): Op => {
+    if (op.kind === "stroke") return { ...op, pts: op.pts.map(([x, y]) => [Math.min(1, Math.max(0, x + dx)), Math.min(1, Math.max(0, y + dy))] as [number, number]) };
+    if (op.kind === "line") return { ...op, a: [op.a[0] + dx, op.a[1] + dy], b: [op.b[0] + dx, op.b[1] + dy] };
+    if (op.kind === "arc") return { ...op, c: [op.c[0] + dx, op.c[1] + dy] };
+    return { ...op, x: Math.min(1, Math.max(0, op.x + dx)), y: Math.min(1, Math.max(0, op.y + dy)) };
+  };
 
   const onPagePointerDown = (page: number) => (e: React.PointerEvent<HTMLDivElement>) => {
-    if (tool === "select" || editing) return;
+    if (editing) return;
     const overlay = e.currentTarget;
     try {
       overlay.setPointerCapture(e.pointerId);
@@ -488,6 +586,12 @@ function DocPane({
       /* synthetic events may not support capture */
     }
     const p = norm(e, overlay);
+    if (tool === "browse") return;
+    if (tool === "select") {
+      const i = hitTest(p, page);
+      if (i >= 0) moveRef.current = { page, start: p, index: i, last: p };
+      return;
+    }
     if (tool === "text" || tool === "math") {
       setEditing({ page, x: p[0], y: p[1] });
       setDraft("");
@@ -506,6 +610,20 @@ function DocPane({
   };
 
   const onPagePointerMove = (page: number) => (e: React.PointerEvent<HTMLDivElement>) => {
+    // live drag of a selected annotation
+    const mv = moveRef.current;
+    if (mv && mv.page === page && mv.index >= 0 && mv.index < ops.length) {
+      const overlay = e.currentTarget;
+      const p = norm(e, overlay);
+      const dx = p[0] - mv.last[0];
+      const dy = p[1] - mv.last[1];
+      mv.last = p;
+      const base = mv.next ?? ops;
+      const next = base.map((op, i) => (i === mv.index ? translateOp(op, dx, dy) : op));
+      mv.next = next;
+      setPreview(next);
+      return;
+    }
     const d = drag.current;
     if (d && d.page === page) {
       const overlay = e.currentTarget;
@@ -523,9 +641,8 @@ function DocPane({
           for (const op of ops) if (op.page === page) drawOp(ctx, op, W, H);
           ctx.strokeStyle = color;
           ctx.lineCap = "round";
-          ctx.lineWidth =
-            tool === "highlight" ? THICKNESS[thick].hl * (zoom * 2) : tool === "line" ? THICKNESS[thick].pen * (zoom * 2) : THICKNESS[thick].pen * (zoom * 2);
-          ctx.globalAlpha = tool === "highlight" ? 0.32 : 1;
+          ctx.lineWidth = THICKNESS[thick].pen * (zoom * 2);
+          ctx.globalAlpha = 1;
           ctx.beginPath();
           if (d.mode === "line") {
             ctx.moveTo(d.start[0] * W, d.start[1] * H);
@@ -557,22 +674,30 @@ function DocPane({
   };
 
   const onPagePointerUp = (page: number) => (e: React.PointerEvent<HTMLDivElement>) => {
+    // finish select-drag
+    const mv = moveRef.current;
+    if (mv && mv.page === page) {
+      moveRef.current = null;
+      if (mv.next) onOps(mv.next);
+      setPreview(null);
+      return;
+    }
     const d = drag.current;
-    if (d && d.page === page) {
-      drag.current = null;
-      if (d.mode === "draw" && d.pts.length > 1) {
-        onOps([
-          ...ops,
-          {
-            page,
-            kind: "stroke",
-            tool: tool === "highlight" ? "highlight" : "pen",
-            color,
-            width: tool === "highlight" ? THICKNESS[thick].hl : THICKNESS[thick].pen,
-            pts: d.pts,
-          },
-        ]);
-      } else if (d.mode === "line" && Math.hypot(d.pts[d.pts.length - 1][0] - d.start[0], d.pts[d.pts.length - 1][1] - d.start[1]) > 0.005) {
+      if (d && d.page === page) {
+        drag.current = null;
+        if (d.mode === "draw" && d.pts.length > 1) {
+          onOps([
+            ...ops,
+            {
+              page,
+              kind: "stroke",
+              tool: "pen",
+              color,
+              width: THICKNESS[thick].pen,
+              pts: d.pts,
+            },
+          ]);
+        } else if (d.mode === "line" && Math.hypot(d.pts[d.pts.length - 1][0] - d.start[0], d.pts[d.pts.length - 1][1] - d.start[1]) > 0.005) {
         onOps([...ops, { page, kind: "line", color, width: THICKNESS[thick].pen, a: d.start, b: d.pts[d.pts.length - 1] }]);
       }
     }
@@ -609,16 +734,17 @@ function DocPane({
 
   const showGuides = widget !== null;
   const cursorClass =
-    tool === "select" ? "cursor-default" : tool === "eraser" ? "cursor-cell" : tool === "text" || tool === "math" ? "cursor-text" : "cursor-crosshair";
+    tool === "browse" || tool === "select" ? "cursor-default" : tool === "eraser" ? "cursor-cell" : tool === "text" || tool === "math" ? "cursor-text" : "cursor-crosshair";
 
   return (
-    <section className="flex min-w-0 flex-1 flex-col bg-zinc-100/80" aria-label={`${label}: ${paperDocLabel(doc)}`}>
+    <section className="relative flex min-h-0 min-w-0 flex-1 flex-col bg-zinc-100/80" style={style} aria-label={`${label}: ${paperDocLabel(doc)}`}>
       {/* pane header */}
       <div className="relative flex items-center gap-2 border-b border-line bg-panel px-3 py-1.5">
         <button
           onClick={() => setMenu((m) => !m)}
           aria-expanded={menu}
           aria-haspopup="listbox"
+          aria-label={label}
           className="flex min-w-0 items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1.5 text-sm font-medium hover:bg-paper-2"
         >
           <span className="truncate">{paperDocLabel(doc)}</span>
@@ -645,7 +771,32 @@ function DocPane({
           </ul>
         )}
         <span className="ml-auto flex items-center gap-1">
-          <button onClick={onClose} aria-label={`Close ${label} pane`} className="rounded-full p-1.5 text-muted hover:bg-paper-2 hover:text-ink">
+          <button
+            onClick={onTogglePapers}
+            aria-label={papersOpen ? "Hide papers" : "Show papers"}
+            aria-expanded={papersOpen}
+            title={papersOpen ? "Hide papers" : "Show papers"}
+            className="grid size-8 place-items-center rounded-full bg-ink text-paper hover:opacity-85"
+          >
+            <Icon d={I.arrowSplit} className="size-4" />
+          </button>
+          {url && (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Download ${paperDocLabel(doc).toLowerCase()}`}
+              title={`Download ${paperDocLabel(doc).toLowerCase()}`}
+              className="hidden rounded-full p-1.5 text-muted hover:bg-paper-2 hover:text-ink sm:block"
+            >
+              <Icon d={I.download} className="size-4" />
+            </a>
+          )}
+          <button
+            onClick={onClose}
+            aria-label={`Close ${label === "Left pane" ? "left" : "right"} split pane`}
+            className="rounded-full p-1.5 text-muted hover:bg-paper-2 hover:text-ink"
+          >
             <Icon d={I.close} className="size-4" />
           </button>
         </span>
@@ -674,6 +825,8 @@ function DocPane({
           Array.from({ length: pageCount }, (_, page) => (
             <div
               key={page}
+              role="region"
+              aria-label={`Page ${page + 1}`}
               className={`relative mx-auto mb-5 w-fit rounded-sm bg-white shadow-[0_2px_14px_rgba(0,0,0,0.14)] ${cursorClass}`}
               onPointerDown={onPagePointerDown(page)}
               onPointerMove={onPagePointerMove(page)}
@@ -681,8 +834,17 @@ function DocPane({
             >
               <PageView url={url!} pageNo={page} zoom={zoom} />
 
+              {/* text-tool hint popover, like the original's "Put your answer down" */}
+              {tool === "text" && !editing && page === 0 && (
+                <div className="pointer-events-none absolute left-1/2 top-[4%] z-30 w-72 -translate-y-2 rounded-2xl bg-white p-4 text-left shadow-2xl" role="status">
+                  <p className="text-[15px] font-semibold text-ink">Put your answer down</p>
+                  <p className="mt-1 text-[13px] leading-snug text-muted">Click anywhere in the box and type your working. It saves as you go.</p>
+                  <span className="absolute -bottom-2.5 left-10 size-0 border-x-8 border-t-[10px] border-x-transparent border-t-white" aria-hidden />
+                </div>
+              )}
+
               {/* text boxes */}
-              {ops.map((op, i) =>
+              {shownOps.map((op, i) =>
                 op.kind === "text" ? (
                   <div
                     key={i}
@@ -741,15 +903,23 @@ function DocPane({
           ))}
       </div>
 
-      {/* zoom rail */}
-      <div className="pointer-events-none absolute right-1 top-16 flex flex-col gap-1" aria-hidden />
-      <div className="flex items-center justify-end gap-1 border-t border-line bg-panel/80 px-2 py-1">
-        <button onClick={() => onZoom(Math.max(0.5, +(zoom - 0.15).toFixed(2)))} aria-label="Zoom out" className="rounded-full p-1.5 hover:bg-paper-2">
-          <Icon d={I.zoomOut} className="size-4" />
+      {/* zoom rail — pinned to the pane's top-right edge like the original */}
+      <div className="absolute right-2 top-14 z-30 flex flex-col items-center gap-1">
+        <button
+          onClick={() => onZoom(Math.max(0.5, +(zoom - 0.15).toFixed(2)))}
+          aria-label="Zoom out"
+          title="Zoom out"
+          className="grid size-8 place-items-center rounded-lg text-muted hover:bg-paper-2 hover:text-ink"
+        >
+          <Icon d={I.zoomOut} className="size-5" />
         </button>
-        <span className="w-10 text-center font-mono text-[11px] text-muted">{Math.round(zoom * 100)}%</span>
-        <button onClick={() => onZoom(Math.min(3, +(zoom + 0.15).toFixed(2)))} aria-label="Zoom in" className="rounded-full p-1.5 hover:bg-paper-2">
-          <Icon d={I.zoomIn} className="size-4" />
+        <button
+          onClick={() => onZoom(Math.min(3, +(zoom + 0.15).toFixed(2)))}
+          aria-label="Zoom in"
+          title="Zoom in"
+          className="grid size-8 place-items-center rounded-lg text-muted hover:bg-paper-2 hover:text-ink"
+        >
+          <Icon d={I.zoomIn} className="size-5" />
         </button>
       </div>
     </section>
@@ -834,19 +1004,78 @@ function Protractor() {
   );
 }
 
+/* ------------------------------ papers sidebar ----------------------------- */
+
+function PapersGroup({
+  series,
+  currentSlug,
+  onNavigate,
+}: {
+  series: PaperSeries;
+  currentSlug: string;
+  onNavigate: () => void;
+}) {
+  const contains = series.papers.some((p) => p.slug === currentSlug);
+  // null = not toggled by the user yet → follow the current slug
+  const [manual, setManual] = useState<boolean | null>(null);
+  const open = manual ?? contains;
+  return (
+    <div className="mb-1">
+      <button
+        onClick={() => setManual(!open)}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between gap-2 rounded-lg px-2 py-2 text-left text-[15px] font-medium hover:bg-paper-2"
+      >
+        <span className="min-w-0 truncate">{series.series}</span>
+        <Icon d={I.chevDown} className={`size-4 shrink-0 text-muted transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <ul className="mb-1 ml-1 space-y-0.5">
+          {series.papers.map((p) => (
+            <li key={p.slug}>
+              <Link
+                href={`/paper/edexcel/${p.slug}`}
+                onClick={onNavigate}
+                aria-current={p.slug === currentSlug ? "page" : undefined}
+                className={`block truncate rounded-lg px-3 py-1.5 text-sm ${
+                  p.slug === currentSlug ? "bg-cyan-100 font-semibold text-cyan-900" : "text-ink/80 hover:bg-paper-2"
+                }`}
+              >
+                {p.paperLabel ?? p.title}
+                {p.tier ? <span className="text-muted"> · {p.tier}</span> : null}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 /* -------------------------------- workspace -------------------------------- */
 
 export default function PaperWorkspace({ slug }: { slug: string }) {
   const paper = useMemo(() => paperBySlug(slug), [slug]);
   const [leftDoc, setLeftDoc] = useState<PaneDoc>("question");
   const [zooms, setZooms] = useState<Record<string, number>>({ question: 1, markscheme: 1, formula: 1 });
-  const [tool, setTool] = useState<Tool>("select");
-  const [color, setColor] = useState<string>(COLORS[0]);
+  const [tool, setTool] = useState<Tool>("text");
+  const [color, setColor] = useState<string>(COLORS[0].hex);
   const [thick, setThick] = useState(1);
   const [widget, setWidget] = useState<Widget>(null);
   const [collapsed, setCollapsed] = useState(false);
   const [more, setMore] = useState(false);
   const [calc, setCalc] = useState(false);
+  const [papersOpen, setPapersOpen] = useState(false);
+  const [leftPct, setLeftPct] = useState(50);
+  const [printPop, setPrintPop] = useState(false);
+  const [colourPop, setColourPop] = useState(false);
+  const [thickPop, setThickPop] = useState(false);
+  // popovers render fixed above the toolbar (the toolbar scrolls, which would clip absolute children)
+  const [popAnchor, setPopAnchor] = useState<{ x: number; y: number } | null>(null);
+  const anchorFrom = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    return { x: r.left + r.width / 2, y: r.top };
+  };
   const [marks, setMarks] = useState<Record<string, PaperMark>>({});
   const [markDlg, setMarkDlg] = useState(false);
   const search = useSearchParams();
@@ -925,6 +1154,9 @@ export default function PaperWorkspace({ slug }: { slug: string }) {
       if (e.key === "Escape") {
         setMore(false);
         setMarkDlg(false);
+        setPrintPop(false);
+        setColourPop(false);
+        setThickPop(false);
       }
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "z") {
         e.preventDefault();
@@ -934,6 +1166,27 @@ export default function PaperWorkspace({ slug }: { slug: string }) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [leftDoc, undoDoc]);
+
+  // draggable split divider (a slider like the original's)
+  const panesRef = useRef<HTMLDivElement | null>(null);
+  const dividerDrag = useRef(false);
+  useEffect(() => {
+    const move = (e: PointerEvent) => {
+      if (!dividerDrag.current || !panesRef.current) return;
+      const r = panesRef.current.getBoundingClientRect();
+      const pct = Math.round(Math.min(75, Math.max(25, ((e.clientX - r.left) / r.width) * 100)));
+      setLeftPct(pct);
+    };
+    const up = () => {
+      dividerDrag.current = false;
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", up);
+    return () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", up);
+    };
+  }, []);
 
   if (!paper) {
     return (
@@ -955,27 +1208,97 @@ export default function PaperWorkspace({ slug }: { slug: string }) {
   const downloadUrl = paper.paperUrl ?? undefined;
 
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-100/80">
+    <div className="flex min-h-screen bg-zinc-100/80">
+      {/* persistent site rail, like the original viewer */}
+      <aside className="sticky top-0 z-40 hidden h-screen w-14 shrink-0 flex-col items-center gap-0.5 border-r border-line bg-panel py-3 sm:flex" aria-label="Site navigation">
+        <button aria-label="Show menu" title="Show menu" className="grid size-9 place-items-center rounded-xl text-muted hover:bg-paper-2 hover:text-ink">
+          <Icon d={I.panelToggle} className="size-5" />
+        </button>
+        <button aria-label="Expand menu" title="Expand menu" className="grid size-9 place-items-center rounded-xl text-muted hover:bg-paper-2 hover:text-ink">
+          <Icon d={I.arrowSplit} className="size-5" />
+        </button>
+        <Link href="/" aria-label="Home" title="Home" className="grid size-9 place-items-center rounded-xl text-muted hover:bg-paper-2 hover:text-ink">
+          <Icon d={I.home} className="size-5" />
+        </Link>
+        <Link href="/your-plan" aria-label="Revision planner" title="Revision planner" className="grid size-9 place-items-center rounded-xl text-muted hover:bg-paper-2 hover:text-ink">
+          <Icon d={I.book} className="size-5" />
+        </Link>
+        <span className="my-1 grid size-8 place-items-center rounded-full bg-emerald-500 text-white shadow" aria-hidden>
+          <svg viewBox="0 0 24 24" className="size-5" fill="currentColor">
+            <path d="M12 3c3.2 0 5.5 2.2 5.5 5.3 0 1.9-.8 3.2-1.9 4.1-.7.6-1 1.3-1 2.2v1.2H9.4v-1.2c0-.9-.3-1.6-1-2.2-1.1-.9-1.9-2.2-1.9-4.1C6.5 5.2 8.8 3 12 3z" />
+          </svg>
+        </span>
+        <Link href="/gcse/maths/edexcel/papers" aria-label="Past papers" title="Past papers" className="grid size-9 place-items-center rounded-xl text-muted hover:bg-paper-2 hover:text-ink">
+          <Icon d={I.print} className="size-5" />
+        </Link>
+        <button aria-label="Recent" title="Recent" className="grid size-9 place-items-center rounded-xl text-muted hover:bg-paper-2 hover:text-ink">
+          <Icon d={I.clock} className="size-5" />
+        </button>
+        <Link href="/ask-genie" aria-label="Ask Genie AI" title="Ask Genie AI" className="grid size-9 place-items-center rounded-xl text-muted hover:bg-paper-2 hover:text-ink">
+          <Icon d={I.chat} className="size-5" />
+        </Link>
+        <Link href="/feature-requests" aria-label="Ideas + feedback" title="Ideas + feedback" className="grid size-9 place-items-center rounded-xl text-muted hover:bg-paper-2 hover:text-ink">
+          <Icon d={I.bulb} className="size-5" />
+        </Link>
+        <button aria-label="Other" title="Other" className="mt-auto grid size-9 place-items-center rounded-full border border-line text-muted hover:bg-paper-2 hover:text-ink">
+          <Icon d={I.more} className="size-5" />
+        </button>
+      </aside>
+
+      <div className="flex min-w-0 flex-1 flex-col">
       {/* top bar */}
-      <header className="sticky top-0 z-40 flex h-14 items-center gap-2 border-b border-line bg-panel px-3 sm:px-4">
+      <header className="sticky top-0 z-40 flex h-14 items-center gap-1 border-b border-line bg-panel px-3 sm:px-4">
         <Link href={backHref} aria-label="Back to past papers" className="rounded-full p-2 hover:bg-paper-2">
           <Icon d={I.back} />
         </Link>
-        <p className="ml-1 hidden max-w-[36ch] truncate text-sm font-semibold sm:block">{paper.title}</p>
-        <div className="ml-auto flex items-center gap-1.5">
+        <div className="ml-auto flex items-center gap-1">
           <button
             onClick={() => setRightDoc((d) => (d ? null : "markscheme"))}
-            className="flex items-center gap-2 rounded-full bg-teal-700 px-3.5 py-2 text-[13px] font-semibold text-white hover:bg-teal-600"
+            className="flex items-center gap-2 rounded-full bg-[#35b3c9] px-4 py-2 text-[13px] font-semibold text-white hover:bg-[#2aa2b7]"
             aria-pressed={!!rightDoc}
           >
             <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M4 5h16M4 10h16M4 15h10M4 20h10" /></svg>
             {rightDoc ? "Hide mark scheme" : "View mark scheme"}
           </button>
-          <a href={downloadUrl} target="_blank" rel="noopener noreferrer" aria-label="Download question paper" className="rounded-full p-2 hover:bg-paper-2">
+          <a href={downloadUrl} target="_blank" rel="noopener noreferrer" aria-label="Download" className="rounded-full p-2 hover:bg-paper-2">
             <Icon d={I.download} />
           </a>
-          <button onClick={() => window.print()} aria-label="Print" className="rounded-full p-2 hover:bg-paper-2">
-            <Icon d={I.print} />
+          <div className="relative">
+            <button onClick={() => setPrintPop((v) => !v)} aria-expanded={printPop} aria-haspopup="dialog" aria-label="Print" className="rounded-full p-2 hover:bg-paper-2">
+              <Icon d={I.print} />
+            </button>
+            {printPop && (
+              <div role="dialog" aria-label="Print" className="absolute right-0 top-11 z-50 w-72 rounded-2xl border border-line bg-panel p-4 shadow-2xl">
+                <button
+                  onClick={() => window.print()}
+                  className="w-full rounded-full bg-ink px-4 py-2 text-sm font-semibold text-paper hover:opacity-90"
+                >
+                  Print now
+                </button>
+                <h5 className="mt-4 text-[13px] font-bold">Send it to someone to print</h5>
+                <input
+                  aria-label="Their email"
+                  placeholder="Their email"
+                  className="mt-2 w-full rounded-xl border border-line bg-paper px-3 py-2 text-sm outline-none focus:border-accent"
+                />
+                <button
+                  disabled
+                  aria-label="Send"
+                  className="mt-2 w-full cursor-not-allowed rounded-full border border-line px-4 py-2 text-sm font-semibold text-muted"
+                >
+                  Send
+                </button>
+                <p className="mt-2 text-[11px] leading-snug text-muted">Email delivery isn&apos;t wired up in this recreation.</p>
+              </div>
+            )}
+          </div>
+          <button
+            onClick={() => setMarkDlg(true)}
+            aria-label={`Log your mark for ${paper.title}`}
+            title={`Log your mark for ${paper.title}`}
+            className="rounded-full p-2 hover:bg-paper-2"
+          >
+            <Icon d={I.flag} />
           </button>
           <div className="relative">
             <button onClick={() => setMore((m) => !m)} aria-expanded={more} aria-haspopup="menu" aria-label="More controls" className="rounded-full p-2 hover:bg-paper-2">
@@ -1001,17 +1324,28 @@ export default function PaperWorkspace({ slug }: { slug: string }) {
               </ul>
             )}
           </div>
-          <button
-            onClick={() => setMarkDlg(true)}
-            className="ml-1 hidden rounded-full border border-line px-3.5 py-2 text-[13px] font-semibold hover:bg-paper-2 sm:block"
-          >
-            {saved ? `Your mark: ${saved.doneOnly ? "done" : `${saved.mark}/${saved.outOf}`}` : "Log your mark"}
-          </button>
+          {saved && (
+            <span className="ml-1 hidden rounded-full border border-line px-3 py-1.5 text-[13px] font-semibold sm:block">
+              {saved.doneOnly ? "Marked done" : `Your mark: ${saved.mark}/${saved.outOf}`}
+            </span>
+          )}
         </div>
       </header>
 
       {/* panes */}
-      <div className="relative flex min-h-0 flex-1 flex-col lg:flex-row">
+      <div ref={panesRef} className="relative flex min-h-0 flex-1 flex-col lg:flex-row">
+        {papersOpen && (
+          <aside className="absolute inset-y-0 left-0 z-30 flex w-72 flex-col overflow-y-auto border-r border-line bg-panel lg:relative lg:z-auto" aria-label="Papers">
+            <div className="px-4 pb-1 pt-3">
+              <h2 className="text-xl font-bold">Papers</h2>
+            </div>
+            <nav className="flex-1 px-2 pb-4">
+              {papersPast.series.map((s) => (
+                <PapersGroup key={s.series} series={s} currentSlug={slug} onNavigate={() => setPapersOpen(false)} />
+              ))}
+            </nav>
+          </aside>
+        )}
         <DocPane
           key={`left-${leftDoc}`}
           paper={paper}
@@ -1030,10 +1364,32 @@ export default function PaperWorkspace({ slug }: { slug: string }) {
           }}
           onZoom={(z) => setZooms((s) => ({ ...s, [leftDoc]: z }))}
           label="Left pane"
+          papersOpen={papersOpen}
+          onTogglePapers={() => setPapersOpen((v) => !v)}
+          style={{ flexBasis: 0, flexGrow: leftPct }}
         />
         {rightDoc && (
           <>
-            <div className="hidden w-px shrink-0 bg-line lg:block" aria-hidden />
+            <div
+              role="separator"
+              aria-orientation="vertical"
+              aria-label="Resize panes"
+              aria-valuenow={leftPct}
+              aria-valuemin={25}
+              aria-valuemax={75}
+              tabIndex={0}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                dividerDrag.current = true;
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "ArrowLeft") setLeftPct((p) => Math.max(25, p - 2));
+                if (e.key === "ArrowRight") setLeftPct((p) => Math.min(75, p + 2));
+              }}
+              className="group hidden w-1.5 shrink-0 cursor-col-resize items-center justify-center bg-line/60 lg:flex"
+            >
+              <span className="h-10 w-1 rounded-full bg-muted/50 group-hover:bg-accent" />
+            </div>
             <DocPane
               key={`right-${rightDoc}`}
               paper={paper}
@@ -1049,52 +1405,95 @@ export default function PaperWorkspace({ slug }: { slug: string }) {
               onClose={() => setRightDoc(null)}
               onZoom={(z) => setZooms((s) => ({ ...s, [rightDoc]: z }))}
               label="Right pane"
+              papersOpen={papersOpen}
+              onTogglePapers={() => setPapersOpen((v) => !v)}
+              style={{ flexBasis: 0, flexGrow: 100 - leftPct }}
             />
           </>
         )}
       </div>
 
       {/* annotation toolbar */}
-      {!collapsed && (
+      {!collapsed && !papersOpen && (
         <div className="sticky bottom-3 z-40 mx-auto mb-3 flex max-w-[94vw] items-center gap-0.5 overflow-x-auto rounded-2xl border border-line bg-panel px-2 py-1.5 shadow-2xl" role="toolbar" aria-label="Annotation tools">
           <TBtn label="Undo" onClick={() => undoDoc(leftDoc)} icon={I.undo} disabled={!(depths[leftDoc]?.u ?? 0)} />
           <TBtn label="Redo" onClick={() => redoDoc(leftDoc)} icon={I.redo} disabled={!(depths[leftDoc]?.r ?? 0)} />
-          <TBtn label="Clear all annotations" icon={I.trash} danger disabled={!opsFor(leftDoc).length} onClick={() => commitOps(leftDoc, [])} />
+          <TBtn label="Clear all" icon={I.trash} danger disabled={!opsFor(leftDoc).length} onClick={() => commitOps(leftDoc, [])} />
           <span className="mx-1 h-6 w-px bg-line" aria-hidden />
-          <TBtn label="Browse" icon={I.cursor} active={tool === "select"} onClick={() => { setTool("select"); setWidget(null); }} />
-          <TBtn label="Text box" icon={I.type} active={tool === "text"} onClick={() => setTool("text")} />
+          <TBtn label="Browse" icon={I.cursor} active={tool === "browse"} onClick={() => { setTool("browse"); setWidget(null); }} />
+          <TBtn label="Select" icon={I.selectBox} active={tool === "select"} onClick={() => setTool("select")} />
+          <TBtn label="Text" icon={I.type} active={tool === "text"} onClick={() => setTool("text")} />
           <TBtn label="Math text box" icon={I.sqrt} active={tool === "math"} onClick={() => setTool("math")} />
-          <TBtn label="Pen" icon={I.pen} active={tool === "pen"} onClick={() => setTool("pen")} />
-          <TBtn label="Highlighter" icon={I.marker} active={tool === "highlight"} onClick={() => setTool("highlight")} />
-          <TBtn label="Eraser" icon={I.eraser} active={tool === "eraser"} onClick={() => setTool("eraser")} />
+          <TBtn label="Draw" icon={I.pen} active={tool === "pen"} onClick={() => setTool("pen")} />
+          <TBtn label="Erase" icon={I.marker} active={tool === "eraser"} onClick={() => setTool("eraser")} />
           <span className="mx-1 h-6 w-px bg-line" aria-hidden />
-          <span className="flex items-center gap-1 px-1" role="radiogroup" aria-label="Pen colour">
-            {COLORS.map((c) => (
-              <button
-                key={c}
-                role="radio"
-                aria-checked={color === c}
-                aria-label={c === COLORS[0] ? "Black" : c === COLORS[1] ? "Blue" : c === COLORS[2] ? "Red" : "Green"}
-                onClick={() => { setColor(c); if (tool === "select") setTool("pen"); }}
-                className={`size-5 rounded-full border-2 ${color === c ? "border-accent ring-2 ring-accent/30" : "border-transparent"}`}
-                style={{ background: c }}
-              />
-            ))}
-          </span>
-          <span className="flex items-center gap-1 px-1" role="radiogroup" aria-label="Pen thickness">
-            {THICKNESS.map((t, i) => (
-              <button
-                key={t.label}
-                role="radio"
-                aria-checked={thick === i}
-                aria-label={`Pen thickness: ${t.label}`}
-                onClick={() => { setThick(i); if (tool === "select") setTool("pen"); }}
-                className={`grid size-6 place-items-center rounded-full ${thick === i ? "bg-ink text-paper" : "hover:bg-paper-2"}`}
+          <div className="relative shrink-0">
+            <button
+              onClick={(e) => { setPopAnchor(anchorFrom(e)); setColourPop((v) => !v); setThickPop(false); }}
+              aria-expanded={colourPop}
+              aria-haspopup="menu"
+              aria-label={`Pen colour: ${colorName(color)}`}
+              title={`Pen colour: ${colorName(color)}`}
+              className={`grid size-9 place-items-center rounded-xl hover:bg-paper-2 ${colourPop ? "bg-paper-2" : ""}`}
+            >
+              <span className="size-4 rounded-full border border-black/20" style={{ background: color }} />
+            </button>
+            {colourPop && popAnchor && (
+              <div
+                role="menu"
+                aria-label="Pen colour"
+                style={{ position: "fixed", left: popAnchor.x, top: popAnchor.y - 8, transform: "translate(-50%, -100%)" }}
+                className="z-[70] grid grid-cols-3 gap-2 rounded-2xl border border-line bg-panel p-3 shadow-2xl"
               >
-                <span className="rounded-full bg-current" style={{ width: 3 + i * 3, height: 3 + i * 3 }} />
-              </button>
-            ))}
-          </span>
+                {COLORS.map((c) => (
+                  <button
+                    key={c.hex}
+                    role="menuitemradio"
+                    aria-checked={color === c.hex}
+                    aria-label={c.name}
+                    title={c.name}
+                    onClick={() => { setColor(c.hex); setColourPop(false); if (tool === "select") setTool("pen"); }}
+                    className={`size-7 rounded-full border-2 ${color === c.hex ? "border-ink ring-2 ring-ink/25" : "border-black/10 hover:scale-110"}`}
+                    style={{ background: c.hex }}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="relative shrink-0">
+            <button
+              onClick={(e) => { setPopAnchor(anchorFrom(e)); setThickPop((v) => !v); setColourPop(false); }}
+              aria-expanded={thickPop}
+              aria-haspopup="menu"
+              aria-label={`Pen thickness: ${THICKNESS[thick].label}`}
+              title={`Pen thickness: ${THICKNESS[thick].label}`}
+              className={`grid size-9 place-items-center rounded-xl hover:bg-paper-2 ${thickPop ? "bg-paper-2" : ""}`}
+            >
+              <span className="rounded-full bg-current" style={{ width: 4 + thick * 3, height: 4 + thick * 3 }} />
+            </button>
+            {thickPop && popAnchor && (
+              <div
+                role="menu"
+                aria-label="Pen thickness"
+                style={{ position: "fixed", left: popAnchor.x, top: popAnchor.y - 8, transform: "translate(-50%, -100%)" }}
+                className="z-[70] flex items-center gap-2 rounded-2xl border border-line bg-panel p-3 shadow-2xl"
+              >
+                {THICKNESS.map((t, i) => (
+                  <button
+                    key={t.label}
+                    role="menuitemradio"
+                    aria-checked={thick === i}
+                    aria-label={t.label}
+                    title={t.label}
+                    onClick={() => { setThick(i); setThickPop(false); if (tool === "select") setTool("pen"); }}
+                    className={`grid size-8 place-items-center rounded-lg ${thick === i ? "bg-paper-2 ring-2 ring-ink/25" : "hover:bg-paper-2"}`}
+                  >
+                    <span className="rounded-full bg-current" style={{ width: 4 + i * 3, height: 4 + i * 3 }} />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <span className="mx-1 h-6 w-px bg-line" aria-hidden />
           <TBtn label="Line" icon={I.line} active={tool === "line"} onClick={() => setTool("line")} />
           <TBtn
@@ -1111,32 +1510,40 @@ export default function PaperWorkspace({ slug }: { slug: string }) {
           />
           <TBtn label="Compasses" icon={I.compass} active={tool === "compasses"} onClick={() => setTool("compasses")} />
           <span className="mx-1 h-6 w-px bg-line" aria-hidden />
-          <button onClick={() => setCollapsed(true)} aria-label="Collapse toolbar" className="rounded-full p-2 text-muted hover:bg-paper-2 hover:text-ink">
-            <svg viewBox="0 0 24 24" className="size-5" stroke="currentColor" strokeWidth="2" fill="none"><path d="m18 15-6-6-6 6" /></svg>
+          <button onClick={() => setCollapsed(true)} aria-label="Collapse toolbar" title="Hide tools" className="grid size-9 shrink-0 place-items-center rounded-xl text-muted hover:bg-paper-2 hover:text-ink">
+            <Icon d={I.close} className="size-4.5" />
           </button>
         </div>
       )}
-      {collapsed && (
+      {collapsed && !papersOpen && (
         <button
           onClick={() => setCollapsed(false)}
-          className="fixed bottom-4 left-1/2 z-40 -translate-x-1/2 rounded-full bg-ink px-4 py-2 text-xs font-semibold text-paper shadow-xl"
+          aria-label="Expand toolbar"
+          title="Show tools"
+          className="fixed bottom-5 left-1/2 z-40 grid size-14 -translate-x-1/2 place-items-center rounded-2xl border border-line bg-panel text-ink shadow-2xl hover:bg-paper-2"
         >
-          Show annotation tools
+          <Icon d={I.penHandle} />
         </button>
       )}
 
       {/* ask genie float */}
       <Link
         href="/ask-genie"
-        className="fixed bottom-24 right-4 z-40 flex items-center gap-2 rounded-full bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white shadow-xl hover:bg-teal-600"
+        aria-label="Open Ask Genie"
+        className="fixed bottom-5 right-4 z-40 grid size-11 place-items-center rounded-[10px] bg-zinc-800 text-emerald-400 shadow-xl transition-transform hover:scale-105"
       >
-        <span className="grid size-5 place-items-center rounded-full bg-teal-400/40 text-[11px]" aria-hidden>✦</span>
-        Open Ask Genie
+        <svg viewBox="0 0 24 24" className="size-7" fill="currentColor" aria-hidden>
+          <path d="M12 2.5c3.6 0 6.2 2.5 6.2 5.9 0 2.1-.9 3.6-2.1 4.6-.8.7-1.1 1.5-1.1 2.6v1.9H9v-1.9c0-1.1-.3-1.9-1.1-2.6-1.2-1-2.1-2.5-2.1-4.6 0-3.4 2.6-5.9 6.2-5.9z" />
+          <circle cx="9.6" cy="8.6" r="1" fill="#0f172a" />
+          <circle cx="14.4" cy="8.6" r="1" fill="#0f172a" />
+          <path d="M9 19.5h6M10 22h4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+        </svg>
       </Link>
 
       {calc && <Calculator onClose={() => setCalc(false)} />}
 
       {markDlg && <MarkDialog paper={paper} saved={saved ?? null} onDone={(m) => { if (m) saveMark(slug, m); else saveMark(slug, null); setMarks(loadMarks()); setMarkDlg(false); }} />}
+      </div>
     </div>
   );
 }
