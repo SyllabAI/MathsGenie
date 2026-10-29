@@ -104,3 +104,96 @@ export function dailySet(date = new Date()): SampleQuestion[] {
   }
   return picks;
 }
+
+/* ------------------------------------------------------------------ */
+/* Qualification-level banks for the other Daily Greens pages          */
+/* (original compositions, same policy as the GCSE set above).         */
+/* ------------------------------------------------------------------ */
+
+export type QualKey = "gcse" | "a-level" | "as-level" | "igcse" | "ks2";
+
+const ALEVEL_QUESTIONS: SampleQuestion[] = [
+  { id: "al-1", grade: "", topic: "algebraic expressions", prompt: "Simplify (3x²y)² × 2x⁻³.", marks: 2, calculator: false, answer: "18xy²", working: "9x⁴y² × 2x⁻³ = 18xy²" },
+  { id: "al-2", grade: "", topic: "quadratics", prompt: "Solve 2x² − 5x − 3 = 0.", marks: 2, calculator: false, answer: "x = -1/2 or x = 3", working: "(2x + 1)(x − 3) = 0" },
+  { id: "al-3", grade: "", topic: "differentiation", prompt: "Find the gradient of the curve y = x³ − 4x at the point where x = 2.", marks: 2, calculator: false, answer: "8", working: "dy/dx = 3x² − 4 = 12 − 4" },
+  { id: "al-4", grade: "", topic: "integration", prompt: "Evaluate ∫₁³ (2x + 1) dx.", marks: 3, calculator: false, answer: "10", working: "[x² + x] from 1 to 3 = 12 − 2" },
+  { id: "al-5", grade: "", topic: "straight line graphs", prompt: "The line l has equation y = 3x − 2. Find the equation of the line perpendicular to l that passes through (6, 1).", marks: 3, calculator: false, answer: "y = -x/3 + 3", working: "perpendicular gradient = −1/3; y − 1 = −(x − 6)/3" },
+  { id: "al-6", grade: "", topic: "binomial expansion", prompt: "Expand (1 + 2x)³, giving every term.", marks: 3, calculator: false, answer: "1 + 6x + 12x² + 8x³" },
+  { id: "al-7", grade: "", topic: "logarithms", prompt: "Solve log₂(x) + log₂(x − 2) = 3.", marks: 3, calculator: false, answer: "x = 4", working: "x(x − 2) = 8 so x² − 2x − 8 = 0; reject x = −2" },
+  { id: "al-8", grade: "", topic: "trigonometry", prompt: "In triangle ABC, a = 7 cm, b = 8 cm and angle C = 60°. Find c, to 1 decimal place.", marks: 3, calculator: true, answer: "7.5 cm", working: "c² = 49 + 64 − 2·7·8·cos60° = 57" },
+  { id: "al-9", grade: "", topic: "statistical distributions", prompt: "A fair die is rolled 10 times. Find P(exactly 2 sixes), to 3 decimal places.", marks: 3, calculator: true, answer: "0.291", working: "C(10,2)(1/6)²(5/6)⁸ ≈ 0.2907" },
+  { id: "al-10", grade: "", topic: "measures of spread", prompt: "For the data 2, 5, 7, 9, 12, find the standard deviation, to 2 decimal places.", marks: 2, calculator: true, answer: "3.41", working: "mean 7; variance = 58/5 = 11.6" },
+  { id: "al-11", grade: "", topic: "constant acceleration", prompt: "A particle starts from rest and accelerates uniformly at 4 m s⁻². How far does it travel in 3 seconds?", marks: 2, calculator: false, answer: "18 m", working: "s = ½ × 4 × 3²" },
+  { id: "al-12", grade: "", topic: "forces and motion", prompt: "A 2 kg block is pulled horizontally by a 12 N force against 4 N of friction. Find its acceleration.", marks: 2, calculator: false, answer: "4 m s⁻²", working: "F = ma: (12 − 4)/2" },
+];
+
+const IGCSE_QUESTIONS: SampleQuestion[] = [
+  { id: "ig-1", grade: "3", topic: "fractions", prompt: "Work out 3/4 ÷ 2/5. Give your answer as a mixed number.", marks: 2, calculator: false, answer: "1 7/8", working: "3/4 × 5/2 = 15/8" },
+  { id: "ig-2", grade: "4", topic: "inequalities", prompt: "Solve the inequality 5 − 2x ≥ 11.", marks: 2, calculator: false, answer: "x ≤ -3", working: "−2x ≥ 6, divide and flip" },
+  { id: "ig-3", grade: "6", topic: "proportion", prompt: "y is inversely proportional to x². When x = 2, y = 9. Find y when x = 6.", marks: 3, calculator: false, answer: "1", working: "k = 9 × 4 = 36; y = 36/36" },
+  { id: "ig-4", grade: "5", topic: "standard form", prompt: "Calculate (4.2 × 10⁵) ÷ (2 × 10²). Give your answer in standard form.", marks: 2, calculator: false, answer: "2.1 × 10³" },
+  { id: "ig-5", grade: "4", topic: "sequences", prompt: "The nth term of a sequence is 5n − 3. Is 112 a term in the sequence? Justify your answer.", marks: 2, calculator: false, answer: "Yes, n = 23", working: "5n − 3 = 112 gives 5n = 115" },
+  { id: "ig-6", grade: "5", topic: "area of a sector", prompt: "A sector has radius 6 cm and angle 60°. Find its area, to 1 decimal place. (π = 3.14)", marks: 2, calculator: false, answer: "18.8 cm²", working: "60/360 × 3.14 × 36 = 18.84" },
+  { id: "ig-7", grade: "5", topic: "simultaneous equations", prompt: "Solve the simultaneous equations 3x + y = 11 and 2x − y = 4.", marks: 3, calculator: false, answer: "x = 3, y = 2", working: "add the equations: 5x = 15" },
+  { id: "ig-8", grade: "7", topic: "differentiation", prompt: "Find dy/dx when y = x⁵ − 3x.", marks: 2, calculator: false, answer: "5x⁴ − 3" },
+  { id: "ig-9", grade: "4", topic: "compound interest", prompt: "A car worth £12,000 depreciates by 15% each year. Find its value after 2 years, to the nearest pound.", marks: 3, calculator: true, answer: "£8,670", working: "12000 × 0.85²" },
+  { id: "ig-10", grade: "5", topic: "probability", prompt: "The probability of rain on Monday is 0.3 and on Tuesday, independently, 0.4. Find the probability it rains on both days.", marks: 2, calculator: false, answer: "0.12", working: "0.3 × 0.4" },
+];
+
+const KS2_QUESTIONS: SampleQuestion[] = [
+  { id: "k2-1", grade: "KS2", topic: "addition", prompt: "Work out 6,248 + 1,767.", marks: 1, calculator: false, answer: "8,015" },
+  { id: "k2-2", grade: "KS2", topic: "multiplication", prompt: "Calculate 34 × 7.", marks: 1, calculator: false, answer: "238" },
+  { id: "k2-3", grade: "KS2", topic: "fractions of an amount", prompt: "What is 3/5 of 45?", marks: 1, calculator: false, answer: "27", working: "45 ÷ 5 = 9, 9 × 3 = 27" },
+  { id: "k2-4", grade: "KS2", topic: "rounding", prompt: "Round 4,826 to the nearest 100.", marks: 1, calculator: false, answer: "4,800" },
+  { id: "k2-5", grade: "KS2", topic: "units", prompt: "A ribbon is 2.5 metres long. How many centimetres is that?", marks: 1, calculator: false, answer: "250 cm" },
+  { id: "k2-6", grade: "KS2", topic: "fractions and decimals", prompt: "Write 0.6 as a fraction in its simplest form.", marks: 1, calculator: false, answer: "3/5" },
+  { id: "k2-7", grade: "KS2", topic: "time", prompt: "A bus leaves at 08:40 and arrives at 10:15. How long does the journey take?", marks: 2, calculator: false, answer: "1 hour 35 minutes" },
+  { id: "k2-8", grade: "KS2", topic: "angles", prompt: "Two angles in a triangle are 50° and 70°. What is the third angle?", marks: 1, calculator: false, answer: "60°", working: "180 − 50 − 70" },
+  { id: "k2-9", grade: "KS2", topic: "percentages", prompt: "What is 15% of 400?", marks: 1, calculator: false, answer: "60", working: "10% = 40, 5% = 20" },
+  { id: "k2-10", grade: "KS2", topic: "fractions", prompt: "A packet has 24 sweets. Amy eats 1/4 of them and Ben eats 1/8 of them. How many sweets are left?", marks: 2, calculator: false, answer: "15", working: "Amy 6, Ben 3, 24 − 9 = 15" },
+];
+
+const QUAL_BANKS: Record<Exclude<QualKey, "gcse">, SampleQuestion[]> = {
+  "a-level": ALEVEL_QUESTIONS,
+  "as-level": ALEVEL_QUESTIONS, // AS draws from the same bank (it is Year 1 of the course)
+  igcse: IGCSE_QUESTIONS,
+  ks2: KS2_QUESTIONS,
+};
+
+/** Deterministic per-qualification daily set — same 3 questions for everyone on a given day. */
+export function dailySetFor(qual: QualKey, date = new Date()): SampleQuestion[] {
+  if (qual === "gcse") return dailySet(date);
+  const bank = QUAL_BANKS[qual];
+  const offset = { "a-level": 101, "as-level": 202, igcse: 303, ks2: 404 }[qual];
+  const day = Math.floor(date.getTime() / 86_400_000);
+  const picks: SampleQuestion[] = [];
+  for (let i = 0; i < Math.min(3, bank.length); i++) {
+    picks.push(bank[(day * 7 + i * 53 + offset) % bank.length]);
+  }
+  return picks;
+}
+
+/**
+ * Tolerant answer check for short-answer demo questions: case/space
+ * insensitive, ignores units, currency and "x =" style prefixes, and
+ * accepts numerically-equal answers (5.0 == 5). Good enough for the
+ * self-marking demo sets — not a general-purpose grader.
+ */
+export function isAnswerCorrect(given: string, answer: string): boolean {
+  const norm = (s: string) =>
+    s
+      .trim()
+      .toLowerCase()
+      .replace(/^(x|y|n)\s*=\s*/, "")
+      .replace(/[°£$]/g, "")
+      .replace(/cm[²2]?|m[²2]?|km\/h|m\/s²|m s⁻²|m s-2|kg/g, "")
+      .replace(/\s+/g, "");
+  const g = norm(given);
+  const a = norm(answer);
+  if (!g) return false;
+  if (g === a) return true;
+  const gn = parseFloat(g.replace(/,/g, ""));
+  const an = parseFloat(a.replace(/,/g, ""));
+  if (!Number.isNaN(gn) && !Number.isNaN(an) && gn === an) return true;
+  return false;
+}

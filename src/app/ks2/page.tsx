@@ -37,14 +37,12 @@ export default function Ks2Page() {
             keep arithmetic sharp. Everything is free to download and print — no sign-up needed.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <a
-              href={`${SITE.original}/ks2/daily-greens`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/ks2/daily-greens"
               className="rounded-full border-2 border-line bg-paper px-4 py-1.5 text-sm font-semibold transition hover:bg-paper-2"
             >
               Daily Greens 🌿
-            </a>
+            </Link>
             <a
               href={`${SITE.original}/ks2/question-rush`}
               target="_blank"

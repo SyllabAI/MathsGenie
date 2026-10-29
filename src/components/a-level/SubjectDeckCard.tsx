@@ -16,14 +16,26 @@ import {
  * swings the deck open (rotateY, perspective from the left).
  * Clicking a subject with several boards opens the "Choose exam board"
  * popover (white rounded-2xl, muted header, board links).
+ *
+ * Shared by the A-Level and AS-Level hubs: pass `hrefFor` to change the
+ * link resolver (defaults to the A-Level one) and `internalSlug` to mark
+ * which subject card opens our rebuilt course page.
  */
-export default function SubjectDeckCard({ subject }: { subject: ALevelSubject }) {
+export default function SubjectDeckCard({
+  subject,
+  hrefFor = subjectHref,
+  internalSlug = "maths",
+}: {
+  subject: ALevelSubject;
+  hrefFor?: (s: ALevelSubject, board?: string) => string;
+  internalSlug?: string;
+}) {
   const [open, setOpen] = useState(false);
   const [menuPos, setMenuPos] = useState<{ left: number; top: number; above: boolean } | null>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const tint = SUBJECT_TINTS[subject.slug] ?? "#eef0f3";
   const cover = subjectCoverUrl(subject);
-  const isMaths = subject.slug === "maths";
+  const isMaths = subject.slug === internalSlug;
   const ext = !isMaths;
 
   const openMenu = () => {
@@ -137,7 +149,7 @@ export default function SubjectDeckCard({ subject }: { subject: ALevelSubject })
     <div ref={wrapRef} className="relative @container">
       {ext && !subject.boards ? (
         <a
-          href={subjectHref(subject, "aqa")}
+          href={hrefFor(subject, "aqa")}
           target="_blank"
           rel="noopener noreferrer"
           className="block"
@@ -159,7 +171,7 @@ export default function SubjectDeckCard({ subject }: { subject: ALevelSubject })
         >
           <div className="px-3 pb-1 pt-2 text-xs font-medium text-muted">Choose exam board</div>
           {subject.boards.map((b) => {
-            const href = subjectHref(subject, b.slug);
+            const href = hrefFor(subject, b.slug);
             const internal = href.startsWith("/");
             return internal ? (
               <Link

@@ -58,7 +58,7 @@ const RESOURCES = [
         desc: "A quick worksheet each day that targets your weaknesses",
         icon: "🌿",
         tint: "#d9f4e5",
-        href: `${SITE.original}/igcse/daily-greens`,
+        href: "/igcse/daily-greens",
       },
       {
         title: "Question Rush",

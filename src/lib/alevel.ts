@@ -129,7 +129,7 @@ export function alevelHubTabs(active: string): ALevelHubTab[] {
     { label: "Paper marker", href: alevelOriginalUrl(`${ALEVEL_ORIGINAL_PATH}/paper-marker`), icon: "🖊", external: true },
     { label: "Teach Genie", href: `${ALEVEL_ORIGINAL_PATH}/teach-genie`, icon: "🧞" },
     { label: "Grade calculator", href: alevelOriginalUrl(`${ALEVEL_ORIGINAL_PATH}/predicted-grade-calculator`), icon: "🎛", external: true },
-    { label: "Daily Greens", href: alevelOriginalUrl("/a-level/daily-greens"), icon: "🌿", external: true },
+    { label: "Daily Greens", href: "/a-level/daily-greens", icon: "🌿" },
   ];
   return tabs;
 }

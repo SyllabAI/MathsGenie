@@ -7,7 +7,7 @@ import { coursesByQualification, SITE } from "@/lib/data";
 const FLYOUT = [
   { label: "GCSE", href: "/gcse" },
   { label: "A Level", href: "/a-level/maths/edexcel" },
-  { label: "AS Level", href: `${SITE.original}/aslevel.php` },
+  { label: "AS Level", href: "/as-level" },
   { label: "IGCSE", href: "/igcse" },
   { label: "KS2", href: "/ks2" },
   { label: "International A Level", href: `${SITE.original}/newalevel.php` },

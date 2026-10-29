@@ -2,39 +2,50 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { dailySet } from "@/lib/questions";
+import { dailySetFor, isAnswerCorrect, type QualKey } from "@/lib/questions";
 import { Badge } from "@/components/ui/Badge";
 
-/** Daily Greens — deterministic daily set + streak tracker (localStorage). */
-export default function DailyGreensClient() {
-  const [set, setSet] = useState<ReturnType<typeof dailySet>>([]);
+/**
+ * Daily Greens — deterministic daily set + streak tracker (localStorage).
+ * One page per qualification (original has /{qual}/daily-greens for every
+ * qualification); each keeps its own streak and draws from its own bank.
+ */
+export default function DailyGreensClient({
+  qual = "gcse",
+  rushHref = "/gcse/question-rush",
+}: {
+  qual?: QualKey;
+  rushHref?: string | null;
+}) {
+  const [set, setSet] = useState<ReturnType<typeof dailySetFor>>([]);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState(false);
   const [streak, setStreak] = useState(0);
   const [doneToday, setDoneToday] = useState(false);
+  const storeKey = qual === "gcse" ? "mg-greens" : `mg-greens-${qual}`;
 
   useEffect(() => {
     // deferred: hydrate local state after mount (SSR-safe)
     const t = setTimeout(() => {
-      setSet(dailySet());
+      setSet(dailySetFor(qual));
       try {
-        const s = JSON.parse(localStorage.getItem("mg-greens") || "{}");
+        const s = JSON.parse(localStorage.getItem(storeKey) || "{}");
         setStreak(s.streak ?? 0);
         const today = new Date().toISOString().slice(0, 10);
         if (s.lastDay === today) setDoneToday(true);
       } catch {}
     }, 0);
     return () => clearTimeout(t);
-  }, []);
+  }, [qual, storeKey]);
 
   function finish() {
     const today = new Date().toISOString().slice(0, 10);
     let next = streak;
     try {
-      const s = JSON.parse(localStorage.getItem("mg-greens") || "{}");
+      const s = JSON.parse(localStorage.getItem(storeKey) || "{}");
       const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10);
       next = s.lastDay === yesterday ? (s.streak ?? 0) + 1 : 1;
-      localStorage.setItem("mg-greens", JSON.stringify({ streak: next, lastDay: today }));
+      localStorage.setItem(storeKey, JSON.stringify({ streak: next, lastDay: today }));
     } catch {
       next = 1;
     }
@@ -43,10 +54,7 @@ export default function DailyGreensClient() {
     setChecked(true);
   }
 
-  const correctCount = set.filter((q) => {
-    const given = (answers[q.id] || "").trim().toLowerCase();
-    return given && given === q.answer.trim().toLowerCase();
-  }).length;
+  const correctCount = set.filter((q) => isAnswerCorrect(answers[q.id] || "", q.answer)).length;
 
   return (
     <div>
@@ -64,7 +72,7 @@ export default function DailyGreensClient() {
             <div className="flex gap-2">
               <Badge tone="dark">Q{i + 1}</Badge>
               <Badge>{q.marks} mark{q.marks > 1 ? "s" : ""}</Badge>
-              <Badge tone="accent">Grade {q.grade}</Badge>
+              <Badge tone="accent">{q.grade ? `Grade ${q.grade}` : "Exam-style"}</Badge>
             </div>
             <p className="mt-3 font-medium">{q.prompt}</p>
             <input
@@ -74,7 +82,7 @@ export default function DailyGreensClient() {
               placeholder="Your answer…"
               className={`mt-3 w-full rounded-xl border bg-paper px-4 py-2.5 outline-none ${
                 checked
-                  ? (answers[q.id] || "").trim().toLowerCase() === q.answer.trim().toLowerCase()
+                  ? isAnswerCorrect(answers[q.id] || "", q.answer)
                     ? "border-emerald-500"
                     : "border-rose-500"
                   : "border-line"
@@ -104,9 +112,11 @@ export default function DailyGreensClient() {
           </p>
           <p className="mt-1 text-sm text-muted">
             Come back tomorrow — same time, new set.{" "}
-            <Link href="/gcse/question-rush" className="text-accent underline">
-              Or rush some questions now →
-            </Link>
+            {rushHref && (
+              <Link href={rushHref} className="text-accent underline">
+                Or rush some questions now →
+              </Link>
+            )}
           </p>
         </div>
       )}

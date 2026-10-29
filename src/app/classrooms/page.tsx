@@ -29,7 +29,7 @@ const BOARDS = ["AQA", "Edexcel", "Eduqas", "OCR", "WJEC", "CCEA"];
 
 const STARTERS = [
   { t: "Make a lesson", d: "Build a lesson for one of your classrooms.", icon: "📖", href: "/gcse/maths/edexcel/lessons" },
-  { t: "Make a test", d: "Pick the questions and set it for your class.", icon: "🧪", href: "/gcse/maths/edexcel/mock-exam-builder" },
+  { t: "Make a test", d: "Pick the questions and set it for your class.", icon: "🧪", href: "/classrooms/test" },
   { t: "Set homework", d: "Choose the tasks and send them to your class.", icon: "📝", href: "/classrooms/homework" },
 ];
 

@@ -1,0 +1,862 @@
+{
+  "qualification": "as-level",
+  "subject": "Maths",
+  "board": "edexcel",
+  "spec": "8MA0",
+  "topic_count": 24,
+  "subsection_count": 132,
+  "modules": {
+    "AS Pure Mathematics": [
+      {
+        "slug": "as-pure-mathematics-1-algebraic-expressions",
+        "title": "Algebraic Expressions",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-1-algebraic-expressions",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-1-1-index-laws",
+            "title": "Index Laws",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-1-1-index-laws"
+          },
+          {
+            "slug": "as-pure-mathematics-1-2-expanding-brackets",
+            "title": "Expanding Brackets",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-1-2-expanding-brackets"
+          },
+          {
+            "slug": "as-pure-mathematics-1-3-factorising",
+            "title": "Factorising",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-1-3-factorising"
+          },
+          {
+            "slug": "as-pure-mathematics-1-4-negative-and-fractional-indices",
+            "title": "Negative and Fractional Indices",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-1-4-negative-and-fractional-indices"
+          },
+          {
+            "slug": "as-pure-mathematics-1-5-surds",
+            "title": "Surds",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-1-5-surds"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-2-quadratics",
+        "title": "Quadratics",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-2-quadratics",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-2-1-solving-quadratics",
+            "title": "Solving Quadratics",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-2-1-solving-quadratics"
+          },
+          {
+            "slug": "as-pure-mathematics-2-2-completing-the-square",
+            "title": "Completing the Square",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-2-2-completing-the-square"
+          },
+          {
+            "slug": "as-pure-mathematics-2-3-sketching-quadratic-graphs",
+            "title": "Sketching Quadratic Graphs",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-2-3-sketching-quadratic-graphs"
+          },
+          {
+            "slug": "as-pure-mathematics-2-4-the-discriminant",
+            "title": "The Discriminant",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-2-4-the-discriminant"
+          },
+          {
+            "slug": "as-pure-mathematics-2-5-modelling-with-quadratics",
+            "title": "Modelling with Quadratics",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-2-5-modelling-with-quadratics"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-3-equations-and-inequalities",
+        "title": "Equations and Inequalities",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-3-equations-and-inequalities",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-3-1-linear-simultaneous-equations",
+            "title": "Linear Simultaneous Equations",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-3-1-linear-simultaneous-equations"
+          },
+          {
+            "slug": "as-pure-mathematics-3-2-quadratic-simultaneous-equations",
+            "title": "Quadratic Simultaneous Equations",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-3-2-quadratic-simultaneous-equations"
+          },
+          {
+            "slug": "as-pure-mathematics-3-3-simultaneous-equations-on-graphs",
+            "title": "Simultaneous Equations on Graphs",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-3-3-simultaneous-equations-on-graphs"
+          },
+          {
+            "slug": "as-pure-mathematics-3-4-linear-inequalities",
+            "title": "Linear Inequalities",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-3-4-linear-inequalities"
+          },
+          {
+            "slug": "as-pure-mathematics-3-5-quadratic-inequalities",
+            "title": "Quadratic Inequalities",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-3-5-quadratic-inequalities"
+          },
+          {
+            "slug": "as-pure-mathematics-3-6-inequalities-on-graphs",
+            "title": "Inequalities on Graphs",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-3-6-inequalities-on-graphs"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-4-graphs-and-transformations",
+        "title": "Graphs and Transformations",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-4-graphs-and-transformations",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-4-1-cubic-graphs",
+            "title": "Cubic Graphs",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-4-1-cubic-graphs"
+          },
+          {
+            "slug": "as-pure-mathematics-4-2-quartic-graphs",
+            "title": "Quartic Graphs",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-4-2-quartic-graphs"
+          },
+          {
+            "slug": "as-pure-mathematics-4-3-reciprocal-graphs",
+            "title": "Reciprocal Graphs",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-4-3-reciprocal-graphs"
+          },
+          {
+            "slug": "as-pure-mathematics-4-4-points-of-intersection",
+            "title": "Points of Intersection",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-4-4-points-of-intersection"
+          },
+          {
+            "slug": "as-pure-mathematics-4-5-translating-graphs",
+            "title": "Translating Graphs",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-4-5-translating-graphs"
+          },
+          {
+            "slug": "as-pure-mathematics-4-6-stretching-graphs",
+            "title": "Stretching Graphs",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-4-6-stretching-graphs"
+          },
+          {
+            "slug": "as-pure-mathematics-4-7-transforming-functions",
+            "title": "Transforming Functions",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-4-7-transforming-functions"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-5-straight-line-graphs",
+        "title": "Straight Line Graphs",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-5-straight-line-graphs",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-5-1-y-mx-c",
+            "title": "y = mx + c",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-5-1-y-mx-c"
+          },
+          {
+            "slug": "as-pure-mathematics-5-2-equations-of-straight-lines",
+            "title": "Equations of Straight Lines",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-5-2-equations-of-straight-lines"
+          },
+          {
+            "slug": "as-pure-mathematics-5-3-parallel-and-perpendicular-lines",
+            "title": "Parallel and Perpendicular Lines",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-5-3-parallel-and-perpendicular-lines"
+          },
+          {
+            "slug": "as-pure-mathematics-5-4-length-and-area",
+            "title": "Length and Area",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-5-4-length-and-area"
+          },
+          {
+            "slug": "as-pure-mathematics-5-5-modelling-with-straight-lines",
+            "title": "Modelling with Straight Lines",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-5-5-modelling-with-straight-lines"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-6-circles",
+        "title": "Circles",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-6-circles",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-6-1-midpoints-and-perpendicular-bisector",
+            "title": "Midpoints and Perpendicular Bisectors",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-6-1-midpoints-and-perpendicular-bisector"
+          },
+          {
+            "slug": "as-pure-mathematics-6-2-equation-of-a-circle",
+            "title": "Equation of a Circle",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-6-2-equation-of-a-circle"
+          },
+          {
+            "slug": "as-pure-mathematics-6-3-intersections-of-straight-lines-and-",
+            "title": "Intersections of Straight Lines and Circles",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-6-3-intersections-of-straight-lines-and-"
+          },
+          {
+            "slug": "as-pure-mathematics-6-4-use-tangent-and-chord-properties",
+            "title": "Tangent and Chord Properties",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-6-4-use-tangent-and-chord-properties"
+          },
+          {
+            "slug": "as-pure-mathematics-6-5-circles-and-triangles",
+            "title": "Circles and Triangles",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-6-5-circles-and-triangles"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-7-algebraic-methods",
+        "title": "Algebraic Methods",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-7-algebraic-methods",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-7-1-algebraic-fractions",
+            "title": "Algebraic Fractions",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-7-1-algebraic-fractions"
+          },
+          {
+            "slug": "as-pure-mathematics-7-2-dividing-polynomials",
+            "title": "Dividing Polynomials",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-7-2-dividing-polynomials"
+          },
+          {
+            "slug": "as-pure-mathematics-7-3-the-factor-theorem",
+            "title": "The Factor Theorem",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-7-3-the-factor-theorem"
+          },
+          {
+            "slug": "as-pure-mathematics-7-4-mathematical-proof",
+            "title": "Mathematical Proof",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-7-4-mathematical-proof"
+          },
+          {
+            "slug": "as-pure-mathematics-7-5-methods-of-proof",
+            "title": "Methods of Proof",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-7-5-methods-of-proof"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-8-the-binomial-expansion",
+        "title": "The Binomial Expansion",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-8-the-binomial-expansion",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-8-1-pascal-s-triangle",
+            "title": "Pascal's Triangle",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-8-1-pascal-s-triangle"
+          },
+          {
+            "slug": "as-pure-mathematics-8-2-factorial-notation",
+            "title": "Factorial Notation",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-8-2-factorial-notation"
+          },
+          {
+            "slug": "as-pure-mathematics-8-3-the-binomial-expansion",
+            "title": "The Binomial Expansion",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-8-3-the-binomial-expansion"
+          },
+          {
+            "slug": "as-pure-mathematics-8-4-solving-binomial-problems",
+            "title": "Solving Binomial Problems",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-8-4-solving-binomial-problems"
+          },
+          {
+            "slug": "as-pure-mathematics-8-5-binomial-estimation",
+            "title": "Binomial Estimation",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-8-5-binomial-estimation"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-9-trigonometric-ratios",
+        "title": "Trigonometric Ratios",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-9-trigonometric-ratios",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-9-1-the-cosine-rule",
+            "title": "The Cosine Rule",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-9-1-the-cosine-rule"
+          },
+          {
+            "slug": "as-pure-mathematics-9-2-the-sine-rule",
+            "title": "The Sine Rule",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-9-2-the-sine-rule"
+          },
+          {
+            "slug": "as-pure-mathematics-9-3-areas-of-triangles",
+            "title": "Areas of Triangles",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-9-3-areas-of-triangles"
+          },
+          {
+            "slug": "as-pure-mathematics-9-4-solving-triangle-problems",
+            "title": "Solving Triangle Problems",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-9-4-solving-triangle-problems"
+          },
+          {
+            "slug": "as-pure-mathematics-9-5-graphs-of-sine-cosine-and-tangent",
+            "title": "Graphs of Sine, Cosine and Tangent",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-9-5-graphs-of-sine-cosine-and-tangent"
+          },
+          {
+            "slug": "as-pure-mathematics-9-6-transforming-trigonometric-graphs",
+            "title": "Transforming Trigonometric Graphs",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-9-6-transforming-trigonometric-graphs"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-10-trigonometric-identities-and-equation",
+        "title": "Trigonometric Identities and Equations",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-10-trigonometric-identities-and-equation",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-10-1-angles-in-all-four-quadrants",
+            "title": "Angles in All Four Quadrants",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-10-1-angles-in-all-four-quadrants"
+          },
+          {
+            "slug": "as-pure-mathematics-10-2-exact-values-of-trigonometric-ratio",
+            "title": "Exact Values of Trigonometric Ratios",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-10-2-exact-values-of-trigonometric-ratio"
+          },
+          {
+            "slug": "as-pure-mathematics-10-3-trigonometric-identities",
+            "title": "Trigonometric Identities",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-10-3-trigonometric-identities"
+          },
+          {
+            "slug": "as-pure-mathematics-10-4-solving-trigonometric-equations",
+            "title": "Solving Trigonometric Equations",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-10-4-solving-trigonometric-equations"
+          },
+          {
+            "slug": "as-pure-mathematics-10-5-harder-trigonometric-equations",
+            "title": "Harder Trigonometric Equations",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-10-5-harder-trigonometric-equations"
+          },
+          {
+            "slug": "as-pure-mathematics-10-6-equations-and-identities",
+            "title": "Equations and Identities",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-10-6-equations-and-identities"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-11-vectors",
+        "title": "Vectors",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-11-vectors",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-11-1-vectors",
+            "title": "Introduction to Vectors",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-11-1-vectors"
+          },
+          {
+            "slug": "as-pure-mathematics-11-2-representing-vectors",
+            "title": "Representing Vectors",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-11-2-representing-vectors"
+          },
+          {
+            "slug": "as-pure-mathematics-11-3-magnitude-and-direction",
+            "title": "Magnitude and Direction",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-11-3-magnitude-and-direction"
+          },
+          {
+            "slug": "as-pure-mathematics-11-4-position-vectors",
+            "title": "Position Vectors",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-11-4-position-vectors"
+          },
+          {
+            "slug": "as-pure-mathematics-11-5-solving-geometric-problems",
+            "title": "Solving Geometric Problems",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-11-5-solving-geometric-problems"
+          },
+          {
+            "slug": "as-pure-mathematics-11-6-modelling-with-vectors",
+            "title": "Modelling with Vectors",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-11-6-modelling-with-vectors"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-12-differentiation",
+        "title": "Differentiation",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-12-differentiation",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-12-1-gradients-of-curves",
+            "title": "Gradients of Curves",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-1-gradients-of-curves"
+          },
+          {
+            "slug": "as-pure-mathematics-12-2-differentiation-from-first-principl",
+            "title": "Differentiation from First Principles",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-2-differentiation-from-first-principl"
+          },
+          {
+            "slug": "as-pure-mathematics-12-3-differentiating-x-n",
+            "title": "Differentiating x^n",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-3-differentiating-x-n"
+          },
+          {
+            "slug": "as-pure-mathematics-12-4-differentiating-quadratics",
+            "title": "Differentiating Quadratics",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-4-differentiating-quadratics"
+          },
+          {
+            "slug": "as-pure-mathematics-12-5-differentiating-functions-with-two-",
+            "title": "Differentiating Functions with Two Terms",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-5-differentiating-functions-with-two-"
+          },
+          {
+            "slug": "as-pure-mathematics-12-6-gradients-tangents-and-normals",
+            "title": "Gradients, Tangents and Normals",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-6-gradients-tangents-and-normals"
+          },
+          {
+            "slug": "as-pure-mathematics-12-7-increasing-and-decreasing-functions",
+            "title": "Increasing and Decreasing Functions",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-7-increasing-and-decreasing-functions"
+          },
+          {
+            "slug": "as-pure-mathematics-12-8-second-order-derivatives",
+            "title": "Second Order Derivatives",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-8-second-order-derivatives"
+          },
+          {
+            "slug": "as-pure-mathematics-12-9-stationary-points",
+            "title": "Stationary Points",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-9-stationary-points"
+          },
+          {
+            "slug": "as-pure-mathematics-12-10-sketching-gradient-functions",
+            "title": "Sketching Gradient Functions",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-10-sketching-gradient-functions"
+          },
+          {
+            "slug": "as-pure-mathematics-12-11-modelling-with-differentiation",
+            "title": "Modelling with Differentiation",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-12-11-modelling-with-differentiation"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-13-integration",
+        "title": "Integration",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-13-integration",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-13-1-integrating-x-n",
+            "title": "Integrating x^n",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-13-1-integrating-x-n"
+          },
+          {
+            "slug": "as-pure-mathematics-13-2-indefinite-integrals",
+            "title": "Indefinite Integrals",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-13-2-indefinite-integrals"
+          },
+          {
+            "slug": "as-pure-mathematics-13-3-finding-functions",
+            "title": "Finding Functions",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-13-3-finding-functions"
+          },
+          {
+            "slug": "as-pure-mathematics-13-4-definite-integrals",
+            "title": "Definite Integrals",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-13-4-definite-integrals"
+          },
+          {
+            "slug": "as-pure-mathematics-13-5-areas-under-curves",
+            "title": "Areas Under Curves",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-13-5-areas-under-curves"
+          },
+          {
+            "slug": "as-pure-mathematics-13-6-areas-under-the-x-axis",
+            "title": "Areas Under the x-axis",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-13-6-areas-under-the-x-axis"
+          },
+          {
+            "slug": "as-pure-mathematics-13-7-areas-between-curves-and-lines",
+            "title": "Areas Between Curves and Lines",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-13-7-areas-between-curves-and-lines"
+          }
+        ]
+      },
+      {
+        "slug": "as-pure-mathematics-14-exponentials-and-logarithms",
+        "title": "Exponentials and Logarithms",
+        "href": "/as-level/maths/edexcel/as-pure-mathematics-14-exponentials-and-logarithms",
+        "subsections": [
+          {
+            "slug": "as-pure-mathematics-14-1-exponential-functions",
+            "title": "Exponential Functions",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-14-1-exponential-functions"
+          },
+          {
+            "slug": "as-pure-mathematics-14-2-y-e-x",
+            "title": "y = e^x",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-14-2-y-e-x"
+          },
+          {
+            "slug": "as-pure-mathematics-14-3-exponential-modelling",
+            "title": "Exponential Modelling",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-14-3-exponential-modelling"
+          },
+          {
+            "slug": "as-pure-mathematics-14-4-logarithms",
+            "title": "Logarithms",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-14-4-logarithms"
+          },
+          {
+            "slug": "as-pure-mathematics-14-5-laws-of-logarithms",
+            "title": "Laws of Logarithms",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-14-5-laws-of-logarithms"
+          },
+          {
+            "slug": "as-pure-mathematics-14-6-solving-equations-using-logarithms",
+            "title": "Solving Equations Using Logarithms",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-14-6-solving-equations-using-logarithms"
+          },
+          {
+            "slug": "as-pure-mathematics-14-7-working-with-natural-logarithms",
+            "title": "Working with Natural Logarithms",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-14-7-working-with-natural-logarithms"
+          },
+          {
+            "slug": "as-pure-mathematics-14-8-logarithms-and-non-linear-data",
+            "title": "Logarithms and Non-linear Data",
+            "href": "/as-level/maths/edexcel/as-pure-mathematics-14-8-logarithms-and-non-linear-data"
+          }
+        ]
+      }
+    ],
+    "AS Statistics": [
+      {
+        "slug": "as-statistics-1-data-collection",
+        "title": "Data Collection",
+        "href": "/as-level/maths/edexcel/as-statistics-1-data-collection",
+        "subsections": [
+          {
+            "slug": "as-statistics-populations-and-samples",
+            "title": "Populations and Samples",
+            "href": "/as-level/maths/edexcel/as-statistics-populations-and-samples"
+          },
+          {
+            "slug": "as-statistics-sampling",
+            "title": "Sampling",
+            "href": "/as-level/maths/edexcel/as-statistics-sampling"
+          },
+          {
+            "slug": "as-statistics-non-random-sampling",
+            "title": "Non-random Sampling",
+            "href": "/as-level/maths/edexcel/as-statistics-non-random-sampling"
+          },
+          {
+            "slug": "as-statistics-types-of-data",
+            "title": "Types of Data",
+            "href": "/as-level/maths/edexcel/as-statistics-types-of-data"
+          },
+          {
+            "slug": "as-statistics-the-large-data-set",
+            "title": "The Large Data Set",
+            "href": "/as-level/maths/edexcel/as-statistics-the-large-data-set"
+          }
+        ]
+      },
+      {
+        "slug": "as-statistics-2-measures-of-location-and-spread",
+        "title": "Measures of Location and Spread",
+        "href": "/as-level/maths/edexcel/as-statistics-2-measures-of-location-and-spread",
+        "subsections": [
+          {
+            "slug": "as-statistics-measures-of-central-tendency",
+            "title": "Measures of Central Tendency",
+            "href": "/as-level/maths/edexcel/as-statistics-measures-of-central-tendency"
+          },
+          {
+            "slug": "as-statistics-other-measures-of-location",
+            "title": "Other Measures of Location",
+            "href": "/as-level/maths/edexcel/as-statistics-other-measures-of-location"
+          },
+          {
+            "slug": "as-statistics-measures-of-spread",
+            "title": "Measures of Spread",
+            "href": "/as-level/maths/edexcel/as-statistics-measures-of-spread"
+          },
+          {
+            "slug": "as-statistics-variance-and-standard-deviation",
+            "title": "Variance and Standard Deviation",
+            "href": "/as-level/maths/edexcel/as-statistics-variance-and-standard-deviation"
+          },
+          {
+            "slug": "as-statistics-coding",
+            "title": "Coding",
+            "href": "/as-level/maths/edexcel/as-statistics-coding"
+          },
+          {
+            "slug": "as-statistics-outliers",
+            "title": "Outliers",
+            "href": "/as-level/maths/edexcel/as-statistics-outliers"
+          },
+          {
+            "slug": "as-statistics-comparing-data",
+            "title": "Comparing Data",
+            "href": "/as-level/maths/edexcel/as-statistics-comparing-data"
+          }
+        ]
+      },
+      {
+        "slug": "as-statistics-3-representations-of-data",
+        "title": "Representations of Data",
+        "href": "/as-level/maths/edexcel/as-statistics-3-representations-of-data",
+        "subsections": [
+          {
+            "slug": "as-statistics-histograms",
+            "title": "Histograms",
+            "href": "/as-level/maths/edexcel/as-statistics-histograms"
+          },
+          {
+            "slug": "as-statistics-box-plots",
+            "title": "Box Plots",
+            "href": "/as-level/maths/edexcel/as-statistics-box-plots"
+          },
+          {
+            "slug": "as-statistics-cumulative-frequency",
+            "title": "Cumulative Frequency",
+            "href": "/as-level/maths/edexcel/as-statistics-cumulative-frequency"
+          }
+        ]
+      },
+      {
+        "slug": "as-statistics-4-correlation",
+        "title": "Correlation",
+        "href": "/as-level/maths/edexcel/as-statistics-4-correlation",
+        "subsections": [
+          {
+            "slug": "as-statistics-correlation",
+            "title": "Correlation",
+            "href": "/as-level/maths/edexcel/as-statistics-correlation"
+          },
+          {
+            "slug": "as-statistics-linear-regression",
+            "title": "Linear Regression",
+            "href": "/as-level/maths/edexcel/as-statistics-linear-regression"
+          }
+        ]
+      },
+      {
+        "slug": "as-statistics-5-probability",
+        "title": "Probability",
+        "href": "/as-level/maths/edexcel/as-statistics-5-probability",
+        "subsections": [
+          {
+            "slug": "as-statistics-calculating-probabilities",
+            "title": "Calculating Probabilities",
+            "href": "/as-level/maths/edexcel/as-statistics-calculating-probabilities"
+          },
+          {
+            "slug": "as-statistics-venn-diagrams",
+            "title": "Venn Diagrams",
+            "href": "/as-level/maths/edexcel/as-statistics-venn-diagrams"
+          },
+          {
+            "slug": "as-statistics-tree-diagrams",
+            "title": "Tree Diagrams",
+            "href": "/as-level/maths/edexcel/as-statistics-tree-diagrams"
+          },
+          {
+            "slug": "as-statistics-mutually-exclusive-and-independent-events",
+            "title": "Mutually Exclusive and Independent Events",
+            "href": "/as-level/maths/edexcel/as-statistics-mutually-exclusive-and-independent-events"
+          }
+        ]
+      },
+      {
+        "slug": "as-statistics-6-statistical-distributions",
+        "title": "Statistical Distributions",
+        "href": "/as-level/maths/edexcel/as-statistics-6-statistical-distributions",
+        "subsections": [
+          {
+            "slug": "as-statistics-probability-distributions",
+            "title": "Probability Distributions",
+            "href": "/as-level/maths/edexcel/as-statistics-probability-distributions"
+          },
+          {
+            "slug": "as-statistics-the-binomial-distribution",
+            "title": "The Binomial Distribution",
+            "href": "/as-level/maths/edexcel/as-statistics-the-binomial-distribution"
+          },
+          {
+            "slug": "as-statistics-cumulative-probabilities",
+            "title": "Cumulative Probabilities",
+            "href": "/as-level/maths/edexcel/as-statistics-cumulative-probabilities"
+          }
+        ]
+      },
+      {
+        "slug": "as-statistics-7-hypothesis-testing",
+        "title": "Hypothesis Testing",
+        "href": "/as-level/maths/edexcel/as-statistics-7-hypothesis-testing",
+        "subsections": [
+          {
+            "slug": "as-statistics-hypothesis-testing",
+            "title": "Hypothesis Testing",
+            "href": "/as-level/maths/edexcel/as-statistics-hypothesis-testing"
+          },
+          {
+            "slug": "as-statistics-finding-critical-values",
+            "title": "Finding Critical Values",
+            "href": "/as-level/maths/edexcel/as-statistics-finding-critical-values"
+          },
+          {
+            "slug": "as-statistics-one-tailed-tests",
+            "title": "One-tailed Tests",
+            "href": "/as-level/maths/edexcel/as-statistics-one-tailed-tests"
+          },
+          {
+            "slug": "as-statistics-two-tailed-tests",
+            "title": "Two-tailed Tests",
+            "href": "/as-level/maths/edexcel/as-statistics-two-tailed-tests"
+          }
+        ]
+      }
+    ],
+    "AS Mechanics": [
+      {
+        "slug": "as-mechanics-1-constant-acceleration",
+        "title": "Constant Acceleration",
+        "href": "/as-level/maths/edexcel/as-mechanics-1-constant-acceleration",
+        "subsections": [
+          {
+            "slug": "as-mechanics-quantities-and-units",
+            "title": "Quantities and Units",
+            "href": "/as-level/maths/edexcel/as-mechanics-quantities-and-units"
+          },
+          {
+            "slug": "as-mechanics-constant-acceleration-formulae",
+            "title": "Constant Acceleration Formulae",
+            "href": "/as-level/maths/edexcel/as-mechanics-constant-acceleration-formulae"
+          },
+          {
+            "slug": "as-mechanics-displacement-time-graphs",
+            "title": "Displacement-Time Graphs",
+            "href": "/as-level/maths/edexcel/as-mechanics-displacement-time-graphs"
+          },
+          {
+            "slug": "as-mechanics-velocity-time-graphs",
+            "title": "Velocity-Time Graphs",
+            "href": "/as-level/maths/edexcel/as-mechanics-velocity-time-graphs"
+          },
+          {
+            "slug": "as-mechanics-vertical-motion-under-gravity",
+            "title": "Vertical Motion Under Gravity",
+            "href": "/as-level/maths/edexcel/as-mechanics-vertical-motion-under-gravity"
+          }
+        ]
+      },
+      {
+        "slug": "as-mechanics-2-forces-and-motion",
+        "title": "Forces and Motion",
+        "href": "/as-level/maths/edexcel/as-mechanics-2-forces-and-motion",
+        "subsections": [
+          {
+            "slug": "as-mechanics-modelling-assumptions",
+            "title": "Modelling Assumptions",
+            "href": "/as-level/maths/edexcel/as-mechanics-modelling-assumptions"
+          },
+          {
+            "slug": "as-mechanics-force-diagrams",
+            "title": "Force Diagrams",
+            "href": "/as-level/maths/edexcel/as-mechanics-force-diagrams"
+          },
+          {
+            "slug": "as-mechanics-forces-as-vectors",
+            "title": "Forces as Vectors",
+            "href": "/as-level/maths/edexcel/as-mechanics-forces-as-vectors"
+          },
+          {
+            "slug": "as-mechanics-forces-and-acceleration",
+            "title": "Forces and Acceleration",
+            "href": "/as-level/maths/edexcel/as-mechanics-forces-and-acceleration"
+          },
+          {
+            "slug": "as-mechanics-pulleys",
+            "title": "Pulleys",
+            "href": "/as-level/maths/edexcel/as-mechanics-pulleys"
+          },
+          {
+            "slug": "as-mechanics-connected-particles",
+            "title": "Connected Particles",
+            "href": "/as-level/maths/edexcel/as-mechanics-connected-particles"
+          }
+        ]
+      },
+      {
+        "slug": "as-mechanics-3-variable-acceleration",
+        "title": "Variable Acceleration",
+        "href": "/as-level/maths/edexcel/as-mechanics-3-variable-acceleration",
+        "subsections": [
+          {
+            "slug": "as-mechanics-functions-of-time",
+            "title": "Functions of Time",
+            "href": "/as-level/maths/edexcel/as-mechanics-functions-of-time"
+          },
+          {
+            "slug": "as-mechanics-using-differentiation",
+            "title": "Using Differentiation",
+            "href": "/as-level/maths/edexcel/as-mechanics-using-differentiation"
+          },
+          {
+            "slug": "as-mechanics-using-integration",
+            "title": "Using Integration",
+            "href": "/as-level/maths/edexcel/as-mechanics-using-integration"
+          },
+          {
+            "slug": "as-mechanics-motion-in-2-dimensions",
+            "title": "Motion in 2 Dimensions",
+            "href": "/as-level/maths/edexcel/as-mechanics-motion-in-2-dimensions"
+          },
+          {
+            "slug": "as-mechanics-maxima-and-minima-problems",
+            "title": "Maxima and Minima Problems",
+            "href": "/as-level/maths/edexcel/as-mechanics-maxima-and-minima-problems"
+          },
+          {
+            "slug": "as-mechanics-working-with-vectors",
+            "title": "Working with Vectors",
+            "href": "/as-level/maths/edexcel/as-mechanics-working-with-vectors"
+          }
+        ]
+      }
+    ]
+  },
+  "assessment": [
+    {
+      "paper": "Paper 1 (Pure Mathematics)",
+      "format": "Written exam",
+      "duration": "2h",
+      "marks": "100 marks",
+      "weight": "62.5%"
+    },
+    {
+      "paper": "Paper 2 (Statistics and Mechanics)",
+      "format": "Written exam",
+      "duration": "1h 15m",
+      "marks": "60 marks",
+      "weight": "37.5%"
+    }
+  ],
+  "captured": "2026-10-29",
+  "source": "mathsgenie.co.uk/as-level/maths/edexcel (RSC payload)"
+}

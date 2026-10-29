@@ -2,19 +2,32 @@
 
 import { useMemo, useState } from "react";
 import SubjectDeckCard from "@/components/a-level/SubjectDeckCard";
-import { ALEVEL_SUBJECTS } from "@/lib/alevel-subjects";
+import { ALEVEL_SUBJECTS, subjectHref, type ALevelSubject } from "@/lib/alevel-subjects";
 
 /**
- * /a-level hub body — "A Level Subjects" with live search, a
- * horizontally-snapping "Popular" shelf and an "Other subjects" grid,
- * every card rendered as the original's 3D deck tile.
+ * Qualification subjects hub body — "A Level Subjects" / "AS Level Subjects"
+ * with live search, a horizontally-snapping "Popular" shelf and an
+ * "Other subjects" grid, every card rendered as the original's 3D deck tile.
+ * Generalized so the AS-Level hub can reuse the exact layout.
  */
-export default function ALevelHub() {
+export default function ALevelHub({
+  title = "A Level Subjects",
+  subjects = ALEVEL_SUBJECTS,
+  hrefFor = subjectHref,
+  internalCourse = "/a-level/maths/edexcel",
+  courseName = "A Level Maths",
+}: {
+  title?: string;
+  subjects?: ALevelSubject[];
+  hrefFor?: (s: ALevelSubject, board?: string) => string;
+  internalCourse?: string;
+  courseName?: string;
+}) {
   const [q, setQ] = useState("");
   const query = q.trim().toLowerCase();
   const filtered = useMemo(
-    () => ALEVEL_SUBJECTS.filter((s) => s.name.toLowerCase().includes(query)),
-    [query]
+    () => subjects.filter((s) => s.name.toLowerCase().includes(query)),
+    [query, subjects]
   );
   const popular = filtered.filter((s) => s.popular);
   const others = filtered.filter((s) => !s.popular);
@@ -27,7 +40,7 @@ export default function ALevelHub() {
           <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" strokeLinejoin="round" />
           <path d="M9 7h7M9 10.5h5" strokeLinecap="round" />
         </svg>
-        <h1 className="text-3xl font-extrabold tracking-tight">A Level Subjects</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight">{title}</h1>
       </div>
 
       <div className="relative mt-5 max-w-sm">
@@ -51,7 +64,7 @@ export default function ALevelHub() {
           <div className="-mx-4 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
             {popular.map((s) => (
               <div key={s.slug} className="w-[136px] flex-none snap-start sm:w-[172px]">
-                <SubjectDeckCard subject={s} />
+                <SubjectDeckCard subject={s} hrefFor={hrefFor} />
               </div>
             ))}
           </div>
@@ -63,7 +76,7 @@ export default function ALevelHub() {
           <h2 className="text-lg font-bold">Other subjects</h2>
           <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {others.map((s) => (
-              <SubjectDeckCard key={s.slug} subject={s} />
+              <SubjectDeckCard key={s.slug} subject={s} hrefFor={hrefFor} />
             ))}
           </div>
         </section>
@@ -72,8 +85,8 @@ export default function ALevelHub() {
       {filtered.length === 0 && (
         <p className="mt-12 text-center text-sm text-muted">
           No subjects match “{q}”. All of our rebuilt content lives under{" "}
-          <a href="/a-level/maths/edexcel" className="font-semibold text-accent hover:underline">
-            A Level Maths
+          <a href={internalCourse} className="font-semibold text-accent hover:underline">
+            {courseName}
           </a>
           .
         </p>
