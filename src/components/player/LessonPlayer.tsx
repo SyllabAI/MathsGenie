@@ -119,7 +119,9 @@ export default function LessonPlayer({
   const [selected, setSelected] = useState<number | null>(null);
   const [checked, setChecked] = useState(false);
   const [inputVal, setInputVal] = useState("");
-  // "order" steps: slot i holds an index into step.items (null = empty)
+  /* "order" steps: slot i holds an index into step.items (null = empty).
+     Derived board: until placements arrive the slots render empty, so no
+     effect is needed to size the board when the step changes. */
   const [orderSlots, setOrderSlots] = useState<(number | null)[]>([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [genieOpen, setGenieOpen] = useState(false);
@@ -135,17 +137,6 @@ export default function LessonPlayer({
     ? (step.paragraphs ?? step.lines ?? []).length
     : 0;
 
-  const answerCorrect = useMemo(() => {
-    if (!checked) return false;
-    if (step.kind === "mcq") return selected !== null && step.options[selected]?.correct;
-    if (step.kind === "order") return orderSlots.every((s, i) => s === i);
-    if (step.kind !== "fill" && step.kind !== "input") return false;
-    const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, "");
-    return norm(inputVal) === norm(step.answer);
-  }, [checked, selected, inputVal, step, orderSlots]);
-
-  /* "order" steps: chips shown in a stable seeded shuffle so the answer
-     order never equals the display order and refresh keeps the layout. */
   const orderDeck = useMemo(() => {
     if (step.kind !== "order") return [];
     const n = step.items.length;
@@ -163,12 +154,23 @@ export default function LessonPlayer({
     return deck;
   }, [step, stepIdx, title]);
 
-  const slotsFull = step.kind === "order" && orderSlots.every((s) => s !== null);
+  const orderBoard: (number | null)[] =
+    step.kind === "order"
+      ? orderSlots.length === step.items.length
+        ? orderSlots
+        : step.items.map(() => null)
+      : [];
 
-  // entering an order step: size the slot board to the item count
-  useEffect(() => {
-    if (step.kind === "order") setOrderSlots(step.items.map(() => null));
-  }, [step]);
+  const slotsFull = step.kind === "order" && orderBoard.every((s) => s !== null);
+
+  const answerCorrect = useMemo(() => {
+    if (!checked) return false;
+    if (step.kind === "mcq") return selected !== null && step.options[selected]?.correct;
+    if (step.kind === "order") return orderBoard.every((s, i) => s === i);
+    if (step.kind !== "fill" && step.kind !== "input") return false;
+    const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, "");
+    return norm(inputVal) === norm(step.answer);
+  }, [checked, selected, inputVal, step, orderBoard]);
 
   const canAdvance = finished
     ? false
@@ -217,37 +219,6 @@ export default function LessonPlayer({
     advance();
   };
 
-  // keyboard: Enter advances / checks
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key !== "Enter") return;
-      const tag = (e.target as HTMLElement)?.tagName;
-      if (step.kind === "order") {
-        if (!checked && orderSlots.every((s) => s !== null) && orderSlots.length) onCheckOrderRef.current();
-        else if (checked) advance();
-        return;
-      }
-      if (tag === "INPUT" && !checked && needsAnswer) {
-        if (inputVal.trim() === "") return;
-        setChecked(true);
-        if ((step.kind === "fill" || step.kind === "input") &&
-            inputVal.trim().toLowerCase().replace(/\s+/g, "") !==
-              step.answer.toLowerCase().replace(/\s+/g, "")) {
-          setWrongCount((w) => w + 1);
-        }
-        return;
-      }
-      if (tag === "INPUT") {
-        (e.target as HTMLInputElement).blur();
-        advance();
-        return;
-      }
-      advance();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [advance, checked, needsAnswer, inputVal, step, orderSlots]);
-
   // lock body scroll while the player is open
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -294,21 +265,21 @@ export default function LessonPlayer({
     if (norm(inputVal) !== norm(step.answer)) setWrongCount((w) => w + 1);
   };
 
-  const onCheckOrder = () => {
-    if (checked || step.kind !== "order" || !slotsFull) return;
+  const onCheckOrder = useCallback(() => {
+    if (checked || step.kind !== "order" || !orderBoard.every((s) => s !== null)) return;
     setChecked(true);
-    if (!orderSlots.every((s, i) => s === i)) setWrongCount((w) => w + 1);
-  };
+    if (!orderBoard.every((s, i) => s === i)) setWrongCount((w) => w + 1);
+  }, [checked, step, orderBoard]);
 
   const onPlaceChip = (deckPos: number) => {
     if (checked || step.kind !== "order") return;
     const item = orderDeck[deckPos];
     setOrderSlots((slots) => {
-      if (slots.includes(item)) return slots; // already placed
-      const next = [...slots];
-      while (next.length < step.items.length) next.push(null);
+      const board = slots.length === step.items.length ? slots : step.items.map(() => null);
+      if (board.includes(item)) return board; // already placed
+      const next = [...board];
       const empty = next.indexOf(null);
-      if (empty === -1) return slots;
+      if (empty === -1) return board;
       next[empty] = item;
       return next;
     });
@@ -316,7 +287,10 @@ export default function LessonPlayer({
 
   const onRemoveChip = (slotIdx: number) => {
     if (checked || step.kind !== "order") return;
-    setOrderSlots((slots) => slots.map((s, i) => (i === slotIdx ? null : s)));
+    setOrderSlots((slots) => {
+      const board = slots.length === step.items.length ? slots : step.items.map(() => null);
+      return board.map((s, i) => (i === slotIdx ? null : s));
+    });
   };
 
   const onSkipOrder = () => {
@@ -325,9 +299,37 @@ export default function LessonPlayer({
     setChecked(true);
   };
 
-  // stable ref so the Enter-key handler always sees the latest check fn
-  const onCheckOrderRef = useRef(onCheckOrder);
-  onCheckOrderRef.current = onCheckOrder;
+  // keyboard: Enter advances / checks (defined after onCheckOrder so the
+  // handler closes over stable, declared values)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Enter") return;
+      const tag = (e.target as HTMLElement)?.tagName;
+      if (step.kind === "order") {
+        if (!checked && orderBoard.every((s) => s !== null) && orderBoard.length) onCheckOrder();
+        else if (checked) advance();
+        return;
+      }
+      if (tag === "INPUT" && !checked && needsAnswer) {
+        if (inputVal.trim() === "") return;
+        setChecked(true);
+        if ((step.kind === "fill" || step.kind === "input") &&
+            inputVal.trim().toLowerCase().replace(/\s+/g, "") !==
+              step.answer.toLowerCase().replace(/\s+/g, "")) {
+          setWrongCount((w) => w + 1);
+        }
+        return;
+      }
+      if (tag === "INPUT") {
+        (e.target as HTMLInputElement).blur();
+        advance();
+        return;
+      }
+      advance();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [advance, checked, needsAnswer, inputVal, step, orderBoard, onCheckOrder]);
 
   type FeedbackBody = { good: boolean; title: string; text: string } | null;
   const feedbackBody: FeedbackBody = useMemo(() => {
@@ -629,7 +631,7 @@ export default function LessonPlayer({
                   <p className="text-lg font-medium">{step.question}</p>
                   {/* numbered slots */}
                   <div className="mt-6 w-full space-y-2">
-                    {orderSlots.map((slotItem, slotIdx) => {
+                    {orderBoard.map((slotItem, slotIdx) => {
                       const good = checked && slotItem === slotIdx;
                       const bad = checked && slotItem !== null && slotItem !== slotIdx;
                       return (
@@ -699,7 +701,7 @@ export default function LessonPlayer({
                   {/* chip bank */}
                   <div className="mt-6 flex w-full flex-wrap justify-center gap-3">
                     {orderDeck.map((item, deckPos) => {
-                      const placed = orderSlots.includes(item);
+                      const placed = orderBoard.includes(item);
                       return (
                         <button
                           key={`${item}-${deckPos}`}

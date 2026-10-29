@@ -114,3 +114,58 @@ completed" progress. Mirrored by our LessonsHub.
   top-right: "Welcome offer: 40% off … Ends in 3d 13h …" with Dismiss.
 - Header chips: Updates (5) · 3 XP · 20 energy left · 4 day streak ·
   Profile avatar.
+
+## 6. Question player — focus mode + popover system (live, 2026-10-29)
+
+Route `/gcse/maths/edexcel/<topic>/questions/q1` — full-screen focus
+mode: left "Study navigation" rail + H1 + Easy/Medium/Hard tabs +
+numbered pagination (cyan filled current, arrows each side) + question
+card.
+
+**Toolbar (right of the card header):** Revision notes (doc icon) ·
+**Highlight** (pen, toggles mode) · **Watch walkthrough** (play) ·
+**Mark as complete** (green check) · **Markscheme** pill ·
+**More options** kebab (`role=menu`: **Save question**, **Report an
+issue**).
+
+**Popover system = `mg-popup` floating windows** (first-hand dump):
+`mg-popup fixed flex flex-col overflow-hidden rounded-2xl border-2
+border-subtle bg-background shadow-xl`, inline `top:88px; left:140px;
+width:420px; height:560px; z-index:1010`, draggable `.mg-popup-top
+cursor-move select-none border-b-2` title bar with **Minimize** +
+**Close**, content iframe, and **8 resize handles**
+(`.resizer.resizer-{n,s,e,w,ne,nw,se,sw}`).
+- **Formula sheet** window: iframe of
+  `assets.mathsgenie.co.uk/board-resources/gcse-maths/gcse-formulae-to-remember.pdf`
+  via `/api/pdf-proxy`.
+- **Video walkthrough / Markscheme** window (left side): embedded video
+  player + "Markscheme" bulleted list with **M1/A1** code pills +
+  "Walkthrough" section.
+
+**Ask Genie** opens a right-side rounded-3xl chat panel: header
+(history ↺ · new + · expand · close X), Genie app icon, "What're you
+stuck on, <name>?", "Answer a question. I'll mark it here.",
+suggestion chips (Compare calculation methods / Spot the place values /
+Quiz me on multiplication), bottom "Ask…" input with + button.
+
+**Question card header:** "Question 1" · calculator flag · red ✕ ·
+success-rate "54%" dotted-underline + info tooltip.
+
+### Recreation mapping (this session)
+- `src/components/player/FloatingWindow.tsx` — mg-popup clone
+  (drag / 8-way resize / minimize / close), used for Formula sheet
+  (iframe hot-links the original PDF) and Video walkthrough +
+  Markscheme (converted from the old modal).
+- Highlight mode: toolbar pen toggles; sentence spans toggle yellow
+  marks; Esc exits.
+- Kebab menu matches the original (Save question → toast, Report an
+  issue, Copy link extra).
+- `src/components/player/GeniePanel.tsx` — Ask Genie chat panel clone
+  (header buttons, mascot, chips, input; local canned tutor).
+- A-Level feature pages: `/a-level/[feature]` covers the 14 flat
+  routes from the Features mega-menu (worksheets, question bank,
+  Question Rush, Daily Greens, past + predicted papers, hot topics,
+  videos, flashcards, revision guides, mock exam builder, answer
+  marking, paper marker, grade calculator) via `ALevelHubShell`
+  (gradient hero, Spec 9MA0, tab bar) + `MockExamBuilder`,
+  `GradeCalculatorAL` (A*–E bounds), `PaperMarker` clients.

@@ -10,6 +10,8 @@ import {
   IconWorksheets,
 } from "@/components/SidebarIcons";
 import { playerSet } from "@/lib/player-questions";
+import FloatingWindow, { initWin, type WinState } from "./FloatingWindow";
+import GeniePanel from "./GeniePanel";
 
 /**
  * Question player with focus mode (original /questions/qN anatomy, research
@@ -249,9 +251,18 @@ export default function QuestionPlayer({ board, topic, title, grade, initialN }:
   const [expanded, setExpanded] = useState(false);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [done, setDone] = useState<Record<string, boolean>>({});
+  /* floating windows (original mg-popup system) */
   const [msOpen, setMsOpen] = useState(false);
+  const [msWin, setMsWin] = useState<WinState>(() => initWin(88, 20, 470, 620));
+  const [formulaWin, setFormulaWin] = useState<WinState>(() => ({ ...initWin(88, 140, 420, 560), closed: true }));
+  const [genieOpen, setGenieOpen] = useState(false);
+  /* highlighter tool (original Highlight button): toggles pen mode;
+     while on, clicking a sentence of the prompt toggles a yellow mark */
+  const [highlightMode, setHighlightMode] = useState(false);
+  const [highlights, setHighlights] = useState<Record<string, boolean>>({});
   const [kebab, setKebab] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [savedToast, setSavedToast] = useState(false);
   const [playStep, setPlayStep] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const kebabRef = useRef<HTMLDivElement>(null);
@@ -271,12 +282,13 @@ export default function QuestionPlayer({ board, topic, title, grade, initialN }:
     window.history.replaceState(null, "", url);
   }, [qn, finished, base]);
 
-  /* close kebab / markscheme modal on Escape */
+  /* close kebab / windows on Escape */
   useEffect(() => {
     const esc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setKebab(false);
         setMsOpen(false);
+        setHighlightMode(false);
       }
     };
     document.addEventListener("keydown", esc);
@@ -335,24 +347,39 @@ export default function QuestionPlayer({ board, topic, title, grade, initialN }:
                   <button
                     role="menuitem"
                     onClick={() => {
-                      navigator.clipboard?.writeText(window.location.href).catch(() => {});
-                      setCopied(true);
+                      setSavedToast(true);
                       setKebab(false);
-                      setTimeout(() => setCopied(false), 1500);
+                      setTimeout(() => setSavedToast(false), 1800);
                     }}
-                    className="w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium transition hover:bg-paper-2"
+                    className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-left text-sm font-medium transition hover:bg-paper-2"
                   >
-                    {copied ? "Link copied ✓" : "Copy link"}
+                    <svg viewBox="0 0 24 24" className="size-4.5" fill="none" aria-hidden><path d="M6 4h12v17l-6-4-6 4V4Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" /></svg>
+                    Save question
                   </button>
                   <a
                     role="menuitem"
                     href="https://github.com/SyllabAI/MathsGenie/issues/new?labels=bug&title=Question%20problem"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium transition hover:bg-paper-2"
+                    onClick={() => setKebab(false)}
+                    className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-left text-sm font-medium transition hover:bg-paper-2"
                   >
-                    Report a problem
+                    <svg viewBox="0 0 24 24" className="size-4.5" fill="none" aria-hidden><path d="M12 3 2.5 20h19L12 3Zm0 6v5m0 3h.01" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    Report an issue
                   </a>
+                  <button
+                    role="menuitem"
+                    onClick={() => {
+                      navigator.clipboard?.writeText(window.location.href).catch(() => {});
+                      setCopied(true);
+                      setKebab(false);
+                      setTimeout(() => setCopied(false), 1500);
+                    }}
+                    className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-left text-sm font-medium transition hover:bg-paper-2"
+                  >
+                    <svg viewBox="0 0 24 24" className="size-4.5" fill="none" aria-hidden><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    {copied ? "Link copied ✓" : "Copy link"}
+                  </button>
                 </div>
               )}
             </div>
@@ -490,17 +517,23 @@ export default function QuestionPlayer({ board, topic, title, grade, initialN }:
                       >
                         <IconBook className="size-5" />
                       </Link>
-                      <Link
-                        href="/features/answer-marking"
-                        title="Mark my answer"
-                        className="grid size-9 place-items-center rounded-full text-ink/55 transition hover:bg-paper-2 hover:text-ink"
-                      >
-                        <IconPen className="size-5" />
-                      </Link>
                       <button
                         type="button"
-                        title="Video walkthrough"
-                        onClick={() => { setPlayStep(0); setMsOpen(true); }}
+                        aria-pressed={highlightMode}
+                        title={highlightMode ? "Highlight mode on — click sentences to mark" : "Highlight"}
+                        onClick={() => setHighlightMode((v) => !v)}
+                        className={`grid size-9 place-items-center rounded-full transition ${
+                          highlightMode
+                            ? "border-2 border-ink bg-paper-2 text-ink shadow-sm"
+                            : "text-ink/55 hover:bg-paper-2 hover:text-ink"
+                        }`}
+                      >
+                        <IconPen className="size-5" />
+                      </button>
+                      <button
+                        type="button"
+                        title="Watch walkthrough"
+                        onClick={() => { setPlayStep(0); setMsWin((w) => ({ ...w, closed: false, minimized: false })); setMsOpen(true); }}
                         className="grid size-9 place-items-center rounded-full text-ink/55 transition hover:bg-paper-2 hover:text-ink"
                       >
                         <IconPlay className="size-5" />
@@ -518,7 +551,16 @@ export default function QuestionPlayer({ board, topic, title, grade, initialN }:
                       </button>
                       <button
                         type="button"
-                        onClick={() => { setPlayStep(0); setMsOpen(true); }}
+                        title="Formula sheet"
+                        aria-label="Formula sheet"
+                        onClick={() => setFormulaWin((w) => ({ ...w, closed: false, minimized: false }))}
+                        className="grid size-9 place-items-center rounded-full text-ink/55 transition hover:bg-paper-2 hover:text-ink"
+                      >
+                        <svg viewBox="0 0 24 24" className="size-5" fill="none" aria-hidden><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14ZM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5M9 7h7M9 11h7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => { setPlayStep(0); setMsWin((w) => ({ ...w, closed: false, minimized: false })); setMsOpen(true); }}
                         className="ml-1 flex items-center gap-1.5 rounded-full border-2 border-line px-3.5 py-1.5 text-sm font-semibold transition hover:bg-paper-2"
                       >
                         <IconMarkScheme className="size-4.5" />
@@ -528,9 +570,37 @@ export default function QuestionPlayer({ board, topic, title, grade, initialN }:
                   </div>
 
                   <div className="mt-4 flex items-start justify-between gap-6">
-                    <p className="text-[17px] leading-relaxed">{q.prompt}</p>
+                    <p className={`text-[17px] leading-relaxed ${highlightMode ? "cursor-text" : ""}`}>
+                      {q.prompt.split(/(?<=[.?!])\s+/).map((sent, i) => {
+                        const hk = `${key}:${i}`;
+                        const on = highlights[hk];
+                        return highlightMode || on ? (
+                          <span
+                            key={i}
+                            role={highlightMode ? "button" : undefined}
+                            onClick={
+                              highlightMode
+                                ? () => setHighlights((h) => ({ ...h, [hk]: !h[hk] }))
+                                : undefined
+                            }
+                            className={`rounded-[3px] transition-colors ${
+                              on ? "bg-[#fff176] px-0.5" : highlightMode ? "hover:bg-[#fff176]/40 px-0.5" : ""
+                            }`}
+                          >
+                            {sent}{" "}
+                          </span>
+                        ) : (
+                          <span key={i}>{sent}{" "}</span>
+                        );
+                      })}
+                    </p>
                     <span className="shrink-0 text-sm text-muted">[{q.marks}]</span>
                   </div>
+                  {highlightMode && (
+                    <p className="mt-2 text-xs font-medium text-muted" role="status">
+                      Highlight mode — click any sentence to mark or unmark it. Esc exits.
+                    </p>
+                  )}
 
                   <input
                     ref={inputRef}
@@ -557,42 +627,45 @@ export default function QuestionPlayer({ board, topic, title, grade, initialN }:
         </main>
       </div>
 
-      {/* Baby Genie mascot (bottom-right, links to Ask Genie) */}
-      <Link
-        href="/ask-genie"
+      {/* Baby Genie mascot (bottom-right, toggles the Ask Genie panel) */}
+      <button
+        type="button"
+        onClick={() => setGenieOpen((v) => !v)}
         aria-label="Ask Baby Genie"
-        className="fixed bottom-5 right-5 z-30 grid size-14 place-items-center rounded-2xl bg-ink-solid shadow-lg transition hover:scale-105"
+        aria-expanded={genieOpen}
+        className="fixed bottom-5 right-5 z-[1006] grid size-14 place-items-center rounded-2xl bg-ink-solid shadow-lg transition hover:scale-105"
       >
         <GenieFace className="size-10" />
-      </Link>
+      </button>
 
-      {/* markscheme modal */}
-      {msOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-ink/40"
-          onClick={() => setMsOpen(false)}
-          role="presentation"
+      <GeniePanel
+        open={genieOpen}
+        onClose={() => setGenieOpen(false)}
+        topicTitle={title}
+        questionPrompt={q.prompt}
+        answer={q.answer}
+      />
+
+      {/* saved toast */}
+      {savedToast && (
+        <div role="status" className="fixed bottom-6 left-1/2 z-[1015] -translate-x-1/2 rounded-full bg-ink-solid px-5 py-2.5 text-sm font-semibold text-paper shadow-xl">
+          Question saved to your list ✓
+        </div>
+      )}
+
+      {/* markscheme — floating window (original mg-popup anatomy) */}
+      {msOpen && !msWin.closed && (
+        <FloatingWindow
+          title="Video walkthrough"
+          state={msWin}
+          onChange={setMsWin}
+          onClose={() => { setMsOpen(false); setMsWin((w) => ({ ...w, closed: true })); }}
+          maxW={620}
+          maxH={800}
         >
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label={`Markscheme for question ${q.n}`}
-            className="absolute bottom-3 left-3 top-3 w-[560px] max-w-[94vw] overflow-y-auto rounded-2xl bg-paper p-6 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold">Video walkthrough</h3>
-              <button
-                onClick={() => setMsOpen(false)}
-                aria-label="Close markscheme"
-                className="grid size-9 place-items-center rounded-full text-ink/60 transition hover:bg-paper-2 hover:text-ink"
-              >
-                <svg viewBox="0 0 16 16" className="size-4" aria-hidden><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
-              </button>
-            </div>
-
+          <div className="h-full overflow-y-auto p-5">
             {/* walkthrough player: steps revealed one by one */}
-            <div className="mt-4 overflow-hidden rounded-xl bg-ink-solid text-paper">
+            <div className="overflow-hidden rounded-xl bg-ink-solid text-paper">
               <div className="flex min-h-56 flex-col justify-between bg-[radial-gradient(120%_120%_at_20%_0%,#23282f_0%,#0a0a0a_70%)] p-5">
                 {playStep === 0 ? (
                   <div className="flex flex-1 items-center justify-center">
@@ -650,7 +723,29 @@ export default function QuestionPlayer({ board, topic, title, grade, initialN }:
               Answer: <b>{q.answer}</b> — written for this recreation; the original links its own video walkthrough and full mark scheme per question.
             </p>
           </div>
-        </div>
+        </FloatingWindow>
+      )}
+
+      {/* formula sheet — floating PDF window (iframe hot-links the
+          original board resource; nothing is re-hosted) */}
+      {!formulaWin.closed && (
+        <FloatingWindow
+          title="Formula sheet"
+          state={formulaWin}
+          onChange={setFormulaWin}
+          onClose={() => setFormulaWin((w) => ({ ...w, closed: true }))}
+        >
+          <div className="h-full bg-white">
+            <iframe
+              src="https://assets.mathsgenie.co.uk/board-resources/gcse-maths/gcse-formulae-to-remember.pdf#view=FitH"
+              title="Formula sheet"
+              className="h-full w-full border-0"
+            />
+            <noscript>
+              <a href="https://assets.mathsgenie.co.uk/board-resources/gcse-maths/gcse-formulae-to-remember.pdf">Open the formula sheet</a>
+            </noscript>
+          </div>
+        </FloatingWindow>
       )}
     </div>
   );
