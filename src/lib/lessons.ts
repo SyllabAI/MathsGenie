@@ -9,7 +9,8 @@ export type McqOption = { label: string; text: string; correct: boolean; why?: s
 export type Step =
   | { kind: "teach" | "example"; heading: string; paragraphs?: string[]; lines?: string[]; icon?: string }
   | { kind: "mcq"; heading: string; question: string; options: McqOption[] }
-  | { kind: "fill" | "input"; heading: string; before?: string; question?: string; answer: string; after?: string; hint?: string };
+  | { kind: "fill" | "input"; heading: string; before?: string; question?: string; answer: string; after?: string; hint?: string }
+  | { kind: "order"; heading: string; question: string; items: string[]; hint?: string };
 
 export type Lesson = { title: string; grade: number; steps: Step[] };
 

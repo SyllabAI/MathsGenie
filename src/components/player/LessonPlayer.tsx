@@ -46,6 +46,14 @@ export function doneLessons(): Set<string> {
 
 function StepIcon({ kind }: { kind: string }) {
   const cls = "flex size-8 shrink-0 items-center justify-center rounded-lg text-sm font-bold text-white";
+  if (kind === "order")
+    return (
+      <span className={`${cls} bg-[#e88a2d]`} aria-hidden>
+        <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.2">
+          <path d="M3 5h4M3 12h4M3 19h4M11 5h10M11 12h10M11 19h10" strokeLinecap="round" />
+        </svg>
+      </span>
+    );
   if (kind === "mcq" || kind === "fill" || kind === "input")
     return (
       <span className={`${cls} bg-accent`} aria-hidden>
@@ -111,6 +119,8 @@ export default function LessonPlayer({
   const [selected, setSelected] = useState<number | null>(null);
   const [checked, setChecked] = useState(false);
   const [inputVal, setInputVal] = useState("");
+  // "order" steps: slot i holds an index into step.items (null = empty)
+  const [orderSlots, setOrderSlots] = useState<(number | null)[]>([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [genieOpen, setGenieOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
@@ -120,7 +130,7 @@ export default function LessonPlayer({
   const contentRef = useRef<HTMLDivElement>(null);
 
   const step = lesson.steps[stepIdx];
-  const needsAnswer = step.kind === "mcq" || step.kind === "fill" || step.kind === "input";
+  const needsAnswer = step.kind === "mcq" || step.kind === "fill" || step.kind === "input" || step.kind === "order";
   const paraCount = step.kind === "teach" || step.kind === "example"
     ? (step.paragraphs ?? step.lines ?? []).length
     : 0;
@@ -128,10 +138,37 @@ export default function LessonPlayer({
   const answerCorrect = useMemo(() => {
     if (!checked) return false;
     if (step.kind === "mcq") return selected !== null && step.options[selected]?.correct;
+    if (step.kind === "order") return orderSlots.every((s, i) => s === i);
     if (step.kind !== "fill" && step.kind !== "input") return false;
     const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, "");
     return norm(inputVal) === norm(step.answer);
-  }, [checked, selected, inputVal, step]);
+  }, [checked, selected, inputVal, step, orderSlots]);
+
+  /* "order" steps: chips shown in a stable seeded shuffle so the answer
+     order never equals the display order and refresh keeps the layout. */
+  const orderDeck = useMemo(() => {
+    if (step.kind !== "order") return [];
+    const n = step.items.length;
+    let seed = 17 + stepIdx * 31 + title.length * 7;
+    const rand = () => {
+      seed = (seed * 1103515245 + 12345) % 2147483648;
+      return seed / 2147483648;
+    };
+    const deck = step.items.map((_, i) => i);
+    for (let i = n - 1; i > 0; i--) {
+      const j = Math.floor(rand() * (i + 1));
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+    if (deck.every((v, i) => v === i) && n > 1) [deck[0], deck[n - 1]] = [deck[n - 1], deck[0]]; // never pre-solved
+    return deck;
+  }, [step, stepIdx, title]);
+
+  const slotsFull = step.kind === "order" && orderSlots.every((s) => s !== null);
+
+  // entering an order step: size the slot board to the item count
+  useEffect(() => {
+    if (step.kind === "order") setOrderSlots(step.items.map(() => null));
+  }, [step]);
 
   const canAdvance = finished
     ? false
@@ -144,6 +181,7 @@ export default function LessonPlayer({
     setSelected(null);
     setChecked(false);
     setInputVal("");
+    setOrderSlots([]);
     setGenieOpen(false);
     contentRef.current?.scrollTo({ top: 0 });
   }, []);
@@ -184,6 +222,11 @@ export default function LessonPlayer({
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "Enter") return;
       const tag = (e.target as HTMLElement)?.tagName;
+      if (step.kind === "order") {
+        if (!checked && orderSlots.every((s) => s !== null) && orderSlots.length) onCheckOrderRef.current();
+        else if (checked) advance();
+        return;
+      }
       if (tag === "INPUT" && !checked && needsAnswer) {
         if (inputVal.trim() === "") return;
         setChecked(true);
@@ -203,7 +246,7 @@ export default function LessonPlayer({
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [advance, checked, needsAnswer, inputVal, step]);
+  }, [advance, checked, needsAnswer, inputVal, step, orderSlots]);
 
   // lock body scroll while the player is open
   useEffect(() => {
@@ -217,7 +260,9 @@ export default function LessonPlayer({
   const progress = finished ? 100 : Math.round(((stepIdx + (checked || (!needsAnswer && revealed >= paraCount) ? 1 : 0)) / total) * 100);
 
   const primaryLabel =
-    step.kind === "fill" || step.kind === "input"
+    step.kind === "order"
+      ? checked ? (stepIdx + 1 >= total ? "Finish" : "Next") : "Check Order"
+      : step.kind === "fill" || step.kind === "input"
       ? checked ? (stepIdx + 1 >= total ? "Finish" : "Next") : "Check"
       : (step.kind === "teach" || step.kind === "example") && revealed < paraCount
         ? "Continue"
@@ -230,7 +275,9 @@ export default function LessonPlayer({
         ? "Read it once more, then try saying the rule back in your own words before moving on."
         : step.kind === "mcq"
           ? "Eliminate the options that break the rule first — usually two fall immediately."
-          : "Write what you can, even a partial line — it shows the method.";
+          : step.kind === "order"
+            ? "Find the step that must come first — everything else follows from it."
+            : "Write what you can, even a partial line — it shows the method.";
 
   const onMcqPick = (i: number) => {
     if (checked || step.kind !== "mcq") return;
@@ -246,6 +293,41 @@ export default function LessonPlayer({
     const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, "");
     if (norm(inputVal) !== norm(step.answer)) setWrongCount((w) => w + 1);
   };
+
+  const onCheckOrder = () => {
+    if (checked || step.kind !== "order" || !slotsFull) return;
+    setChecked(true);
+    if (!orderSlots.every((s, i) => s === i)) setWrongCount((w) => w + 1);
+  };
+
+  const onPlaceChip = (deckPos: number) => {
+    if (checked || step.kind !== "order") return;
+    const item = orderDeck[deckPos];
+    setOrderSlots((slots) => {
+      if (slots.includes(item)) return slots; // already placed
+      const next = [...slots];
+      while (next.length < step.items.length) next.push(null);
+      const empty = next.indexOf(null);
+      if (empty === -1) return slots;
+      next[empty] = item;
+      return next;
+    });
+  };
+
+  const onRemoveChip = (slotIdx: number) => {
+    if (checked || step.kind !== "order") return;
+    setOrderSlots((slots) => slots.map((s, i) => (i === slotIdx ? null : s)));
+  };
+
+  const onSkipOrder = () => {
+    if (step.kind !== "order" || checked) return;
+    setOrderSlots(step.items.map((_, i) => i)); // reveal correct order on the board
+    setChecked(true);
+  };
+
+  // stable ref so the Enter-key handler always sees the latest check fn
+  const onCheckOrderRef = useRef(onCheckOrder);
+  onCheckOrderRef.current = onCheckOrder;
 
   type FeedbackBody = { good: boolean; title: string; text: string } | null;
   const feedbackBody: FeedbackBody = useMemo(() => {
@@ -269,6 +351,11 @@ export default function LessonPlayer({
       return answerCorrect
         ? { good: true, title: "Great job!", text: `Correct — ${step.answer}.${hint}` }
         : { good: false, title: "Not quite", text: `The answer is ${step.answer}.${hint}` };
+    }
+    if (step.kind === "order") {
+      return answerCorrect
+        ? { good: true, title: "Great job!", text: "The method is in the right order — each step sets up the next." }
+        : { good: false, title: "Not quite", text: "The correct order is shown on the board — walk it through once before moving on." };
     }
     return null;
   }, [checked, answerCorrect, selected, step]);
@@ -471,7 +558,7 @@ export default function LessonPlayer({
               {/* step header */}
               <div className="flex items-center gap-3">
                 <StepIcon kind={step.kind} />
-                <h2 className={`text-lg font-extrabold ${step.kind === "teach" || step.kind === "example" ? "text-amber-500" : "text-accent"}`}>
+                <h2 className={`text-lg font-extrabold ${step.kind === "teach" || step.kind === "example" ? "text-amber-500" : step.kind === "order" ? "text-[#e88a2d]" : "text-accent"}`}>
                   {step.heading}
                 </h2>
               </div>
@@ -534,6 +621,108 @@ export default function LessonPlayer({
                       );
                     })}
                   </div>
+                </div>
+              )}
+
+              {step.kind === "order" && (
+                <div className="mt-6">
+                  <p className="text-lg font-medium">{step.question}</p>
+                  {/* numbered slots */}
+                  <div className="mt-6 w-full space-y-2">
+                    {orderSlots.map((slotItem, slotIdx) => {
+                      const good = checked && slotItem === slotIdx;
+                      const bad = checked && slotItem !== null && slotItem !== slotIdx;
+                      return (
+                        <div
+                          key={slotIdx}
+                          className="flex items-center gap-3"
+                          onDragOver={(e) => {
+                            if (!checked && step.kind === "order") {
+                              e.preventDefault();
+                              e.dataTransfer.dropEffect = "move";
+                            }
+                          }}
+                          onDrop={(e) => {
+                            e.preventDefault();
+                            if (checked || step.kind !== "order") return;
+                            const deckPos = Number(e.dataTransfer.getData("text/mg-order-chip"));
+                            if (Number.isNaN(deckPos)) return;
+                            const item = orderDeck[deckPos];
+                            setOrderSlots((slots) => {
+                              if (slots.includes(item)) return slots;
+                              const next = [...slots];
+                              while (next.length < step.items.length) next.push(null);
+                              const existing = next.indexOf(item);
+                              if (existing !== -1) next[existing] = null;
+                              next[slotIdx] = item;
+                              return next;
+                            });
+                          }}
+                        >
+                          <span
+                            className={`flex h-8 w-8 flex-none items-center justify-center rounded-xl font-title text-base transition ${
+                              good
+                                ? "bg-emerald-500 text-white"
+                                : bad
+                                  ? "bg-rose-500 text-white"
+                                  : "bg-paper-2 text-muted"
+                            }`}
+                            aria-hidden
+                          >
+                            {slotIdx + 1}
+                          </span>
+                          <div className="relative flex min-h-12 flex-1 items-center py-2">
+                            {slotItem === null ? (
+                              <div className="relative h-6 w-full">
+                                <div className="absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-line" />
+                              </div>
+                            ) : (
+                              <button
+                                onClick={() => onRemoveChip(slotIdx)}
+                                disabled={checked}
+                                className={`w-full rounded-2xl border-2 px-4 py-2 text-left text-[15px] font-medium transition ${
+                                  good
+                                    ? "border-emerald-500 bg-[#e9f9ef] text-emerald-800"
+                                    : bad
+                                      ? "border-rose-500 bg-[#fdeaea] text-rose-800"
+                                      : "border-line bg-white hover:border-ink/20"
+                                } ${checked ? "cursor-default" : "hover:border-ink/30"}`}
+                              >
+                                {step.items[slotItem]}
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {/* chip bank */}
+                  <div className="mt-6 flex w-full flex-wrap justify-center gap-3">
+                    {orderDeck.map((item, deckPos) => {
+                      const placed = orderSlots.includes(item);
+                      return (
+                        <button
+                          key={`${item}-${deckPos}`}
+                          onClick={() => onPlaceChip(deckPos)}
+                          disabled={checked || placed}
+                          draggable={!checked && !placed}
+                          onDragStart={(e) => {
+                            const idx = deckPos;
+                            e.dataTransfer.setData("text/mg-order-chip", String(idx));
+                            e.dataTransfer.effectAllowed = "move";
+                          }}
+                          className={`rounded-2xl border-2 border-b-4 px-4 py-2 text-[15px] font-medium transition ${
+                            placed || checked
+                              ? "border-line bg-paper-2 text-ink/30"
+                              : "border-line bg-white text-ink hover:bg-paper-2 active:translate-y-0.5 active:border-b-2"
+                          } ${placed || checked ? "cursor-default" : "cursor-grab active:cursor-grabbing"}`}
+                        >
+                          {step.items[item]}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {/* drag-and-drop handled per-slot above */}
                 </div>
               )}
 
@@ -639,21 +828,43 @@ export default function LessonPlayer({
             </button>
           </div>
 
-          <button
-            onClick={step.kind === "fill" || step.kind === "input" ? (checked ? advance : onCheckFill) : onPrimary}
-            disabled={
-              (step.kind === "fill" || step.kind === "input") && !checked && inputVal.trim() === ""
-                ? true
-                : !canAdvance && (step.kind === "teach" || step.kind === "example" ? false : false)
-            }
-            className={`min-w-28 rounded-full px-6 py-2.5 text-sm font-bold text-white transition ${
-              canAdvance || (step.kind === "teach" || step.kind === "example")
-                ? "bg-accent hover:bg-accent-ink"
-                : "bg-accent/40"
-            }`}
-          >
-            {primaryLabel} <span aria-hidden>›</span>
-          </button>
+          <div className="flex items-center gap-2">
+            {step.kind === "order" && !checked && (
+              <button
+                onClick={onSkipOrder}
+                className="rounded-full px-4 py-2.5 text-sm font-bold text-muted transition hover:bg-paper-2 hover:text-ink"
+              >
+                Skip
+              </button>
+            )}
+            <button
+              onClick={
+                step.kind === "order"
+                  ? checked
+                    ? advance
+                    : onCheckOrder
+                  : step.kind === "fill" || step.kind === "input"
+                    ? checked
+                      ? advance
+                      : onCheckFill
+                    : onPrimary
+              }
+              disabled={
+                step.kind === "order" && !checked
+                  ? !slotsFull
+                  : (step.kind === "fill" || step.kind === "input") && !checked && inputVal.trim() === ""
+                    ? true
+                    : !canAdvance && (step.kind === "teach" || step.kind === "example" ? false : false)
+              }
+              className={`min-w-28 rounded-full px-6 py-2.5 text-sm font-bold text-white transition ${
+                canAdvance || (step.kind === "teach" || step.kind === "example")
+                  ? "bg-accent hover:bg-accent-ink"
+                  : "bg-accent/40"
+              }`}
+            >
+              {primaryLabel} <span aria-hidden>›</span>
+            </button>
+          </div>
         </footer>
       )}
     </div>
