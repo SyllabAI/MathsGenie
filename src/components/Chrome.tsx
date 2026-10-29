@@ -12,7 +12,7 @@ const APP_ROUTES = ["/classrooms", "/settings", "/your-plan"];
  * header/footer disappear and the player renders its own minimal chrome —
  * back arrow + HUD chips header, 64px context icon rail (research 04 §6).
  */
-const FOCUS_PATTERN = /\/gcse\/maths\/[^/]+\/[^/]+\/questions\/q\d+$/;
+const FOCUS_PATTERN = /\/gcse\/maths\/[^/]+\/[^/]+\/questions\/q\d+$|^\/paper\//;
 
 export function SiteHeader() {
   const p = usePathname();

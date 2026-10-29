@@ -1,9 +1,11 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function CookieBanner() {
   const [show, setShow] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     // deferred: read persistent choice after mount (SSR renders the banner hidden)
@@ -18,6 +20,7 @@ export default function CookieBanner() {
   }, []);
 
   if (!show) return null;
+  if (pathname?.startsWith("/paper/")) return null;
 
   function choose(v: string) {
     try { localStorage.setItem("mg-cookies", v); } catch {}
